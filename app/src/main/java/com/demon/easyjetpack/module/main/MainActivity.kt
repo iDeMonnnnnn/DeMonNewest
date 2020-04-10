@@ -8,6 +8,7 @@ import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
 import com.demon.easyjetpack.data.Constants
 import com.demon.easyjetpack.data.RouterConst
+import com.demon.easyjetpack.ext.getCurrentProcessName
 import com.jeremyliao.liveeventbus.LiveEventBus
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,6 +19,8 @@ class MainActivity : MvvmActivity<MainViewModel>() {
 
 
     override fun init() {
+        tvProgress.text = getCurrentProcessName()
+        
         btn.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation()
         }
@@ -34,8 +37,16 @@ class MainActivity : MvvmActivity<MainViewModel>() {
             ARouter.getInstance().build(RouterConst.ACT_ROOM).navigation()
         }
 
+        btn4.setOnClickListener {
+            ARouter.getInstance().build(RouterConst.ACT_MULTIPROGRESS).navigation()
+        }
+
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
-            Log.i(TAG, t)
+            Log.i(TAG, "普通消息：{ $t }")
+        })
+
+        LiveEventBus.get(Constants.MULTI_PROGRESS, String::class.java).observe(this, Observer { t ->
+            Log.i(TAG, "跨进程消息：{ $t }")
         })
     }
 

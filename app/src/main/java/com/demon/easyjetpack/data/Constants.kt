@@ -15,4 +15,5 @@ object Constants {
 
 
     const val EVENT_BUS = "EventBus"
+    const val MULTI_PROGRESS = "MultiProgress"
 }

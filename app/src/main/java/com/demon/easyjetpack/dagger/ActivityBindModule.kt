@@ -8,6 +8,7 @@ import com.demon.easyjetpack.module.fragment.FragmentActivity
 import com.demon.easyjetpack.module.fragment.FragmentViewModel
 import com.demon.easyjetpack.module.main.MainActivity
 import com.demon.easyjetpack.module.main.MainViewModel
+import com.demon.easyjetpack.module.progress.MultiProgressActivity
 import com.demon.easyjetpack.module.room.RoomActivity
 import com.demon.easyjetpack.module.room.RoomViewModel
 import dagger.Binds
@@ -55,5 +56,9 @@ abstract class ActivityBindModule {
     @IntoMap
     @ViewModelKey(FragmentViewModel::class)
     abstract fun bindFragmentViewModel(viewModel: FragmentViewModel): ViewModel
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun multiProgressActivity(): MultiProgressActivity
 
 }

@@ -1,6 +1,8 @@
 package com.demon.easyjetpack.ext
 
+import android.app.ActivityManager
 import android.content.Context
+import android.os.Process
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 
@@ -33,6 +35,22 @@ fun String.toastDigital(context: Context): Boolean {
     } else {
         false
     }
+}
+
+fun Context.getCurrentProcessName(): String? {
+    var processName = ""
+    val pid = Process.myPid()
+    val manager = this.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager ?: return null
+    if (manager.runningAppProcesses == null) {
+        return null
+    }
+    for (processInfo in manager.runningAppProcesses) {
+        if (processInfo.pid == pid) {
+            processName = processInfo.processName
+            break
+        }
+    }
+    return processName
 }
 
 
