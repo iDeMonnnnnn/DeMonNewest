@@ -12,5 +12,8 @@ import javax.inject.Singleton
 @Singleton
 class DataRepository @Inject constructor(private var apiService: ApiService) {
 
-    fun getNowWeather(location: String) = apiService.getNowWeather(location)
+    fun articleList(author: String, no: Int = 0) = apiService.articleList(no, author)
+
+
+    fun articleListString(author: String, no: Int = 0) = apiService.articleListString(no, author)
 }

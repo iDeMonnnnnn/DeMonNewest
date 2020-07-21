@@ -20,9 +20,9 @@ class MainActivity : MvvmActivity<MainViewModel>() {
 
     override fun init() {
         tvProgress.text = getCurrentProcessName()
-        
+
         btn.setOnClickListener {
-            ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation()
+            ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation(mContext)
         }
 
         btn1.setOnClickListener {

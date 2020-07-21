@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
+import com.demon.basemvvm.helper.DialogHelp
 import dagger.android.support.DaggerFragment
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
-import androidx.lifecycle.observe
 
 /**
  * @author DeMon
@@ -21,6 +22,7 @@ abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
     protected val TAG = javaClass.simpleName
     private var isLoad = false
     protected lateinit var mContext: Context
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     protected lateinit var mViewModel: VM
@@ -33,13 +35,20 @@ abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mContext = activity!!
+        activity?.run { mContext = this }
         runCatching {
             providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
-            providerVMClass.let {
+            providerVMClass.let { it ->
                 mViewModel = ViewModelProvider(this, viewModelFactory)[it]
                 mViewModel.let(lifecycle::addObserver)
-                mViewModel.mContext = mContext
+                mViewModel.run {
+                    errLiveData.observe(this@MvvmFragment) {
+                        doOnErrLiveData(it)
+                    }
+                    loadingData.observe(this@MvvmFragment) {
+                        DialogHelp.show(mContext, it)
+                    }
+                }
             }
         }.onFailure {
             it.printStackTrace()
@@ -52,11 +61,6 @@ abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
         if (!isLoad) {
             init()
             initViewModel()
-            mViewModel.run {
-                errLiveData.observe(this@MvvmFragment) {
-                    doOnErrLiveData()
-                }
-            }
             isLoad = true
         } else {
             onResumeRefresh()
@@ -68,12 +72,12 @@ abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
 
     protected abstract fun init()
 
-    open fun initViewModel(){}
+    open fun initViewModel() {}
 
     /**
      * 返回fragment刷新数据时重写
      */
-    open fun onResumeRefresh(){}
+    open fun onResumeRefresh() {}
 
-    open fun doOnErrLiveData(){}
+    open fun doOnErrLiveData(msg: String) {}
 }

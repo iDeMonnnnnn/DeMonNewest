@@ -20,7 +20,7 @@ class App : MvvmApp() {
 
         initARouter()
 
-        LiveEventBus.config().supportBroadcast(getAppContext())
+        LiveEventBus.config().setContext(applicationContext)
     }
 
 

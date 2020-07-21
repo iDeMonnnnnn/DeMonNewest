@@ -1,9 +1,7 @@
 package com.demon.easyjetpack.ext
 
-import android.app.ProgressDialog
-import android.content.Context
-import com.demon.easyjetpack.data.Constants
-import com.demon.easyjetpack.http.DataBean
+import android.util.Log
+import com.demon.easyjetpack.http.DataWrapper
 import retrofit2.Call
 import ru.gildor.coroutines.retrofit.Result
 import ru.gildor.coroutines.retrofit.awaitResult
@@ -14,25 +12,31 @@ import ru.gildor.coroutines.retrofit.awaitResult
  * E-mail 757454343@qq.com
  * Desc:
  */
-
-
-suspend fun <T : Any> Call<T>.getDataOrThrow(context: Context): T {
-    val dialog = ProgressDialog(context)
-    dialog.show()
-    val result = awaitResult()
-    dialog.dismiss()
-    return when (result) {
+suspend fun <T : Any> Call<DataWrapper<T>>.getDataOrThrow(): T {
+    return when (val result = awaitResult()) {
         is Result.Ok -> {
-            val data = result.value as DataBean
-            when (data.getStatus()) {
-                Constants.OK -> {
-                    result.value
+            val data = result.value.data
+            Log.i("DataWrapper", "getDataOrThrow: " + data.toString())
+            when (result.value.errorCode) {
+                0 -> {
+                    if (data == null) {
+                        throw Exception("获取数据为空！")
+                    }
+                    data
                 }
                 else -> {
-                    throw Exception("获取数据失败！")
+                    throw Exception(result.value.errorMsg)
                 }
             }
         }
+        is Result.Error -> throw result.exception
+        is Result.Exception -> throw result.exception
+    }
+}
+
+suspend fun <T : Any> Call<T>.getData(): T {
+    return when (val result = awaitResult()) {
+        is Result.Ok -> result.value
         is Result.Error -> throw result.exception
         is Result.Exception -> throw result.exception
     }

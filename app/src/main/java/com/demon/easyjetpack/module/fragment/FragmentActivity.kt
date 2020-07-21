@@ -17,10 +17,10 @@ class FragmentActivity : MvvmActivity<BaseViewModel>() {
 
     override fun init() {
 
-        val list = arrayListOf("广州","北京","上海")
+        val list = arrayListOf("鸿洋", "郭霖")
 
         val adapter = object : FragmentStateAdapter(this) {
-            override fun getItemCount(): Int = 3
+            override fun getItemCount(): Int = list.size
 
             override fun createFragment(position: Int): Fragment = TabFragment(list[position])
         }

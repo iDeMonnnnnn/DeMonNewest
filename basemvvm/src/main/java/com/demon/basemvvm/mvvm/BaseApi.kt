@@ -22,7 +22,7 @@ import javax.inject.Inject
 class BaseApi {
 
     //超时时长，单位：毫秒
-    private var timeOut: Long = 7676
+    private var timeOut: Long = 10
     private var isCache = false
     private var isLog = true
     @Inject
@@ -53,9 +53,9 @@ class BaseApi {
     fun getRetrofit(baseUrl: String, vararg interceptors: Interceptor): Retrofit {
         //创建一个OkHttpClient并设置超时时间
         val builder = OkHttpClient.Builder()
-        builder.readTimeout(timeOut, TimeUnit.MILLISECONDS)
-            .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
-            .connectTimeout(timeOut, TimeUnit.MILLISECONDS)
+        builder.readTimeout(timeOut, TimeUnit.SECONDS)
+            .writeTimeout(timeOut, TimeUnit.SECONDS)
+            .connectTimeout(timeOut, TimeUnit.SECONDS)
         if (isCache) {
             //缓存
             val cacheFile = File(application.cacheDir, "cache")

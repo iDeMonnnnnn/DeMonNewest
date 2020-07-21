@@ -1,10 +1,8 @@
 package com.demon.basemvvm
 
-import android.app.Activity
 import android.app.Application
 import android.content.Context
-import android.os.Bundle
-import com.demon.basemvvm.helper.ActivityHelper
+import com.demon.basemvvm.helper.ActivityCallbacks
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -34,37 +32,7 @@ open class MvvmApp : Application(), HasAndroidInjector {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        //DaggerAppComponent.builder().application(this).build().inject(this)
-
-        registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
-            override fun onActivityPaused(activity: Activity) {
-
-            }
-
-            override fun onActivityStarted(activity: Activity) {
-
-            }
-
-            override fun onActivityDestroyed(activity: Activity) {
-                ActivityHelper.popActivity(activity)
-            }
-
-            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-
-            }
-
-            override fun onActivityStopped(activity: Activity) {
-
-            }
-
-            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-                ActivityHelper.pushActivity(activity)
-            }
-
-            override fun onActivityResumed(activity: Activity) {
-
-            }
-        })
+        registerActivityLifecycleCallbacks(ActivityCallbacks)
     }
 
 }

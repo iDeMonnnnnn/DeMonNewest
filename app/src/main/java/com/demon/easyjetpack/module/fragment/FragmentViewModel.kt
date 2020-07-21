@@ -1,11 +1,8 @@
 package com.demon.easyjetpack.module.fragment
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.easyjetpack.ext.getDataOrThrow
-import com.demon.easyjetpack.http.DataRepository
-import kotlinx.coroutines.launch
+import com.demon.easyjetpack.http.HttpViewModel
 import javax.inject.Inject
 
 /**
@@ -14,18 +11,13 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-class FragmentViewModel @Inject constructor(@JvmField @Inject var repository: DataRepository) : BaseViewModel() {
+class FragmentViewModel @Inject constructor() : HttpViewModel() {
 
-    val weatherData = MutableLiveData<String>()
+    val authorData = MutableLiveData<Any>()
 
-    fun getWeather(loc: String) {
-        viewModelScope.launch {
-            runCatching {
-                val result = repository.getNowWeather(loc).getDataOrThrow(mContext)
-                weatherData.value = result.getKeyData("now")
-            }.onFailure {
-                errLiveData.value = it.message
-            }
+    fun articleList(author: String) {
+        authorData.toFlowLoading {
+            repository.articleList(author).getDataOrThrow()
         }
     }
 }

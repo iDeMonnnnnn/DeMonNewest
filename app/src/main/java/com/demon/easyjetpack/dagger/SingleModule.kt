@@ -7,7 +7,6 @@ import com.demon.easyjetpack.BuildConfig
 import com.demon.easyjetpack.db.AppDatabase
 import com.demon.easyjetpack.db.UserDao
 import com.demon.easyjetpack.http.ApiService
-import com.demon.easyjetpack.http.CommonInterceptor
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -25,7 +24,7 @@ class SingleModule {
     @Provides
     @Singleton
     fun provideService(): ApiService = BaseApi().setLog(BuildConfig.DEBUG)
-        .getRetrofit("https://free-api.heweather.net/s6/weather/", CommonInterceptor())
+        .getRetrofit("https://www.wanandroid.com/")
         .create(ApiService::class.java)
 
 
