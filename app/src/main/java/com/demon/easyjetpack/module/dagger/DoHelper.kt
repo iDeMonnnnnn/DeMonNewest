@@ -12,9 +12,7 @@ import javax.inject.Singleton
  * Desc:
  */
 @Singleton
-class DoHelper
-@Inject
-constructor() {
+class DoHelper @Inject constructor() {
 
 
     var name: String = "Zhangsan"

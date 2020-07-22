@@ -1,8 +1,5 @@
 package com.demon.easyjetpack.module.progress
 
-import android.app.ActivityManager
-import android.content.Context
-import android.os.Process
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
@@ -23,7 +20,7 @@ class MultiProgressActivity : MvvmActivity<BaseViewModel>() {
         tv.text = getCurrentProcessName()
 
         btn.setOnClickListener {
-            LiveEventBus.get(Constants.MULTI_PROGRESS).broadcast("收到进程：${getCurrentProcessName()}的消息！！！")
+            LiveEventBus.get(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${getCurrentProcessName()}的消息！！！")
         }
     }
 

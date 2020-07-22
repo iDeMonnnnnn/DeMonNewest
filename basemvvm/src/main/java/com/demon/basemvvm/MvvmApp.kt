@@ -2,7 +2,7 @@ package com.demon.basemvvm
 
 import android.app.Application
 import android.content.Context
-import com.demon.basemvvm.helper.ActivityCallbacks
+import com.demon.basemvvm.utils.ActivityCallbacks
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector

@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import com.demon.basemvvm.helper.DialogHelp
+import com.demon.basemvvm.utils.DialogHelp
 import dagger.android.support.DaggerAppCompatActivity
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject

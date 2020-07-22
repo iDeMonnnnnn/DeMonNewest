@@ -1,8 +1,9 @@
-package com.demon.basemvvm.helper
+package com.demon.basemvvm.utils
 
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.demon.basemvvm.helper.ActivityHelper
 
 /**
  * @author DeMon

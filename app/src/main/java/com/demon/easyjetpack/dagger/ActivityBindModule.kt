@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.demon.basemvvm.dagger.ActivityScoped
 import com.demon.basemvvm.dagger.ViewModelKey
 import com.demon.easyjetpack.module.dagger.DaggerTestActivity
-import com.demon.easyjetpack.module.fragment.FragmentActivity
+import com.demon.easyjetpack.module.fragment.FragActivity
 import com.demon.easyjetpack.module.fragment.FragmentViewModel
 import com.demon.easyjetpack.module.main.MainActivity
 import com.demon.easyjetpack.module.main.MainViewModel
@@ -50,7 +50,7 @@ abstract class ActivityBindModule {
 
     @ActivityScoped
     @ContributesAndroidInjector(modules = [FragmentActivityBindModule::class])
-    abstract fun fragmentActivity(): FragmentActivity
+    abstract fun fragmentActivity(): FragActivity
 
     @Binds
     @IntoMap

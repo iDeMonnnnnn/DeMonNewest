@@ -2,8 +2,11 @@ package com.demon.easyjetpack.module.fragment
 
 import android.util.Log
 import androidx.lifecycle.observe
+import com.demon.basemvvm.activityMsg.get
+import com.demon.basemvvm.activityMsg.toActivityForResult
 import com.demon.basemvvm.mvvm.MvvmFragment
 import com.demon.easyjetpack.R
+import com.demon.easyjetpack.module.dagger.DaggerTestActivity
 import kotlinx.android.synthetic.main.fragment_tab.*
 
 /**
@@ -17,7 +20,11 @@ class TabFragment constructor(var author: String) : MvvmFragment<FragmentViewMod
     override fun setupLayoutId(): Int = R.layout.fragment_tab
 
     override fun init() {
-        tvCity.text = author
+        btn.setOnClickListener {
+            toActivityForResult(DaggerTestActivity::class.java, "params" to "hello world") {
+                Log.i(TAG, "init: " + it?.get("key", ""))
+            }
+        }
     }
 
     override fun initViewModel() {
