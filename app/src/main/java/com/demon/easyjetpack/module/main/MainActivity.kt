@@ -7,9 +7,9 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.demon.basemvvm.activityMsg.toActivity
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.data.Constants
-import com.demon.easyjetpack.data.RouterConst
-import com.demon.easyjetpack.ext.getCurrentProcessName
+import com.demon.easyjetpack.base.data.Constants
+import com.demon.easyjetpack.base.data.RouterConst
+import com.demon.easyjetpack.base.ext.getCurrentProcessName
 import com.demon.easyjetpack.module.fragment.FragActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,17 +32,19 @@ class MainActivity : MvvmActivity<MainViewModel>() {
             mViewModel.showDialog()
         }
 
-        btn2.setOnClickListener {
+        btnDagger.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_DAGGER).navigation()
         }
 
-        btn3.setOnClickListener {
+        btnRoom.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_ROOM).navigation()
         }
 
         btn4.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_MULTIPROGRESS).navigation()
         }
+
+        btnPaging.setOnClickListener { ARouter.getInstance().build(RouterConst.ACT_PAGING).navigation() }
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
             Log.i(TAG, "普通消息：{ $t }")

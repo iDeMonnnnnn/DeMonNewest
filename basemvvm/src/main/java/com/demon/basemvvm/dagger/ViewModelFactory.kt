@@ -13,7 +13,6 @@ import javax.inject.Singleton
  * Desc:
  */
 @Singleton
-@JvmSuppressWildcards
 class ViewModelFactory @Inject constructor(
     private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
@@ -27,6 +26,5 @@ class ViewModelFactory @Inject constructor(
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
-
     }
 }

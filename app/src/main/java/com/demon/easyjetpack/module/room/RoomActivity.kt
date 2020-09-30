@@ -4,9 +4,9 @@ import androidx.lifecycle.observe
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.data.RouterConst
-import com.demon.easyjetpack.ext.toastDigital
-import com.demon.easyjetpack.ext.toastEmpty
+import com.demon.easyjetpack.base.data.RouterConst
+import com.demon.easyjetpack.base.ext.toastDigital
+import com.demon.easyjetpack.base.ext.toastEmpty
 import kotlinx.android.synthetic.main.activity_room.*
 
 @Route(path = RouterConst.ACT_ROOM)

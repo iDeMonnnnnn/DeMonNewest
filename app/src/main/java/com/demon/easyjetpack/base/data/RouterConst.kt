@@ -1,4 +1,4 @@
-package com.demon.easyjetpack.data
+package com.demon.easyjetpack.base.data
 
 /**
  * @author DeMon
@@ -14,5 +14,5 @@ object RouterConst {
     const val ACT_ROOM = "/main/Activity_Room"
     const val ACT_MULTIPROGRESS = "/main/Activity_MultiProgress"
     const val ACT_FRAGMENT = "/main/Activity_Fragment"
-
+    const val ACT_PAGING = "/main/Activity_PAGING"
 }

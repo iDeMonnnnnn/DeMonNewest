@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import com.demon.basemvvm.mvvm.BaseApi
 import com.demon.easyjetpack.BuildConfig
-import com.demon.easyjetpack.db.AppDatabase
-import com.demon.easyjetpack.db.UserDao
-import com.demon.easyjetpack.http.ApiService
+import com.demon.easyjetpack.base.db.AppDatabase
+import com.demon.easyjetpack.base.db.UserDao
+import com.demon.easyjetpack.base.http.ApiService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

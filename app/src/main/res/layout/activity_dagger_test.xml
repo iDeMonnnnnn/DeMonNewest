@@ -48,7 +48,7 @@
 
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/btnDagger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Provides"
@@ -61,11 +61,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn2" />
+        app:layout_constraintTop_toBottomOf="@id/btnDagger" />
 
 
     <Button
-        android:id="@+id/btn3"
+        android:id="@+id/btnRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LiveEventBus"

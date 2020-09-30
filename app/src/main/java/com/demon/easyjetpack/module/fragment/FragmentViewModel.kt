@@ -1,8 +1,8 @@
 package com.demon.easyjetpack.module.fragment
 
 import androidx.lifecycle.MutableLiveData
-import com.demon.easyjetpack.ext.getDataOrThrow
-import com.demon.easyjetpack.http.HttpViewModel
+import com.demon.easyjetpack.base.ext.getDataOrThrow
+import com.demon.easyjetpack.base.http.HttpViewModel
 import javax.inject.Inject
 
 /**

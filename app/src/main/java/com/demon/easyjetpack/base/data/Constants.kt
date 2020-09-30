@@ -1,4 +1,4 @@
-package com.demon.easyjetpack.data
+package com.demon.easyjetpack.base.data
 
 /**
  * @author DeMon

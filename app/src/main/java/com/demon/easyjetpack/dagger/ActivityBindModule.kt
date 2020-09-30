@@ -8,6 +8,8 @@ import com.demon.easyjetpack.module.fragment.FragActivity
 import com.demon.easyjetpack.module.fragment.FragmentViewModel
 import com.demon.easyjetpack.module.main.MainActivity
 import com.demon.easyjetpack.module.main.MainViewModel
+import com.demon.easyjetpack.module.paging.PagingActivity
+import com.demon.easyjetpack.module.paging.PagingViewModel
 import com.demon.easyjetpack.module.progress.MultiProgressActivity
 import com.demon.easyjetpack.module.room.RoomActivity
 import com.demon.easyjetpack.module.room.RoomViewModel
@@ -33,11 +35,9 @@ abstract class ActivityBindModule {
     @ViewModelKey(MainViewModel::class)
     abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 
-
     @ActivityScoped
     @ContributesAndroidInjector
     abstract fun daggerTestActivity(): DaggerTestActivity
-
 
     @ActivityScoped
     @ContributesAndroidInjector
@@ -47,6 +47,15 @@ abstract class ActivityBindModule {
     @IntoMap
     @ViewModelKey(RoomViewModel::class)
     abstract fun bindRoomViewModel(viewModel: RoomViewModel): ViewModel
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun pagingActivity(): PagingActivity
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PagingViewModel::class)
+    abstract fun bindPagingViewModel(viewModel: PagingViewModel): ViewModel
 
     @ActivityScoped
     @ContributesAndroidInjector(modules = [FragmentActivityBindModule::class])

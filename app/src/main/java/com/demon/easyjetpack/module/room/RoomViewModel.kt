@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.easyjetpack.db.User
-import com.demon.easyjetpack.db.UserDao
+import com.demon.easyjetpack.base.db.User
+import com.demon.easyjetpack.base.db.UserDao
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random

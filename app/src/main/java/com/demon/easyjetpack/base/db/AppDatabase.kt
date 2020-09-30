@@ -1,4 +1,4 @@
-package com.demon.easyjetpack.db
+package com.demon.easyjetpack.base.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

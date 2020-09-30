@@ -1,4 +1,4 @@
-package com.demon.easyjetpack.ext
+package com.demon.easyjetpack.base.ext
 
 import android.app.ActivityManager
 import android.content.Context

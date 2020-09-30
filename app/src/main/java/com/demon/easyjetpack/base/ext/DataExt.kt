@@ -1,7 +1,6 @@
-package com.demon.easyjetpack.ext
+package com.demon.easyjetpack.base.ext
 
-import android.util.Log
-import com.demon.easyjetpack.http.DataWrapper
+import com.demon.easyjetpack.base.http.DataWrapper
 import retrofit2.Call
 import ru.gildor.coroutines.retrofit.Result
 import ru.gildor.coroutines.retrofit.awaitResult
@@ -16,7 +15,7 @@ suspend fun <T : Any> Call<DataWrapper<T>>.getDataOrThrow(): T {
     return when (val result = awaitResult()) {
         is Result.Ok -> {
             val data = result.value.data
-            Log.i("DataWrapper", "getDataOrThrow: " + data.toString())
+            //Log.i("DataWrapper", "getDataOrThrow: $data")
             when (result.value.errorCode) {
                 0 -> {
                     if (data == null) {

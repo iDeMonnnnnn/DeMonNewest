@@ -4,9 +4,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.data.Constants
-import com.demon.easyjetpack.data.RouterConst
-import com.demon.easyjetpack.ext.getCurrentProcessName
+import com.demon.easyjetpack.base.data.Constants
+import com.demon.easyjetpack.base.data.RouterConst
+import com.demon.easyjetpack.base.ext.getCurrentProcessName
 import com.jeremyliao.liveeventbus.LiveEventBus
 import kotlinx.android.synthetic.main.activity_multi_progress.*
 

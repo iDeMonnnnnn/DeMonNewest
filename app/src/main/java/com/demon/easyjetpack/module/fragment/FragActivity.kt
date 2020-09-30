@@ -7,7 +7,7 @@ import com.demon.basemvvm.activityMsg.extraAct
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.data.RouterConst
+import com.demon.easyjetpack.base.data.RouterConst
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_fragment.*
 

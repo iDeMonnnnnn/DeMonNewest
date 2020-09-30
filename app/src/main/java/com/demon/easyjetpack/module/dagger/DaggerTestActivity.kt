@@ -6,8 +6,8 @@ import com.demon.basemvvm.activityMsg.finishResult
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.data.Constants
-import com.demon.easyjetpack.data.RouterConst
+import com.demon.easyjetpack.base.data.Constants
+import com.demon.easyjetpack.base.data.RouterConst
 import com.jeremyliao.liveeventbus.LiveEventBus
 import kotlinx.android.synthetic.main.activity_dagger_test.*
 import javax.inject.Inject
@@ -33,11 +33,11 @@ class DaggerTestActivity : MvvmActivity<BaseViewModel>() {
             ha.text = helper.getHa()
         }
 
-        btn2.setOnClickListener {
+        btnDagger.setOnClickListener {
             provides.text = helper.getGson()
         }
 
-        btn3.setOnClickListener {
+        btnRoom.setOnClickListener {
             LiveEventBus.get(Constants.EVENT_BUS).post(str)
             finishResult("key" to "123456")
         }

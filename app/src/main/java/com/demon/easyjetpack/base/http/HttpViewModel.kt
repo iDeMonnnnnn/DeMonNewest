@@ -1,4 +1,4 @@
-package com.demon.easyjetpack.http
+package com.demon.easyjetpack.base.http
 
 import com.demon.basemvvm.mvvm.BaseViewModel
 import javax.inject.Inject
