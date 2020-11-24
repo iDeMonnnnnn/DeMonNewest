@@ -45,7 +45,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     implementation 'androidx.room:room-ktx:2.2.5'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt 'androidx.room:room-compiler:2.2.5'
     def paging_version = "3.0.0-alpha06"
     implementation "androidx.paging:paging-runtime:$paging_version"
