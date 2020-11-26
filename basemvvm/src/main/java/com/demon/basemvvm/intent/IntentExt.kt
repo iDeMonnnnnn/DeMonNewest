@@ -1,4 +1,4 @@
-package com.demon.basemvvm.activityMsg
+package com.demon.basemvvm.intent
 
 import android.content.Context
 import android.content.Intent

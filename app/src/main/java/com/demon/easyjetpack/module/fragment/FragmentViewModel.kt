@@ -1,9 +1,10 @@
 package com.demon.easyjetpack.module.fragment
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
+import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.easyjetpack.base.ext.getDataOrThrow
-import com.demon.easyjetpack.base.http.HttpViewModel
-import javax.inject.Inject
+import com.demon.easyjetpack.base.http.DataRepository
 
 /**
  * @author DeMon
@@ -11,7 +12,7 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-class FragmentViewModel @Inject constructor() : HttpViewModel() {
+class FragmentViewModel @ViewModelInject constructor(private val repository: DataRepository) : BaseViewModel() {
 
     val authorData = MutableLiveData<Any>()
 

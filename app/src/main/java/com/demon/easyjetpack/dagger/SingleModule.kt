@@ -10,6 +10,9 @@ import com.demon.easyjetpack.base.http.ApiService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -19,6 +22,7 @@ import javax.inject.Singleton
  * Desc:
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class SingleModule {
 
     @Provides
@@ -27,7 +31,6 @@ class SingleModule {
         .getRetrofit("https://www.wanandroid.com/")
         .create(ApiService::class.java)
 
-
     @Provides
     @Singleton
     fun provideGson(): Gson = Gson()
@@ -35,7 +38,7 @@ class SingleModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(context: Context): AppDatabase =
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "AppRoom.db").build()
 
 

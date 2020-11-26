@@ -1,5 +1,6 @@
 package com.demon.easyjetpack.module.room
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
@@ -16,7 +17,7 @@ import kotlin.random.Random
  * E-mail 757454343@qq.com
  * Desc:
  */
-class RoomViewModel @Inject constructor(@JvmField @Inject var dao: UserDao) : BaseViewModel() {
+class RoomViewModel @ViewModelInject constructor(@JvmField @Inject var dao: UserDao) : BaseViewModel() {
 
 
     val useData: LiveData<List<User>>

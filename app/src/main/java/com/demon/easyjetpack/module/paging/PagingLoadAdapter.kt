@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
+import com.demon.basemvvm.utils.Tag
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.base.ext.TAG
 import com.demon.easyjetpack.base.ext.toast
 import com.demon.easyjetpack.list.DataViewHolder
 import kotlinx.android.synthetic.main.load_state.view.*
@@ -55,7 +55,7 @@ class PagingLoadAdapter constructor(private val adapter: PagingAdapter) : LoadSt
      * loadState.endOfPaginationReached = 分页加载完毕
      */
     override fun displayLoadStateAsItem(loadState: LoadState): Boolean {
-        Log.i(TAG, "displayLoadStateAsItem: $loadState")
+        Log.i(Tag, "displayLoadStateAsItem: $loadState")
         return super.displayLoadStateAsItem(loadState) || loadState.endOfPaginationReached
     }
 

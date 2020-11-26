@@ -1,16 +1,16 @@
 package com.demon.basemvvm.mvvm
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import com.demon.basemvvm.utils.DialogHelp
-import dagger.android.support.DaggerFragment
+import com.demon.basemvvm.helper.DialogHelp
 import java.lang.reflect.ParameterizedType
-import javax.inject.Inject
 
 /**
  * @author DeMon
@@ -18,36 +18,32 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
-    protected val TAG = javaClass.simpleName
+abstract class MvvmFragment<VM : BaseViewModel> : Fragment() {
     private var isLoad = false
     protected lateinit var mContext: Context
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    protected lateinit var mViewModel: VM
-    private lateinit var providerVMClass: Class<VM>
+    val mViewModel by lazy {
+        val providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
+        ViewModelProvider(this).get(providerVMClass)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(setupLayoutId(), container)
     }
 
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         activity?.run { mContext = this }
         runCatching {
-            providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
-            providerVMClass.let { it ->
-                mViewModel = ViewModelProvider(this, viewModelFactory)[it]
-                mViewModel.let(lifecycle::addObserver)
-                mViewModel.run {
-                    errLiveData.observe(this@MvvmFragment) {
-                        doOnErrLiveData(it)
-                    }
-                    loadingData.observe(this@MvvmFragment) {
-                        DialogHelp.show(mContext, it)
-                    }
+            //lifecycle.addObserver(mViewModel)
+            mViewModel.run {
+                lifecycle.addObserver(this)
+                errLiveData.observe(this@MvvmFragment) {
+                    doOnErrLiveData(it)
+                }
+                loadingData.observe(this@MvvmFragment) {
+                    DialogHelp.show(mContext, it)
                 }
             }
         }.onFailure {
@@ -55,6 +51,10 @@ abstract class MvvmFragment<VM : BaseViewModel> : DaggerFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        lifecycle.removeObserver(mViewModel)
+    }
 
     override fun onResume() {
         super.onResume()

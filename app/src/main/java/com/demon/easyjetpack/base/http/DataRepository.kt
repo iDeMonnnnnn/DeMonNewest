@@ -10,7 +10,7 @@ import javax.inject.Singleton
  * Desc:
  */
 @Singleton
-class DataRepository @Inject constructor(private var apiService: ApiService) {
+class DataRepository @Inject constructor(private val apiService: ApiService) {
 
     fun articleList(author: String, no: Int = 0) = apiService.articleList(no, author)
 

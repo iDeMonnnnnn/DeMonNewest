@@ -3,10 +3,6 @@ package com.demon.basemvvm
 import android.app.Application
 import android.content.Context
 import com.demon.basemvvm.utils.ActivityCallbacks
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import javax.inject.Inject
 
 /**
  * @author DeMon
@@ -14,16 +10,11 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-open class MvvmApp : Application(), HasAndroidInjector {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
-
-    override fun androidInjector(): AndroidInjector<Any> {
-        return dispatchingAndroidInjector
-    }
+open class MvvmApp : Application() {
 
     companion object {
         private lateinit var instance: Application
+
         fun getApplication() = instance
 
         fun getAppContext(): Context = instance.applicationContext

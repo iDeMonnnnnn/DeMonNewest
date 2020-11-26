@@ -2,8 +2,8 @@ package com.demon.easyjetpack
 
 import com.alibaba.android.arouter.launcher.ARouter
 import com.demon.basemvvm.MvvmApp
-import com.demon.easyjetpack.dagger.DaggerAppComponent
 import com.jeremyliao.liveeventbus.LiveEventBus
+import dagger.hilt.android.HiltAndroidApp
 
 /**AppComponent
  * @author DeMon
@@ -11,12 +11,12 @@ import com.jeremyliao.liveeventbus.LiveEventBus
  * E-mail 757454343@qq.com
  * Desc:
  */
+@HiltAndroidApp
 class App : MvvmApp() {
 
 
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder().application(this).build().inject(this)
 
         initARouter()
 

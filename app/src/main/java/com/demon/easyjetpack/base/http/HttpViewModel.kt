@@ -10,7 +10,6 @@ import javax.inject.Inject
  * Desc:
  */
 open class HttpViewModel @Inject constructor() : BaseViewModel() {
-
     @Inject
-    protected lateinit var repository: DataRepository
+    lateinit var repository: DataRepository
 }

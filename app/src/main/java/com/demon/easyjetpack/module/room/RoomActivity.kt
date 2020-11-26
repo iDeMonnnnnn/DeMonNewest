@@ -7,9 +7,11 @@ import com.demon.easyjetpack.R
 import com.demon.easyjetpack.base.data.RouterConst
 import com.demon.easyjetpack.base.ext.toastDigital
 import com.demon.easyjetpack.base.ext.toastEmpty
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_room.*
 
 @Route(path = RouterConst.ACT_ROOM)
+@AndroidEntryPoint
 class RoomActivity : MvvmActivity<RoomViewModel>() {
 
     override fun setupLayoutId(): Int = R.layout.activity_room

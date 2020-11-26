@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.basemvvm.helper
 
 import android.app.ProgressDialog
 import android.content.Context

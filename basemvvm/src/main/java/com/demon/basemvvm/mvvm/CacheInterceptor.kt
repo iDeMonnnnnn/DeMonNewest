@@ -1,16 +1,15 @@
 package com.demon.basemvvm.mvvm
 
-import okhttp3.Interceptor
-import okhttp3.Response
-import okhttp3.CacheControl
-import java.io.IOException
-import android.net.NetworkInfo
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
-import androidx.core.content.ContextCompat.getSystemService
 import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import okhttp3.CacheControl
+import okhttp3.Interceptor
+import okhttp3.Response
+import java.io.IOException
 import javax.inject.Inject
 
 
@@ -53,17 +52,15 @@ class CacheInterceptor : Interceptor {
     /**
      * 判断网络状态
      */
-    fun isNetConnected(context: Context): Boolean {
+    private fun isNetConnected(context: Context): Boolean {
         //获取系统的连接服务
         val connectivity = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (connectivity != null) {
-            @SuppressLint("MissingPermission") val info = connectivity.activeNetworkInfo
-            if (info != null && info.isConnected) {
-                // 当前网络是连接的
-                if (info.state == NetworkInfo.State.CONNECTED) {
-                    // 当前所连接的网络可用
-                    return true
-                }
+        @SuppressLint("MissingPermission") val info = connectivity.activeNetworkInfo
+        if (info != null && info.isConnected) {
+            // 当前网络是连接的
+            if (info.state == NetworkInfo.State.CONNECTED) {
+                // 当前所连接的网络可用
+                return true
             }
         }
         return false

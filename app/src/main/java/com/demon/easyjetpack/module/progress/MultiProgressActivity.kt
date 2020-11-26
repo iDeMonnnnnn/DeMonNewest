@@ -8,9 +8,11 @@ import com.demon.easyjetpack.base.data.Constants
 import com.demon.easyjetpack.base.data.RouterConst
 import com.demon.easyjetpack.base.ext.getCurrentProcessName
 import com.jeremyliao.liveeventbus.LiveEventBus
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_multi_progress.*
 
 @Route(path = RouterConst.ACT_MULTIPROGRESS)
+@AndroidEntryPoint
 class MultiProgressActivity : MvvmActivity<BaseViewModel>() {
 
     override fun setupLayoutId(): Int = R.layout.activity_multi_progress

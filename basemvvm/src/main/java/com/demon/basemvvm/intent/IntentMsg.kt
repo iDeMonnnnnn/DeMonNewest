@@ -1,4 +1,4 @@
-package com.demon.basemvvm.activityMsg
+package com.demon.basemvvm.intent
 
 import android.app.Activity
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.BaseBundle
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.demon.basemvvm.activityMsg.IntentFieldMethod.internalMap
+import com.demon.basemvvm.intent.IntentFieldMethod.internalMap
 import java.lang.reflect.Field
 import java.lang.reflect.Method
 import kotlin.properties.ReadWriteProperty

@@ -1,6 +1,7 @@
 package com.demon.basemvvm.mvvm
 
 import android.app.Application
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -10,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
 
 /**
@@ -25,8 +25,9 @@ class BaseApi {
     private var timeOut: Long = 10
     private var isCache = false
     private var isLog = true
-    @Inject
-    protected lateinit var application: Application
+
+    @ApplicationContext
+    lateinit var application: Application
 
     fun setTimeOut(timeOut: Long): BaseApi {
         this.timeOut = timeOut

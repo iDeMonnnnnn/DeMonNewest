@@ -1,8 +1,8 @@
-package com.demon.easyjetpack.base.ext
+package com.demon.basemvvm.utils
 
 /**
  * @author DeMon
- * Created on 2020/9/30.
+ * Created on 2020/11/25.
  * E-mail 757454343@qq.com
  * Desc:
  */
@@ -10,5 +10,5 @@ package com.demon.easyjetpack.base.ext
 /**
  * 获取当前类的TAG
  */
-inline val <T : Any> T.TAG: String
+inline val <T : Any> T.Tag: String
     get() = this.javaClass.simpleName
