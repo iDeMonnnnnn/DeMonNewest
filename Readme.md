@@ -1,6 +1,6 @@
 ### EasyJetpack
 
-JetPack组件学习及模块化使用示例Demo
+JetPack组件学习及模块化使用示例。
 
 
 #### 组件
