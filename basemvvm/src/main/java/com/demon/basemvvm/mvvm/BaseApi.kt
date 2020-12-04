@@ -1,6 +1,6 @@
 package com.demon.basemvvm.mvvm
 
-import android.app.Application
+import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 
 /**
@@ -19,7 +20,7 @@ import java.util.concurrent.TimeUnit
  * E-mail 757454343@qq.com
  * Desc:
  */
-class BaseApi {
+class BaseApi @Inject constructor() {
 
     //超时时长，单位：毫秒
     private var timeOut: Long = 10
@@ -27,7 +28,7 @@ class BaseApi {
     private var isLog = true
 
     @ApplicationContext
-    lateinit var application: Application
+    lateinit var context: Context
 
     fun setTimeOut(timeOut: Long): BaseApi {
         this.timeOut = timeOut
@@ -58,11 +59,12 @@ class BaseApi {
             .writeTimeout(timeOut, TimeUnit.SECONDS)
             .connectTimeout(timeOut, TimeUnit.SECONDS)
         if (isCache) {
+            val cacheInterceptor = CacheInterceptor(context)
             //缓存
-            val cacheFile = File(application.cacheDir, "cache")
+            val cacheFile = File(context.cacheDir, "cache")
             val cache = Cache(cacheFile, 1024 * 1024 * 200) //200Mb
-            builder.addInterceptor(CacheInterceptor())//缓存
-                .addNetworkInterceptor(CacheInterceptor())//网络缓存
+            builder.addInterceptor(cacheInterceptor)//缓存
+                .addNetworkInterceptor(cacheInterceptor)//网络缓存
                 .cache(cache)
         }
         if (isLog) {

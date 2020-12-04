@@ -7,7 +7,7 @@ JetPack组件学习及模块化使用示例。
 
 |组件|说明|备注|
 |--|--|--|
-|KTX|管官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
+|KTX|Android官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
 |LiveData|数据观察|<https://developer.android.google.cn/topic/libraries/architecture/livedata?hl=zh-cn>|
 |ViewModel|MVVM|<https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn>|
 |Room|数据库|<https://developer.android.google.cn/topic/libraries/architecture/room?hl=zh-cn>|

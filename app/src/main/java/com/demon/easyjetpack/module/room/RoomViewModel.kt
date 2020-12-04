@@ -8,7 +8,6 @@ import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.easyjetpack.base.db.User
 import com.demon.easyjetpack.base.db.UserDao
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 import kotlin.random.Random
 
 /**
@@ -17,7 +16,7 @@ import kotlin.random.Random
  * E-mail 757454343@qq.com
  * Desc:
  */
-class RoomViewModel @ViewModelInject constructor(@JvmField @Inject var dao: UserDao) : BaseViewModel() {
+class RoomViewModel @ViewModelInject constructor(var dao: UserDao) : BaseViewModel() {
 
 
     val useData: LiveData<List<User>>

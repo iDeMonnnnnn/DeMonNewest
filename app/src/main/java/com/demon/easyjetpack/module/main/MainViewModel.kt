@@ -8,7 +8,7 @@ import com.demon.easyjetpack.base.ext.toast
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 
-class MainViewModel @ViewModelInject constructor(@ApplicationContext val context: Context) : BaseViewModel() {
+class MainViewModel @ViewModelInject constructor(@ApplicationContext var context: Context) : BaseViewModel() {
 
     fun showDialog() {
         viewModelScope.launch {

@@ -1,7 +1,6 @@
 package com.demon.easyjetpack.base.http
 
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * @author DeMon
@@ -9,7 +8,6 @@ import javax.inject.Singleton
  * E-mail 757454343@qq.com
  * Desc:
  */
-@Singleton
 class DataRepository @Inject constructor(private val apiService: ApiService) {
 
     fun articleList(author: String, no: Int = 0) = apiService.articleList(no, author)

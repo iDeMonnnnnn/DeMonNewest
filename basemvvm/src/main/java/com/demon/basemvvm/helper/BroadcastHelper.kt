@@ -4,8 +4,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.util.Log
+import com.demon.basemvvm.utils.Tag
 import com.google.gson.Gson
-import javax.inject.Inject
+import javax.inject.Singleton
 
 
 /**
@@ -36,12 +38,11 @@ import javax.inject.Inject
  * BroadcastHelper.getInstance().destroy(ACTION_RECEIVE_MESSAGE);
  * @date 2015-9-17
  **/
-class BroadcastHelper {
-    @Inject
-    lateinit var mContext: Context
+@Singleton
+class BroadcastHelper constructor(val mContext: Context) {
+
 
     private val receiverMap: MutableMap<String, BroadcastReceiver>
-    private val RESULT = "Result"
 
     /**
      * 构造方法
@@ -57,12 +58,19 @@ class BroadcastHelper {
      *
      * @param
      */
-    fun addAction(action: String, receiver: BroadcastReceiver) {
+    fun addAction(receiver: BroadcastReceiver, vararg actions: String) {
+        var key = ""
+        actions.forEach {
+            key += it
+        }
+        Log.i(Tag, "addAction: $key")
         try {
             val filter = IntentFilter()
-            filter.addAction(action)
+            actions.forEach {
+                filter.addAction(it)
+            }
             mContext.registerReceiver(receiver, filter)
-            receiverMap[action] = receiver
+            receiverMap[key] = receiver
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -91,38 +99,40 @@ class BroadcastHelper {
      * 发送参数为 String 的数据广播
      * @param action 唯一码
      */
-    @JvmOverloads
     fun sendBroadcast(action: String, s: String = "") {
-        val intent = Intent()
-        intent.action = action
-        intent.putExtra(RESULT, s)
-        mContext.sendBroadcast(intent)
+        try {
+            val intent = Intent()
+            intent.action = action
+            intent.putExtra(RESULT, s)
+            mContext.sendBroadcast(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     /**
      * 销毁广播
      *
-     * @param action
+     * @param actions
      */
-    fun destroy(action: String) {
-        val receiver = receiverMap.remove(action)
-        if (receiver != null) {
-            mContext.unregisterReceiver(receiver)
+    fun destroy(vararg actions: String) {
+        var key = ""
+        actions.forEach {
+            key += it
+        }
+        Log.i(Tag, "destroy: $key")
+        try {
+            val receiver = receiverMap.remove(key)
+            if (receiver != null) {
+                mContext.unregisterReceiver(receiver)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
     companion object {
-        /**
-         * [获取BroadcastHelper实例，单例模式实现]
-         *
-         * @param context
-         * @return
-         */
-        fun getInstance() = Helper.instance
-    }
-
-    private object Helper {
-        val instance = BroadcastHelper()
+        val RESULT = "Result"
     }
 
 }

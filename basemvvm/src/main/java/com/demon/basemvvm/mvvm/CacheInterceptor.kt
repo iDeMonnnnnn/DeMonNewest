@@ -1,7 +1,6 @@
 package com.demon.basemvvm.mvvm
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
 import android.net.ConnectivityManager
@@ -10,7 +9,6 @@ import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
-import javax.inject.Inject
 
 
 /**
@@ -19,24 +17,22 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-class CacheInterceptor : Interceptor {
+class CacheInterceptor constructor(val context: Context): Interceptor {
     /**
      * 设缓存有效期为7天
      */
     private val CACHE_STALE_SEC = (60 * 60 * 24 * 7).toLong()
-    @Inject
-    protected lateinit var application: Application
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        if (!isNetConnected(application)) {
+        if (!isNetConnected(context)) {
             request = request.newBuilder()
                 .cacheControl(CacheControl.FORCE_CACHE)
                 .build()
         }
         val originalResponse = chain.proceed(request)
-        return if (isNetConnected(application)) {
+        return if (isNetConnected(context)) {
             originalResponse.newBuilder()
                 .removeHeader("Pragma")
                 .header("Cache-Control", "public,max-age" + 0)

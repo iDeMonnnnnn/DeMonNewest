@@ -1,7 +1,8 @@
-package com.demon.easyjetpack.dagger
+package com.demon.easyjetpack.hilt
 
 import android.content.Context
 import androidx.room.Room
+import com.demon.basemvvm.helper.BroadcastHelper
 import com.demon.basemvvm.mvvm.BaseApi
 import com.demon.easyjetpack.BuildConfig
 import com.demon.easyjetpack.base.db.AppDatabase
@@ -19,7 +20,7 @@ import javax.inject.Singleton
  * @author DeMon
  * Created on 2020/1/13.
  * E-mail 757454343@qq.com
- * Desc:
+ * Desc: 单例注入
  */
 @Module
 @InstallIn(ApplicationComponent::class)
@@ -28,6 +29,7 @@ class SingleModule {
     @Provides
     @Singleton
     fun provideService(): ApiService = BaseApi().setLog(BuildConfig.DEBUG)
+        .setCache(true)
         .getRetrofit("https://www.wanandroid.com/")
         .create(ApiService::class.java)
 
@@ -46,5 +48,8 @@ class SingleModule {
     @Singleton
     fun provideUserDao(database: AppDatabase): UserDao = database.userDao()
 
+    @Provides
+    @Singleton
+    fun provideBroadcastHelper(@ApplicationContext context: Context): BroadcastHelper = BroadcastHelper(context)
 
 }

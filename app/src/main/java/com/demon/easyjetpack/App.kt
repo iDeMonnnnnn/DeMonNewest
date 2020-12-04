@@ -1,5 +1,7 @@
 package com.demon.easyjetpack
 
+import android.app.Application
+import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.demon.basemvvm.MvvmApp
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -14,12 +16,17 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class App : MvvmApp() {
 
+    companion object {
+        lateinit var instance: Application
+        lateinit var appContext: Context
+    }
+
 
     override fun onCreate() {
         super.onCreate()
-
+        instance = this
+        appContext = this.applicationContext
         initARouter()
-
         LiveEventBus.config().setContext(applicationContext)
     }
 

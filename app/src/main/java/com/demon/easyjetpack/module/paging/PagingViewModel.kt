@@ -3,8 +3,7 @@ package com.demon.easyjetpack.module.paging
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.easyjetpack.base.http.DataRepository
+import com.demon.easyjetpack.base.http.HttpViewModel
 
 /**
  * @author DeMon
@@ -12,7 +11,7 @@ import com.demon.easyjetpack.base.http.DataRepository
  * E-mail 757454343@qq.com
  * Desc:
  */
-class PagingViewModel @ViewModelInject constructor(private val repository: DataRepository) : BaseViewModel() {
+class PagingViewModel @ViewModelInject constructor() : HttpViewModel() {
 
     val flow = Pager(
         // Configure how data is loaded by passing additional properties to
