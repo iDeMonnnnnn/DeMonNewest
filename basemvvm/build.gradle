@@ -60,4 +60,7 @@ dependencies {
     implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
     kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+    //Preferences DataStore
+    api "androidx.datastore:datastore-preferences:1.0.0-alpha05"
+    api "androidx.multidex:multidex:2.0.1"
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.demon.basemvvm.helper.BroadcastHelper
+import com.demon.basemvvm.helper.DataStoreHelper
 import com.demon.basemvvm.intent.get
 import com.demon.basemvvm.intent.toActivity
 import com.demon.basemvvm.intent.toActivityForResult
@@ -47,6 +48,7 @@ class MainActivity : MvvmActivity<MainViewModel>() {
             toActivityForResult(DaggerTestActivity::class.java, "params" to "hello world") {
                 Log.i(Tag, "init: " + it?.get("key", ""))
             }
+            Log.i(Tag, "init: ${DataStoreHelper.instance.get(Constants.DATA_STORE, "")}")
         }
 
         btnRoom.setOnClickListener {
