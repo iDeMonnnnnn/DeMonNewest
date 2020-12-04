@@ -2,7 +2,6 @@ package com.demon.easyjetpack.hilt
 
 import android.content.Context
 import androidx.room.Room
-import com.demon.basemvvm.helper.BroadcastHelper
 import com.demon.basemvvm.mvvm.BaseApi
 import com.demon.easyjetpack.BuildConfig
 import com.demon.easyjetpack.base.db.AppDatabase
@@ -47,9 +46,5 @@ class SingleModule {
     @Provides
     @Singleton
     fun provideUserDao(database: AppDatabase): UserDao = database.userDao()
-
-    @Provides
-    @Singleton
-    fun provideBroadcastHelper(@ApplicationContext context: Context): BroadcastHelper = BroadcastHelper(context)
 
 }

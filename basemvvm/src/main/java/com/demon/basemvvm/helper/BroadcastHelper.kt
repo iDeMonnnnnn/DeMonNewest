@@ -7,6 +7,8 @@ import android.content.IntentFilter
 import android.util.Log
 import com.demon.basemvvm.utils.Tag
 import com.google.gson.Gson
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 import javax.inject.Singleton
 
 
@@ -39,7 +41,7 @@ import javax.inject.Singleton
  * @date 2015-9-17
  **/
 @Singleton
-class BroadcastHelper constructor(val mContext: Context) {
+class BroadcastHelper @Inject constructor(@ApplicationContext val mContext: Context) {
 
 
     private val receiverMap: MutableMap<String, BroadcastReceiver>
