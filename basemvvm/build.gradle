@@ -63,4 +63,5 @@ dependencies {
     //Preferences DataStore
     api "androidx.datastore:datastore-preferences:1.0.0-alpha05"
     api "androidx.multidex:multidex:2.0.1"
+    api 'com.tencent:mmkv-static:1.2.6'
 }

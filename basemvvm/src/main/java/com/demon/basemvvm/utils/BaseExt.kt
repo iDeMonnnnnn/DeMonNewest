@@ -1,9 +1,11 @@
 package com.demon.basemvvm.utils
 
+import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+
 
 /**
  * @author DeMon
@@ -11,13 +13,13 @@ import kotlinx.coroutines.launch
  * E-mail 757454343@qq.com
  * Desc:
  */
+var mmkv = MMKV.defaultMMKV()
 
 /**
  * 获取当前类的TAG
  */
 inline val <T : Any> T.Tag: String
     get() = this.javaClass.simpleName
-
 
 
 /**

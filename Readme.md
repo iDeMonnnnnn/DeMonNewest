@@ -24,3 +24,4 @@ JetPack组件学习及模块化使用示例。
 |--|--|--|
 |ARouter|阿里路由框架|<https://github.com/alibaba/ARouter>|
 |LiveEventBus|消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
+|MMKV|基于 mmap 的高性能通用 key-value 组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
