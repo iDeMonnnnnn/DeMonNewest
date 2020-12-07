@@ -1,6 +1,7 @@
 package com.demon.easyjetpack.module.progress
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.demon.basemvvm.helper.BroadcastHelper
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
@@ -10,19 +11,33 @@ import com.demon.easyjetpack.base.ext.getCurrentProcessName
 import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_multi_progress.*
+import javax.inject.Inject
 
 @Route(path = RouterConst.ACT_MULTIPROGRESS)
 @AndroidEntryPoint
 class MultiProgressActivity : MvvmActivity<BaseViewModel>() {
 
+    @Inject
+    lateinit var broadcastHelper: BroadcastHelper
+
     override fun setupLayoutId(): Int = R.layout.activity_multi_progress
 
     override fun init() {
 
-        tv.text = getCurrentProcessName()
+        tv.text = "当前进程:${getCurrentProcessName()}"
 
         btn.setOnClickListener {
             LiveEventBus.get(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${getCurrentProcessName()}的消息！！！")
+        }
+
+
+        btnBroadcast1.setOnClickListener {
+            broadcastHelper.sendBroadcast(Constants.BROADCAST1, 123456)
+        }
+
+
+        btnBroadcast2.setOnClickListener {
+            broadcastHelper.sendBroadcast(Constants.BROADCAST2, "abcdefg")
         }
     }
 

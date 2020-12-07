@@ -1,7 +1,6 @@
 package com.demon.easyjetpack.module.dagger
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.helper.BroadcastHelper
 import com.demon.basemvvm.intent.extraAct
 import com.demon.basemvvm.intent.finishResult
 import com.demon.basemvvm.mvvm.BaseViewModel
@@ -22,8 +21,6 @@ class DaggerTestActivity : MvvmActivity<BaseViewModel>() {
     @Inject
     protected lateinit var helper: DoHelper
 
-    @Inject
-    lateinit var broadcastHelper: BroadcastHelper
 
     override fun setupLayoutId(): Int = R.layout.activity_dagger_test
 
@@ -46,15 +43,6 @@ class DaggerTestActivity : MvvmActivity<BaseViewModel>() {
         btnRoom.setOnClickListener {
             LiveEventBus.get(Constants.EVENT_BUS).post(str)
             finishResult("key" to "123456")
-        }
-
-        btnBroadcast1.setOnClickListener {
-            broadcastHelper.sendBroadcast(Constants.BROADCAST1, "123456")
-        }
-
-
-        btnBroadcast2.setOnClickListener {
-            broadcastHelper.sendBroadcast(Constants.BROADCAST2, "abcdefg")
         }
     }
 

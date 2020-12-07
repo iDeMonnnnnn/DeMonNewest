@@ -7,6 +7,14 @@
     android:paddingStart="20dp"
     tools:context=".module.main.MainActivity">
 
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn"
         android:layout_width="120dp"
@@ -16,13 +24,13 @@
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tvProgress" />
 
     <Button
         android:id="@+id/btnDagger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="依赖注入"
+        android:text="Hilt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn" />
 
@@ -51,24 +59,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPaging" />
 
-    <TextView
-        android:id="@+id/tvProgress"
+
+    <Button
+        android:id="@+id/btnDataStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:text="DataStore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn4" />
 
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:shapeAppearance="@style/StyleShapeAppearanceImage"
-        android:src="@mipmap/ic_launcher"
-        app:strokeWidth="2dp"
-        android:padding="2dp"
-        app:strokeColor="@color/colorPrimary"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

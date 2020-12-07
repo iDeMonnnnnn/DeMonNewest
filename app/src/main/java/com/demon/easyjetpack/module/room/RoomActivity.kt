@@ -2,10 +2,8 @@ package com.demon.easyjetpack.module.room
 
 import androidx.lifecycle.observe
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.helper.DataStoreHelper
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
-import com.demon.easyjetpack.base.data.Constants
 import com.demon.easyjetpack.base.data.RouterConst
 import com.demon.easyjetpack.base.ext.toastDigital
 import com.demon.easyjetpack.base.ext.toastEmpty
@@ -24,7 +22,6 @@ class RoomActivity : MvvmActivity<RoomViewModel>() {
             val str = etInsert.text.toString().trim()
             if (!str.toastEmpty(this))
                 mViewModel.insertUser(str)
-            DataStoreHelper.instance.put(Constants.DATA_STORE, str)
         }
 
 

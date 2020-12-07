@@ -8,7 +8,6 @@ package com.demon.easyjetpack.base.data
  */
 object Constants {
 
-    const val DATA_STORE = "DataStore"
     const val EVENT_BUS = "EventBus"
     const val MULTI_PROGRESS = "MultiProgress"
 

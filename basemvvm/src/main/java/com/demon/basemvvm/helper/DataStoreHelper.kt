@@ -1,14 +1,14 @@
 package com.demon.basemvvm.helper
 
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import com.demon.basemvvm.MvvmApp
-import com.demon.basemvvm.utils.launchIO
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import javax.inject.Singleton
 
 /**
@@ -20,6 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class DataStoreHelper {
     companion object {
+        const val TAG = "DataStoreHelper"
         val instance by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             DataStoreHelper()
         }
@@ -27,24 +28,32 @@ class DataStoreHelper {
 
     val dataStore: DataStore<Preferences> = MvvmApp.instance.createDataStore(name = "DataStore")
 
-
-    inline fun <reified T : Any> get(key: String, default: T): T {
+    suspend inline fun <reified T : Any> get(key: String, default: T): T {
         val preferencesKey = preferencesKey<T>(key)
         var value: T? = null
-        dataStore.data.onEach {
-            value = it[preferencesKey]
-        }
-        return value ?: default
+       return dataStore.data.map {
+            if (it[preferencesKey] is T) {
+                value = it[preferencesKey]
+            }
+            value ?: default
+        }.onEach {
+            value = it
+            Log.i(TAG, "get onEach:${preferencesKey.name}-$it")
+        }.catch {
+            it.printStackTrace()
+        }.first()
     }
 
     inline fun <reified T : Any> put(key: String, value: T) {
-        GlobalScope.launchIO {
+        flow<Boolean> {
             val preferencesKey = preferencesKey<T>(key)
             dataStore.edit { preferences ->
                 preferences[preferencesKey] = value
             }
-        }
+        }.catch {
+            it.printStackTrace()
+        }.launchIn(GlobalScope)
     }
 
-
 }
+

@@ -73,19 +73,4 @@
         app:layout_constraintTop_toBottomOf="@id/provides" />
 
 
-    <Button
-        android:id="@+id/btnBroadcast1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Broadcast1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnRoom" />
-
-    <Button
-        android:id="@+id/btnBroadcast2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Broadcast2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnBroadcast1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
