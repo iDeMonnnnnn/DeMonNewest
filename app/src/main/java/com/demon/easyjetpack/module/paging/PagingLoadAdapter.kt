@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.load_state.view.*
  */
 
 interface RetryListener {
-    fun onRetry();
+    fun onRetry()
 }
 
 class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : LoadStateAdapter<DataViewHolder>() {
