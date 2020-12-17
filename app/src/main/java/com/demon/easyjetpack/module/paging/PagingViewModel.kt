@@ -1,8 +1,11 @@
 package com.demon.easyjetpack.module.paging
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
 import com.demon.easyjetpack.base.http.HttpViewModel
 
 /**
@@ -13,13 +16,13 @@ import com.demon.easyjetpack.base.http.HttpViewModel
  */
 class PagingViewModel @ViewModelInject constructor() : HttpViewModel() {
 
-    val flow = Pager(
+    val liveData = Pager(
         // Configure how data is loaded by passing additional properties to
         // PagingConfig, such as prefetchDistance.
         PagingConfig(pageSize = 20)
     ) {
         PagingDataSource(repository)
-    }.flow
+    }.flow.cachedIn(viewModelScope).asLiveData()
 
 
 }

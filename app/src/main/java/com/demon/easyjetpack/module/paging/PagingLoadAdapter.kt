@@ -17,7 +17,12 @@ import kotlinx.android.synthetic.main.load_state.view.*
  * E-mail 757454343@qq.com
  * Desc:
  */
-class PagingLoadAdapter constructor(private val adapter: PagingAdapter) : LoadStateAdapter<DataViewHolder>() {
+
+interface RetryListener {
+    fun onRetry();
+}
+
+class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : LoadStateAdapter<DataViewHolder>() {
 
     override fun onBindViewHolder(holder: DataViewHolder, loadState: LoadState) {
         holder.itemView.run {
@@ -33,7 +38,9 @@ class PagingLoadAdapter constructor(private val adapter: PagingAdapter) : LoadSt
                     loading_view.visibility = View.GONE
                     error_text.visibility = View.VISIBLE
                     nomore_text.visibility = View.GONE
-                    setOnClickListener { adapter.retry() }
+                    setOnClickListener {
+                        retry?.onRetry()
+                    }
                 }
                 else -> {
                     loading_view.visibility = View.GONE

@@ -1,12 +1,12 @@
 package com.demon.easyjetpack.module.paging
 
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
-import com.demon.easyjetpack.R
-import com.demon.easyjetpack.bean.ArticleBean
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.demon.easyjetpack.list.DataViewHolder
-import kotlinx.android.synthetic.main.list_paging.view.*
 
 /**
  * @author DeMon
@@ -14,27 +14,39 @@ import kotlinx.android.synthetic.main.list_paging.view.*
  * E-mail 757454343@qq.com
  * Desc:
  */
-class PagingAdapter : PagingDataAdapter<ArticleBean, DataViewHolder>(DiffComparator) {
+abstract class PagingAdapter<T : Any> constructor(@LayoutRes val layoutRes: Int, private val swipe: SwipeRefreshLayout? = null) :
+    PagingDataAdapter<T, DataViewHolder>(DiffComparator<T>()) {
+
+    init {
+        addLoadStateListener {
+            swipe?.isRefreshing = it.refresh is LoadState.Loading
+        }
+        swipe?.setOnRefreshListener {
+            refresh()
+        }
+    }
+
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-                val item = getItem(position)
-                holder.itemView.run {
-                    tv_text.text = item?.title
-                }
+        val item = getItem(position)
+        item?.run {
+            onBind(holder, position, this)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        return DataViewHolder(R.layout.list_paging, parent)
+        return DataViewHolder(layoutRes, parent)
     }
 
-}
+
+    abstract fun onBind(holder: DataViewHolder, position: Int, data: T)
 
 
-object DiffComparator : DiffUtil.ItemCallback<ArticleBean>() {
-    override fun areItemsTheSame(oldItem: ArticleBean, newItem: ArticleBean): Boolean {
-        return oldItem == newItem
+    fun withFooter(): ConcatAdapter {
+        return this.withLoadStateFooter(PagingLoadAdapter(object : RetryListener {
+            override fun onRetry() {
+                retry()
+            }
+        }))
     }
 
-    override fun areContentsTheSame(oldItem: ArticleBean, newItem: ArticleBean): Boolean {
-        return oldItem.id == newItem.id
-    }
 }

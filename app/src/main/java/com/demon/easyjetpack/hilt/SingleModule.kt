@@ -28,7 +28,7 @@ class SingleModule {
     @Provides
     @Singleton
     fun provideService(): ApiService = BaseApi().setLog(BuildConfig.DEBUG)
-        .setCache(true)
+        //.setCache(true)
         .getRetrofit("https://www.wanandroid.com/")
         .create(ApiService::class.java)
 

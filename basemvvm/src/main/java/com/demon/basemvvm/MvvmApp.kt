@@ -19,11 +19,13 @@ open class MvvmApp : Application() {
     companion object {
         const val TAG = "MvvmApp"
         lateinit var instance: Application
+        lateinit var appContext: Context
     }
 
     override fun onCreate() {
         super.onCreate()
         instance = this
+        appContext = this.applicationContext
         val rootDir = MMKV.initialize(this)
         Log.i(TAG, "onCreate:  $rootDir")
         registerActivityLifecycleCallbacks(ActivityCallbacks)

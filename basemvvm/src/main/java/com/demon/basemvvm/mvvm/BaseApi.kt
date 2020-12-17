@@ -1,7 +1,6 @@
 package com.demon.basemvvm.mvvm
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.demon.basemvvm.MvvmApp
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -11,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
 
 /**
@@ -20,15 +18,13 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-class BaseApi @Inject constructor() {
+class BaseApi {
 
     //超时时长，单位：毫秒
     private var timeOut: Long = 10
     private var isCache = false
     private var isLog = true
 
-    @ApplicationContext
-    lateinit var context: Context
 
     fun setTimeOut(timeOut: Long): BaseApi {
         this.timeOut = timeOut
@@ -59,9 +55,9 @@ class BaseApi @Inject constructor() {
             .writeTimeout(timeOut, TimeUnit.SECONDS)
             .connectTimeout(timeOut, TimeUnit.SECONDS)
         if (isCache) {
-            val cacheInterceptor = CacheInterceptor(context)
+            val cacheInterceptor = CacheInterceptor(MvvmApp.appContext)
             //缓存
-            val cacheFile = File(context.cacheDir, "cache")
+            val cacheFile = File(MvvmApp.appContext.cacheDir, "cache")
             val cache = Cache(cacheFile, 1024 * 1024 * 200) //200Mb
             builder.addInterceptor(cacheInterceptor)//缓存
                 .addNetworkInterceptor(cacheInterceptor)//网络缓存
