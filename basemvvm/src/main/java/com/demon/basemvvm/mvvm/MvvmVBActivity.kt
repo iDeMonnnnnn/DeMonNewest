@@ -13,13 +13,12 @@ import java.lang.reflect.ParameterizedType
 abstract class MvvmVBActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
     protected lateinit var mContext: Context
 
-    protected val mViewModel by lazy {
+    val mViewModel by lazy {
         val providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
         ViewModelProvider(this).get(providerVMClass)
     }
 
-    protected lateinit var binding: VB
-
+    lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +42,6 @@ abstract class MvvmVBActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatA
             it.printStackTrace()
         }
     }
-
-
-    protected abstract fun setupLayoutId(): Int
 
     protected abstract fun init()
 

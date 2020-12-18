@@ -3,7 +3,6 @@ package com.demon.easyjetpack.module.room
 import androidx.lifecycle.observe
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.MvvmVBActivity
-import com.demon.easyjetpack.R
 import com.demon.easyjetpack.base.data.RouterConst
 import com.demon.easyjetpack.base.ext.toastDigital
 import com.demon.easyjetpack.base.ext.toastEmpty
@@ -14,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RoomActivity : MvvmVBActivity<ActivityRoomBinding, RoomViewModel>() {
 
-    override fun setupLayoutId(): Int = R.layout.activity_room
 
     override fun init() {
         binding.btnInsert.setOnClickListener {
@@ -22,7 +20,6 @@ class RoomActivity : MvvmVBActivity<ActivityRoomBinding, RoomViewModel>() {
             if (!str.toastEmpty(this))
                 mViewModel.insertUser(str)
         }
-
 
         binding.btnDel.setOnClickListener {
             val str = binding.etDel.text.toString().trim()
