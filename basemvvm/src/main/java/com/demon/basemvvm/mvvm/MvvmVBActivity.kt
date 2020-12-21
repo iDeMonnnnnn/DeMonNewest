@@ -8,23 +8,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.helper.DialogHelp
-import java.lang.reflect.ParameterizedType
+import com.demon.basemvvm.utils.getTClass
 
 abstract class MvvmVBActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
     protected lateinit var mContext: Context
+    protected lateinit var binding: VB
+    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>(1)) }
 
-    val mViewModel by lazy {
-        val providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
-        ViewModelProvider(this).get(providerVMClass)
-    }
-
-    lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         runCatching {
-            val providerVBClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VB>
-            binding = providerVBClass.getMethod("inflate", LayoutInflater::class.java).invoke(null, layoutInflater) as VB
+            binding = getTClass<VB>().getMethod("inflate", LayoutInflater::class.java).invoke(null, layoutInflater) as VB
             setContentView(binding.root)
             mContext = this
             mViewModel.run {

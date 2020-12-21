@@ -1,13 +1,14 @@
 package com.demon.easyjetpack.module.paging
 
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.demon.basemvvm.utils.Tag
-import com.demon.easyjetpack.R
 import com.demon.easyjetpack.base.ext.toast
+import com.demon.easyjetpack.databinding.LoadStateBinding
 import com.demon.easyjetpack.list.DataViewHolder
 import kotlinx.android.synthetic.main.load_state.view.*
 
@@ -54,7 +55,7 @@ class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): DataViewHolder {
-        return DataViewHolder(R.layout.load_state, parent)
+        return DataViewHolder(LoadStateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     /**

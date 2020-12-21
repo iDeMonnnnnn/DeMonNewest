@@ -6,15 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.demon.basemvvm.helper.DialogHelp
-import java.lang.reflect.ParameterizedType
+import com.demon.basemvvm.utils.getTClass
 
 abstract class MvvmActivity<VM : BaseViewModel> : AppCompatActivity() {
     protected lateinit var mContext: Context
 
-    val mViewModel by lazy {
-        val providerVMClass = (this::class.java.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
-        ViewModelProvider(this).get(providerVMClass)
-    }
+    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

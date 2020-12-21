@@ -7,6 +7,7 @@ import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.easyjetpack.R
 import com.demon.easyjetpack.base.data.RouterConst
 import com.demon.easyjetpack.bean.ArticleBean
+import com.demon.easyjetpack.databinding.ListPagingBinding
 import com.demon.easyjetpack.list.DataViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_paging.*
@@ -20,7 +21,7 @@ class PagingActivity : MvvmActivity<PagingViewModel>() {
     override fun setupLayoutId(): Int = R.layout.activity_paging
 
     override fun init() {
-        val pagingAdapter = object : PagingAdapter<ArticleBean>(R.layout.list_paging, swipe) {
+        val pagingAdapter = object : PagingAdapter<ListPagingBinding,ArticleBean>(swipe) {
             override fun onBind(holder: DataViewHolder, position: Int, data: ArticleBean) {
                 holder.itemView.tv_text.text = data.title
             }

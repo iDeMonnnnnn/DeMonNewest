@@ -1,11 +1,8 @@
 package com.demon.easyjetpack.list
 
-import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import kotlinx.android.extensions.LayoutContainer
 
 /**
@@ -14,12 +11,10 @@ import kotlinx.android.extensions.LayoutContainer
  * E-mail 757454343@qq.com
  * Desc:
  */
-open class DataViewHolder constructor(@LayoutRes val layoutRes: Int, private val root: ViewGroup) : RecyclerView.ViewHolder(
-    LayoutInflater.from(root.context).inflate(layoutRes, root, false)
-), LayoutContainer {
-    val mContext: Context = root.context
+open class DataViewHolder(val binding: ViewBinding) : RecyclerView.ViewHolder(binding.root), LayoutContainer {
+    val mContext = binding.root.context
 
     override val containerView: View?
-        get() = LayoutInflater.from(root.context).inflate(layoutRes, root, false)
+        get() = binding.root
 
 }

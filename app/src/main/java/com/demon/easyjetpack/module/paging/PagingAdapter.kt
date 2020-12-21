@@ -1,11 +1,12 @@
 package com.demon.easyjetpack.module.paging
 
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.viewbinding.ViewBinding
+import com.demon.basemvvm.utils.inflateVB
 import com.demon.easyjetpack.list.DataViewHolder
 
 /**
@@ -14,7 +15,7 @@ import com.demon.easyjetpack.list.DataViewHolder
  * E-mail 757454343@qq.com
  * Desc:
  */
-abstract class PagingAdapter<T : Any> constructor(@LayoutRes val layoutRes: Int, private val swipe: SwipeRefreshLayout? = null) :
+abstract class PagingAdapter<VB : ViewBinding, T : Any> constructor(private val swipe: SwipeRefreshLayout? = null) :
     PagingDataAdapter<T, DataViewHolder>(DiffComparator<T>()) {
 
     init {
@@ -34,7 +35,7 @@ abstract class PagingAdapter<T : Any> constructor(@LayoutRes val layoutRes: Int,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        return DataViewHolder(layoutRes, parent)
+        return DataViewHolder(inflateVB<VB>(parent))
     }
 
 
