@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.helper.DialogHelp
 import com.demon.basemvvm.utils.getTClass
+import com.demon.basemvvm.utils.inflateViewBinding
 
 /**
  * @author DeMon
@@ -18,13 +20,25 @@ import com.demon.basemvvm.utils.getTClass
  * E-mail 757454343@qq.com
  * Desc:
  */
-abstract class MvvmFragment<VM : BaseViewModel> : Fragment() {
+abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     private var isLoad = false
     protected lateinit var mContext: Context
-    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>()) }
+    private var _binding: VB? = null
+
+    // This property is only valid between onCreateView and onDestroyView.
+    protected val binding get() = _binding!!
+    protected val mViewModel by lazy {
+        ViewModelProvider(this).get(getTClass<VM>(1))
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(setupLayoutId(), container)
+        runCatching {
+            _binding = inflateViewBinding<VB>(inflater, container)
+            return _binding?.root
+        }.onFailure {
+            it.printStackTrace()
+        }
+        return null
     }
 
 
@@ -51,6 +65,7 @@ abstract class MvvmFragment<VM : BaseViewModel> : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         lifecycle.removeObserver(mViewModel)
+        _binding = null
     }
 
     override fun onResume() {
@@ -64,8 +79,6 @@ abstract class MvvmFragment<VM : BaseViewModel> : Fragment() {
         }
     }
 
-
-    protected abstract fun setupLayoutId(): Int
 
     protected abstract fun init()
 

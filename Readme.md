@@ -1,6 +1,9 @@
-### EasyJetpack
+### DeMonJetPack
 
-JetPack组件学习及模块化使用示例。
+拥抱最新的Jetpack，打造一个全新的MVVM
+
+1. JetPack组件学习及模块化使用，并持续跟进完全使用最新版本。
+2. 适合与JetPack组件结合使用的优秀框架使用示例。
 
 
 #### 组件
@@ -8,7 +11,7 @@ JetPack组件学习及模块化使用示例。
 |组件|说明|备注|
 |--|--|--|
 |KTX|Android官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
-|viewBinding|视图绑定|<https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn>|
+|ViewBinding|视图绑定|<https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn>|
 |LiveData|数据观察|<https://developer.android.google.cn/topic/libraries/architecture/livedata?hl=zh-cn>|
 |ViewModel|MVVM|<https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn>|
 |Room|数据库|<https://developer.android.google.cn/topic/libraries/architecture/room?hl=zh-cn>|
@@ -24,5 +27,13 @@ JetPack组件学习及模块化使用示例。
 |框架|说明|备注|
 |--|--|--|
 |ARouter|阿里路由框架|<https://github.com/alibaba/ARouter>|
-|LiveEventBus|消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
-|MMKV|基于 mmap 的高性能通用 key-value 组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
+|LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
+|MMKV|腾讯基于mmap的高性能通用key-value组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
+
+
+
+#### 日志
+
+- 2020.12.22：升级到```kotlin_version = '1.4.21'```，全面移除```kotlin-android-extensions```.
+
+- 2020.11.16：使用Hilt代替Dagger2.

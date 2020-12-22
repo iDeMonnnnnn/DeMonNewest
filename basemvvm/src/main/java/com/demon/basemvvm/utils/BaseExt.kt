@@ -32,16 +32,41 @@ inline val <T : Any> T.Tag: String
  */
 inline fun <T : Any> Any.getTClass(index: Int = 0): Class<T> = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<T>
 
-inline fun <VB : ViewBinding> Any.inflateVB(inflater: LayoutInflater, index: Int = 0): ViewBinding {
+/**
+ * 反射执行ViewBinding的inflate静态方法，主要在Activity中使用
+ *
+ * @param inflater LayoutInflater参数
+ * @param index 表示第几个泛型
+ */
+inline fun <VB : ViewBinding> Any.inflateViewBinding(inflater: LayoutInflater, index: Int = 0): VB {
     val cla = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<VB>
     return cla.getMethod("inflate", LayoutInflater::class.java).invoke(null, inflater) as VB
 }
 
-inline fun <VB : ViewBinding> Any.inflateVB(container: ViewGroup, index: Int = 0): ViewBinding {
+/**
+ * 反射执行ViewBinding的inflate静态方法，主要在Fragment中使用
+ *
+ * @param inflater LayoutInflater参数
+ * @param container ViewGroup
+ * @param index 表示第几个泛型
+ */
+inline fun <VB : ViewBinding> Any.inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?, index: Int = 0): VB {
+    val cla = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<VB>
+    return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
+        .invoke(null, inflater, container, false) as VB
+}
+
+/**
+ * 反射执行ViewBinding的inflate静态方法,主要在DataViewHolder中使用
+ * @param container ViewGroup
+ * @param index 表示第几个泛型
+ */
+inline fun <VB : ViewBinding> Any.inflateViewBinding(container: ViewGroup, index: Int = 0): VB {
     val cla = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<VB>
     return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
         .invoke(null, LayoutInflater.from(container.context), container, false) as VB
 }
+
 
 /**
  * io线程

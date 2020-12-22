@@ -5,19 +5,23 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.helper.DialogHelp
 import com.demon.basemvvm.utils.getTClass
+import com.demon.basemvvm.utils.inflateViewBinding
 
-abstract class MvvmActivity<VM : BaseViewModel> : AppCompatActivity() {
+abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
     protected lateinit var mContext: Context
+    protected lateinit var binding: VB
+    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>(1)) }
 
-    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(setupLayoutId())
-        mContext = this
         runCatching {
+            binding = inflateViewBinding(layoutInflater)
+            setContentView(binding.root)
+            mContext = this
             mViewModel.run {
                 lifecycle.addObserver(this)
                 errLiveData.observe(this@MvvmActivity) {
@@ -33,9 +37,6 @@ abstract class MvvmActivity<VM : BaseViewModel> : AppCompatActivity() {
             it.printStackTrace()
         }
     }
-
-
-    protected abstract fun setupLayoutId(): Int
 
     protected abstract fun init()
 
