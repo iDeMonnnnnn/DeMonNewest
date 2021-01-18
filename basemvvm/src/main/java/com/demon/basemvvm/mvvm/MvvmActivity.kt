@@ -11,6 +11,7 @@ import com.demon.basemvvm.utils.getTClass
 import com.demon.basemvvm.utils.inflateViewBinding
 
 abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
+    protected val TAG = this.javaClass.simpleName
     protected lateinit var mContext: Context
     protected lateinit var binding: VB
     protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>(1)) }

@@ -80,6 +80,12 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             ARouter.getInstance().build(RouterConst.ACT_VIEWBINDING).navigation()
         }
 
+        binding.btnWorkManager.setOnClickListener {
+            ARouter.getInstance().build(RouterConst.ACT_WORKER).navigation()
+        }
+
+
+
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
             Log.i(Tag, "普通消息：{ $t }")
             t.toast(mContext)
