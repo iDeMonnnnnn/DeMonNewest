@@ -77,7 +77,7 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
         }
 
         binding.btnViewBinding.setOnClickListener {
-
+            ARouter.getInstance().build(RouterConst.ACT_VIEWBINDING).navigation()
         }
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
