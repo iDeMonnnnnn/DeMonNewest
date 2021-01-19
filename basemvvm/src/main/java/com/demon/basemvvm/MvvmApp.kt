@@ -15,9 +15,9 @@ import com.tencent.mmkv.MMKV
  * Desc:
  */
 open class MvvmApp : Application() {
+    protected val TAG = this.javaClass.simpleName
 
     companion object {
-        const val TAG = "MvvmApp"
         lateinit var instance: Application
         lateinit var appContext: Context
     }

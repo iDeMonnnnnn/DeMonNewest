@@ -62,11 +62,11 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
         binding.btnPaging.setOnClickListener { ARouter.getInstance().build(RouterConst.ACT_PAGING).navigation() }
 
         binding.btnDataStore.setOnClickListener {
-            mmkv.encode("data_string", "hello world")
-            mmkv.encode("data_long", System.currentTimeMillis())
+            mmkv?.encode("data_string", "hello world")
+            mmkv?.encode("data_long", System.currentTimeMillis())
 
-            Log.i(Tag, "init: ${mmkv.decodeString("data_string", "")}")
-            Log.i(Tag, "init: ${mmkv.decodeLong("data_long", 0L)}")
+            Log.i(Tag, "init: ${mmkv?.decodeString("data_string", "")}")
+            Log.i(Tag, "init: ${mmkv?.decodeLong("data_long", 0L)}")
             lifecycleScope.launchUI {
                 DataStoreHelper.instance.put("data_string", "hello world")
                 DataStoreHelper.instance.put("data_long", System.currentTimeMillis())
