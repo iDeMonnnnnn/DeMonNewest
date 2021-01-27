@@ -20,7 +20,7 @@
 |DataStore|数据存储|<https://developer.android.google.cn/topic/libraries/architecture/datastore?hl=zh-cn>|
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
-
+|MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
 
 #### 框架
 
@@ -34,6 +34,6 @@
 
 #### 日志
 
-- 2020.12.22：升级到```kotlin_version = '1.4.21'```，全面移除```kotlin-android-extensions```.
+- 2020.12.22：升级到```kotlin_version = '1.4.21'```，使用```ViewBinding```,移除```kotlin-android-extensions```.
 
 - 2020.11.16：使用Hilt代替Dagger2.

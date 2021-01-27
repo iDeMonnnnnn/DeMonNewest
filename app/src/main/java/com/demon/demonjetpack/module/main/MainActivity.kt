@@ -24,6 +24,7 @@ import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.databinding.ActivityMainBinding
 import com.demon.demonjetpack.module.dagger.DaggerTestActivity
 import com.demon.demonjetpack.module.fragment.FragActivity
+import com.demon.demonjetpack.module.motion.MotionActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -84,7 +85,9 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             ARouter.getInstance().build(RouterConst.ACT_WORKER).navigation()
         }
 
-
+        binding.btnMotion.setOnClickListener {
+            toActivity(MotionActivity::class.java)
+        }
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
             Log.i(Tag, "普通消息：{ $t }")

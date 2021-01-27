@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.work.WorkerActivity"/>
         <activity android:name=".module.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,19 +26,19 @@
         <activity android:name=".module.fragment.FragActivity" />
         <activity android:name=".module.room.RoomActivity" />
         <activity android:name=".module.dagger.DaggerTestActivity" />
-
+        <activity android:name=".module.motion.MotionActivity"/>
+        <activity android:name=".module.work.WorkerActivity" />
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
             android:authorities="${applicationId}.workmanager-init"
             tools:node="remove" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-
-            <meta-data  android:name="com.demon.demonjetpack.ARouterInitializer"
+            <meta-data
+                android:name="com.demon.demonjetpack.ARouterInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

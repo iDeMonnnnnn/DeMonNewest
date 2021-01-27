@@ -21,6 +21,7 @@ import com.demon.basemvvm.utils.inflateViewBinding
  * Desc:
  */
 abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
+    protected val TAG = this.javaClass.simpleName
     private var isLoad = false
     protected lateinit var mContext: Context
     private var _binding: VB? = null
