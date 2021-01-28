@@ -1,0 +1,73 @@
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_05">
+
+    <TextView
+        android:id="@+id/d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="D"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="e"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/o"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="o"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="n"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_base_alpha="1"
+        app:shimmer_base_color="@android:color/holo_blue_light"
+        app:shimmer_colored="true"
+        app:shimmer_duration="2000"
+        app:shimmer_highlight_color="@color/colorPrimary"
+        app:shimmer_repeat_count="3"
+        app:shimmer_repeat_mode="reverse">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.1"
+            android:text="DeMon"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="22sp" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
