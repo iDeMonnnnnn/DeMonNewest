@@ -16,6 +16,7 @@ class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), Vie
         binding.btn3.setOnClickListener(this)
         binding.btn4.setOnClickListener(this)
         binding.btn5.setOnClickListener(this)
+        binding.btn6.setOnClickListener(this)
     }
 
     lateinit var fragment: Fragment
@@ -28,6 +29,7 @@ class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), Vie
             R.id.btn3 -> fragment = ImageFilterFragment()
             R.id.btn4 -> fragment = FulCompactFragment()
             R.id.btn5 -> fragment = TextScatteredFragment()
+            R.id.btn6 -> fragment = RedPackageFragment()
         }
         transaction.replace(R.id.frameLayout, fragment).commitAllowingStateLoss()
     }
