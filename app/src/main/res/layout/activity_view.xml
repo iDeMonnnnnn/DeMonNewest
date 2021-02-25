@@ -4,34 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.views.viewbinding.ViewBindingActivity">
+    android:padding="20dp"
+    tools:context=".module.views.ViewActivity">
 
     <Button
-        android:id="@+id/btnDialog"
+        android:id="@+id/btnViewBinding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="ViewBinding"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/includeLayout"
-        layout="@layout/include_layout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnMotion"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="MotionLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDialog" />
+        app:layout_constraintTop_toBottomOf="@id/btnViewBinding" />
 
-    <include layout="@layout/merge_layout" />
 
-    <ViewStub
-        android:id="@+id/viewStub"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnLighter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout="@layout/viewstub_layout"
+        android:text="高亮引导"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mergeView"
-        app:layout_goneMarginTop="10dp" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/btnMotion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

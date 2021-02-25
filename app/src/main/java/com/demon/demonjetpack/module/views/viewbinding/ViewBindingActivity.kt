@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.viewbinding
+package com.demon.demonjetpack.module.views.viewbinding
 
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route

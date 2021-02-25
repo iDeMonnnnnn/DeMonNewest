@@ -1,8 +1,8 @@
-package com.demon.demonjetpack.module.motion
+package com.demon.demonjetpack.module.views.motion
 
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmFragment
-import com.demon.demonjetpack.databinding.FragmentSimpleBinding
+import com.demon.demonjetpack.databinding.FragmentImageFilterBinding
 
 /**
  * @author DeMon
@@ -10,7 +10,7 @@ import com.demon.demonjetpack.databinding.FragmentSimpleBinding
  * E-mail 757454343@qq.com
  * Desc:
  */
-class SimpleFragment : MvvmFragment<FragmentSimpleBinding, BaseViewModel>() {
+class ImageFilterFragment :MvvmFragment<FragmentImageFilterBinding,BaseViewModel>() {
     override fun init() {
 
     }

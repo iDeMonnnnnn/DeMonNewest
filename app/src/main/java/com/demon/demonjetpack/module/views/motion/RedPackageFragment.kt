@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.motion
+package com.demon.demonjetpack.module.views.motion
 
 import android.util.Log
 import android.widget.AbsoluteLayout

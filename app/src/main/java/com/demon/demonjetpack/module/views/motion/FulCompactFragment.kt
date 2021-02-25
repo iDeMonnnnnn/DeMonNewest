@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.motion
+package com.demon.demonjetpack.module.views.motion
 
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmFragment

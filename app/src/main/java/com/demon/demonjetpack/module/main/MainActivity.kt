@@ -24,11 +24,12 @@ import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.databinding.ActivityMainBinding
 import com.demon.demonjetpack.module.dagger.DaggerTestActivity
 import com.demon.demonjetpack.module.fragment.FragActivity
-import com.demon.demonjetpack.module.motion.MotionActivity
+import com.demon.demonjetpack.module.views.ViewActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import javax.inject.Inject
+
 
 @Route(path = RouterConst.ACT_MAIN)
 @AndroidEntryPoint
@@ -56,7 +57,7 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             ARouter.getInstance().build(RouterConst.ACT_ROOM).navigation()
         }
 
-        binding.btn4.setOnClickListener {
+        binding.btnMultiProgress.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_MULTIPROGRESS).navigation()
         }
 
@@ -77,16 +78,12 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             }
         }
 
-        binding.btnViewBinding.setOnClickListener {
-            ARouter.getInstance().build(RouterConst.ACT_VIEWBINDING).navigation()
-        }
-
         binding.btnWorkManager.setOnClickListener {
             ARouter.getInstance().build(RouterConst.ACT_WORKER).navigation()
         }
 
-        binding.btnMotion.setOnClickListener {
-            toActivity(MotionActivity::class.java)
+        binding.btnView.setOnClickListener {
+            toActivity(ViewActivity::class.java)
         }
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
@@ -112,6 +109,7 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
                 }
             }
         }, *Constants.BROADCASTS)
+
     }
 
 

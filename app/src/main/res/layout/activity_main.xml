@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="20dp"
+    android:padding="20dp"
     tools:context=".module.main.MainActivity">
 
     <TextView
@@ -26,6 +26,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProgress" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnView"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="View与动画"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProgress" />
+
     <Button
         android:id="@+id/btnDagger"
         android:layout_width="wrap_content"
@@ -33,7 +44,6 @@
         android:text="Hilt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn" />
-
 
     <Button
         android:id="@+id/btnRoom"
@@ -52,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnRoom" />
 
     <Button
-        android:id="@+id/btn4"
+        android:id="@+id/btnMultiProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="多进程通信"
@@ -66,16 +76,7 @@
         android:layout_height="wrap_content"
         android:text="DataStore"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn4" />
-
-
-    <Button
-        android:id="@+id/btnViewBinding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ViewBinding"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDataStore" />
+        app:layout_constraintTop_toBottomOf="@id/btnMultiProgress" />
 
     <Button
         android:id="@+id/btnWorkManager"
@@ -83,13 +84,6 @@
         android:layout_height="wrap_content"
         android:text="WorkManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewBinding" />
+        app:layout_constraintTop_toBottomOf="@id/btnDataStore" />
 
-    <Button
-        android:id="@+id/btnMotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MotionLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnWorkManager" />
 </androidx.constraintlayout.widget.ConstraintLayout>

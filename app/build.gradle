@@ -65,6 +65,8 @@ dependencies {
     //WorkManager
     implementation "androidx.work:work-runtime-ktx:$work_version"
     implementation "androidx.startup:startup-runtime:1.0.0"
-
+    //微光特效
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //引导高亮
+    implementation 'me.samlss:lighter:1.0.3'
 }

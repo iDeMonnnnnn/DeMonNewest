@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.motion
+package com.demon.demonjetpack.module.views.motion
 
 import android.view.View
 import androidx.fragment.app.Fragment

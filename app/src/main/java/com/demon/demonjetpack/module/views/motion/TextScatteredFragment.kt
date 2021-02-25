@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.motion
+package com.demon.demonjetpack.module.views.motion
 
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.demon.basemvvm.mvvm.BaseViewModel
@@ -14,7 +14,7 @@ import com.demon.demonjetpack.databinding.FragmentTextScatteredBinding
 class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {
     override fun init() {
         binding.motionLayout.transitionToEnd()
-        binding.motionLayout.addTransitionListener(object :MotionLayout.TransitionListener{
+        binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
             }
 
@@ -24,12 +24,20 @@ class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseVie
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 binding.shimmerLayout.startShimmer()
                 binding.shimmerLayout.postDelayed({
-                    binding.shimmerLayout.stopShimmer()
-                },3000)
+                    if (isVisible)
+                        binding.shimmerLayout.stopShimmer()
+                }, 3000)
             }
 
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
             }
         })
+    }
+
+
+
+    override fun onDestroyView() {
+        binding.shimmerLayout.stopShimmer()
+        super.onDestroyView()
     }
 }
