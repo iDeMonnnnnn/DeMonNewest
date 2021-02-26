@@ -3,7 +3,7 @@ package com.demon.demonjetpack.hilt
 import com.demon.demonjetpack.base.http.DataRepository
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 
 /**
  * @author DeMon
@@ -12,7 +12,7 @@ import dagger.hilt.android.components.ApplicationComponent
  * Desc:非作用域的类注入（类似Dagger的inject）
  */
 @EntryPoint
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 interface InfEntry {
 
     fun provideDataRepository(): DataRepository

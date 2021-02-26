@@ -26,6 +26,7 @@ class App : MvvmApp() {
         super.onCreate()
         Log.i(TAG, "onCreate: ")
         instance = this
+        appContext = applicationContext
         LiveEventBus.config().setContext(applicationContext)
     }
 

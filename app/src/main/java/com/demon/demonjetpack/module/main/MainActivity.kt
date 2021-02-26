@@ -23,6 +23,7 @@ import com.demon.demonjetpack.base.ext.getCurrentProcessName
 import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.databinding.ActivityMainBinding
 import com.demon.demonjetpack.module.dagger.DaggerTestActivity
+import com.demon.demonjetpack.module.dp.DpActivity
 import com.demon.demonjetpack.module.fragment.FragActivity
 import com.demon.demonjetpack.module.views.ViewActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -84,6 +85,10 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
         binding.btnView.setOnClickListener {
             toActivity(ViewActivity::class.java)
+        }
+
+        binding.btnDP.setOnClickListener {
+            toActivity(DpActivity::class.java)
         }
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
