@@ -39,7 +39,8 @@ class MediaPlayerAudio : IAudio {
 
     override fun start() {
         mMediaPlayer?.run {
-           start()
+            seek(0)
+            start()
         }
     }
 
@@ -57,7 +58,7 @@ class MediaPlayerAudio : IAudio {
 
     override fun seek(pos: Int) {
         mMediaPlayer?.run {
-            if (pos in 1 until duration) seekTo(pos)
+            if (pos in 0 until duration) seekTo(pos)
         }
     }
 

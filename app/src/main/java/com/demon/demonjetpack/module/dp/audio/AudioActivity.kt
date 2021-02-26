@@ -22,6 +22,7 @@ class AudioActivity : MvvmActivity<ActivityAudioBinding, BaseViewModel>() {
 
             override fun playPrepared() {
                 binding.seekBar.max = iIAudio?.getDuration() ?: 0
+                binding.seekBar.progress = 0
                 startTimer()
             }
 
