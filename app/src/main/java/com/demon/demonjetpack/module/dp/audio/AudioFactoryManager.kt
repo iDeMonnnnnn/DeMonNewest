@@ -7,10 +7,13 @@ package com.demon.demonjetpack.module.dp.audio
  * Desc: 工厂管理类
  */
 object AudioFactoryManager {
+    const val MediaPlayer = 0
+    const val ExoPlayer = 1
+
     fun getInstance(mode: Int): IAudio {
         return when (mode) {
             1 -> {
-                MediaPlayerAudio()
+                ExoPlayerAudio()
             }
             else -> {
                 MediaPlayerAudio()

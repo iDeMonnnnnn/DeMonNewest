@@ -1,6 +1,7 @@
 package com.demon.demonjetpack.module.dp.audio
 
 import android.content.Context
+import android.net.Uri
 
 /**
  * @author DeMon
@@ -18,7 +19,7 @@ interface IAudio {
     /**
      * 播放
      */
-    fun load(context: Context, path: String)
+    fun load(context: Context, uri: Uri)
 
     /**
      * 开始播放
@@ -68,5 +69,5 @@ interface IAudioListener {
 
     fun playCompletion() //播放完成
 
-    fun playError(what: Int, extra: Int) //播放异常
+    fun playError(what: Int, extra: String) //播放异常
 }

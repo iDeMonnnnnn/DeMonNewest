@@ -2,6 +2,8 @@ package com.demon.demonjetpack.module.dp.audio
 
 import android.content.Context
 import android.media.MediaPlayer
+import android.net.Uri
+import android.util.Log
 
 /**
  * @author DeMon
@@ -10,9 +12,11 @@ import android.media.MediaPlayer
  * Desc: 系统MediaPlayer实现
  */
 class MediaPlayerAudio : IAudio {
+    private val TAG = "MediaPlayerAudio"
     private var mMediaPlayer: MediaPlayer? = null
 
     init {
+        Log.i(TAG, "using: MediaPlayer")
         mMediaPlayer = MediaPlayer()
     }
 
@@ -27,13 +31,13 @@ class MediaPlayerAudio : IAudio {
         mMediaPlayer?.prepareAsync()
     }
 
-    override fun load(context: Context, path: String) {
+    override fun load(context: Context, uri: Uri) {
         if (mMediaPlayer == null) {
             mMediaPlayer = MediaPlayer()
         } else {
             mMediaPlayer?.reset()
         }
-        mMediaPlayer?.setDataSource(path)
+        mMediaPlayer?.setDataSource(context, uri)
         mMediaPlayer?.prepareAsync()
     }
 
@@ -80,7 +84,7 @@ class MediaPlayerAudio : IAudio {
             listener?.playLoad(percent)
         }
         mMediaPlayer?.setOnErrorListener { mp, what, extra ->
-            listener?.playError(what, extra)
+            listener?.playError(what, "$extra")
             false
         }
         mMediaPlayer?.setOnCompletionListener {

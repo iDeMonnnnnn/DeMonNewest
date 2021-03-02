@@ -58,9 +58,9 @@ dependencies {
     api "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
     //hilt
     implementation "com.google.dagger:hilt-android:2.31-alpha"
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
     kapt "com.google.dagger:hilt-android-compiler:2.31-alpha"
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha03'
     //Preferences DataStore
     api "androidx.datastore:datastore-preferences:1.0.0-alpha05"
     api "androidx.multidex:multidex:2.0.1"
