@@ -71,4 +71,7 @@ dependencies {
     implementation 'me.samlss:lighter:1.0.3'
     //exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.13.2'
+    //Glide4.x
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 }
