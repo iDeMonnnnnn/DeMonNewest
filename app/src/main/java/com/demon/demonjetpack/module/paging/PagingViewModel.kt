@@ -1,8 +1,9 @@
 package com.demon.demonjetpack.module.paging
 
-import androidx.hilt.lifecycle.ViewModelInject
 import com.demon.demonjetpack.base.ext.getDataOrThrow
 import com.demon.demonjetpack.base.http.HttpViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 /**
  * @author DeMon
@@ -10,7 +11,8 @@ import com.demon.demonjetpack.base.http.HttpViewModel
  * E-mail 757454343@qq.com
  * Desc:
  */
-class PagingViewModel @ViewModelInject constructor() : HttpViewModel() {
+@HiltViewModel
+class PagingViewModel @Inject constructor() : HttpViewModel() {
 
     val liveData = toPage {
         repository.articleAuthorList(it).getDataOrThrow()

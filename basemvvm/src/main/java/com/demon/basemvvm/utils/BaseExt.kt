@@ -1,7 +1,12 @@
 package com.demon.basemvvm.utils
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.viewbinding.ViewBinding
 import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.CoroutineScope
@@ -68,6 +73,12 @@ inline fun <VB : ViewBinding> Any.inflateViewBinding(container: ViewGroup, index
 }
 
 
+fun Context.dpToPx(dp: Int): Int {
+    val scale = resources.displayMetrics.density
+    return (dp * scale + 0.5f * if (dp >= 0) 1 else -1).toInt()
+}
+
+
 /**
  * io线程
  */
@@ -80,4 +91,28 @@ fun CoroutineScope.launchIO(block: suspend () -> Unit): Job {
  */
 fun CoroutineScope.launchUI(block: suspend () -> Unit): Job {
     return this.launch(Dispatchers.Main) { block() }
+}
+
+fun LifecycleOwner.launch(block: suspend () -> Unit): Job {
+    return lifecycleScope.launch { block() }
+}
+
+fun LifecycleOwner.launchUI(block: suspend () -> Unit): Job {
+    return lifecycleScope.launch(Dispatchers.Main) { block() }
+}
+
+fun LifecycleOwner.launchIO(block: suspend () -> Unit): Job {
+    return lifecycleScope.launch(Dispatchers.IO) { block() }
+}
+
+fun ViewModel.launch(block: suspend () -> Unit): Job {
+    return viewModelScope.launch { block() }
+}
+
+fun ViewModel.launchUI(block: suspend () -> Unit): Job {
+    return viewModelScope.launch(Dispatchers.Main) { block() }
+}
+
+fun ViewModel.launchIO(block: suspend () -> Unit): Job {
+    return viewModelScope.launch(Dispatchers.IO) { block() }
 }

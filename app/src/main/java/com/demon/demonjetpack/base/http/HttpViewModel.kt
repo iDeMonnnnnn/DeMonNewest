@@ -18,9 +18,9 @@ import javax.inject.Inject
  * E-mail 757454343@qq.com
  * Desc:
  */
-open class HttpViewModel : BaseViewModel() {
-    @Inject
-    lateinit var repository: DataRepository
+open class HttpViewModel @Inject constructor() : BaseViewModel() {
+
+    var repository: DataRepository
 
 
     init {

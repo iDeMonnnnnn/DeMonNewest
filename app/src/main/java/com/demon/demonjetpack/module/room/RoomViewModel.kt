@@ -1,13 +1,14 @@
 package com.demon.demonjetpack.module.room
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.demonjetpack.base.db.User
 import com.demon.demonjetpack.base.db.UserDao
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.random.Random
 
 /**
@@ -16,7 +17,8 @@ import kotlin.random.Random
  * E-mail 757454343@qq.com
  * Desc:
  */
-class RoomViewModel @ViewModelInject constructor(var dao: UserDao) : BaseViewModel() {
+@HiltViewModel
+class RoomViewModel @Inject constructor(var dao: UserDao) : BaseViewModel() {
 
 
     val useData: LiveData<List<User>>
