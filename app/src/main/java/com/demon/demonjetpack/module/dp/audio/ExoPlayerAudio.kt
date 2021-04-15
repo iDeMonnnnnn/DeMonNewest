@@ -3,10 +3,7 @@ package com.demon.demonjetpack.module.dp.audio
 import android.content.Context
 import android.net.Uri
 import android.util.Log
-import com.google.android.exoplayer2.ExoPlaybackException
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.upstream.RawResourceDataSource
 
 
@@ -111,6 +108,10 @@ class ExoPlayerAudio : IAudio {
             override fun onPlayerError(error: ExoPlaybackException) {
                 super.onPlayerError(error)
                 listener?.playError(error.type, error.message ?: "")
+            }
+
+            override fun onTimelineChanged(timeline: Timeline, reason: Int) {
+                super.onTimelineChanged(timeline, reason)
             }
         })
 
