@@ -20,13 +20,9 @@ import javax.inject.Inject
  */
 open class HttpViewModel @Inject constructor() : BaseViewModel() {
 
-    var repository: DataRepository
-
-
-    init {
-        repository = EntryPoints.get(App.appContext, InfEntry::class.java).provideDataRepository()
+    val repository: DataRepository by lazy {
+        EntryPoints.get(App.appContext, InfEntry::class.java).provideDataRepository()
     }
-
 
     protected fun <T : Any> toPage(block: suspend (Int) -> PageBean<T>) =
         Pager(PagingConfig(pageSize = 20)) {

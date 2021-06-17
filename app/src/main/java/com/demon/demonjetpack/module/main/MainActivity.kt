@@ -1,5 +1,6 @@
 package com.demon.demonjetpack.module.main
 
+import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -19,6 +20,7 @@ import com.demon.basemvvm.utils.launchUI
 import com.demon.basemvvm.utils.mmkv
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
+import com.demon.demonjetpack.base.ext.getChannel
 import com.demon.demonjetpack.base.ext.getCurrentProcessName
 import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.databinding.ActivityMainBinding
@@ -27,6 +29,10 @@ import com.demon.demonjetpack.module.dp.DpActivity
 import com.demon.demonjetpack.module.fragment.FragActivity
 import com.demon.demonjetpack.module.views.ViewActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
+import com.qw.soul.permission.SoulPermission
+import com.qw.soul.permission.bean.Permission
+import com.qw.soul.permission.bean.Permissions
+import com.qw.soul.permission.callbcak.CheckRequestPermissionsListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import javax.inject.Inject
@@ -40,8 +46,26 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
     @Inject
     lateinit var broadcastHelper: BroadcastHelper
 
+    override fun onStart() {
+        super.onStart()
+        val initPermissions = Permissions.build(
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE
+        )
+        SoulPermission.getInstance().checkAndRequestPermissions(initPermissions, object : CheckRequestPermissionsListener {
+            override fun onAllPermissionOk(allPermissions: Array<out Permission>?) {
+                Log.i(TAG, "onAllPermissionOk: ")
+            }
+
+            override fun onPermissionDenied(refusedPermissions: Array<out Permission>?) {
+                Log.i(TAG, "onPermissionDenied: ")
+            }
+        })
+    }
+
     override fun init() {
         binding.tvProgress.text = "当前进程:${getCurrentProcessName()}"
+        binding.tvChannel.text = "当前渠道:${getChannel("apkchannel")}"
         mViewModel.showDialog()
         binding.btn.setOnClickListener {
             //ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation()

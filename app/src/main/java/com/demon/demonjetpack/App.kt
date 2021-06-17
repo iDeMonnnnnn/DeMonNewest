@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import com.demon.basemvvm.MvvmApp
 import com.jeremyliao.liveeventbus.LiveEventBus
+import com.qw.soul.permission.SoulPermission
 import dagger.hilt.android.HiltAndroidApp
 
 /**AppComponent
@@ -28,6 +29,10 @@ class App : MvvmApp() {
         instance = this
         appContext = applicationContext
         LiveEventBus.config().setContext(applicationContext)
+
+        SoulPermission.init(this)
+        SoulPermission.setDebug(BuildConfig.DEBUG)
+        SoulPermission.skipOldRom(true)
     }
 
 }
