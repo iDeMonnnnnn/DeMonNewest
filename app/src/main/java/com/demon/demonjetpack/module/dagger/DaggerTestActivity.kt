@@ -38,7 +38,7 @@ class DaggerTestActivity : MvvmActivity<ActivityDaggerTestBinding, BaseViewModel
         }
 
         binding.btnRoom.setOnClickListener {
-            LiveEventBus.get(Constants.EVENT_BUS).post(str)
+            LiveEventBus.get<String>(Constants.EVENT_BUS).post(str)
             finishResult("key" to "123456")
         }
     }

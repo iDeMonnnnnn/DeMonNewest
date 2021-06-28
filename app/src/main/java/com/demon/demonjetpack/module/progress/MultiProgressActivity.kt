@@ -25,7 +25,7 @@ class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseVie
         binding.tv.text = "当前进程:${getCurrentProcessName()}"
 
         binding.btn.setOnClickListener {
-            LiveEventBus.get(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${getCurrentProcessName()}的消息！！！")
+            LiveEventBus.get<String>(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${getCurrentProcessName()}的消息！！！")
         }
 
 
