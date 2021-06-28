@@ -2,10 +2,7 @@ package com.demon.demonjetpack.base.http
 
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import androidx.paging.cachedIn
+import androidx.paging.*
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.demonjetpack.App
 import com.demon.demonjetpack.hilt.InfEntry
@@ -41,6 +38,10 @@ open class HttpViewModel @Inject constructor() : BaseViewModel() {
                     } catch (e: Exception) {
                         LoadResult.Error(e)
                     }
+                }
+
+                override fun getRefreshKey(state: PagingState<Int, T>): Int? {
+                   return 0
                 }
             }
         }.flow.cachedIn(viewModelScope).asLiveData()

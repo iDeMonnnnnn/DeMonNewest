@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.demon.basemvvm.helper.BroadcastHelper
-import com.demon.basemvvm.helper.DataStoreHelper
 import com.demon.basemvvm.intent.get
 import com.demon.basemvvm.intent.toActivity
 import com.demon.basemvvm.intent.toActivityForResult
@@ -22,6 +21,7 @@ import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.ext.getChannel
 import com.demon.demonjetpack.base.ext.getCurrentProcessName
 import com.demon.demonjetpack.base.ext.toast
+import com.demon.demonjetpack.base.utils.DataStoreHelper
 import com.demon.demonjetpack.databinding.ActivityMainBinding
 import com.demon.demonjetpack.module.dagger.DaggerTestActivity
 import com.demon.demonjetpack.module.dp.DpActivity
@@ -77,11 +77,11 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             Log.i(Tag, "init: ${mmkv?.decodeString("data_string", "")}")
             Log.i(Tag, "init: ${mmkv?.decodeLong("data_long", 0L)}")
             lifecycleScope.launchUI {
-                DataStoreHelper.instance.put("data_string", "hello world")
-                DataStoreHelper.instance.put("data_long", System.currentTimeMillis())
+                DataStoreHelper.put("data_string", "hello world")
+                DataStoreHelper.put("data_long", System.currentTimeMillis())
                 delay(1000)
-                Log.i("DataStoreHelper", "init: ${DataStoreHelper.instance.get("data_long", 0L)}")
-                Log.i("DataStoreHelper", "init: ${DataStoreHelper.instance.get("data_string", "String")}")
+                Log.i("DataStoreHelper", "init: ${DataStoreHelper.get("data_long", 0L)}")
+                Log.i("DataStoreHelper", "init: ${DataStoreHelper.get("data_string", "String")}")
             }
         }
 

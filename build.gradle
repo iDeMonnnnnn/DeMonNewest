@@ -1,9 +1,4 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-ext {
-    daggerVersion = "2.28"
-    okhttp3Version = "4.7.2"
-    work_version = "2.4.0"
-}
 buildscript {
     ext.kotlin_version = '1.5.10'
     repositories {

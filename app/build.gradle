@@ -43,12 +43,7 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':basemvvm')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation project(path: ':base')
     //room
     def room_version = "2.3.0"
     implementation "androidx.room:room-runtime:$room_version"
@@ -57,27 +52,30 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:$room_version"
-    def paging_version = "3.0.0-alpha10"
+    def paging_version = "3.1.0-alpha01"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
-    //ARouter
-    api 'com.alibaba:arouter-api:1.5.2'
-    kapt "com.alibaba:arouter-compiler:1.5.2"
-    //hilt
-    implementation 'com.google.dagger:hilt-android:2.37'
-    kapt 'com.google.dagger:hilt-compiler:2.37'
     //WorkManager
-    implementation "androidx.work:work-runtime-ktx:$work_version"
-    implementation "androidx.startup:startup-runtime:1.0.0"
-    //微光特效
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
-    //引导高亮
-    implementation 'me.samlss:lighter:1.0.3'
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
+    //Startup
+    implementation "androidx.startup:startup-runtime:1.1.0-beta01"
+    //Preferences DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0-beta02"
     //exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.14.1'
+    //ARouter,每个module都需要添加
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    kapt "com.alibaba:arouter-compiler:1.5.2"
+    //hilt,每个module都需要添加
+    implementation 'com.google.dagger:hilt-android:2.37'
+    kapt 'com.google.dagger:hilt-compiler:2.37'
     //Glide4.x
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
-    // If you want to use the GPU Filters
+    //GPU Filters
     //implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
+    //微光特效
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //引导高亮
+    implementation 'me.samlss:lighter:1.0.3'
 }
