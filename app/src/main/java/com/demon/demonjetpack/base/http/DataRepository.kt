@@ -12,7 +12,7 @@ class DataRepository @Inject constructor(private val apiService: ApiService) {
 
     fun articleList(author: String, no: Int = 0) = apiService.articleList(no, author)
 
-    fun articleAuthorList(no: Int = 0) = apiService.articleAuthorList(no,"程序亦非猿")
+    fun articleAuthorList(author: String, no: Int = 0) = apiService.articleAuthorList(no, author)
 
     fun articleListString(author: String, no: Int = 0) = apiService.articleListString(no, author)
 }

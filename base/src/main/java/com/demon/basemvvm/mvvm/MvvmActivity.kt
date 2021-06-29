@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
+
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.helper.DialogHelp
 import com.demon.basemvvm.utils.getTClass

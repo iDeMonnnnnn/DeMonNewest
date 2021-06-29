@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
+
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.helper.DialogHelp
 import com.demon.basemvvm.utils.getTClass

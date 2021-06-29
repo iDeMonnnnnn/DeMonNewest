@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.utils.inflateViewBinding
@@ -15,8 +16,9 @@ import com.demon.demonjetpack.list.DataViewHolder
  * E-mail 757454343@qq.com
  * Desc:
  */
-abstract class PagingAdapter<VB : ViewBinding, T : Any> constructor(private val swipe: SwipeRefreshLayout? = null) :
-    PagingDataAdapter<T, DataViewHolder<VB>>(DiffComparator<T>()) {
+abstract class PagingAdapter<VB : ViewBinding, T : Any> constructor(
+    private val swipe: SwipeRefreshLayout? = null, diffCallback: DiffUtil.ItemCallback<T> = DiffComparator()
+) : PagingDataAdapter<T, DataViewHolder<VB>>(diffCallback) {
 
     init {
         addLoadStateListener {

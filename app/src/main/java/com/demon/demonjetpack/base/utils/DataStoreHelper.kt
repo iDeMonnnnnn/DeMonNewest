@@ -7,7 +7,9 @@ import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import com.demon.basemvvm.utils.Tag
 import com.demon.demonjetpack.App
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.*
 import javax.inject.Singleton
 
@@ -21,6 +23,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "Da
 
 @Singleton
 object DataStoreHelper {
+    val coroutineScopeIO = CoroutineScope((SupervisorJob() + Dispatchers.IO))
 
     suspend inline fun <reified T : Any> get(key: String, default: T): T {
         return App.appContext.dataStore.data.map {
@@ -56,8 +59,10 @@ object DataStoreHelper {
             }
         }.catch {
             it.printStackTrace()
-        }.launchIn(GlobalScope)
+
+        }.launchIn(coroutineScopeIO)
     }
+
 
 }
 

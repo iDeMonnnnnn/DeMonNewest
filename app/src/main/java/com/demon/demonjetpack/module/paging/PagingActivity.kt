@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.paging
 
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.observe
+
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.RouterConst
@@ -14,10 +14,10 @@ import kotlinx.coroutines.launch
 
 @Route(path = RouterConst.ACT_PAGING)
 @AndroidEntryPoint
-class PagingActivity : MvvmActivity<ActivityPagingBinding,PagingViewModel>() {
+class PagingActivity : MvvmActivity<ActivityPagingBinding, PagingViewModel>() {
 
     override fun init() {
-        val pagingAdapter = object : PagingAdapter<ListPagingBinding,ArticleBean>(binding.swipe) {
+        val pagingAdapter = object : PagingAdapter<ListPagingBinding, ArticleBean>(binding.swipe) {
             override fun onBind(holder: DataViewHolder<ListPagingBinding>, position: Int, data: ArticleBean) {
                 holder.binding.run {
                     tvText.text = data.title
@@ -26,7 +26,7 @@ class PagingActivity : MvvmActivity<ActivityPagingBinding,PagingViewModel>() {
         }
         binding.rv.adapter = pagingAdapter.withFooter()
 
-        mViewModel.liveData.observe(this@PagingActivity) {
+        mViewModel.getAuthorList("鸿洋").observe(this@PagingActivity) {
             lifecycleScope.launch {
                 pagingAdapter.submitData(it)
             }

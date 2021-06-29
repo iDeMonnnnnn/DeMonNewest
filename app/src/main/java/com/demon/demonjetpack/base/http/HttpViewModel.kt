@@ -41,7 +41,10 @@ open class HttpViewModel @Inject constructor() : BaseViewModel() {
                 }
 
                 override fun getRefreshKey(state: PagingState<Int, T>): Int? {
-                   return 0
+                    return state.anchorPosition?.let { anchorPosition ->
+                        val anchorPage = state.closestPageToPosition(anchorPosition)
+                        anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
+                    }
                 }
             }
         }.flow.cachedIn(viewModelScope).asLiveData()

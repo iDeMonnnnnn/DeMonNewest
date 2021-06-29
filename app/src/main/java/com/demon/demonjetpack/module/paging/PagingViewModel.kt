@@ -14,7 +14,9 @@ import javax.inject.Inject
 @HiltViewModel
 class PagingViewModel @Inject constructor() : HttpViewModel() {
 
-    val liveData = toPage {
-        repository.articleAuthorList(it).getDataOrThrow()
-    }
+    fun getAuthorList(author: String) =
+        toPage {
+            repository.articleAuthorList(author, it).getDataOrThrow()
+        }
+
 }

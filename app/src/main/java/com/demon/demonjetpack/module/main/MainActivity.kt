@@ -41,9 +41,6 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
     @Inject
     lateinit var broadcastHelper: BroadcastHelper
 
-    override fun onStart() {
-        super.onStart()
-    }
 
     override fun init() {
         binding.tvProgress.text = "当前进程:${getCurrentProcessName()}"
@@ -80,8 +77,8 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
                 DataStoreHelper.put("data_string", "hello world")
                 DataStoreHelper.put("data_long", System.currentTimeMillis())
                 delay(1000)
-                Log.i("DataStoreHelper", "init: ${DataStoreHelper.get("data_long", 0L)}")
-                Log.i("DataStoreHelper", "init: ${DataStoreHelper.get("data_string", "String")}")
+                Log.i(Tag, "init: ${DataStoreHelper.get("data_long", 0L)}")
+                Log.i(Tag, "init: ${DataStoreHelper.get("data_string", "String")}")
             }
         }
 
