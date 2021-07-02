@@ -3,11 +3,11 @@ package com.demon.demonjetpack.module.views.motion
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.basemvvm.mvvm.MvvmFragment
 import com.demon.demonjetpack.R
-import com.demon.demonjetpack.databinding.ActivityMotionBinding
+import com.demon.demonjetpack.databinding.FragmentMotionBinding
 
-class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), View.OnClickListener {
+class MotionFragment : MvvmFragment<FragmentMotionBinding, BaseViewModel>(), View.OnClickListener {
 
 
     override fun init() {
@@ -22,7 +22,7 @@ class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), Vie
     lateinit var fragment: Fragment
 
     override fun onClick(v: View?) {
-        val transaction = supportFragmentManager.beginTransaction()
+        val transaction = childFragmentManager.beginTransaction()
         when (v?.id) {
             R.id.btn1 -> fragment = SimpleFragment()
             R.id.btn2 -> fragment = ParallaxFragment()

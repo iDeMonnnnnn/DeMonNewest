@@ -1,23 +1,19 @@
-package com.demon.demonjetpack.module.views.viewbinding
+package com.demon.demonjetpack.module.views
 
 import android.view.View
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
-import com.demon.demonjetpack.base.data.RouterConst
-import com.demon.demonjetpack.databinding.ActivityViewBindingBinding
+import com.demon.basemvvm.mvvm.MvvmFragment
+import com.demon.demonjetpack.databinding.FragmentViewBindingBinding
 import com.demon.demonjetpack.databinding.MergeLayoutBinding
 import com.demon.demonjetpack.databinding.ViewstubLayoutBinding
 
 /**
  * @author DeMon
- * Created on 2020/1/14.
+ * Created on 2021/6/29.
  * E-mail 757454343@qq.com
- * Desc: https://www.jianshu.com/p/651dbe37d805
+ * Desc:
  */
-@Route(path = RouterConst.ACT_VIEWBINDING)
-class ViewBindingActivity : MvvmActivity<ActivityViewBindingBinding, BaseViewModel>() {
-
+class ViewBindingFragment : MvvmFragment<FragmentViewBindingBinding, BaseViewModel>() {
     private var inflateView: View? = null
 
     override fun init() {
@@ -39,5 +35,4 @@ class ViewBindingActivity : MvvmActivity<ActivityViewBindingBinding, BaseViewMod
 
 
     }
-
 }

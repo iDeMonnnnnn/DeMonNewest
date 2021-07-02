@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.compose.ComposeActivity"/>
         <activity android:name=".module.dp.audio.AudioActivity" />
         <activity android:name=".module.dp.DpActivity" />
         <activity android:name=".module.main.MainActivity">
@@ -26,18 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.views.viewbinding.ViewBindingActivity" />
         <activity android:name=".module.paging.PagingActivity" />
         <activity
             android:name=".module.progress.MultiProgressActivity"
             android:process=":process" />
-        <activity android:name=".module.fragment.FragActivity" />
+        <activity android:name=".module.fragment.FragActivity"/>
         <activity android:name=".module.room.RoomActivity" />
         <activity android:name=".module.dagger.DaggerTestActivity" />
-        <activity android:name=".module.views.motion.MotionActivity" />
-        <activity android:name=".module.views.lighter.LighterActivity" />
-        <activity android:name=".module.views.ViewActivity" />
         <activity android:name=".module.work.WorkerActivity" />
+        <activity android:name=".module.views.LighterActivity" />
+        <activity android:name=".module.views.ViewsActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"

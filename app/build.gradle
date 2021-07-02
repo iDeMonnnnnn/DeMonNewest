@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id("androidx.navigation.safeargs.kotlin")
 }
 android {
     compileSdkVersion 30
@@ -44,6 +45,9 @@ kapt {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':base')
+    def nav_version = "2.3.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     //room
     def room_version = "2.3.0"
     implementation "androidx.room:room-runtime:$room_version"
@@ -70,7 +74,7 @@ dependencies {
     kapt 'com.google.dagger:hilt-compiler:2.37'
     //Glide4.x
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     //GPU Filters
     //implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'

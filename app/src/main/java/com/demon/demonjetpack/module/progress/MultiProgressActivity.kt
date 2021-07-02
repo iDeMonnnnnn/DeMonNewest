@@ -6,7 +6,7 @@ import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
-import com.demon.demonjetpack.base.ext.getCurrentProcessName
+import com.demon.demonjetpack.base.util.AppUtils
 import com.demon.demonjetpack.databinding.ActivityMultiProgressBinding
 import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,10 +22,10 @@ class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseVie
 
     override fun init() {
 
-        binding.tv.text = "当前进程:${getCurrentProcessName()}"
+        binding.tv.text = "当前进程:${AppUtils.getCurrentProcessName(this)}"
 
         binding.btn.setOnClickListener {
-            LiveEventBus.get<String>(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${getCurrentProcessName()}的消息！！！")
+            LiveEventBus.get<String>(Constants.MULTI_PROGRESS).postAcrossProcess("收到进程：${AppUtils.getCurrentProcessName(this)}的消息！！！")
         }
 
 

@@ -18,15 +18,14 @@ import com.demon.basemvvm.utils.launchUI
 import com.demon.basemvvm.utils.mmkv
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
-import com.demon.demonjetpack.base.ext.getChannel
-import com.demon.demonjetpack.base.ext.getCurrentProcessName
 import com.demon.demonjetpack.base.ext.toast
-import com.demon.demonjetpack.base.utils.DataStoreHelper
+import com.demon.demonjetpack.base.util.AppUtils
+import com.demon.demonjetpack.base.util.DataStoreHelper
 import com.demon.demonjetpack.databinding.ActivityMainBinding
 import com.demon.demonjetpack.module.dagger.DaggerTestActivity
 import com.demon.demonjetpack.module.dp.DpActivity
 import com.demon.demonjetpack.module.fragment.FragActivity
-import com.demon.demonjetpack.module.views.ViewActivity
+import com.demon.demonjetpack.module.views.ViewsActivity
 import com.jeremyliao.liveeventbus.LiveEventBus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -43,8 +42,8 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
 
     override fun init() {
-        binding.tvProgress.text = "当前进程:${getCurrentProcessName()}"
-        binding.tvChannel.text = "当前渠道:${getChannel("apkchannel")}"
+        binding.tvProgress.text = "当前进程:${AppUtils.getCurrentProcessName(this)}"
+        binding.tvChannel.text = "当前渠道:${AppUtils.getChannel(this, "apkchannel")}"
         mViewModel.showDialog()
         binding.btn.setOnClickListener {
             //ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation()
@@ -87,7 +86,7 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
         }
 
         binding.btnView.setOnClickListener {
-            toActivity(ViewActivity::class.java)
+            toActivity(ViewsActivity::class.java)
         }
 
         binding.btnDP.setOnClickListener {

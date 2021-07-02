@@ -1,9 +1,9 @@
-package com.demon.demonjetpack.module.views.lighter
+package com.demon.demonjetpack.module.views
 
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
+import com.bumptech.glide.request.target.Target
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.demonjetpack.R
@@ -19,10 +19,19 @@ import me.samlss.lighter.shape.CircleShape
 import me.samlss.lighter.shape.OvalShape
 import me.samlss.lighter.shape.RectShape
 
+/**
+ * @author DeMon
+ * Created on 2021/6/29.
+ * E-mail 757454343@qq.com
+ * Desc:
+ * https://github.com/samlss/Lighter
+ * 注:在Fragment中表现不佳
+ */
 class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
 
     private lateinit var lighter: Lighter
     override fun init() {
+        setToolbar("Lighter")
         intHighlight()
         lighter.show()
         binding.btn1.setOnClickListener {
@@ -71,7 +80,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
 
     fun createCommonTipView1(): View {
         val binding = LighterTip1Binding.inflate(layoutInflater)
-        val optionsScaleType = RequestOptions().override(SIZE_ORIGINAL)
+        val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif1)
             .apply(optionsScaleType)
             .into(binding.ivClick)
@@ -84,7 +93,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
 
     fun createCommonTipView2(): View {
         val binding = LighterTip2Binding.inflate(layoutInflater)
-        val optionsScaleType = RequestOptions().override(SIZE_ORIGINAL)
+        val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif2)
             .apply(optionsScaleType)
             .into(binding.ivClick)
@@ -97,7 +106,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
 
     fun createCommonTipView3(): View {
         val binding = LighterTip3Binding.inflate(layoutInflater)
-        val optionsScaleType = RequestOptions().override(SIZE_ORIGINAL)
+        val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif3)
             .apply(optionsScaleType)
             .into(binding.ivClick)
@@ -105,6 +114,12 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
             lighter.next()
         }
         return binding.root
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        lighter.dismiss()
     }
 
 

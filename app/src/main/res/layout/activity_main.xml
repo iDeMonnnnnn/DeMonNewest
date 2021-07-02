@@ -15,15 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toEndOf="@id/btnMultiProgress"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn"
         android:layout_width="120dp"
@@ -32,19 +23,19 @@
         android:text="JetPack MVVM"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cornerRadius="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMultiProgress" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnView"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="View与动画"
+        android:text="View相关"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMultiProgress" />
+        app:layout_constraintTop_toBottomOf="@id/btn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDP"
@@ -64,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Hilt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn" />
+        app:layout_constraintTop_toBottomOf="@id/btnMultiProgress" />
 
     <Button
         android:id="@+id/btnRoom"
@@ -97,6 +88,15 @@
         android:text="WorkManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnDataStore" />
+
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/tvChannel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvChannel"

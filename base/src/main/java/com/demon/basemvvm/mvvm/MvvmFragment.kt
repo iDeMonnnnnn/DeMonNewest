@@ -1,8 +1,8 @@
 package com.demon.basemvvm.mvvm
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +33,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.i(TAG, "onCreateView: ")
         runCatching {
             _binding = inflateViewBinding<VB>(inflater, container)
             return _binding?.root
@@ -43,18 +44,18 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     }
 
 
-    @SuppressLint("FragmentLiveDataObserve")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.i(TAG, "onViewCreated: ")
         activity?.run { mContext = this }
         runCatching {
             lifecycle.addObserver(mViewModel)
             mViewModel.run {
                 lifecycle.addObserver(this)
-                errLiveData.observe(this@MvvmFragment) {
+                errLiveData.observe(viewLifecycleOwner) {
                     doOnErrLiveData(it)
                 }
-                loadingData.observe(this@MvvmFragment) {
+                loadingData.observe(viewLifecycleOwner) {
                     DialogHelp.show(mContext, it)
                 }
             }
@@ -65,12 +66,15 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.i(TAG, "onDestroyView: ")
         lifecycle.removeObserver(mViewModel)
+        isLoad = false
         _binding = null
     }
 
     override fun onResume() {
         super.onResume()
+        Log.i(TAG, "onResume: ")
         if (!isLoad) {
             init()
             initViewModel()
@@ -91,4 +95,45 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     open fun onResumeRefresh() {}
 
     open fun doOnErrLiveData(msg: String) {}
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.i(TAG, "onAttach: ")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i(TAG, "onCreate: ")
+    }
+
+    
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart: ")
+    }
+
+    
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop: ")
+    }
+    
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy: ")
+    }
+
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i(TAG, "onDetach: ")
+    }
 }
