@@ -95,12 +95,12 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
 
         LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
             Log.i(Tag, "普通消息：{ $t }")
-            t.toast(mContext)
+            t.toast()
         })
 
         LiveEventBus.get(Constants.MULTI_PROGRESS, String::class.java).observe(this, Observer { t ->
             Log.i(Tag, "跨进程消息：{ $t }")
-            t.toast(mContext)
+            t.toast()
         })
 
 
@@ -108,10 +108,10 @@ class MainActivity : MvvmActivity<ActivityMainBinding, MainViewModel>() {
             override fun onReceive(context: Context?, intent: Intent?) {
                 when (intent?.action) {
                     Constants.BROADCAST1 -> {
-                        "${intent.getLongExtra(BroadcastHelper.RESULT, 0)}".toast(mContext)
+                        "${intent.getLongExtra(BroadcastHelper.RESULT, 0)}".toast()
                     }
                     Constants.BROADCAST2 -> {
-                        intent.getStringExtra(BroadcastHelper.RESULT)?.toast(mContext)
+                        intent.getStringExtra(BroadcastHelper.RESULT)?.toast()
                     }
                 }
             }

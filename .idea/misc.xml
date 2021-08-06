@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_doodle.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_lighter.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/acvtivty_views.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_doodle.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_full_compact.xml" value="0.3466666666666667" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_parallax.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_red_package.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view_binding.xml" value="0.35208333333333336" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

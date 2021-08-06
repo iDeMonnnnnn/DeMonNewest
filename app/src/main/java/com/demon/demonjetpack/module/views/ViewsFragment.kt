@@ -30,6 +30,11 @@ class ViewsFragment : MvvmFragment<FragmentViewBinding, BaseViewModel>() {
             Log.i(TAG, "init: btnLighter")
             findNavController().navigate(ViewsFragmentDirections.actionViewsFragmentToLighterActivity())
         }
+
+        binding.btnDoole.setOnClickListener {
+            Log.i(TAG, "init: btnLighter")
+            findNavController().navigate(ViewsFragmentDirections.actionViewsFragmentToDooleFragment())
+        }
     }
 
 }

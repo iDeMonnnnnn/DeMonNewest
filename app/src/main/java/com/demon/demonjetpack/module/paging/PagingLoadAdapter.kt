@@ -34,7 +34,7 @@ class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : 
                     root.setOnClickListener(null)
                 }
                 is LoadState.Error -> {
-                    loadState.error.localizedMessage?.toast(holder.mContext)
+                    loadState.error.localizedMessage?.toast()
                     loadingView.visibility = View.GONE
                     errorText.visibility = View.VISIBLE
                     nomoreText.visibility = View.GONE

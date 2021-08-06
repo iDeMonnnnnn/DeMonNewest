@@ -31,4 +31,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnMotion" />
 
+    <Button
+        android:id="@+id/btnDoole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="涂鸦马赛克"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMotion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

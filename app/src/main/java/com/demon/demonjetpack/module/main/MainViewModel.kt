@@ -16,7 +16,7 @@ class MainViewModel @Inject constructor() : BaseViewModel() {
 
     fun showDialog() {
         viewModelScope.launch {
-            "Hello World".toast(application)
+            "Hello World".toast()
         }
     }
 

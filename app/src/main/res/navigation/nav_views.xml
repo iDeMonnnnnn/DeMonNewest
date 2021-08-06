@@ -19,6 +19,10 @@
         <action
             android:id="@+id/action_viewsFragment_to_viewBindingFragment"
             app:destination="@id/viewBindingFragment" />
+
+        <action
+            android:id="@+id/action_viewsFragment_to_dooleFragment"
+            app:destination="@id/dooleFragment" />
     </fragment>
 
     <activity
@@ -36,4 +40,10 @@
         android:name="com.demon.demonjetpack.module.views.motion.MotionFragment"
         android:label="Motion"
         tools:layout="@layout/fragment_motion" />
+
+    <fragment
+        android:id="@+id/dooleFragment"
+        android:name="com.demon.demonjetpack.module.views.DoodleFragment"
+        android:label="Doodle"
+        tools:layout="@layout/fragment_doodle" />
 </navigation>
