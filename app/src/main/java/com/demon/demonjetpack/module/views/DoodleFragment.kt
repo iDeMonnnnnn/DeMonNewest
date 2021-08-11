@@ -31,6 +31,7 @@ class DoodleFragment : MvvmFragment<FragmentDoodleBinding, BaseViewModel>() {
             }
             btnCancel.setOnClickListener {
                 imgView.reset()
+                imgView.mode = IMGMode.NONE
             }
             btnSave.setOnClickListener {
                 val saveFile = imgView.saveBitmap().saveBitmapImg(requireContext())

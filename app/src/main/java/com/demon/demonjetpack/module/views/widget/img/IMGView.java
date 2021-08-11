@@ -20,12 +20,9 @@ import android.widget.FrameLayout;
 /**
  * Created by felix on 2017/11/14 下午6:43.
  */
-public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetector.OnScaleGestureListener,
-        ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener {
+public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetector.OnScaleGestureListener, ValueAnimator.AnimatorUpdateListener {
 
     private static final String TAG = "IMGView";
-
-    private IMGMode mPreMode = IMGMode.NONE;
 
     private IMGImage mImage = new IMGImage();
 
@@ -79,9 +76,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
     }
 
     public void setMode(IMGMode mode) {
-        // 保存现在的编辑模式
-        mPreMode = mImage.getMode();
-
         // 设置新的编辑模式
         mImage.setMode(mode);
         mPen.setMode(mode);
@@ -109,7 +103,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         if (mHomingAnimator == null) {
             mHomingAnimator = new IMGHomingAnimator();
             mHomingAnimator.addUpdateListener(this);
-            mHomingAnimator.addListener(this);
         }
         mHomingAnimator.setHomingValues(sHoming, eHoming);
         mHomingAnimator.start();
@@ -177,9 +170,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
             }
             mImage.onDrawDoodle(canvas, count);
         }
-
-        mImage.onDrawShade(canvas);
-
         canvas.restore();
     }
 
@@ -274,11 +264,9 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
 
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                mImage.onTouchDown(event.getX(), event.getY());
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                mImage.onTouchUp(getScrollX(), getScrollY());
                 onHoming();
                 break;
         }
@@ -342,7 +330,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
             Log.d(TAG, "onSteady: isHoming=" + isHoming());
         }
         if (!isHoming()) {
-            mImage.onSteady(getScrollX(), getScrollY());
             onHoming();
             return true;
         }
@@ -403,34 +390,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void onAnimationStart(Animator animation) {
-        if (DEBUG) {
-            Log.d(TAG, "onAnimationStart");
-        }
-        mImage.onHomingStart(mHomingAnimator.isRotate());
-    }
-
-    @Override
-    public void onAnimationEnd(Animator animation) {
-        if (DEBUG) {
-            Log.d(TAG, "onAnimationEnd");
-        }
-    }
-
-    @Override
-    public void onAnimationCancel(Animator animation) {
-        if (DEBUG) {
-            Log.d(TAG, "onAnimationCancel");
-        }
-        mImage.onHomingCancel(mHomingAnimator.isRotate());
-    }
-
-    @Override
-    public void onAnimationRepeat(Animator animation) {
-        // empty implementation.
     }
 
     private boolean onScroll(float dx, float dy) {

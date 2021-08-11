@@ -6,11 +6,9 @@ import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,23 +33,9 @@ public class IMGImage {
      */
     private RectF mClipFrame = new RectF();
 
-    /**
-     * 裁剪模式前状态备份
-     */
-    private RectF mBackupClipFrame = new RectF();
-
-    private float mBackupClipRotate = 0;
-
     private float mRotate = 0, mTargetRotate = 0;
 
     private boolean isRequestToBaseFitting = false;
-
-    private boolean isAnimCanceled = false;
-
-
-    private boolean isSteady = true;
-
-    private Path mShade = new Path();
 
     /**
      * 编辑模式
@@ -84,7 +68,7 @@ public class IMGImage {
 
     private static final int MAX_SIZE = 10000;
 
-    private Paint mPaint, mDoodlePaint, mShadePaint;
+    private Paint mPaint, mDoodlePaint;
 
     private Matrix M = new Matrix();
 
@@ -92,15 +76,11 @@ public class IMGImage {
 
     private static final Bitmap DEFAULT_IMAGE;
 
-    private static final int COLOR_SHADE = 0xCC000000;
 
     static {
         DEFAULT_IMAGE = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
     }
-
     {
-        mShade.setFillType(Path.FillType.WINDING);
-
         // Doodle&Mosaic 's paint
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -253,7 +233,7 @@ public class IMGImage {
 
         RectF win = new RectF(mWindow);
         win.offset(scrollX, scrollY);
-        homing.rConcat(IMGUtils.fitHoming(win, clipFrame, isRequestToBaseFitting));
+        homing.rConcat(IMGHoming.fitHoming(win, clipFrame, isRequestToBaseFitting));
         isRequestToBaseFitting = false;
         return homing;
     }
@@ -392,22 +372,6 @@ public class IMGImage {
         canvas.restoreToCount(layerCount);
     }
 
-    public void onDrawShade(Canvas canvas) {
-    }
-
-    public void onDrawClip(Canvas canvas, float scrollX, float scrollY) {
-    }
-
-    public void onTouchDown(float x, float y) {
-        isSteady = false;
-    }
-
-    public void onTouchUp(float scrollX, float scrollY) {
-    }
-
-    public void onSteady(float scrollX, float scrollY) {
-        isSteady = true;
-    }
 
     public void onScaleBegin() {
 
@@ -423,13 +387,6 @@ public class IMGImage {
 
     public void setTargetRotate(float targetRotate) {
         this.mTargetRotate = targetRotate;
-    }
-
-    /**
-     * 在当前基础上旋转
-     */
-    public void rotate(int rotate) {
-        mTargetRotate = Math.round((mRotate + rotate) / 90f) * 90;
     }
 
     public float getRotate() {
@@ -477,9 +434,6 @@ public class IMGImage {
 
     }
 
-    public void onHomingStart(boolean isRotate) {
-        isAnimCanceled = false;
-    }
 
     public void onHoming(float fraction) {
     }
@@ -489,10 +443,6 @@ public class IMGImage {
     }
 
 
-    public void onHomingCancel(boolean isRotate) {
-        isAnimCanceled = true;
-        Log.d(TAG, "Homing cancel");
-    }
 
     public void release() {
         if (mImage != null && !mImage.isRecycled()) {
