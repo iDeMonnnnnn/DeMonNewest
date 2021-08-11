@@ -5,10 +5,7 @@ package com.demon.demonjetpack.module.views.widget.img;
  */
 
 public enum IMGMode {
-
     NONE,
     DOODLE,
     MOSAIC,
-    CLIP
-
 }

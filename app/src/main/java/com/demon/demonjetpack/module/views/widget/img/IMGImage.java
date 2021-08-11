@@ -48,26 +48,16 @@ public class IMGImage {
 
     private boolean isAnimCanceled = false;
 
-    /**
-     * 裁剪模式时当前触摸锚点
-     */
-    private IMGClip.Anchor mAnchor;
 
     private boolean isSteady = true;
 
     private Path mShade = new Path();
 
     /**
-     * 裁剪窗口
-     */
-    private IMGClipWindow mClipWin = new IMGClipWindow();
-
-    /**
      * 编辑模式
      */
     private IMGMode mMode = IMGMode.NONE;
 
-    private boolean isFreezing = mMode == IMGMode.CLIP;
 
     /**
      * 可视区域，无Scroll 偏移区域
@@ -125,10 +115,6 @@ public class IMGImage {
 
     public IMGImage() {
         mImage = DEFAULT_IMAGE;
-
-        if (mMode == IMGMode.CLIP) {
-            initShadePaint();
-        }
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -162,44 +148,12 @@ public class IMGImage {
 
         if (this.mMode == mode) return;
 
-        if (mode == IMGMode.CLIP) {
-            setFreezing(true);
-        }
-
         this.mMode = mode;
 
-        if (mMode == IMGMode.CLIP) {
-
-            // 初始化Shade 画刷
-            initShadePaint();
-
-            // 备份裁剪前Clip 区域
-            mBackupClipRotate = getRotate();
-            mBackupClipFrame.set(mClipFrame);
-
-            float scale = 1 / getScale();
-            M.setTranslate(-mFrame.left, -mFrame.top);
-            M.postScale(scale, scale);
-            M.mapRect(mBackupClipFrame);
-
-            // 重置裁剪区域
-            mClipWin.reset(mClipFrame, getTargetRotate());
-        } else {
-
-            if (mMode == IMGMode.MOSAIC || mMode == IMGMode.DOODLE) {
-                makeMosaicBitmap();
-            }
-
-            mClipWin.setClipping(false);
+        if (mMode == IMGMode.MOSAIC || mMode == IMGMode.DOODLE) {
+            makeMosaicBitmap();
         }
-    }
 
-    private void initShadePaint() {
-        if (mShadePaint == null) {
-            mShadePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            mShadePaint.setColor(COLOR_SHADE);
-            mShadePaint.setStyle(Paint.Style.FILL);
-        }
     }
 
     public boolean isMosaicEmpty() {
@@ -241,38 +195,6 @@ public class IMGImage {
         return mClipFrame;
     }
 
-    /**
-     * 裁剪区域旋转回原始角度后形成新的裁剪区域，旋转中心发生变化，
-     * 因此需要将视图窗口平移到新的旋转中心位置。
-     */
-    public IMGHoming clip(float scrollX, float scrollY) {
-        RectF frame = mClipWin.getOffsetFrame(scrollX, scrollY);
-
-        M.setRotate(-getRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-        M.mapRect(mClipFrame, frame);
-
-        return new IMGHoming(
-                scrollX + (mClipFrame.centerX() - frame.centerX()),
-                scrollY + (mClipFrame.centerY() - frame.centerY()),
-                getScale(), getRotate()
-        );
-    }
-
-    public void toBackupClip() {
-        M.setScale(getScale(), getScale());
-        M.postTranslate(mFrame.left, mFrame.top);
-        M.mapRect(mClipFrame, mBackupClipFrame);
-        setTargetRotate(mBackupClipRotate);
-        isRequestToBaseFitting = true;
-    }
-
-    public void resetClip() {
-        // TODO 就近旋转
-        setTargetRotate(getRotate() - getRotate() % 360);
-        mClipFrame.set(mFrame);
-        mClipWin.reset(mClipFrame, getTargetRotate());
-    }
-
     private void makeMosaicBitmap() {
         if ((mMosaicImage != null && mDoodleImage != null) || mImage == null) {
             return;
@@ -312,18 +234,12 @@ public class IMGImage {
         isInitialHoming = false;
         onWindowChanged(mWindow.width(), mWindow.height());
 
-        if (mMode == IMGMode.CLIP) {
-            mClipWin.reset(mClipFrame, getTargetRotate());
-        }
     }
 
     public RectF getFrame() {
         return mFrame;
     }
 
-    public boolean onClipHoming() {
-        return mClipWin.homing();
-    }
 
     public IMGHoming getStartHoming(float scrollX, float scrollY) {
         return new IMGHoming(scrollX, scrollY, getScale(), getRotate());
@@ -331,52 +247,14 @@ public class IMGImage {
 
     public IMGHoming getEndHoming(float scrollX, float scrollY) {
         IMGHoming homing = new IMGHoming(scrollX, scrollY, getScale(), getTargetRotate());
+        RectF clipFrame = new RectF();
+        M.setRotate(getTargetRotate(), mClipFrame.centerX(), mClipFrame.centerY());
+        M.mapRect(clipFrame, mClipFrame);
 
-        if (mMode == IMGMode.CLIP) {
-            RectF frame = new RectF(mClipWin.getTargetFrame());
-            frame.offset(scrollX, scrollY);
-            if (mClipWin.isResetting()) {
-
-                RectF clipFrame = new RectF();
-                M.setRotate(getTargetRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-                M.mapRect(clipFrame, mClipFrame);
-
-                homing.rConcat(IMGUtils.fill(frame, clipFrame));
-            } else {
-                RectF cFrame = new RectF();
-
-                // cFrame要是一个暂时clipFrame
-                if (mClipWin.isHoming()) {
-//
-//                    M.mapRect(cFrame, mClipFrame);
-
-//                    mClipWin
-                    // TODO 偏移中心
-
-                    M.setRotate(getTargetRotate() - getRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-                    M.mapRect(cFrame, mClipWin.getOffsetFrame(scrollX, scrollY));
-
-                    homing.rConcat(IMGUtils.fitHoming(frame, cFrame, mClipFrame.centerX(), mClipFrame.centerY()));
-
-
-                } else {
-                    M.setRotate(getTargetRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-                    M.mapRect(cFrame, mFrame);
-                    homing.rConcat(IMGUtils.fillHoming(frame, cFrame, mClipFrame.centerX(), mClipFrame.centerY()));
-                }
-
-            }
-        } else {
-            RectF clipFrame = new RectF();
-            M.setRotate(getTargetRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-            M.mapRect(clipFrame, mClipFrame);
-
-            RectF win = new RectF(mWindow);
-            win.offset(scrollX, scrollY);
-            homing.rConcat(IMGUtils.fitHoming(win, clipFrame, isRequestToBaseFitting));
-            isRequestToBaseFitting = false;
-        }
-
+        RectF win = new RectF(mWindow);
+        win.offset(scrollX, scrollY);
+        homing.rConcat(IMGUtils.fitHoming(win, clipFrame, isRequestToBaseFitting));
+        isRequestToBaseFitting = false;
         return homing;
     }
 
@@ -421,13 +299,11 @@ public class IMGImage {
             M.mapRect(mClipFrame);
         }
 
-        mClipWin.setClipWinSize(width, height);
     }
 
     private void onInitialHoming(float width, float height) {
         mFrame.set(0, 0, mImage.getWidth(), mImage.getHeight());
         mClipFrame.set(mFrame);
-        mClipWin.setClipWinSize(width, height);
 
         if (mClipFrame.isEmpty()) {
             return;
@@ -458,16 +334,9 @@ public class IMGImage {
     }
 
     private void onInitialHomingDone() {
-        if (mMode == IMGMode.CLIP) {
-            mClipWin.reset(mClipFrame, getTargetRotate());
-        }
     }
 
     public void onDrawImage(Canvas canvas) {
-
-        // 裁剪区域
-        canvas.clipRect(mClipWin.isClipping() ? mFrame : mClipFrame);
-
         // 绘制图片
         canvas.drawBitmap(mImage, null, mFrame, null);
 
@@ -524,37 +393,20 @@ public class IMGImage {
     }
 
     public void onDrawShade(Canvas canvas) {
-        if (mMode == IMGMode.CLIP && isSteady) {
-            mShade.reset();
-            mShade.addRect(mFrame.left - 2, mFrame.top - 2, mFrame.right + 2, mFrame.bottom + 2, Path.Direction.CW);
-            mShade.addRect(mClipFrame, Path.Direction.CCW);
-            canvas.drawPath(mShade, mShadePaint);
-        }
     }
 
     public void onDrawClip(Canvas canvas, float scrollX, float scrollY) {
-        if (mMode == IMGMode.CLIP) {
-            mClipWin.onDraw(canvas);
-        }
     }
 
     public void onTouchDown(float x, float y) {
         isSteady = false;
-        if (mMode == IMGMode.CLIP) {
-            mAnchor = mClipWin.getAnchor(x, y);
-        }
     }
 
     public void onTouchUp(float scrollX, float scrollY) {
-        if (mAnchor != null) {
-            mAnchor = null;
-        }
     }
 
     public void onSteady(float scrollX, float scrollY) {
         isSteady = true;
-        onClipHoming();
-        mClipWin.setShowShade(true);
     }
 
     public void onScaleBegin() {
@@ -562,21 +414,6 @@ public class IMGImage {
     }
 
     public IMGHoming onScroll(float scrollX, float scrollY, float dx, float dy) {
-        if (mMode == IMGMode.CLIP) {
-            mClipWin.setShowShade(false);
-            if (mAnchor != null) {
-                mClipWin.onScroll(mAnchor, dx, dy);
-
-                RectF clipFrame = new RectF();
-                M.setRotate(getRotate(), mClipFrame.centerX(), mClipFrame.centerY());
-                M.mapRect(clipFrame, mFrame);
-
-                RectF frame = mClipWin.getOffsetFrame(scrollX, scrollY);
-                IMGHoming homing = new IMGHoming(scrollX, scrollY, getScale(), getTargetRotate());
-                homing.rConcat(IMGUtils.fillHoming(frame, clipFrame, mClipFrame.centerX(), mClipFrame.centerY()));
-                return homing;
-            }
-        }
         return null;
     }
 
@@ -593,7 +430,6 @@ public class IMGImage {
      */
     public void rotate(int rotate) {
         mTargetRotate = Math.round((mRotate + rotate) / 90f) * 90;
-        mClipWin.reset(mClipFrame, getTargetRotate());
     }
 
     public float getRotate() {
@@ -646,37 +482,12 @@ public class IMGImage {
     }
 
     public void onHoming(float fraction) {
-        mClipWin.homing(fraction);
     }
 
     public boolean onHomingEnd(float scrollX, float scrollY, boolean isRotate) {
-        if (mMode == IMGMode.CLIP) {
-            // 开启裁剪模式
-
-            boolean clip = !isAnimCanceled;
-
-            mClipWin.setHoming(false);
-            mClipWin.setClipping(true);
-            mClipWin.setResetting(false);
-
-            return clip;
-        } else {
-            if (isFreezing && !isAnimCanceled) {
-                setFreezing(false);
-            }
-        }
         return false;
     }
 
-    public boolean isFreezing() {
-        return isFreezing;
-    }
-
-    private void setFreezing(boolean freezing) {
-        if (freezing != isFreezing) {
-            isFreezing = freezing;
-        }
-    }
 
     public void onHomingCancel(boolean isRotate) {
         isAnimCanceled = true;

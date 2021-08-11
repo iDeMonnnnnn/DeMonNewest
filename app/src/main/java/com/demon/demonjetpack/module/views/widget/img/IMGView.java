@@ -5,21 +5,17 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.widget.FrameLayout;
-
-import com.demon.demonjetpack.R;
 
 /**
  * Created by felix on 2017/11/14 下午6:43.
@@ -124,30 +120,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
             mHomingAnimator.cancel();
         }
     }
-
-    public void doRotate() {
-        if (!isHoming()) {
-            mImage.rotate(-90);
-            onHoming();
-        }
-    }
-
-    public void resetClip() {
-        mImage.resetClip();
-        onHoming();
-    }
-
-    public void doClip() {
-        mImage.clip(getScrollX(), getScrollY());
-        setMode(mPreMode);
-        onHoming();
-    }
-
-    public void cancelClip() {
-        mImage.toBackupClip();
-        setMode(mPreMode);
-    }
-
     public void undo() {
         mImage.undo();
         invalidate();
@@ -209,14 +181,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         mImage.onDrawShade(canvas);
 
         canvas.restore();
-
-        // 裁剪
-        if (mImage.getMode() == IMGMode.CLIP) {
-            canvas.save();
-            canvas.translate(getScrollX(), getScrollY());
-            mImage.onDrawClip(canvas, getScrollX(), getScrollY());
-            canvas.restore();
-        }
     }
 
     public Bitmap saveBitmap() {
@@ -268,8 +232,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         if (isHoming()) {
             stopHoming();
             return true;
-        } else if (mImage.getMode() == IMGMode.CLIP) {
-            return true;
         }
         return false;
     }
@@ -301,7 +263,7 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
 
         IMGMode mode = mImage.getMode();
 
-        if (mode == IMGMode.NONE || mode == IMGMode.CLIP) {
+        if (mode == IMGMode.NONE) {
             handled |= onTouchNONE(event);
         } else if (mPointerCount > 1) {
             onPathDone();
@@ -455,9 +417,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
     public void onAnimationEnd(Animator animation) {
         if (DEBUG) {
             Log.d(TAG, "onAnimationEnd");
-        }
-        if (mImage.onHomingEnd(getScrollX(), getScrollY(), mHomingAnimator.isRotate())) {
-            toApplyHoming(mImage.clip(getScrollX(), getScrollY()));
         }
     }
 
