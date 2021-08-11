@@ -21,17 +21,13 @@ public class IMGPath {
 
     private long id;
 
-    private int color;
-
     private float width;
 
     private IMGMode mode;
 
-    public static final int BASE_DOODLE_COLOR = ContextCompat.getColor(App.appContext, R.color.white_80);
 
-    public static final float BASE_DOODLE_WIDTH = 32f;
+    public static final float BASE_WIDTH = 72f;
 
-    public static final float BASE_MOSAIC_WIDTH = 72f;
 
     public IMGPath() {
         this(new Path());
@@ -42,19 +38,15 @@ public class IMGPath {
     }
 
     public IMGPath(Path path, IMGMode mode) {
-        this(path, mode, BASE_DOODLE_COLOR);
+        this(path, mode, BASE_WIDTH);
     }
 
-    public IMGPath(Path path, IMGMode mode, int color) {
-        this(path, mode, color, BASE_MOSAIC_WIDTH);
-    }
 
-    public IMGPath(Path path, IMGMode mode, int color, float width) {
+    public IMGPath(Path path, IMGMode mode, float width) {
         this.path = path;
         this.mode = mode;
-        this.color = color;
         this.width = width;
-        if (mode == IMGMode.MOSAIC) {
+        if (mode == IMGMode.MOSAIC || mode == IMGMode.DOODLE) {
             path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
@@ -75,14 +67,6 @@ public class IMGPath {
         this.path = path;
     }
 
-    public int getColor() {
-        return color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-    }
-
     public IMGMode getMode() {
         return mode;
     }
@@ -99,17 +83,10 @@ public class IMGPath {
         return width;
     }
 
-    public void onDrawDoodle(Canvas canvas, Paint paint) {
-        if (mode == IMGMode.DOODLE) {
-            paint.setStrokeWidth(BASE_DOODLE_WIDTH);
-            // rewind
-            canvas.drawPath(path, paint);
-        }
-    }
-
-    public void onDrawMosaic(Canvas canvas, Paint paint) {
-        if (mode == IMGMode.MOSAIC) {
+    public void onDrawPath(Canvas canvas, Paint paint) {
+        if (mode == IMGMode.DOODLE || mode == IMGMode.MOSAIC) {
             paint.setStrokeWidth(width);
+            // rewind
             canvas.drawPath(path, paint);
         }
     }

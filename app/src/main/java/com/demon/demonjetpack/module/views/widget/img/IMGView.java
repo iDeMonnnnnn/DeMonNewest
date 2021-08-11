@@ -43,30 +43,19 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
 
     private int mPointerCount = 0;
 
-    private Paint mDoodlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    private Paint mMosaicPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private static final boolean DEBUG = true;
 
     {
-        // 涂鸦画刷
-        //mDoodlePaint.setColor(IMGPath.BASE_DOODLE_COLOR);
-        mDoodlePaint.setAntiAlias(true);
-        mDoodlePaint.setDither(true);
-        mDoodlePaint.setStyle(Paint.Style.STROKE);
-        mDoodlePaint.setStrokeWidth(IMGPath.BASE_DOODLE_WIDTH);
-        mDoodlePaint.setPathEffect(new CornerPathEffect(IMGPath.BASE_DOODLE_WIDTH));
-        mDoodlePaint.setStrokeCap(Paint.Cap.ROUND);
-        mDoodlePaint.setStrokeJoin(Paint.Join.ROUND);
-
-        // 马赛克画刷
-        mMosaicPaint.setStyle(Paint.Style.STROKE);
-        mMosaicPaint.setStrokeWidth(IMGPath.BASE_MOSAIC_WIDTH);
-        //mMosaicPaint.setColor(Color.BLACK);
-        mMosaicPaint.setPathEffect(new CornerPathEffect(IMGPath.BASE_MOSAIC_WIDTH));
-        mMosaicPaint.setStrokeCap(Paint.Cap.ROUND);
-        mMosaicPaint.setStrokeJoin(Paint.Join.ROUND);
+        mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(IMGPath.BASE_WIDTH);
+        mPaint.setPathEffect(new CornerPathEffect(IMGPath.BASE_WIDTH));
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mPaint.setStrokeJoin(Paint.Join.ROUND);
     }
 
     public IMGView(Context context) {
@@ -159,10 +148,6 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         setMode(mPreMode);
     }
 
-    public void setPenColor(int color) {
-        mPen.setColor(color);
-    }
-
     public void undo() {
         mImage.undo();
         invalidate();
@@ -197,27 +182,28 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         if (!mImage.isMosaicEmpty() || (mImage.getMode() == IMGMode.MOSAIC && !mPen.isEmpty())) {
             int count = mImage.onDrawMosaicsPath(canvas);
             if (mImage.getMode() == IMGMode.MOSAIC && !mPen.isEmpty()) {
-                mDoodlePaint.setStrokeWidth(IMGPath.BASE_MOSAIC_WIDTH);
                 canvas.save();
                 RectF frame = mImage.getClipFrame();
                 canvas.rotate(-mImage.getRotate(), frame.centerX(), frame.centerY());
                 canvas.translate(getScrollX(), getScrollY());
-                canvas.drawPath(mPen.getPath(), mDoodlePaint);
+                canvas.drawPath(mPen.getPath(), mPaint);
                 canvas.restore();
             }
             mImage.onDrawMosaic(canvas, count);
         }
 
         // 涂鸦
-        mImage.onDrawDoodles(canvas);
-        if (mImage.getMode() == IMGMode.DOODLE && !mPen.isEmpty()) {
-            mDoodlePaint.setStrokeWidth(IMGPath.BASE_DOODLE_WIDTH * mImage.getScale());
-            canvas.save();
-            RectF frame = mImage.getClipFrame();
-            canvas.rotate(-mImage.getRotate(), frame.centerX(), frame.centerY());
-            canvas.translate(getScrollX(), getScrollY());
-            canvas.drawPath(mPen.getPath(), mDoodlePaint);
-            canvas.restore();
+        if (!mImage.isDoodleEmpty() || (mImage.getMode() == IMGMode.DOODLE && !mPen.isEmpty())) {
+            int count = mImage.onDrawDoodlesPath(canvas);
+            if (mImage.getMode() == IMGMode.DOODLE && !mPen.isEmpty()) {
+                canvas.save();
+                RectF frame = mImage.getClipFrame();
+                canvas.rotate(-mImage.getRotate(), frame.centerX(), frame.centerY());
+                canvas.translate(getScrollX(), getScrollY());
+                canvas.drawPath(mPen.getPath(), mPaint);
+                canvas.restore();
+            }
+            mImage.onDrawDoodle(canvas, count);
         }
 
         mImage.onDrawShade(canvas);
@@ -548,7 +534,7 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         }
 
         IMGPath toPath() {
-            return new IMGPath(new Path(this.path), getMode(), getColor(), getWidth());
+            return new IMGPath(new Path(this.path), getMode(), getWidth());
         }
     }
 }

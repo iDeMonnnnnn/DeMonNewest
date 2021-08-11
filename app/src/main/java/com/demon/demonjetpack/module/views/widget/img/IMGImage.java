@@ -23,7 +23,7 @@ public class IMGImage {
 
     private static final String TAG = "IMGImage";
 
-    private Bitmap mImage, mMosaicImage;
+    private Bitmap mImage, mMosaicImage, mDoodleImage;
 
     /**
      * 完整图片边框
@@ -34,8 +34,6 @@ public class IMGImage {
      * 裁剪图片边框（显示的图片区域）
      */
     private RectF mClipFrame = new RectF();
-
-    private RectF mTempClipFrame = new RectF();
 
     /**
      * 裁剪模式前状态备份
@@ -63,8 +61,6 @@ public class IMGImage {
      * 裁剪窗口
      */
     private IMGClipWindow mClipWin = new IMGClipWindow();
-
-    private boolean isDrawClip = false;
 
     /**
      * 编辑模式
@@ -98,7 +94,7 @@ public class IMGImage {
 
     private static final int MAX_SIZE = 10000;
 
-    private Paint mPaint, mMosaicPaint, mShadePaint;
+    private Paint mPaint, mDoodlePaint, mShadePaint;
 
     private Matrix M = new Matrix();
 
@@ -118,14 +114,13 @@ public class IMGImage {
         // Doodle&Mosaic 's paint
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(IMGPath.BASE_DOODLE_WIDTH);
-        mPaint.setPathEffect(new CornerPathEffect(IMGPath.BASE_DOODLE_WIDTH));
+        mPaint.setStrokeWidth(IMGPath.BASE_WIDTH);
+        mPaint.setPathEffect(new CornerPathEffect(IMGPath.BASE_WIDTH));
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
-        if (mMode == IMGMode.DOODLE) {
-            mPaint.setAntiAlias(true);
-            mPaint.setDither(true);
-        }
+        mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
+
     }
 
     public IMGImage() {
@@ -148,6 +143,11 @@ public class IMGImage {
             mMosaicImage.recycle();
         }
         this.mMosaicImage = null;
+        // 清空模糊图层
+        if (mDoodleImage != null) {
+            mDoodleImage.recycle();
+        }
+        this.mDoodleImage = null;
 
         makeMosaicBitmap();
 
@@ -186,7 +186,7 @@ public class IMGImage {
             mClipWin.reset(mClipFrame, getTargetRotate());
         } else {
 
-            if (mMode == IMGMode.MOSAIC) {
+            if (mMode == IMGMode.MOSAIC || mMode == IMGMode.DOODLE) {
                 makeMosaicBitmap();
             }
 
@@ -274,26 +274,37 @@ public class IMGImage {
     }
 
     private void makeMosaicBitmap() {
-        if (mMosaicImage != null || mImage == null) {
+        if ((mMosaicImage != null && mDoodleImage != null) || mImage == null) {
             return;
         }
 
-        if (mMode == IMGMode.MOSAIC) {
+        if (mDoodlePaint == null) {
+            mDoodlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            mDoodlePaint.setFilterBitmap(false);
+            mDoodlePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        }
 
+        if (mMode == IMGMode.MOSAIC) {
             int w = Math.round(mImage.getWidth() / 64f);
             int h = Math.round(mImage.getHeight() / 64f);
-
             w = Math.max(w, 8);
             h = Math.max(h, 8);
-
-            // 马赛克画刷
-            if (mMosaicPaint == null) {
-                mMosaicPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                mMosaicPaint.setFilterBitmap(false);
-                mMosaicPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            }
-
+            //生成马赛克图片
             mMosaicImage = Bitmap.createScaledBitmap(mImage, w, h, false);
+        } else if (mMode == IMGMode.DOODLE) {
+            int width = mImage.getWidth();
+            float scale = 20.0f / width;
+            Matrix matrix = new Matrix();
+            matrix.postScale(scale, scale);
+            mDoodleImage = Bitmap.createBitmap(mImage, 0, 0, width, mImage.getHeight(), matrix, true);
+
+            Matrix mosaicMatrix = new Matrix();
+            mosaicMatrix.setTranslate(mFrame.left, mFrame.top);
+            float scaleX = (mFrame.right - mFrame.left) / mDoodleImage.getWidth();
+            float scaleY = (mFrame.bottom - mFrame.top) / mDoodleImage.getHeight();
+            mosaicMatrix.postScale(scaleX, scaleY);
+            // 生成模糊图片
+            mDoodleImage = Bitmap.createBitmap(mDoodleImage, 0, 0, mDoodleImage.getWidth(), mDoodleImage.getHeight(), mosaicMatrix, true);
         }
     }
 
@@ -381,12 +392,12 @@ public class IMGImage {
         M.postScale(scale, scale);
         path.transform(M);
         path.setId(System.currentTimeMillis());
+        path.setWidth(path.getWidth() * scale);
         switch (path.getMode()) {
             case DOODLE:
                 mDoodles.add(path);
                 break;
             case MOSAIC:
-                path.setWidth(path.getWidth() * scale);
                 mMosaics.add(path);
                 break;
         }
@@ -478,7 +489,7 @@ public class IMGImage {
             canvas.translate(mFrame.left, mFrame.top);
             canvas.scale(scale, scale);
             for (IMGPath path : mMosaics) {
-                path.onDrawMosaic(canvas, mPaint);
+                path.onDrawPath(canvas, mPaint);
             }
             canvas.restore();
         }
@@ -487,21 +498,29 @@ public class IMGImage {
     }
 
     public void onDrawMosaic(Canvas canvas, int layerCount) {
-        canvas.drawBitmap(mMosaicImage, null, mFrame, mMosaicPaint);
+        canvas.drawBitmap(mMosaicImage, null, mFrame, mDoodlePaint);
         canvas.restoreToCount(layerCount);
     }
 
-    public void onDrawDoodles(Canvas canvas) {
+    public int onDrawDoodlesPath(Canvas canvas) {
+        int layerCount = canvas.saveLayer(mFrame, null, Canvas.ALL_SAVE_FLAG);
         if (!isDoodleEmpty()) {
             canvas.save();
             float scale = getScale();
             canvas.translate(mFrame.left, mFrame.top);
             canvas.scale(scale, scale);
             for (IMGPath path : mDoodles) {
-                path.onDrawDoodle(canvas, mPaint);
+                path.onDrawPath(canvas, mPaint);
             }
             canvas.restore();
         }
+        return layerCount;
+    }
+
+
+    public void onDrawDoodle(Canvas canvas, int layerCount) {
+        canvas.drawBitmap(mDoodleImage, null, mFrame, mDoodlePaint);
+        canvas.restoreToCount(layerCount);
     }
 
     public void onDrawShade(Canvas canvas) {
@@ -624,7 +643,6 @@ public class IMGImage {
 
     public void onHomingStart(boolean isRotate) {
         isAnimCanceled = false;
-        isDrawClip = true;
     }
 
     public void onHoming(float fraction) {
@@ -632,7 +650,6 @@ public class IMGImage {
     }
 
     public boolean onHomingEnd(float scrollX, float scrollY, boolean isRotate) {
-        isDrawClip = true;
         if (mMode == IMGMode.CLIP) {
             // 开启裁剪模式
 
