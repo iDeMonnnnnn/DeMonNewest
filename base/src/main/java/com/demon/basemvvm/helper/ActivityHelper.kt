@@ -2,6 +2,7 @@ package com.demon.basemvvm.helper
 
 import android.app.Activity
 import java.util.*
+import kotlin.system.exitProcess
 
 
 /**
@@ -41,7 +42,7 @@ object ActivityHelper {
      *
      * @return 当前的Activity
      */
-    fun getCurrentActivity(): Activity? {
+    fun getTopActivity(): Activity? {
         return if (sActivities.isEmpty()) {
             null
         } else {
@@ -52,25 +53,24 @@ object ActivityHelper {
     /**
      * 关闭当前的Activity
      */
-    fun finishCurrentActivity() {
-        val activity = getCurrentActivity()
+    fun finishTopActivity() {
+        val activity = getTopActivity()
         activity?.finish()
     }
 
     /**
-     * 关闭某个Activity及除当前Activity的其他Activity
+     * 关闭除targets的其他Activity
      *
      * @param target          目标Activity.class
-     * @param currentActivity 当前Activity的Activity
      */
-    fun finishActivitys(target: Class<out Activity?>, currentActivity: Activity) {
+    fun finishActivitys(vararg targets: Class<out Activity?>) {
         if (sActivities.isEmpty()) {
             return
         }
-        for (i in sActivities.indices) {
-            val activity = sActivities[i]
-            // 将除了当前Activity和MainActivity的其他Activity关闭
-            if (activity.javaClass.name != target.name && activity !== currentActivity) {
+        val targetList: List<String> = targets.map { it.name }
+        for (activity in sActivities) {
+            // 将除了targets的其他Activity关闭
+            if (!targetList.contains(activity.javaClass.name)) {
                 activity.finish() // finish方法会调用popActivity()方法移出栈
             }
         }
@@ -83,15 +83,16 @@ object ActivityHelper {
         if (sActivities.isEmpty()) {
             return
         }
-        for (i in sActivities.indices) {
-            val activity = sActivities[i]
+        for (activity in sActivities) {
             if (activity.javaClass.name == target.name) {
                 activity.finish() //finish方法会调用popActivity()方法移出栈
             }
         }
     }
 
-    //退出所有activity
+    /**
+     * 退出所有activity
+     */
     fun finishAllActivity() {
         for (activity in sActivities) {
             activity.finish()
@@ -103,6 +104,7 @@ object ActivityHelper {
      */
     fun appExit() {
         finishAllActivity()
+        exitProcess(0)
     }
 
     /**
@@ -113,5 +115,22 @@ object ActivityHelper {
      */
     fun isTopActivity(currentActivity: Activity): Boolean {
         return currentActivity === sActivities[sActivities.size - 1]
+    }
+
+    /**
+     * 根据Activity类获取栈内的Activity对象
+     */
+    @JvmStatic
+    fun getActivity(target: Class<out Activity?>): Activity? {
+        if (sActivities.isEmpty()) {
+            return null
+        }
+        var activity: Activity? = null
+        for (a in sActivities) {
+            if (a.javaClass.name == target.name) {
+                activity = a
+            }
+        }
+        return activity
     }
 }

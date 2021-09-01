@@ -1,49 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnViewBinding"
+        android:id="@+id/btnTopWindow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ViewBinding"
+        android:layout_marginTop="20dp"
+        android:text="顶部window"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnMotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MotionLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewBinding" />
-
-
-    <Button
-        android:id="@+id/btnLighter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="高亮引导"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMotion" />
-
-    <Button
-        android:id="@+id/btnDoole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="涂鸦马赛克"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMotion" />
 
     <Button
         android:id="@+id/btnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="弹窗"
+        android:layout_marginTop="20dp"
+        android:text="顶部Dialog"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDoole" />
+        app:layout_constraintTop_toBottomOf="@id/btnTopWindow" />
+
+    <Button
+        android:id="@+id/btnDialogFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="顶部DialogFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDialog" />
+
+    <Button
+        android:id="@+id/btnFloat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="悬浮窗"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDialogFragment" />
+
+    <Button
+        android:id="@+id/btnOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="一像素"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFloat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

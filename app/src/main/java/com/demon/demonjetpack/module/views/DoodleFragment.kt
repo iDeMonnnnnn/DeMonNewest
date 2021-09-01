@@ -3,11 +3,11 @@ package com.demon.demonjetpack.module.views
 import android.graphics.BitmapFactory
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmFragment
+import com.demon.demonjetpack.R
 import com.demon.demonjetpack.base.ext.toast
-import com.demon.demonjetpack.base.util.getExternalOrFilesDirPath
 import com.demon.demonjetpack.base.util.saveBitmapImg
 import com.demon.demonjetpack.databinding.FragmentDoodleBinding
-import com.demon.demonjetpack.module.views.widget.img.IMGMode
+import com.demon.demonjetpack.module.views.widget.imaging.IMGMode
 
 /**
  * @author DeMon
@@ -19,7 +19,7 @@ class DoodleFragment : MvvmFragment<FragmentDoodleBinding, BaseViewModel>() {
 
     override fun init() {
         binding.run {
-            imgView.setImageBitmap(BitmapFactory.decodeFile(requireContext().getExternalOrFilesDirPath(null) + "/abc.jpg"))
+            imgView.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.img1))
             btnMosaic.setOnClickListener {
                 imgView.mode = IMGMode.MOSAIC
             }

@@ -23,6 +23,10 @@
         <action
             android:id="@+id/action_viewsFragment_to_dooleFragment"
             app:destination="@id/dooleFragment" />
+
+        <action
+            android:id="@+id/action_viewsFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <activity
@@ -46,4 +50,10 @@
         android:name="com.demon.demonjetpack.module.views.DoodleFragment"
         android:label="Doodle"
         tools:layout="@layout/fragment_doodle" />
+
+    <fragment
+        android:id="@+id/dialogFragment"
+        android:name="com.demon.demonjetpack.module.views.DialogFragment"
+        android:label="Dialog"
+        tools:layout="@layout/fragment_dialog" />
 </navigation>

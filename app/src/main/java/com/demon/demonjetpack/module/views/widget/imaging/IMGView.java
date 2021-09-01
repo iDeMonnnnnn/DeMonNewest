@@ -1,6 +1,5 @@
-package com.demon.demonjetpack.module.views.widget.img;
+package com.demon.demonjetpack.module.views.widget.imaging;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -38,6 +37,11 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
 
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    private IMGCallback callback;
+
+    public void setCallback(IMGCallback callback) {
+        this.callback = callback;
+    }
 
     private static final boolean DEBUG = true;
 
@@ -113,13 +117,24 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
             mHomingAnimator.cancel();
         }
     }
+
+    public boolean isNoDeal() {
+        return mImage.isPathEmpty();
+    }
+
     public void undo() {
         mImage.undo();
+        if (callback != null) {
+            callback.onPath(mImage.allPathSize());
+        }
         invalidate();
     }
 
     public void reset() {
         mImage.reset();
+        if (callback != null) {
+            callback.onPath(mImage.allPathSize());
+        }
         invalidate();
     }
 
@@ -174,32 +189,37 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
     }
 
     public Bitmap saveBitmap() {
+        try {
 
-        float scale = 1f / mImage.getScale();
+            float scale = 1f / mImage.getScale();
 
-        RectF frame = new RectF(mImage.getClipFrame());
+            RectF frame = new RectF(mImage.getClipFrame());
 
-        // 旋转基画布
-        Matrix m = new Matrix();
-        m.setRotate(mImage.getRotate(), frame.centerX(), frame.centerY());
-        m.mapRect(frame);
+            // 旋转基画布
+            Matrix m = new Matrix();
+            m.setRotate(mImage.getRotate(), frame.centerX(), frame.centerY());
+            m.mapRect(frame);
 
-        // 缩放基画布
-        m.setScale(scale, scale, frame.left, frame.top);
-        m.mapRect(frame);
+            // 缩放基画布
+            m.setScale(scale, scale, frame.left, frame.top);
+            m.mapRect(frame);
 
-        Bitmap bitmap = Bitmap.createBitmap(Math.round(frame.width()),
-                Math.round(frame.height()), Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = Bitmap.createBitmap(Math.round(frame.width()),
+                    Math.round(frame.height()), Bitmap.Config.ARGB_8888);
 
-        Canvas canvas = new Canvas(bitmap);
+            Canvas canvas = new Canvas(bitmap);
 
-        // 平移到基画布原点&缩放到原尺寸
-        canvas.translate(-frame.left, -frame.top);
-        canvas.scale(scale, scale, frame.left, frame.top);
+            // 平移到基画布原点&缩放到原尺寸
+            canvas.translate(-frame.left, -frame.top);
+            canvas.scale(scale, scale, frame.left, frame.top);
 
-        onDrawImages(canvas);
+            onDrawImages(canvas);
 
-        return bitmap;
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
@@ -256,7 +276,7 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         if (mode == IMGMode.NONE) {
             handled |= onTouchNONE(event);
         } else if (mPointerCount > 1) {
-            onPathDone();
+            onPathDone(true);
             handled |= onTouchNONE(event);
         } else {
             handled |= onTouchPath(event);
@@ -287,7 +307,7 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
                 return onPathMove(event);
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                return mPen.isIdentity(event.getPointerId(0)) && onPathDone();
+                return mPen.isIdentity(event.getPointerId(0)) && onPathDone(false);
         }
         return false;
     }
@@ -307,11 +327,14 @@ public class IMGView extends FrameLayout implements Runnable, ScaleGestureDetect
         return false;
     }
 
-    private boolean onPathDone() {
+    private boolean onPathDone(boolean isScale) {
         if (mPen.isEmpty()) {
             return false;
         }
-        mImage.addPath(mPen.toPath(), getScrollX(), getScrollY());
+        mImage.addPath(mPen.toPath(), getScrollX(), getScrollY(), isScale);
+        if (callback != null && !isScale) {
+            callback.onPath(mImage.allPathSize());
+        }
         mPen.reset();
         invalidate();
         return true;

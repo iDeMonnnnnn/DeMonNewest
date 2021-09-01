@@ -1,15 +1,9 @@
-package com.demon.demonjetpack.module.views.widget.img;
+package com.demon.demonjetpack.module.views.widget.imaging;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
-
-import androidx.core.content.ContextCompat;
-
-import com.demon.demonjetpack.App;
-import com.demon.demonjetpack.R;
 
 /**
  * Created by felix on 2017/11/22 下午6:13.

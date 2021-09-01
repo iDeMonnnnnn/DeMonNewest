@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".App"
@@ -29,12 +30,15 @@
         <activity
             android:name=".module.progress.MultiProgressActivity"
             android:process=":process" />
-        <activity android:name=".module.fragment.FragActivity"/>
+        <activity android:name=".module.fragment.FragActivity" />
         <activity android:name=".module.room.RoomActivity" />
         <activity android:name=".module.dagger.DaggerTestActivity" />
         <activity android:name=".module.work.WorkerActivity" />
         <activity android:name=".module.views.LighterActivity" />
         <activity android:name=".module.views.ViewsActivity" />
+        <activity
+            android:name=".module.views.OnePxActivity"
+            android:theme="@style/OnePxActivityStyle" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
@@ -49,6 +53,8 @@
                 android:name="com.demon.demonjetpack.ARouterInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <service android:name=".module.views.FloatingService" />
     </application>
 
 </manifest>

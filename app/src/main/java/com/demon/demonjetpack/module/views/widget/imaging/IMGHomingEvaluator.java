@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.views.widget.img;
+package com.demon.demonjetpack.module.views.widget.imaging;
 
 import android.animation.TypeEvaluator;
 

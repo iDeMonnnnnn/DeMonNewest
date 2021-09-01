@@ -3,15 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/drawable/bg_white_5.xml" value="0.36256410256410254" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/drawable/bg_white_box_18.xml" value="0.36256410256410254" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36256410256410254" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/drawable/shape_frame.xml" value="0.36256410256410254" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/actiivty_one_px.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_doodle.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_lighter.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_paging.xml" value="0.3382761816496756" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/acvtivty_views.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/float_view.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_dialog.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_doodle.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_full_compact.xml" value="0.3466666666666667" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_parallax.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_red_package.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_simple.xml" value="0.32592592592592595" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view_binding.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/include_layout.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/lighter_tip_common.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/motion_red_package.xml" value="0.32592592592592595" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/viewstub_layout.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/window_top.xml" value="0.33" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36256410256410254" />
       </map>
     </option>
   </component>

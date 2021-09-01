@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.views.widget.img;
+package com.demon.demonjetpack.module.views.widget.imaging;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -24,7 +24,7 @@ public class IMGImage {
     private Bitmap mImage, mMosaicImage, mDoodleImage;
 
     /**
-     * 完整图片边框
+     * 完整图片边框sendFree
      */
     private RectF mFrame = new RectF();
 
@@ -80,6 +80,7 @@ public class IMGImage {
     static {
         DEFAULT_IMAGE = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
     }
+
     {
         // Doodle&Mosaic 's paint
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -142,6 +143,14 @@ public class IMGImage {
 
     public boolean isDoodleEmpty() {
         return mDoodles.isEmpty();
+    }
+
+    public boolean isPathEmpty() {
+        return allPath.isEmpty();
+    }
+
+    public int allPathSize() {
+        return allPath.size();
     }
 
     public void reset() {
@@ -239,7 +248,7 @@ public class IMGImage {
     }
 
 
-    public void addPath(IMGPath path, float sx, float sy) {
+    public void addPath(IMGPath path, float sx, float sy, boolean isScale) {
         if (path == null) return;
 
         float scale = 1f / getScale();
@@ -251,15 +260,18 @@ public class IMGImage {
         path.transform(M);
         path.setId(System.currentTimeMillis());
         path.setWidth(path.getWidth() * scale);
-        switch (path.getMode()) {
-            case DOODLE:
-                mDoodles.add(path);
-                break;
-            case MOSAIC:
-                mMosaics.add(path);
-                break;
+        if (!isScale) {
+            switch (path.getMode()) {
+                case DOODLE:
+                    mDoodles.add(path);
+                    allPath.add(path);
+                    break;
+                case MOSAIC:
+                    mMosaics.add(path);
+                    allPath.add(path);
+                    break;
+            }
         }
-        allPath.add(path);
     }
 
     public void onWindowChanged(float width, float height) {
@@ -443,11 +455,21 @@ public class IMGImage {
     }
 
 
-
     public void release() {
         if (mImage != null && !mImage.isRecycled()) {
             mImage.recycle();
         }
+
+        // 清空马赛克图层
+        if (mMosaicImage != null) {
+            mMosaicImage.recycle();
+        }
+        this.mMosaicImage = null;
+        // 清空模糊图层
+        if (mDoodleImage != null) {
+            mDoodleImage.recycle();
+        }
+        this.mDoodleImage = null;
     }
 
     @Override
