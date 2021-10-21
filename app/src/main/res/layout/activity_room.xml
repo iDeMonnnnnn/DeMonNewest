@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".module.room.RoomActivity">
 
+    <include layout="@layout/include_toolbar" />
+
     <EditText
         android:id="@+id/etInsert"
         android:layout_width="150dp"
@@ -13,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:hint="name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Button
         android:id="@+id/btnInsert"
@@ -22,7 +24,7 @@
         android:layout_marginTop="10dp"
         android:text="Insert"
         app:layout_constraintStart_toEndOf="@id/etInsert"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
     <EditText
         android:id="@+id/etDel"

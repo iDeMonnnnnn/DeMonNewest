@@ -17,28 +17,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.dp.audio.AudioActivity" />
-        <activity android:name=".module.dp.DpActivity" />
-        <activity android:name=".module.main.MainActivity">
+
+        <activity
+            android:name=".module.home.HomeActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".module.ara.ActResultActivity" />
+        <activity android:name=".module.ara.ActResultTwoActivity" />
+        <activity android:name=".module.dp.AudioActivity" />
         <activity android:name=".module.paging.PagingActivity" />
         <activity
             android:name=".module.progress.MultiProgressActivity"
             android:process=":process" />
         <activity android:name=".module.fragment.FragActivity" />
         <activity android:name=".module.room.RoomActivity" />
-        <activity android:name=".module.dagger.DaggerTestActivity" />
+        <activity android:name=".module.dagger.HiltActivity" />
         <activity android:name=".module.work.WorkerActivity" />
         <activity android:name=".module.views.LighterActivity" />
-        <activity android:name=".module.views.ViewsActivity" />
-        <activity
-            android:name=".module.views.OnePxActivity"
-            android:theme="@style/OnePxActivityStyle" />
+        <activity android:name=".module.views.DoodleActivity" />
+        <activity android:name=".module.views.VbActivity" />
+        <activity android:name=".module.views.MotionActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
@@ -50,11 +53,11 @@
             android:exported="false"
             tools:node="merge">
             <meta-data
-                android:name="com.demon.demonjetpack.ARouterInitializer"
+                android:name="com.demon.demonjetpack.init.ARouterInitializer"
                 android:value="androidx.startup" />
         </provider>
 
-        <service android:name=".module.views.FloatingService" />
+
     </application>
 
 </manifest>

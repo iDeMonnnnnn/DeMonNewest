@@ -14,8 +14,7 @@ class WorkerActivity : MvvmActivity<ActivityWorkerBinding, BaseViewModel>() {
 
 
     override fun init() {
-
-
+        setToolbar("WorkManager")
         binding.btnOne.setOnClickListener {
             val data = Data.Builder()
                 .putInt("maxValue", 5)

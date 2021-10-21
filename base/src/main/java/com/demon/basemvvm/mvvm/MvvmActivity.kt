@@ -50,6 +50,14 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
         }
     }
 
+    protected fun vmRun(block: VM.() -> Unit) {
+        mViewModel.run(block)
+    }
+
+    protected fun bindingRun(block: VB.() -> Unit) {
+        binding.run(block)
+    }
+
 
     protected abstract fun init()
 

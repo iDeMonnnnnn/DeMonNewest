@@ -14,7 +14,6 @@ object Constants {
     const val BROADCAST1 = "Broadcast1"
     const val BROADCAST2 = "Broadcast2"
 
-    val BROADCASTS = arrayOf(BROADCAST1, BROADCAST2)
 
 
 }

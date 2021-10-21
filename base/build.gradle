@@ -59,7 +59,7 @@ dependencies {
     api 'com.squareup.retrofit2:converter-scalars:2.5.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     //Gson
-    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.google.code.gson:gson:2.8.8'
     //okhttp
     def okhttp3Version = "4.7.2"
     api "com.squareup.okhttp3:okhttp:$okhttp3Version"

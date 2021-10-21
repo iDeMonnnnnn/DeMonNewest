@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
  * @author DeMon
  * Created on 2021/10/20.
  * E-mail 757454343@qq.com
- * Desc: c
+ * Desc: Activity Results API
  */
 class PairActivityResultContract constructor(private val cls: Class<*>) : ActivityResultContract<Array<Pair<String, Any?>>, Intent>() {
 
@@ -36,7 +36,6 @@ fun ActivityResultLauncher<Array<Pair<String, Any?>>>.launch(vararg extras: Pair
     val array: Array<Pair<String, Any?>> = arrayOf(*extras)
     this.launch(array)
 }
-
 
 class IntentActivityResultContract constructor(private val intent: Intent) : ActivityResultContract<String, Intent>() {
     override fun createIntent(context: Context, input: String?): Intent = intent

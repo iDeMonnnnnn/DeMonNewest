@@ -13,13 +13,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @Route(path = RouterConst.ACT_FRAGMENT)
 @AndroidEntryPoint
-class FragActivity : MvvmActivity<ActivityFragmentBinding,BaseViewModel>() {
+class FragActivity : MvvmActivity<ActivityFragmentBinding, BaseViewModel>() {
 
     var list: ArrayList<String> by extraAct("params", arrayListOf())
 
     override fun init() {
-
-        //val list = arrayListOf("鸿洋", "郭霖")
+        setToolbar("MVVM")
+        list = arrayListOf("鸿洋", "郭霖")
 
         val adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = list.size

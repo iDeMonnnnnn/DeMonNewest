@@ -21,6 +21,7 @@ class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseVie
 
 
     override fun init() {
+        setToolbar("多进程通信")
 
         binding.tv.text = "当前进程:${AppUtils.getCurrentProcessName(this)}"
 

@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 class PagingActivity : MvvmActivity<ActivityPagingBinding, PagingViewModel>() {
 
     override fun init() {
+        setToolbar("Paging3")
         val pagingAdapter = object : PagingAdapter<ListPagingBinding, ArticleBean>(binding.swipe) {
             override fun onBind(holder: DataViewHolder<ListPagingBinding>, position: Int, data: ArticleBean) {
                 holder.binding.run {

@@ -14,6 +14,7 @@ class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
 
 
     override fun init() {
+        setToolbar("Room")
         binding.btnInsert.setOnClickListener {
             val str = binding.etInsert.text.toString().trim()
             if (!str.toastEmpty(this))

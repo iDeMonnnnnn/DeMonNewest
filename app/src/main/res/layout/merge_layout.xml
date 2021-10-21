@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:showIn="@layout/fragment_view_binding">
+    tools:showIn="@layout/activity_vb">
 
     <View
         android:id="@+id/mergeView"
