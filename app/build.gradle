@@ -23,7 +23,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = '1.8'
     }
     buildFeatures {
         viewBinding = true
@@ -66,7 +66,7 @@ dependencies {
     //Startup
     implementation "androidx.startup:startup-runtime:1.1.0-beta01"
     //Preferences DataStore
-    implementation "androidx.datastore:datastore-preferences:1.0.0-beta02"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
     //exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.14.1'
     //ARouter,每个module都需要添加

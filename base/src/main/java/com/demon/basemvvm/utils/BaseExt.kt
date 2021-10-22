@@ -9,10 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.viewbinding.ViewBinding
 import com.tencent.mmkv.MMKV
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.reflect.ParameterizedType
 
 
@@ -78,7 +75,7 @@ fun Context.dpToPx(dp: Int): Int {
     return (dp * scale + 0.5f * if (dp >= 0) 1 else -1).toInt()
 }
 
-
+val coroutineScopeIO = CoroutineScope((SupervisorJob() + Dispatchers.IO))
 /**
  * io线程
  */

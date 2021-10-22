@@ -17,7 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".module.datastore.DataStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".module.datastore.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".module.home.HomeActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden">
@@ -56,8 +63,6 @@
                 android:name="com.demon.demonjetpack.init.ARouterInitializer"
                 android:value="androidx.startup" />
         </provider>
-
-
     </application>
 
 </manifest>

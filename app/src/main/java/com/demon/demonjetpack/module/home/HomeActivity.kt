@@ -39,13 +39,14 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
 
     @Inject
     lateinit var broadcastHelper: BroadcastHelper
+
     private val homeDatas = arrayListOf(
         HomeEntity("JetPack"),
         HomeEntity("MVVM", RouterConst.ACT_FRAGMENT),
         HomeEntity("Hilt", RouterConst.ACT_DAGGER),
         HomeEntity("Room", RouterConst.ACT_ROOM),
         HomeEntity("Paging3", RouterConst.ACT_PAGING),
-        HomeEntity("DataStore", ""),
+        HomeEntity("DataStore VS MMKV", RouterConst.ACT_DATASTORE),
         HomeEntity("WorkManager", RouterConst.ACT_WORKER),
         HomeEntity("Activity Result API", ActResultActivity::class.java),
         HomeEntity("框架&使用实例"),
@@ -78,58 +79,8 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
             }
         }
 
-        /*binding.tvProgress.text = "当前进程:${AppUtils.getCurrentProcessName(this)}"
-        binding.tvChannel.text = "当前渠道:${AppUtils.getChannel(this, "apkchannel")}"
-        mViewModel.showDialog()
-        binding.btn.setOnClickListener {
-            //ARouter.getInstance().build(RouterConst.ACT_FRAGMENT).navigation()
-            toActivity(FragActivity::class.java, "params" to arrayListOf("鸿洋", "郭霖"))
-        }
 
-        binding.btnDagger.setOnClickListener {
-            toActivityForResult(HiltActivity::class.java, "params" to "hello world") {
-                Log.i(Tag, "init: " + it?.get("key", ""))
-            }
-        }
-
-        binding.btnRoom.setOnClickListener {
-            ARouter.getInstance().build(RouterConst.ACT_ROOM).navigation()
-        }
-
-        binding.btnMultiProgress.setOnClickListener {
-            ARouter.getInstance().build(RouterConst.ACT_MULTIPROGRESS).navigation()
-        }
-
-        binding.btnPaging.setOnClickListener { ARouter.getInstance().build(RouterConst.ACT_PAGING).navigation() }
-
-        binding.btnDataStore.setOnClickListener {
-            mmkv?.encode("data_string", "hello world")
-            mmkv?.encode("data_long", System.currentTimeMillis())
-
-            Log.i(Tag, "init: ${mmkv?.decodeString("data_string", "")}")
-            Log.i(Tag, "init: ${mmkv?.decodeLong("data_long", 0L)}")
-            lifecycleScope.launchUI {
-                DataStoreHelper.put("data_string", "hello world")
-                DataStoreHelper.put("data_long", System.currentTimeMillis())
-                delay(1000)
-                Log.i(Tag, "init: ${DataStoreHelper.get("data_long", 0L)}")
-                Log.i(Tag, "init: ${DataStoreHelper.get("data_string", "String")}")
-            }
-        }
-
-        binding.btnWorkManager.setOnClickListener {
-            ARouter.getInstance().build(RouterConst.ACT_WORKER).navigation()
-        }
-
-        binding.btnView.setOnClickListener {
-            toActivity(ViewsActivity::class.java)
-        }
-
-        binding.btnDP.setOnClickListener {
-            toActivity(DpActivity::class.java)
-        }*/
-
-        LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, Observer { t ->
+        LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, { t ->
             Log.i(Tag, "普通消息：{ $t }")
             t.toast()
         })

@@ -13,5 +13,6 @@ object RouterConst {
     const val ACT_MULTIPROGRESS = "/main/Activity_MultiProgress"
     const val ACT_FRAGMENT = "/main/Activity_Fragment"
     const val ACT_PAGING = "/main/Activity_Paging"
+    const val ACT_DATASTORE = "/main/Activity_DataStore"
     const val ACT_WORKER = "/main/Activity_Worker"
 }
