@@ -49,6 +49,7 @@
         <activity android:name=".module.views.DoodleActivity" />
         <activity android:name=".module.views.VbActivity" />
         <activity android:name=".module.views.MotionActivity" />
+        <activity android:name=".module.img.ImgLoadActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"

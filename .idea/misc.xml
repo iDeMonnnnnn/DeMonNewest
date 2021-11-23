@@ -18,6 +18,7 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_dp.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_fragment.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_home.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_img_load.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_lighter.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_main.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/activity_motion.xml" value="0.35208333333333336" />
@@ -41,6 +42,8 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/lighter_tip_common.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_home_head.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_home_item.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_img_gilde.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_img_glide.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/motion_red_package.xml" value="0.32592592592592595" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/viewstub_layout.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/window_top.xml" value="0.33" />

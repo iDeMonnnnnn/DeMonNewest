@@ -1,8 +1,8 @@
 package com.demon.demonjetpack.list
 
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import kotlinx.android.extensions.LayoutContainer
 
 /**
@@ -11,10 +11,12 @@ import kotlinx.android.extensions.LayoutContainer
  * E-mail 757454343@qq.com
  * Desc:
  */
-open class DataViewHolder<VB : ViewBinding>(val binding: VB) : RecyclerView.ViewHolder(binding.root), LayoutContainer {
-    val mContext = binding.root.context
+open class DataViewHolder<VB : ViewBinding> constructor(val binding: VB) : BaseViewHolder(binding.root), LayoutContainer {
+
+    val mContext = itemView.context
+
 
     override val containerView: View?
-        get() = binding.root
+        get() = itemView
 
 }

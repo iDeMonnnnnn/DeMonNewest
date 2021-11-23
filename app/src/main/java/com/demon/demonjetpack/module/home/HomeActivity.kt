@@ -22,6 +22,7 @@ import com.demon.demonjetpack.bean.HomeEntity
 import com.demon.demonjetpack.databinding.ActivityHomeBinding
 import com.demon.demonjetpack.module.ara.ActResultActivity
 import com.demon.demonjetpack.module.dp.AudioActivity
+import com.demon.demonjetpack.module.img.ImgLoadActivity
 import com.demon.demonjetpack.module.views.DoodleActivity
 import com.demon.demonjetpack.module.views.LighterActivity
 import com.demon.demonjetpack.module.views.MotionActivity
@@ -51,6 +52,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("Activity Result API", ActResultActivity::class.java),
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),
+        HomeEntity("图片加载", ImgLoadActivity::class.java),
         HomeEntity("自定义View"),
         HomeEntity("Motion动画", MotionActivity::class.java),
         HomeEntity("ViewBinding", VbActivity::class.java),
