@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.base.util
+package com.demon.demonjetpack.base.ext
 
 import android.content.Context
 import android.util.Log

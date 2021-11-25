@@ -16,7 +16,7 @@ import com.demon.demonjetpack.databinding.ViewstubLayoutBinding
 class VbActivity : MvvmActivity<ActivityVbBinding, BaseViewModel>() {
     private var inflateView: View? = null
 
-    override fun init() {
+    override fun initData() {
         setToolbar("ViewBinding")
         binding.btnDialog.setOnClickListener {
 

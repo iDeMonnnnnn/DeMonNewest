@@ -21,7 +21,7 @@ class HiltActivity : MvvmActivity<ActivityDaggerTestBinding, BaseViewModel>() {
     protected lateinit var helper: DoHelper
 
 
-    override fun init() {
+    override fun initData() {
         setToolbar("Hilt")
         binding.name.text = helper.name
 
@@ -43,7 +43,4 @@ class HiltActivity : MvvmActivity<ActivityDaggerTestBinding, BaseViewModel>() {
         }
     }
 
-    override fun initViewModel() {
-
-    }
 }

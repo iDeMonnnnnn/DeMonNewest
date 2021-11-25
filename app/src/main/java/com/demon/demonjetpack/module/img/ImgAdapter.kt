@@ -5,8 +5,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ListImgGlideBinding
-import com.demon.demonjetpack.list.BaseAdapter
-import com.demon.demonjetpack.list.DataViewHolder
+import com.demon.demonjetpack.base.list.BaseAdapter
+import com.demon.demonjetpack.base.list.DataViewHolder
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 /**

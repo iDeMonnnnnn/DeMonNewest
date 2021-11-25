@@ -8,7 +8,7 @@ import com.demon.demonjetpack.databinding.ActivityActResultTwoBinding
 
 class ActResultTwoActivity : MvvmActivity<ActivityActResultTwoBinding, BaseViewModel>() {
 
-    override fun init() {
+    override fun initData() {
          binding.btnFinish.setOnClickThrottleFirst {
              finishResult()
          }

@@ -1,14 +1,13 @@
 package com.demon.demonjetpack.module.paging
 
 import androidx.lifecycle.lifecycleScope
-
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.bean.ArticleBean
 import com.demon.demonjetpack.databinding.ActivityPagingBinding
-import com.demon.demonjetpack.databinding.ListPagingBinding
-import com.demon.demonjetpack.list.DataViewHolder
+import com.demon.demonjetpack.databinding.ListArticleBinding
+import com.demon.demonjetpack.base.list.DataViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -16,10 +15,10 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PagingActivity : MvvmActivity<ActivityPagingBinding, PagingViewModel>() {
 
-    override fun init() {
+    override fun initData() {
         setToolbar("Paging3")
-        val pagingAdapter = object : PagingAdapter<ListPagingBinding, ArticleBean>(binding.swipe) {
-            override fun onBind(holder: DataViewHolder<ListPagingBinding>, position: Int, data: ArticleBean) {
+        val pagingAdapter = object : PagingAdapter<ListArticleBinding, ArticleBean>(binding.swipe) {
+            override fun onBind(holder: DataViewHolder<ListArticleBinding>, position: Int, data: ArticleBean) {
                 holder.binding.run {
                     tvText.text = data.title
                 }

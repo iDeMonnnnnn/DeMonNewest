@@ -11,7 +11,7 @@ import com.demon.demonjetpack.databinding.FragmentFullCompactBinding
  * Desc:
  */
 class FulCompactFragment : MvvmFragment<FragmentFullCompactBinding, BaseViewModel>() {
-    override fun init() {
+    override fun initData() {
         binding.imagePlay.setOnClickListener {
             binding.motionLayout.transitionToStart()
         }

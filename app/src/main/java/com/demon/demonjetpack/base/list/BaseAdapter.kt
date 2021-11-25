@@ -1,18 +1,17 @@
-package com.demon.demonjetpack.list
+package com.demon.demonjetpack.base.list
 
 import android.content.Context
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.demon.basemvvm.utils.inflateViewBinding
 import com.demon.basemvvm.utils.launchIO
+import com.demon.demonjetpack.R
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.withContext
-import java.lang.reflect.Constructor
 
 /**
  * @author DeMon
@@ -39,18 +38,10 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
 
     override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder<VB> {
         mContext = parent.context
-        val binding: ViewBinding = inflateViewBinding(parent, 1)
-        return createBaseViewHolder(binding.root)
+        val binding: VB = inflateViewBinding(parent, 1)
+        return DataViewHolder(binding)
     }
 
-    override fun createBaseViewHolder(view: View): DataViewHolder<VB> {
-        val parent = view as ViewGroup
-        val binding: ViewBinding = inflateViewBinding(parent, 1)
-        //val cla = findTClass(DataViewHolder::class.java) ?: throw (Exception("Can not find class!"))
-        val constructor: Constructor<*> = DataViewHolder::class.java.getDeclaredConstructor(ViewBinding::class.java)
-        constructor.isAccessible = true
-        return constructor.newInstance(binding) as DataViewHolder<VB>
-    }
 
     private fun replace(old: MutableList<T>, update: MutableList<T>) {
         when {
@@ -74,6 +65,14 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         }
     }
 
+    fun setData(newDatas: MutableList<T>) {
+        if (newDatas.isNullOrEmpty()) {
+            setEmptyView(R.layout.view_data_empty)
+            setList(null)
+        } else {
+            datas = newDatas
+        }
+    }
 
     private fun update(oldItems: List<T>, update: List<T>): DiffUtil.DiffResult =
         DiffUtil.calculateDiff(object : DiffUtil.Callback() {

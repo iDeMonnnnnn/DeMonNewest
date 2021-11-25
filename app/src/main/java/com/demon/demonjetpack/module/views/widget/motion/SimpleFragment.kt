@@ -11,7 +11,7 @@ import com.demon.demonjetpack.databinding.FragmentSimpleBinding
  * Desc:
  */
 class SimpleFragment : MvvmFragment<FragmentSimpleBinding, BaseViewModel>() {
-    override fun init() {
+    override fun initData() {
 
     }
 }

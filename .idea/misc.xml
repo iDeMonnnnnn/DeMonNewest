@@ -36,6 +36,7 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_parallax.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_red_package.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_simple.xml" value="0.32592592592592595" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_tab.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/fragment_view_binding.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/include_layout.xml" value="0.35208333333333336" />
@@ -44,9 +45,13 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_home_item.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_img_gilde.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_img_glide.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/list_paging.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/load_empty.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/motion_red_package.xml" value="0.32592592592592595" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/view_data_empty.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/viewstub_layout.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/window_top.xml" value="0.33" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33697916666666666" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36256410256410254" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/include_toolbar.xml" value="0.35208333333333336" />
       </map>

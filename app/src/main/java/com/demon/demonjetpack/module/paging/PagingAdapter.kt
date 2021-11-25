@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.utils.inflateViewBinding
-import com.demon.demonjetpack.list.DataViewHolder
+import com.demon.demonjetpack.base.list.DataViewHolder
 
 /**
  * @author DeMon
@@ -37,7 +37,8 @@ abstract class PagingAdapter<VB : ViewBinding, T : Any> constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder<VB> {
-        return DataViewHolder(inflateViewBinding(parent))
+        val binding: VB = inflateViewBinding(parent)
+        return DataViewHolder(binding)
     }
 
 

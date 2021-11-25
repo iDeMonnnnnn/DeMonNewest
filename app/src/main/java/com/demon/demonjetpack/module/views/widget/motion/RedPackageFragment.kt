@@ -17,7 +17,7 @@ import java.util.*
  */
 class RedPackageFragment : MvvmFragment<FragmentRedPackageBinding, BaseViewModel>() {
 
-    override fun init() {
+    override fun initData() {
         binding.root.post {
             Log.i(TAG, "init: ${binding.root.measuredWidth} ${binding.root.measuredHeight}")
 

@@ -11,7 +11,7 @@ import com.demon.demonjetpack.module.views.widget.motion.*
 class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), View.OnClickListener {
 
 
-    override fun init() {
+    override fun initData() {
         setToolbar("MotionLayout")
         binding.btn1.setOnClickListener(this)
         binding.btn2.setOnClickListener(this)

@@ -12,7 +12,7 @@ import com.demon.demonjetpack.databinding.FragmentTextScatteredBinding
  * Desc:
  */
 class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {
-    override fun init() {
+    override fun initData() {
         binding.motionLayout.transitionToEnd()
         binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {

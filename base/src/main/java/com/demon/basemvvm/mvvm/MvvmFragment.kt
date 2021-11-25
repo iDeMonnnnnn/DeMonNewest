@@ -35,6 +35,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.i(TAG, "onCreateView: ")
         runCatching {
+            isLoad = false
             _binding = inflateViewBinding<VB>(inflater, container)
             return _binding?.root
         }.onFailure {
@@ -43,17 +44,16 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
         return null
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i(TAG, "onViewCreated: ")
         activity?.run { mContext = this }
         runCatching {
             lifecycle.addObserver(mViewModel)
-            mViewModel.run {
+            vmRun {
                 lifecycle.addObserver(this)
                 errLiveData.observe(viewLifecycleOwner) {
-                    doOnErrLiveData(it)
+                    doOnError(it)
                 }
                 loadingData.observe(viewLifecycleOwner) {
                     DialogHelp.show(mContext, it)
@@ -75,65 +75,37 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     override fun onResume() {
         super.onResume()
         Log.i(TAG, "onResume: ")
-        if (!isLoad) {
-            init()
-            initViewModel()
-            isLoad = true
+        if (isLoad) {
+            onResumeRefresh()
         } else {
+            initData()
+            isLoad = true
+        }
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden && isLoad) {
             onResumeRefresh()
         }
     }
 
+    protected fun vmRun(block: VM.() -> Unit) {
+        mViewModel.run(block)
+    }
 
-    protected abstract fun init()
+    protected fun bindingRun(block: VB.() -> Unit) {
+        binding.run(block)
+    }
 
-    open fun initViewModel() {}
+    protected abstract fun initData()
+
 
     /**
      * 返回fragment刷新数据时重写
      */
     open fun onResumeRefresh() {}
 
-    open fun doOnErrLiveData(msg: String) {}
+    open fun doOnError(msg: String) {}
 
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.i(TAG, "onAttach: ")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.i(TAG, "onCreate: ")
-    }
-
-    
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG, "onStart: ")
-    }
-
-    
-
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG, "onPause: ")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG, "onStop: ")
-    }
-    
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG, "onDestroy: ")
-    }
-
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.i(TAG, "onDetach: ")
-    }
 }

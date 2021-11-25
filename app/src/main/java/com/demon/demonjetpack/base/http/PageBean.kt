@@ -12,7 +12,7 @@ data class PageBean<T>(
     @SerializedName("curPage")
     val curPage: Int,
     @SerializedName("datas")
-    val datas: List<T>,
+    val datas: MutableList<T>,
     @SerializedName("offset")
     val offset: Int,
     @SerializedName("over")

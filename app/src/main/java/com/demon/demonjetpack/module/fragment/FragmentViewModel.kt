@@ -1,8 +1,10 @@
 package com.demon.demonjetpack.module.fragment
 
 import androidx.lifecycle.MutableLiveData
-import com.demon.demonjetpack.base.ext.getDataOrThrow
+import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.base.http.HttpViewModel
+import com.demon.demonjetpack.base.widget.RefreshLoadLayout
+import com.demon.demonjetpack.bean.ArticleBean
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -15,11 +17,22 @@ import javax.inject.Inject
 @HiltViewModel
 class FragmentViewModel @Inject constructor() : HttpViewModel() {
 
-    val authorData = MutableLiveData<Any>()
+    val authorData = MutableLiveData<MutableList<ArticleBean>>()
 
-    fun articleList(author: String) {
-        authorData.toFlowLoading {
-            repository.articleList(author).getDataOrThrow()
-        }
+    fun articleList(author: String, layout: RefreshLoadLayout) {
+        onFlow(
+            showLoading = false,
+            request = {
+                repository.articleAuthorList(author, layout.page)
+            },
+            each = {
+                authorData.value = it.datas
+                layout.finishRefreshLoad(!it.over)
+            }, catch = {
+                authorData.value = mutableListOf()
+                it.message?.toast()
+                layout.finishRefreshLoad(isLoadMore = true, isSucceed = false)
+            }
+        )
     }
 }

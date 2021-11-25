@@ -17,7 +17,7 @@ class FragActivity : MvvmActivity<ActivityFragmentBinding, BaseViewModel>() {
 
     var list: ArrayList<String> by extraAct("params", arrayListOf())
 
-    override fun init() {
+    override fun initData() {
         setToolbar("MVVM")
         list = arrayListOf("鸿洋", "郭霖")
 
@@ -30,9 +30,6 @@ class FragActivity : MvvmActivity<ActivityFragmentBinding, BaseViewModel>() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
             tab.text = list[position]
         }.attach()
-    }
-
-    override fun initViewModel() {
     }
 
 }

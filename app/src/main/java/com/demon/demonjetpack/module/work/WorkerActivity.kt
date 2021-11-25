@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 class WorkerActivity : MvvmActivity<ActivityWorkerBinding, BaseViewModel>() {
 
 
-    override fun init() {
+    override fun initData() {
         setToolbar("WorkManager")
         binding.btnOne.setOnClickListener {
             val data = Data.Builder()

@@ -18,7 +18,7 @@ import com.gyf.immersionbar.ktx.immersionBar
  */
 class DoodleActivity : MvvmActivity<ActivityDoodleBinding, BaseViewModel>() {
 
-    override fun init() {
+    override fun initData() {
         immersionBar {
 
         }

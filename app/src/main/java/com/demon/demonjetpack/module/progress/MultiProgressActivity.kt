@@ -20,7 +20,7 @@ class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseVie
     lateinit var broadcastHelper: BroadcastHelper
 
 
-    override fun init() {
+    override fun initData() {
         setToolbar("多进程通信")
 
         binding.tv.text = "当前进程:${AppUtils.getCurrentProcessName(this)}"

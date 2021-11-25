@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
 
 
-    override fun init() {
+    override fun initData() {
         setToolbar("Room")
         binding.btnInsert.setOnClickListener {
             val str = binding.etInsert.text.toString().trim()
@@ -34,10 +34,8 @@ class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
             if (!strId.toastDigital(this) && !str.toastEmpty(this))
                 mViewModel.updateUser(strId.toInt(), str)
         }
-    }
 
-    override fun initViewModel() {
-        mViewModel.run {
+        vmRun {
             getUsers()
             useData.observe(this@RoomActivity) {
                 binding.tvQuery.text = ""
@@ -45,7 +43,6 @@ class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
                     binding.tvQuery.append(user.toString() + "\n")
                 }
             }
-
         }
     }
 }

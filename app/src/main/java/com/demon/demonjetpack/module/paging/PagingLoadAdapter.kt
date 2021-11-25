@@ -9,7 +9,7 @@ import androidx.paging.LoadStateAdapter
 import com.demon.basemvvm.utils.Tag
 import com.demon.demonjetpack.base.ext.toast
 import com.demon.demonjetpack.databinding.LoadStateBinding
-import com.demon.demonjetpack.list.DataViewHolder
+import com.demon.demonjetpack.base.list.DataViewHolder
 
 /**
  * @author DeMon

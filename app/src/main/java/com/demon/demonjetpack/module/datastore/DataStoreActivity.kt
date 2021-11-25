@@ -7,8 +7,8 @@ import com.demon.basemvvm.utils.launchUI
 import com.demon.basemvvm.utils.mmkv
 import com.demon.basemvvm.utils.setOnClickThrottleFirst
 import com.demon.demonjetpack.base.data.RouterConst
-import com.demon.demonjetpack.base.util.dsGet
-import com.demon.demonjetpack.base.util.dsPut
+import com.demon.demonjetpack.base.ext.dsGet
+import com.demon.demonjetpack.base.ext.dsPut
 import com.demon.demonjetpack.databinding.ActivityDataStoreBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
@@ -22,7 +22,7 @@ import kotlin.random.Random
 @Route(path = RouterConst.ACT_DATASTORE)
 @AndroidEntryPoint
 class DataStoreActivity : MvvmActivity<ActivityDataStoreBinding, BaseViewModel>() {
-    override fun init() {
+    override fun initData() {
         setToolbar("DataStore VS MMKV")
 
         var string = ""

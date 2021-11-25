@@ -28,14 +28,13 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
             mViewModel.run {
                 lifecycle.addObserver(this)
                 errLiveData.observe(this@MvvmActivity) {
-                    doOnErrLiveData()
+                    doOnError(it)
                 }
                 loadingData.observe(this@MvvmActivity) {
                     DialogHelp.show(mContext, it)
                 }
             }
-            init()
-            initViewModel()
+            initData()
         }.onFailure {
             it.printStackTrace()
         }
@@ -59,11 +58,10 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
     }
 
 
-    protected abstract fun init()
+    protected abstract fun initData()
 
-    open fun initViewModel() {}
 
-    open fun doOnErrLiveData() {}
+    open fun doOnError(msg: String) {}
 
 
     override fun onDestroy() {

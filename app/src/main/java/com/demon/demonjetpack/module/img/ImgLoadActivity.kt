@@ -19,7 +19,7 @@ class ImgLoadActivity : MvvmActivity<ActivityImgLoadBinding, BaseViewModel>() {
         const val url2 = "https://a1-vip6.easemob.com/utfqvfhpyygy/yhgw/chatfiles/17981010-485e-11ec-95c3-6d895c003136"
     }
 
-    override fun init() {
+    override fun initData() {
 
         val datas = mutableListOf(url1, url2)
         adapter.datas = datas

@@ -68,7 +68,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         }
     }
 
-    override fun init() {
+    override fun initData() {
 
         immersionBar {
             titleBar(binding.toolbar)
@@ -106,10 +106,6 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
             }
         }, Constants.BROADCAST1, Constants.BROADCAST2)
 
-    }
-
-
-    override fun initViewModel() {
     }
 
 

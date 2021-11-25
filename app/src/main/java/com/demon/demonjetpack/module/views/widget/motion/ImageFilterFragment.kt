@@ -11,7 +11,7 @@ import com.demon.demonjetpack.databinding.FragmentImageFilterBinding
  * Desc:
  */
 class ImageFilterFragment :MvvmFragment<FragmentImageFilterBinding,BaseViewModel>() {
-    override fun init() {
+    override fun initData() {
 
     }
 }
