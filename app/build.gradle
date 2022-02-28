@@ -6,13 +6,15 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 android {
-    compileSdkVersion 32
+
+    compileSdkVersion androidCompileVersion
+
     defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetVersion
+        versionCode appVersionCode
+        versionName appVersionName
         applicationId "com.demon.demonjetpack"
-        minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -85,7 +87,7 @@ dependencies {
     // kotlin扩展（可选）
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     //https://github.com/scwang90/SmartRefreshLayout
-    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.3'//核心必须依赖
-    implementation  'com.scwang.smart:refresh-header-material:2.0.3'//谷歌刷新头
-    implementation  'com.scwang.smart:refresh-footer-classics:2.0.3'
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.3'//核心必须依赖
+    implementation 'com.scwang.smart:refresh-header-material:2.0.3'//谷歌刷新头
+    implementation 'com.scwang.smart:refresh-footer-classics:2.0.3'
 }
