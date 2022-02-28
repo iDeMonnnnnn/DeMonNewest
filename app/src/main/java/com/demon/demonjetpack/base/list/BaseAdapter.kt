@@ -8,7 +8,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.demon.basemvvm.utils.inflateViewBinding
 import com.demon.basemvvm.utils.launchIO
 import com.demon.demonjetpack.R
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.withContext
@@ -54,7 +53,6 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
                 notifyDataSetChanged()
             }
             else -> {
-                @OptIn(DelicateCoroutinesApi::class)
                 GlobalScope.launchIO {
                     val diff = update(old, update)
                     withContext(Dispatchers.Main) {

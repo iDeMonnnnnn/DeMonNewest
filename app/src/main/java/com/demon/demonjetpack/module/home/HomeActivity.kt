@@ -82,10 +82,10 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         }
 
 
-        LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this, { t ->
+        LiveEventBus.get(Constants.EVENT_BUS, String::class.java).observe(this) { t ->
             Log.i(Tag, "普通消息：{ $t }")
             t.toast()
-        })
+        }
 
         LiveEventBus.get(Constants.MULTI_PROGRESS, String::class.java).observe(this, Observer { t ->
             Log.i(Tag, "跨进程消息：{ $t }")

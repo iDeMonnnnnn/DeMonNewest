@@ -4,10 +4,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.demon.demonjetpack.R
-import com.demon.demonjetpack.databinding.ListImgGlideBinding
 import com.demon.demonjetpack.base.list.BaseAdapter
 import com.demon.demonjetpack.base.list.DataViewHolder
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation
+import com.demon.demonjetpack.databinding.ListImgGlideBinding
 
 /**
  * @author DeMon
@@ -23,13 +22,9 @@ class ImgAdapter : BaseAdapter<String, ListImgGlideBinding>() {
             .error(R.drawable.default_image)
             .placeholder(R.drawable.default_image)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .dontAnimate()
-            .transform(RoundedCornersTransformation(6, 0, RoundedCornersTransformation.CornerType.ALL))
         Glide.with(mContext)
-            .asBitmap()
-            .load(ImgLoadActivity.url1)
+            .load(item)
             .apply(options)
-            .thumbnail(0.5f)
             .into(holder.binding.ivImage)
     }
 

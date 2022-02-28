@@ -32,6 +32,11 @@
 |LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
 |MMKV|腾讯基于mmap的高性能通用key-value组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
 
+####
+
+|技术|说明|备注|
+|--|--|--|
+|多渠道|美团渠道包解决方案 |<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
 
 
 #### 日志

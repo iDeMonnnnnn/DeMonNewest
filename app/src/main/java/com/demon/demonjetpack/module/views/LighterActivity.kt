@@ -6,6 +6,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.basemvvm.utils.getCompatColor
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ActivityLighterBinding
 import com.demon.demonjetpack.databinding.LighterTip1Binding
@@ -41,9 +42,9 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
     }
 
 
-    fun intHighlight() {
+    private fun intHighlight() {
         lighter = Lighter.with(this)
-            .setBackgroundColor(resources.getColor(R.color.transparent_60))
+            .setBackgroundColor(getCompatColor(R.color.transparent_60))
             .setAutoNext(false)
             .addHighlight(
                 LighterParameter.Builder()
@@ -78,7 +79,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
             )
     }
 
-    fun createCommonTipView1(): View {
+    private fun createCommonTipView1(): View {
         val binding = LighterTip1Binding.inflate(layoutInflater)
         val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif1)
@@ -91,7 +92,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
     }
 
 
-    fun createCommonTipView2(): View {
+    private fun createCommonTipView2(): View {
         val binding = LighterTip2Binding.inflate(layoutInflater)
         val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif2)
@@ -104,7 +105,7 @@ class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
     }
 
 
-    fun createCommonTipView3(): View {
+    private fun createCommonTipView3(): View {
         val binding = LighterTip3Binding.inflate(layoutInflater)
         val optionsScaleType = RequestOptions().override(Target.SIZE_ORIGINAL)
         Glide.with(this).load(R.drawable.gif3)

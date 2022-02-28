@@ -58,6 +58,7 @@ class RefreshLoadLayout constructor(context: Context, attrs: AttributeSet) : Sma
                 if (!isSucceed) page--
                 finishLoadMore(0, isSucceed, !isLoadMore)
             }
+            else -> {}
         }
         actionState = ActionState.None
     }

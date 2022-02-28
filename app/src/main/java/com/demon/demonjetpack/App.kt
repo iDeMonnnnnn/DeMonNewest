@@ -10,7 +10,7 @@ import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import dagger.hilt.android.HiltAndroidApp
 
-/**AppComponent
+/**
  * @author DeMon
  * Created on 2020/4/10.
  * E-mail 757454343@qq.com
