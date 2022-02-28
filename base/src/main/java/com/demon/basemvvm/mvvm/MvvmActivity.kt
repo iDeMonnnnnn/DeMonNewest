@@ -2,6 +2,7 @@ package com.demon.basemvvm.mvvm
 
 import android.content.Context
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,10 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
         }.onFailure {
             it.printStackTrace()
         }
+    }
+
+    fun setToolbar(@StringRes id: Int) {
+        setToolbar(getString(id))
     }
 
     open fun setToolbar(title: String) {

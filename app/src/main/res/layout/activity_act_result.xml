@@ -6,5 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".module.ara.ActResultActivity">
 
+    <include layout="@layout/include_toolbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

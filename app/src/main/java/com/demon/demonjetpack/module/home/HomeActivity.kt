@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.basemvvm.helper.BroadcastHelper
+import com.demon.basemvvm.intent.toActivity
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.basemvvm.utils.Tag
 import com.demon.basemvvm.utils.setOnClickThrottleFirst
@@ -87,11 +87,10 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
             t.toast()
         }
 
-        LiveEventBus.get(Constants.MULTI_PROGRESS, String::class.java).observe(this, Observer { t ->
+        LiveEventBus.get(Constants.MULTI_PROGRESS, String::class.java).observe(this) { t ->
             Log.i(Tag, "跨进程消息：{ $t }")
             t.toast()
-        })
-
+        }
 
         broadcastHelper.addAction(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
@@ -122,7 +121,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
                     ARouter.getInstance().build(item.router).navigation()
                 }
                 item.activity != null -> {
-                    startActivity(Intent(this@HomeActivity, item.activity))
+                    toActivity(Intent(this@HomeActivity, item.activity))
                 }
                 else -> {
                     "Click~".toast()
