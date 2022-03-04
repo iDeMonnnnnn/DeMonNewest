@@ -3,7 +3,7 @@ package com.demon.demonjetpack.base.ext
 import android.content.Context
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
-import com.demon.demonjetpack.App
+import com.demon.basemvvm.MvvmApp
 
 
 /**
@@ -15,7 +15,7 @@ import com.demon.demonjetpack.App
 
 
 fun String.toast() {
-    Toast.makeText(App.appContext, this, Toast.LENGTH_SHORT).show()
+    Toast.makeText(MvvmApp.appContext, this, Toast.LENGTH_SHORT).show()
 }
 
 fun String.toastEmpty(context: Context): Boolean {

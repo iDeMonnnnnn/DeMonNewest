@@ -1,5 +1,6 @@
 package com.demon.demonjetpack.module.ara
 
+import com.demon.basemvvm.intent.extraAct
 import com.demon.basemvvm.intent.finishResult
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
@@ -8,9 +9,17 @@ import com.demon.demonjetpack.databinding.ActivityActResultTwoBinding
 
 class ActResultTwoActivity : MvvmActivity<ActivityActResultTwoBinding, BaseViewModel>() {
 
+    private val string by extraAct<String>("string")
+
+    private val time by extraAct("time", 0L)
+
     override fun initData() {
-         binding.btnFinish.setOnClickThrottleFirst {
-             finishResult()
-         }
+        setToolbar("Activity Result API TWO")
+
+        binding.text.text = "key={$string}\ntime={$time}"
+
+        binding.btnFinish.setOnClickThrottleFirst {
+            finishResult("string" to TAG)
+        }
     }
 }

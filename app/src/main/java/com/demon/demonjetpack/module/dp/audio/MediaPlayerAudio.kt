@@ -80,10 +80,10 @@ class MediaPlayerAudio : IAudio {
     override fun getCurrentPosition(): Int = mMediaPlayer?.currentPosition ?: 0
 
     override fun setIAudioListener(listener: IAudioListener?) {
-        mMediaPlayer?.setOnBufferingUpdateListener { mp, percent ->
+        mMediaPlayer?.setOnBufferingUpdateListener { _, percent ->
             listener?.playLoad(percent)
         }
-        mMediaPlayer?.setOnErrorListener { mp, what, extra ->
+        mMediaPlayer?.setOnErrorListener { _, what, extra ->
             listener?.playError(what, "$extra")
             false
         }

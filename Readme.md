@@ -23,6 +23,7 @@
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
+|Activity Result API|startActivityForResult代替|<https://blog.csdn.net/c10WTiybQ1Ye3/article/details/119430078>|
 
 #### 框架
 

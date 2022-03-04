@@ -3,9 +3,9 @@ package com.demon.demonjetpack.base.http
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import com.demon.basemvvm.MvvmApp
 import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.demonjetpack.App
-import com.demon.demonjetpack.hilt.InfEntry
+import com.demon.demonjetpack.base.hilt.InfEntry
 import dagger.hilt.EntryPoints
 import javax.inject.Inject
 
@@ -18,7 +18,7 @@ import javax.inject.Inject
 open class HttpViewModel @Inject constructor() : BaseViewModel() {
 
     val repository: DataRepository by lazy {
-        EntryPoints.get(App.appContext, InfEntry::class.java).provideDataRepository()
+        EntryPoints.get(MvvmApp.appContext, InfEntry::class.java).provideDataRepository()
     }
 
     protected fun <T : Any> toPage(block: suspend (Int) -> PageBean<T>) =

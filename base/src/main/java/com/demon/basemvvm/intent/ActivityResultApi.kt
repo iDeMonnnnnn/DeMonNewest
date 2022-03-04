@@ -1,131 +1,130 @@
 package com.demon.basemvvm.intent
 
 import android.app.Activity
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import kotlinx.coroutines.suspendCancellableCoroutine
 
 /**
  * @author DeMon
  * Created on 2021/10/20.
- * E-mail 757454343@qq.com
- * Desc: Activity Results API
+ * E-mail idemon_liu@qq.com
+ * Desc: ktx扩展
  */
-class PairActivityResultContract constructor(private val cls: Class<*>) : ActivityResultContract<Array<Pair<String, Any?>>, ActivityResult>() {
 
-    override fun createIntent(context: Context, input: Array<Pair<String, Any?>>): Intent {
-        val intent = Intent(context, cls)
-        intent.putExtras(*input)
-        return intent
+/**
+ * Activity中获取DeMonActivityResult
+ */
+fun FragmentActivity.getActivityResult(): DeMonActivityResult<Intent, ActivityResult>? {
+    val mapKey = intent.getStringExtra(DeMonActivityCallbacks.DEMON_ACTIVITY_KEY)
+    return if (!mapKey.isNullOrEmpty()) {
+        DeMonActivityCallbacks.resultMap[mapKey]
+    } else {
+        null
     }
-
-    override fun parseResult(resultCode: Int, data: Intent?): ActivityResult {
-        return ActivityResult(resultCode, data)
-    }
-
 }
 
 /**
- * 回调执行
+ * Fragment中获取DeMonActivityResult
+ */
+fun Fragment.getActivityResult(): DeMonActivityResult<Intent, ActivityResult>? {
+    val mapKey = requireActivity().intent.getStringExtra(DeMonActivityCallbacks.DEMON_FRAGMENT_KEY)
+    return if (!mapKey.isNullOrEmpty()) {
+        DeMonActivityCallbacks.resultMap[mapKey]
+    } else {
+        null
+    }
+}
+
+/**
+ * Activity跳转并在回调用获取返回结果
+ *  <pre>
+ *       val intent = Intent(this@MainActivity,JavaActivity::class.java)
+ *       forActivityResult(intent) {
+ *       val str = it?.getStringExtra("tag") ?: ""
+ *       text.text = "跳转页面返回值：$str"
+ *       }
+ *  </pre>
+ *
+ * @param isCanBack 直接点击返回键或者直接finish是否会触发回调
+ */
+inline fun FragmentActivity.forActivityResult(
+    data: Intent,
+    isCanBack: Boolean = false,
+    crossinline callback: ((result: Intent?) -> Unit)
+) {
+    getActivityResult()?.launch(data, isCanBack) {
+        callback(it.data)
+    }
+}
+
+/**
+ * Activity跳转并在回调用获取返回结果
+ *  <pre>
+ *       forActivityResult<TestJumpActivity>(
+ *       "tag" to TAG,
+ *       "timestamp" to System.currentTimeMillis(),
+ *       isCanBack = false
+ *      ) {
+ *      val str = it?.getStringExtra("tag") ?: ""
+ *      text.text = "跳转页面返回值：$str"
+ *      }
+ *  </pre>
+ *
+ * @param extras 可变参数Pair键值对
+ * @param isCanBack 直接点击返回键或者直接finish是否会触发回调
  */
 inline fun <reified T : FragmentActivity> FragmentActivity.forActivityResult(
     vararg extras: Pair<String, Any?>,
     isCanBack: Boolean = false,
     crossinline callback: ((result: Intent?) -> Unit)
-) =
-    registerForActivityResult(PairActivityResultContract(T::class.java)) {
-        if (isCanBack || it.resultCode == Activity.RESULT_OK) {
-            callback(it.data)
-        }
-    }.launch(arrayOf(*extras))
+) {
+    val intent = pairIntent<T>(*extras)
+    forActivityResult(intent, isCanBack, callback)
+}
 
+/**
+ * Fragment中使用
+ * Activity跳转并在回调用获取返回结果
+ *
+ * @param isCanBack 直接点击返回键或者直接finish是否会触发回调
+ */
+inline fun Fragment.forActivityResult(
+    data: Intent,
+    isCanBack: Boolean = false,
+    crossinline callback: ((result: Intent?) -> Unit)
+) {
+    getActivityResult()?.launch(data, isCanBack) {
+        callback(it.data)
+    }
+}
 
+/**
+ * Fragment中使用
+ * Activity跳转并在回调用获取返回结果
+ *
+ * @param extras 可变参数Pair键值对
+ * @param isCanBack 直接点击返回键或者直接finish是否会触发回调
+ */
 inline fun <reified T : FragmentActivity> Fragment.forActivityResult(
     vararg extras: Pair<String, Any?>,
     isCanBack: Boolean = false,
     crossinline callback: ((result: Intent?) -> Unit)
-) =
-    registerForActivityResult(PairActivityResultContract(T::class.java)) {
-        if (isCanBack || it.resultCode == Activity.RESULT_OK) {
-            callback(it.data)
-        }
-    }.launch(arrayOf(*extras))
-
-
-inline fun AppCompatActivity.forActivityResult(
-    intent: Intent,
-    isCanBack: Boolean = false,
-    crossinline callback: ((result: Intent?) -> Unit)
-) =
-    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (isCanBack || it.resultCode == Activity.RESULT_OK) {
-            callback(it.data)
-        }
-    }.launch(intent)
-
-
-inline fun Fragment.forActivityResult(
-    intent: Intent,
-    isCanBack: Boolean = false,
-    crossinline callback: ((result: Intent?) -> Unit)
-) =
-    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (isCanBack || it.resultCode == Activity.RESULT_OK) {
-            callback(it.data)
-        }
-    }.launch(intent)
-
-/**
- * 携程执行
- */
-suspend inline fun <reified T : FragmentActivity> FragmentActivity.forActivityResult(vararg extras: Pair<String, Any?>): Intent? {
-    return suspendCancellableCoroutine { continuation ->
-        registerForActivityResult(PairActivityResultContract(T::class.java)) {
-            continuation.resumeWith(Result.success(it.data))
-        }.launch(arrayOf(*extras))
-    }
-}
-
-suspend inline fun FragmentActivity.launchForActivityResult(intent: Intent): Intent? {
-    return suspendCancellableCoroutine { continuation ->
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            continuation.resumeWith(Result.success(it.data))
-        }.launch(intent)
-    }
-}
-
-suspend inline fun <reified T : FragmentActivity> Fragment.forActivityResult(vararg extras: Pair<String, Any?>): Intent? {
-    return suspendCancellableCoroutine { continuation ->
-        registerForActivityResult(PairActivityResultContract(T::class.java)) {
-            continuation.resumeWith(Result.success(it.data))
-        }.launch(arrayOf(*extras))
-    }
-}
-
-suspend inline fun Fragment.launchForActivityResult(intent: Intent): Intent? {
-    return suspendCancellableCoroutine { continuation ->
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            continuation.resumeWith(Result.success(it.data))
-        }.launch(intent)
-    }
+) {
+    val intent = pairIntent<T>(*extras)
+    forActivityResult(intent, isCanBack, callback)
 }
 
 
 /**
  *  作用同[Activity.finish]
- *  示例：
  *  <pre>
  *      finish(this, "Key" to "Value")
  *  </pre>
  *
- * @param params extras键值对
+ * @param params 可变参数Pair键值对
  */
 fun FragmentActivity.finishResult(vararg params: Pair<String, Any?>) = run {
     setResult(Activity.RESULT_OK, Intent().putExtras(*params))
@@ -141,35 +140,35 @@ fun FragmentActivity.finishResult(intent: Intent) = run {
  * 普通跳转
  */
 fun Context.toActivity(intent: Intent, vararg extras: Pair<String, Any?>) {
-    startActivity(
-        if (this == Application().applicationContext) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtras(*extras)
-        } else {
-            intent.putExtras(*extras)
-        }
-    )
+    startActivity(intent.putExtras(*extras))
 }
+
 
 fun Fragment.toActivity(intent: Intent, vararg extras: Pair<String, Any?>) {
-    activity?.run {
-        startActivity(intent.putExtras(*extras))
+    requireActivity().startActivity(intent.putExtras(*extras))
+}
+
+
+inline fun <reified T : FragmentActivity> Context.toActivity(vararg extras: Pair<String, Any?>) {
+    startActivity(Intent(this, T::class.java).putExtras(*extras))
+}
+
+inline fun <reified T : FragmentActivity> Fragment.toActivity(vararg extras: Pair<String, Any?>) {
+    requireActivity().run {
+        startActivity(Intent(this, T::class.java).putExtras(*extras))
     }
 }
 
+/**
+ * 泛型Activity获取一个Intent实例的扩展
+ *  <pre>
+ *      pairIntent<ActResultActivity>(
+ *     "tag" to TAG,
+ *    "timestamp" to System.currentTimeMillis()
+ *   )
+ *  </pre>
+ */
+inline fun <reified T : FragmentActivity> Context.pairIntent(vararg extras: Pair<String, Any?>) = Intent(this, T::class.java).putExtras(*extras)
 
-fun Context.toActivity(cls: Class<*>, vararg extras: Pair<String, Any?>) {
-    startActivity(
-        if (this == Application().applicationContext) {
-            Intent(this, cls).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtras(*extras)
-        } else {
-            Intent(this, cls).putExtras(*extras)
-        }
-    )
-}
-
-fun Fragment.toActivity(cls: Class<*>, vararg extras: Pair<String, Any?>) {
-    activity?.run {
-        startActivity(Intent(this, cls).putExtras(*extras))
-    }
-}
+inline fun <reified T : FragmentActivity> Fragment.pairIntent(vararg extras: Pair<String, Any?>) = requireActivity().pairIntent<T>(*extras)
 

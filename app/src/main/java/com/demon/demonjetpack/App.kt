@@ -1,9 +1,8 @@
 package com.demon.demonjetpack
 
-import android.app.Application
-import android.content.Context
 import android.util.Log
 import com.demon.basemvvm.MvvmApp
+import com.demon.basemvvm.intent.DeMonAraHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
@@ -18,12 +17,6 @@ import dagger.hilt.android.HiltAndroidApp
  */
 @HiltAndroidApp
 class App : MvvmApp() {
-
-    companion object {
-        lateinit var instance: Application
-        lateinit var appContext: Context
-
-    }
 
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
@@ -49,8 +42,7 @@ class App : MvvmApp() {
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate: ")
-        instance = this
-        appContext = applicationContext
+        DeMonAraHelper.init(this)
         LiveEventBus.config().setContext(applicationContext)
     }
 

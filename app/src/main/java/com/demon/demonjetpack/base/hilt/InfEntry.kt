@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.hilt
+package com.demon.demonjetpack.base.hilt
 
 import com.demon.demonjetpack.base.http.DataRepository
 import dagger.hilt.EntryPoint
