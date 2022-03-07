@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.multidex.MultiDex
+import com.demon.qfsolution.QFHelper
 import com.tencent.mmkv.MMKV
 
 
@@ -25,6 +26,7 @@ open class MvvmApp : Application() {
         appContext = this.applicationContext
         val rootDir = MMKV.initialize(this)
         Log.i(TAG, "onCreate:  $rootDir")
+        QFHelper.init(this)
     }
 
     override fun attachBaseContext(base: Context?) {

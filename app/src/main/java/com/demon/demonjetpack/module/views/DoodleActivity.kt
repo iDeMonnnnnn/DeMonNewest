@@ -3,9 +3,9 @@ package com.demon.demonjetpack.module.views
 import android.graphics.BitmapFactory
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.basemvvm.utils.saveBitmapImg
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.base.ext.toast
-import com.demon.demonjetpack.base.util.saveBitmapImg
 import com.demon.demonjetpack.databinding.ActivityDoodleBinding
 import com.demon.demonjetpack.module.views.widget.imaging.IMGMode
 import com.gyf.immersionbar.ktx.immersionBar
