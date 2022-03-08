@@ -69,5 +69,5 @@ dependencies {
     //mmkv
     api 'com.tencent:mmkv:1.2.12'
     //
-    api 'com.github.iDeMonnnnnn:QFsolution:1.1.5'
+    api 'com.github.iDeMonnnnnn:QFsolution:1.1.6'
 }
