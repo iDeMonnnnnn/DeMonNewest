@@ -68,6 +68,6 @@ dependencies {
     api "androidx.multidex:multidex:2.0.1"
     //mmkv
     api 'com.tencent:mmkv:1.2.12'
-    //
+    //QFsolution
     api 'com.github.iDeMonnnnnn:QFsolution:1.1.6'
 }

@@ -4,75 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.dagger.HiltActivity">
+    tools:context=".module.hilt.HiltActivity">
 
     <include layout="@layout/include_toolbar" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="获取当前时间"
+        android:text="实例注入"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name" />
-
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
     <Button
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="跨级HAHA"
+        android:text="单例注入"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time" />
+        app:layout_constraintTop_toBottomOf="@id/btn" />
 
 
-    <TextView
-        android:id="@+id/ha"
+    <Button
+        android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="第三方注入"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn1" />
 
 
     <Button
-        android:id="@+id/btnDagger"
+        android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Provides"
+        android:text="接口注入"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ha" />
+        app:layout_constraintTop_toBottomOf="@id/btn2" />
 
-
-    <TextView
-        android:id="@+id/provides"
+    <Button
+        android:id="@+id/btn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="非Hilt入口注入"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDagger" />
+        app:layout_constraintTop_toBottomOf="@id/btn3" />
 
 
     <Button
-        android:id="@+id/btnRoom"
+        android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LiveEventBus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/provides" />
+        app:layout_constraintTop_toBottomOf="@id/btn4" />
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

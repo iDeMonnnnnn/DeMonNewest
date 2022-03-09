@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.dagger
+package com.demon.demonjetpack.module.hilt
 
 import com.demon.demonjetpack.bean.Info
 import com.google.gson.Gson
@@ -14,19 +14,9 @@ import javax.inject.Singleton
 @Singleton
 class DoHelper @Inject constructor() {
 
-
-    var name: String = "Zhangsan"
-
-
     fun getNowTime(): Long {
         return System.currentTimeMillis()
     }
-
-    @Inject
-    protected lateinit var haHelper: HaHelper
-
-
-    fun getHa() = haHelper.getAddress()
 
 
     @Inject

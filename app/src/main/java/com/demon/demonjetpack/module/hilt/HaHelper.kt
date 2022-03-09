@@ -1,4 +1,4 @@
-package com.demon.demonjetpack.module.dagger
+package com.demon.demonjetpack.module.hilt
 
 import javax.inject.Inject
 

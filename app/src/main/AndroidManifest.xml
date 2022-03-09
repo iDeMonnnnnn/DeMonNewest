@@ -39,7 +39,7 @@
             android:process=":process" />
         <activity android:name=".module.fragment.FragActivity" />
         <activity android:name=".module.room.RoomActivity" />
-        <activity android:name=".module.dagger.HiltActivity" />
+        <activity android:name=".module.hilt.HiltActivity" />
         <activity android:name=".module.work.WorkerActivity" />
         <activity android:name=".module.views.LighterActivity" />
         <activity android:name=".module.views.DoodleActivity" />

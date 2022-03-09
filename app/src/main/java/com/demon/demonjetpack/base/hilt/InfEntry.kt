@@ -1,6 +1,5 @@
 package com.demon.demonjetpack.base.hilt
 
-import com.demon.demonjetpack.base.http.DataRepository
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -15,6 +14,6 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface InfEntry {
 
-    fun provideDataRepository(): DataRepository
+   // fun provideDataRepository(): DataRepository
 
 }
