@@ -52,6 +52,10 @@ class HiltActivity : MvvmActivity<ActivityHiltBinding, BaseViewModel>() {
                 engine.shutdown()
             }
 
+            btn4.setOnClickListener {
+                text.text = HiltUnscoped().getGson()
+            }
+
             btn5.setOnClickThrottleFirst {
                 LiveEventBus.get<String>(Constants.EVENT_BUS).post(str)
                 finishResult("key" to "123456")

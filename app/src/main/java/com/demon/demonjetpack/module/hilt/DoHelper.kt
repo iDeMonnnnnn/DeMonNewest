@@ -1,6 +1,5 @@
 package com.demon.demonjetpack.module.hilt
 
-import com.demon.demonjetpack.bean.Info
 import com.google.gson.Gson
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,6 +12,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class DoHelper @Inject constructor() {
+    private val TAG = "DoHelper"
 
     fun getNowTime(): Long {
         return System.currentTimeMillis()
@@ -23,5 +23,10 @@ class DoHelper @Inject constructor() {
     protected lateinit var gson: Gson
 
 
-    fun getGson() = gson.toJson(Info())
+    fun getGson(): String {
+        val map = mutableMapOf<String, Any>(
+            "name" to TAG, "time" to System.currentTimeMillis()
+        )
+        return gson.toJson(map)
+    }
 }
