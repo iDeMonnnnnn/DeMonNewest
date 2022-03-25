@@ -1,9 +1,9 @@
 package com.demon.demonjetpack.module.progress
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.helper.BroadcastHelper
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.helper.BroadcastHelper
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.util.AppUtils

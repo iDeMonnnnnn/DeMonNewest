@@ -1,4 +1,4 @@
-package com.demon.basemvvm.ghsot
+package com.demon.base.ghsot
 
 import android.app.Activity
 import android.content.Context

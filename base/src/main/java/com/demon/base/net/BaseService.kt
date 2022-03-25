@@ -1,4 +1,4 @@
-package com.demon.basemvvm.net
+package com.demon.base.net
 
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

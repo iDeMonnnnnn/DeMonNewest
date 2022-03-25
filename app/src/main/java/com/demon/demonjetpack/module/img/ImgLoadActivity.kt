@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.img
 
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.databinding.ActivityImgLoadBinding
 
 /**

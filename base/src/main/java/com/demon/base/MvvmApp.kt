@@ -1,4 +1,4 @@
-package com.demon.basemvvm
+package com.demon.base
 
 import android.app.Application
 import android.content.Context

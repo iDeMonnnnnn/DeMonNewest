@@ -2,7 +2,7 @@ package com.demon.demonjetpack.module.home
 
 import android.app.Application
 import androidx.lifecycle.viewModelScope
-import com.demon.basemvvm.mvvm.BaseViewModel
+import com.demon.base.mvvm.BaseViewModel
 import com.demon.demonjetpack.base.ext.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

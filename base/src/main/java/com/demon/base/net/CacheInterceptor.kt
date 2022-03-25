@@ -1,4 +1,4 @@
-package com.demon.basemvvm.net
+package com.demon.base.net
 
 import android.annotation.SuppressLint
 import android.content.Context

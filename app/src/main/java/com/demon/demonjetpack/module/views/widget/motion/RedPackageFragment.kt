@@ -3,8 +3,8 @@ package com.demon.demonjetpack.module.views.widget.motion
 import android.util.Log
 import android.widget.AbsoluteLayout
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmFragment
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonjetpack.databinding.FragmentRedPackageBinding
 import com.demon.demonjetpack.databinding.MotionRedPackageBinding
 import java.util.*

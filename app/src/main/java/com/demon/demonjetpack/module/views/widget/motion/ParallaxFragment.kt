@@ -2,8 +2,8 @@ package com.demon.demonjetpack.module.views.widget.motion
 
 import android.util.Log
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmFragment
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonjetpack.databinding.FragmentParallaxBinding
 import com.google.android.material.tabs.TabLayout
 

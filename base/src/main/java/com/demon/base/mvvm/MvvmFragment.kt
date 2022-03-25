@@ -1,4 +1,4 @@
-package com.demon.basemvvm.mvvm
+package com.demon.base.mvvm
 
 import android.content.Context
 import android.os.Bundle
@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewbinding.ViewBinding
-import com.demon.basemvvm.utils.LoadingUtils
-import com.demon.basemvvm.utils.getTClass
-import com.demon.basemvvm.utils.inflateViewBinding
+import com.demon.base.utils.LoadingUtils
+import com.demon.base.utils.getTClass
+import com.demon.base.utils.inflateViewBinding
 
 /**
  * @author DeMon

@@ -1,8 +1,8 @@
 package com.demon.demonjetpack.module.views
 
 import android.view.View
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.databinding.ActivityVbBinding
 import com.demon.demonjetpack.databinding.MergeLayoutBinding
 import com.demon.demonjetpack.databinding.ViewstubLayoutBinding

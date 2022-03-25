@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.views.widget.motion
 
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmFragment
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonjetpack.databinding.FragmentSimpleBinding
 
 /**

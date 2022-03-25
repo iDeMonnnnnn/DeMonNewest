@@ -2,7 +2,7 @@ package com.demon.demonjetpack.base.hilt
 
 import android.content.Context
 import androidx.room.Room
-import com.demon.basemvvm.net.BaseApi
+import com.demon.base.net.BaseApi
 import com.demon.demonjetpack.BuildConfig
 import com.demon.demonjetpack.base.db.AppDatabase
 import com.demon.demonjetpack.base.db.UserDao

@@ -1,12 +1,10 @@
-package com.demon.basemvvm.intent
+package com.demon.base.ara
 
 import android.content.Intent
 import androidx.activity.result.ActivityResult
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.demon.basemvvm.ara.DeMonActivityCallbacks
-import com.demon.basemvvm.ara.DeMonActivityResult
-import com.demon.basemvvm.utils.pairIntent
+import com.demon.base.utils.pairIntent
 
 /**
  * @author DeMon

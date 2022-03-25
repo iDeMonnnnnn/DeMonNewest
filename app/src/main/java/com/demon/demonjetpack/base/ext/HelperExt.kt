@@ -3,7 +3,7 @@ package com.demon.demonjetpack.base.ext
 import android.content.Context
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
-import com.demon.basemvvm.MvvmApp
+import com.demon.base.MvvmApp
 
 
 /**

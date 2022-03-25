@@ -1,11 +1,11 @@
-package com.demon.basemvvm.helper
+package com.demon.base.helper
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
-import com.demon.basemvvm.utils.Tag
+import com.demon.base.utils.Tag
 import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject

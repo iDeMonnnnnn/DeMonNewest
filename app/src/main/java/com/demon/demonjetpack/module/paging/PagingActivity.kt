@@ -2,7 +2,7 @@ package com.demon.demonjetpack.module.paging
 
 import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.list.DataViewHolder
 import com.demon.demonjetpack.bean.ArticleBean

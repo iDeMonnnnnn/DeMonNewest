@@ -1,6 +1,6 @@
-package com.demon.basemvvm.net
+package com.demon.base.net
 
-import com.demon.basemvvm.MvvmApp
+import com.demon.base.MvvmApp
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

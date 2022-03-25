@@ -4,9 +4,9 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
-import com.demon.basemvvm.utils.getCompatColor
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
+import com.demon.base.utils.getCompatColor
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ActivityLighterBinding
 import com.demon.demonjetpack.databinding.LighterTip1Binding

@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.dp
 
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ActivityAudioBinding
 import com.demon.demonjetpack.module.dp.audio.AudioFactoryManager

@@ -1,6 +1,6 @@
 package com.demon.demonjetpack.module.hilt
 
-import com.demon.basemvvm.MvvmApp
+import com.demon.base.MvvmApp
 import com.demon.demonjetpack.base.hilt.UnscopedEntryPoint
 import com.google.gson.Gson
 import dagger.hilt.android.EntryPointAccessors

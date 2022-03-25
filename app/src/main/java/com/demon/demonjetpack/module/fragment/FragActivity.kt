@@ -3,9 +3,9 @@ package com.demon.demonjetpack.module.fragment
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.utils.extraAct
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
+import com.demon.base.utils.extraAct
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.databinding.ActivityFragmentBinding
 import com.google.android.material.tabs.TabLayoutMediator

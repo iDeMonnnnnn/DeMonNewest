@@ -1,4 +1,4 @@
-package com.demon.basemvvm.helper
+package com.demon.base.helper
 
 import android.app.Activity
 import java.util.*

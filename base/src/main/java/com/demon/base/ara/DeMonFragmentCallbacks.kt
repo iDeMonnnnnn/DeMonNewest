@@ -1,11 +1,11 @@
-package com.demon.basemvvm.ara
+package com.demon.base.ara
 
 import android.content.Context
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.demon.basemvvm.ara.DeMonActivityCallbacks.DEMON_FRAGMENT_KEY
+import com.demon.base.ara.DeMonActivityCallbacks.DEMON_FRAGMENT_KEY
 
 /**
  * @author DeMon

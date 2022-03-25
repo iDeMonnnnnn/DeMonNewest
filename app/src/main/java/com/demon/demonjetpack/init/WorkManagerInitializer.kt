@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.startup.Initializer
 import androidx.work.Configuration
 import androidx.work.WorkManager
-import com.demon.basemvvm.utils.Tag
+import com.demon.base.utils.Tag
 
 /**
  * @author DeMon

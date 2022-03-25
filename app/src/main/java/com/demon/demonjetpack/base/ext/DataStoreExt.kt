@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
-import com.demon.basemvvm.MvvmApp
-import com.demon.basemvvm.utils.scopeIO
+import com.demon.base.MvvmApp
+import com.demon.base.utils.scopeIO
 import kotlinx.coroutines.flow.*
 
 /**

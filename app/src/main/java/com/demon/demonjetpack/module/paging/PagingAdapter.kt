@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewbinding.ViewBinding
-import com.demon.basemvvm.utils.inflateViewBinding
+import com.demon.base.utils.inflateViewBinding
 import com.demon.demonjetpack.base.list.DataViewHolder
 
 /**

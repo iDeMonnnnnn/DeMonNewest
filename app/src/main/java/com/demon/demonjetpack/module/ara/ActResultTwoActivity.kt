@@ -1,10 +1,10 @@
 package com.demon.demonjetpack.module.ara
 
-import com.demon.basemvvm.utils.extraAct
-import com.demon.basemvvm.utils.finishResult
-import com.demon.basemvvm.mvvm.BaseViewModel
-import com.demon.basemvvm.mvvm.MvvmActivity
-import com.demon.basemvvm.utils.setOnClickThrottleFirst
+import com.demon.base.utils.extraAct
+import com.demon.base.utils.finishResult
+import com.demon.base.mvvm.BaseViewModel
+import com.demon.base.mvvm.MvvmActivity
+import com.demon.base.utils.setOnClickThrottleFirst
 import com.demon.demonjetpack.databinding.ActivityActResultTwoBinding
 
 class ActResultTwoActivity : MvvmActivity<ActivityActResultTwoBinding, BaseViewModel>() {

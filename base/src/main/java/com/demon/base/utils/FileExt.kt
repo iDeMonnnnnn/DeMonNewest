@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import android.content.Context
 import android.graphics.Bitmap

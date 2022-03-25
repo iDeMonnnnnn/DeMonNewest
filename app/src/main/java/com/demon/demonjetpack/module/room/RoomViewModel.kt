@@ -3,7 +3,7 @@ package com.demon.demonjetpack.module.room
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
-import com.demon.basemvvm.mvvm.BaseViewModel
+import com.demon.base.mvvm.BaseViewModel
 import com.demon.demonjetpack.base.db.User
 import com.demon.demonjetpack.base.db.UserDao
 import dagger.hilt.android.lifecycle.HiltViewModel

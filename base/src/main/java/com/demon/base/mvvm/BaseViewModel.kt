@@ -1,4 +1,4 @@
-package com.demon.basemvvm.mvvm
+package com.demon.base.mvvm
 
 import android.util.Log
 import androidx.lifecycle.LifecycleObserver

@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import android.app.Dialog
 import android.content.Context
@@ -8,8 +8,8 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.*
 import android.widget.TextView
-import com.demon.basemvvm.BuildConfig
-import com.demon.basemvvm.R
+import com.demon.base.BuildConfig
+import com.demon.base.R
 import kotlinx.coroutines.launch
 
 /**

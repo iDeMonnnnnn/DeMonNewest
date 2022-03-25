@@ -1,8 +1,8 @@
 package com.demon.demonjetpack.module.fragment
 
 import android.util.Log
-import com.demon.basemvvm.mvvm.MvvmFragment
-import com.demon.basemvvm.utils.Tag
+import com.demon.base.mvvm.MvvmFragment
+import com.demon.base.utils.Tag
 import com.demon.demonjetpack.base.list.BaseAdapter
 import com.demon.demonjetpack.base.list.DataViewHolder
 import com.demon.demonjetpack.base.widget.RefreshLoadLayout

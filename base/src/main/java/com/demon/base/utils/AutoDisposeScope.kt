@@ -1,7 +1,7 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import android.view.View
-import com.demon.basemvvm.R
+import com.demon.base.R
 import kotlinx.coroutines.*
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.ContinuationInterceptor

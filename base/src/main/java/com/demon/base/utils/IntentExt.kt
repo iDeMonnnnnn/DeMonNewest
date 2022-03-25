@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import android.app.Activity
 import android.content.Context
@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.demon.basemvvm.utils.IntentFieldMethod.internalMap
+import com.demon.base.utils.IntentFieldMethod.internalMap
 import java.io.Serializable
 import java.lang.reflect.Field
 import java.lang.reflect.Method

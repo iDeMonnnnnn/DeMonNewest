@@ -3,7 +3,7 @@ package com.demon.demonjetpack.base.http
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import com.demon.basemvvm.mvvm.BaseViewModel
+import com.demon.base.mvvm.BaseViewModel
 import javax.inject.Inject
 
 /**

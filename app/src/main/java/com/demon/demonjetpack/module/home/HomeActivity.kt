@@ -9,11 +9,11 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.demon.basemvvm.helper.BroadcastHelper
-import com.demon.basemvvm.utils.toActivity
-import com.demon.basemvvm.mvvm.MvvmActivity
-import com.demon.basemvvm.utils.Tag
-import com.demon.basemvvm.utils.setOnClickThrottleFirst
+import com.demon.base.helper.BroadcastHelper
+import com.demon.base.utils.toActivity
+import com.demon.base.mvvm.MvvmActivity
+import com.demon.base.utils.Tag
+import com.demon.base.utils.setOnClickThrottleFirst
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.ext.toast

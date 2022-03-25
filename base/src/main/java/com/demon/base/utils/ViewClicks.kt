@@ -1,8 +1,8 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import android.view.View
 import androidx.annotation.CheckResult
-import com.demon.basemvvm.R
+import com.demon.base.R
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow

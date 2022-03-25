@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import com.tencent.mmkv.MMKV
 import kotlinx.coroutines.CoroutineScope

@@ -1,4 +1,4 @@
-package com.demon.basemvvm.utils
+package com.demon.base.utils
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.demon.basemvvm.mvvm
+package com.demon.base.mvvm
 
 import android.content.Context
 import android.os.Bundle
@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.demon.basemvvm.R
-import com.demon.basemvvm.utils.LoadingUtils
-import com.demon.basemvvm.utils.getTClass
-import com.demon.basemvvm.utils.inflateViewBinding
+import com.demon.base.R
+import com.demon.base.utils.LoadingUtils
+import com.demon.base.utils.getTClass
+import com.demon.base.utils.inflateViewBinding
 
 abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
     protected val TAG = this.javaClass.simpleName
