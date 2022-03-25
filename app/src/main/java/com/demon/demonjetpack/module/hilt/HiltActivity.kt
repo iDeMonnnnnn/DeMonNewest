@@ -1,8 +1,8 @@
 package com.demon.demonjetpack.module.hilt
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.intent.extraAct
-import com.demon.basemvvm.intent.finishResult
+import com.demon.basemvvm.utils.extraAct
+import com.demon.basemvvm.utils.finishResult
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.basemvvm.utils.setOnClickThrottleFirst

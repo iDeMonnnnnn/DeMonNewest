@@ -13,5 +13,6 @@ import kotlinx.coroutines.SupervisorJob
  */
 var mmkv = MMKV.defaultMMKV()
 
+val scopeMain = CoroutineScope((SupervisorJob() + Dispatchers.Main))
 
-val coroutineScopeIO = CoroutineScope((SupervisorJob() + Dispatchers.IO))
+val scopeIO = CoroutineScope((SupervisorJob() + Dispatchers.IO))

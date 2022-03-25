@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.basemvvm.helper.BroadcastHelper
-import com.demon.basemvvm.intent.toActivity
+import com.demon.basemvvm.utils.toActivity
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.basemvvm.utils.Tag
 import com.demon.basemvvm.utils.setOnClickThrottleFirst

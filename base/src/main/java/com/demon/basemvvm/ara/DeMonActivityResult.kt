@@ -1,4 +1,4 @@
-package com.demon.basemvvm.intent
+package com.demon.basemvvm.ara
 
 import android.app.Activity
 import androidx.activity.result.ActivityResult

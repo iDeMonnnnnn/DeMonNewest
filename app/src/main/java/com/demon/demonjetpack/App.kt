@@ -2,7 +2,7 @@ package com.demon.demonjetpack
 
 import android.util.Log
 import com.demon.basemvvm.MvvmApp
-import com.demon.basemvvm.intent.DeMonAraHelper
+import com.demon.basemvvm.ara.DeMonAraHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader

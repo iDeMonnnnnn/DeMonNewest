@@ -54,6 +54,8 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/layout/window_top.xml" value="0.33" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33697916666666666" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36256410256410254" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/drawable/bg_loading_dialog.xml" value="0.2355" />
+        <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/base_ui_dialog_main_loading.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/include_toolbar.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/xml/file_paths.xml" value="2.1125" />
       </map>

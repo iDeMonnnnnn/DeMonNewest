@@ -5,10 +5,10 @@ import android.os.Environment
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
-import com.demon.basemvvm.intent.DeMonActivityResult
+import com.demon.basemvvm.ara.DeMonActivityResult
 import com.demon.basemvvm.intent.forActivityResult
-import com.demon.basemvvm.intent.pairIntent
-import com.demon.basemvvm.intent.toActivity
+import com.demon.basemvvm.utils.pairIntent
+import com.demon.basemvvm.utils.toActivity
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.basemvvm.utils.setOnClickThrottleFirst

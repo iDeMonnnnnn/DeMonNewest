@@ -1,4 +1,4 @@
-package com.demon.basemvvm.intent
+package com.demon.basemvvm.ara
 
 import android.app.Application
 import android.content.Intent

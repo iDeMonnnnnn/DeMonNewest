@@ -1,13 +1,15 @@
-package com.demon.basemvvm.intent
+package com.demon.basemvvm.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.BaseBundle
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
-import com.demon.basemvvm.intent.IntentFieldMethod.internalMap
+import androidx.fragment.app.FragmentActivity
+import com.demon.basemvvm.utils.IntentFieldMethod.internalMap
 import java.io.Serializable
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -186,6 +188,62 @@ internal object IntentFieldMethod {
         mMap?.get(it) as? Map<String, Any?>
     }
 }
+
+
+/**
+ *  作用同[Activity.finish]
+ *  <pre>
+ *      finish(this, "Key" to "Value")
+ *  </pre>
+ *
+ * @param params 可变参数Pair键值对
+ */
+fun FragmentActivity.finishResult(vararg params: Pair<String, Any?>) = run {
+    setResult(Activity.RESULT_OK, Intent().putExtras(*params))
+    finish()
+}
+
+fun FragmentActivity.finishResult(intent: Intent) = run {
+    setResult(Activity.RESULT_OK, intent)
+    finish()
+}
+
+/**
+ * 普通跳转
+ */
+fun Context.toActivity(intent: Intent, vararg extras: Pair<String, Any?>) {
+    startActivity(intent.putExtras(*extras))
+}
+
+
+fun Fragment.toActivity(intent: Intent, vararg extras: Pair<String, Any?>) {
+    requireActivity().startActivity(intent.putExtras(*extras))
+}
+
+
+inline fun <reified T : FragmentActivity> Context.toActivity(vararg extras: Pair<String, Any?>) {
+    startActivity(Intent(this, T::class.java).putExtras(*extras))
+}
+
+inline fun <reified T : FragmentActivity> Fragment.toActivity(vararg extras: Pair<String, Any?>) {
+    requireActivity().run {
+        startActivity(Intent(this, T::class.java).putExtras(*extras))
+    }
+}
+
+/**
+ * 泛型Activity获取一个Intent实例的扩展
+ *  <pre>
+ *      pairIntent<ActResultActivity>(
+ *     "tag" to TAG,
+ *    "timestamp" to System.currentTimeMillis()
+ *   )
+ *  </pre>
+ */
+inline fun <reified T : FragmentActivity> Context.pairIntent(vararg extras: Pair<String, Any?>) = Intent(this, T::class.java).putExtras(*extras)
+
+inline fun <reified T : FragmentActivity> Fragment.pairIntent(vararg extras: Pair<String, Any?>) = requireActivity().pairIntent<T>(*extras)
+
 
 
 

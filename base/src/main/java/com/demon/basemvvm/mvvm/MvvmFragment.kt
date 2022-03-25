@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewbinding.ViewBinding
-import com.demon.basemvvm.helper.DialogHelp
+import com.demon.basemvvm.utils.LoadingUtils
 import com.demon.basemvvm.utils.getTClass
 import com.demon.basemvvm.utils.inflateViewBinding
 
@@ -56,7 +56,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
                     doOnError(it)
                 }
                 loadingData.observe(viewLifecycleOwner) {
-                    DialogHelp.show(mContext, it)
+                    LoadingUtils.show(mContext, it)
                 }
             }
         }.onFailure {

@@ -3,7 +3,7 @@ package com.demon.demonjetpack.module.fragment
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.basemvvm.intent.extraAct
+import com.demon.basemvvm.utils.extraAct
 import com.demon.basemvvm.mvvm.BaseViewModel
 import com.demon.basemvvm.mvvm.MvvmActivity
 import com.demon.demonjetpack.base.data.RouterConst

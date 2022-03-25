@@ -6,10 +6,9 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.viewbinding.ViewBinding
 import com.demon.basemvvm.R
-import com.demon.basemvvm.helper.DialogHelp
+import com.demon.basemvvm.utils.LoadingUtils
 import com.demon.basemvvm.utils.getTClass
 import com.demon.basemvvm.utils.inflateViewBinding
 
@@ -32,7 +31,7 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
                     doOnError(it)
                 }
                 loadingData.observe(this@MvvmActivity) {
-                    DialogHelp.show(mContext, it)
+                    LoadingUtils.show(mContext, it)
                 }
             }
             initData()

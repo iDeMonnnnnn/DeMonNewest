@@ -6,7 +6,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import com.demon.basemvvm.MvvmApp
-import com.demon.basemvvm.utils.coroutineScopeIO
+import com.demon.basemvvm.utils.scopeIO
 import kotlinx.coroutines.flow.*
 
 /**
@@ -53,6 +53,6 @@ inline fun <reified T : Any> dsPut(key: String, value: T) {
         }
     }.catch {
         it.printStackTrace()
-    }.launchIn(coroutineScopeIO)
+    }.launchIn(scopeIO)
 }
 
