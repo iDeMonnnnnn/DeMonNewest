@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.demon.base.utils.Tag
-import com.demon.demonjetpack.base.ext.toast
-import com.demon.demonjetpack.databinding.LoadStateBinding
+import com.demon.base.utils.toast
 import com.demon.demonjetpack.base.list.DataViewHolder
+import com.demon.demonjetpack.databinding.LoadStateBinding
 
 /**
  * @author DeMon

@@ -70,4 +70,6 @@ dependencies {
     api 'com.tencent:mmkv:1.2.12'
     //QFsolution
     api 'com.github.iDeMonnnnnn:QFsolution:1.1.6'
+    //https://github.com/getActivity/ToastUtils
+    api "com.hjq:toast:8.6"
 }

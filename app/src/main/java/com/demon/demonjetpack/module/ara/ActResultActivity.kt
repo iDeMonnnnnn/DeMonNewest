@@ -7,11 +7,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import com.demon.base.ara.DeMonActivityResult
 import com.demon.base.ara.forActivityResult
-import com.demon.base.utils.pairIntent
-import com.demon.base.utils.toActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.*
 import com.demon.demonjetpack.databinding.ActivityActResultBinding
 import com.demon.qfsolution.utils.MimeType
 import com.demon.qfsolution.utils.getExternalOrFilesDirPath
@@ -58,16 +56,24 @@ class ActResultActivity : MvvmActivity<ActivityActResultBinding, BaseViewModel>(
             btn1.setOnClickThrottleFirst {
                 requestPermission.launch(Manifest.permission.CAMERA) {
                     Log.i(TAG, "requestPermission: $it")
+                    if (it) {
+                        "获取相机权限成功".toast()
+                    }
                 }
             }
 
             btn2.setOnClickThrottleFirst {
                 requestMultiplePermissions.launch(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     Log.i(TAG, "requestMultiplePermissions: $it")
+                    it.toString().toast()
                 }
             }
 
             btn3.setOnClickThrottleFirst {
+                if (!checkPermission(Manifest.permission.CAMERA)) {
+                    "请先获取相机权限~".toast()
+                    return@setOnClickThrottleFirst
+                }
                 val savePath = "${getExternalOrFilesDirPath(Environment.DIRECTORY_PICTURES)}/${System.currentTimeMillis()}.jpg"
                 val uri = File(savePath).getFileUri()
                 takePicture.launch(uri) {
@@ -76,6 +82,10 @@ class ActResultActivity : MvvmActivity<ActivityActResultBinding, BaseViewModel>(
             }
 
             btn4.setOnClickThrottleFirst {
+                if (!checkPermission(Manifest.permission.CAMERA)) {
+                    "请先获取相机权限~".toast()
+                    return@setOnClickThrottleFirst
+                }
                 takePicturePreview.launch(null) {
                     Log.i(TAG, "takePicturePreview: $it")
                 }
@@ -119,6 +129,10 @@ class ActResultActivity : MvvmActivity<ActivityActResultBinding, BaseViewModel>(
             }
 
             btn11.setOnClickThrottleFirst {
+                if (!checkPermission(Manifest.permission.CAMERA)) {
+                    "请先获取相机权限~".toast()
+                    return@setOnClickThrottleFirst
+                }
                 val savePath = "${getExternalOrFilesDirPath(Environment.DIRECTORY_DCIM)}/${System.currentTimeMillis()}.mp4"
                 val uri = File(savePath).getFileUri()
                 captureVideo.launch(uri) {

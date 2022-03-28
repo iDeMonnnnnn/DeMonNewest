@@ -5,6 +5,8 @@ import android.content.Context
 import android.util.Log
 import androidx.multidex.MultiDex
 import com.demon.qfsolution.QFHelper
+import com.hjq.toast.ToastUtils
+import com.hjq.toast.style.ToastAliPayStyle
 import com.tencent.mmkv.MMKV
 
 
@@ -26,7 +28,8 @@ open class MvvmApp : Application() {
         appContext = this.applicationContext
         val rootDir = MMKV.initialize(this)
         Log.i(TAG, "onCreate:  $rootDir")
-        QFHelper.init(this)
+        QFHelper.init(this, "fileProvider")
+        ToastUtils.init(this, ToastAliPayStyle(this))
     }
 
     override fun attachBaseContext(base: Context?) {

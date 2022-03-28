@@ -1,9 +1,5 @@
 package com.demon.base.utils
 
-import android.content.Context
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
-
 
 /**
  * @author DeMon
@@ -18,10 +14,18 @@ import androidx.core.content.ContextCompat
 inline val <T : Any> T.Tag: String
     get() = this.javaClass.simpleName
 
-
-fun Context.dpToPx(dp: Int): Int {
-    val scale = resources.displayMetrics.density
-    return (dp * scale + 0.5f * if (dp >= 0) 1 else -1).toInt()
+fun <T> Boolean.whatIf(ifTrue: T, other: T): T {
+    return if (this) {
+        ifTrue
+    } else {
+        other
+    }
 }
 
-fun Context.getCompatColor(@ColorRes id: Int) = ContextCompat.getColor(this, id)
+fun <T> Boolean.whatIf(ifBlock: () -> T, elseBlock: () -> T): T {
+    return if (this) {
+        ifBlock()
+    } else {
+        elseBlock()
+    }
+}
