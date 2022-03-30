@@ -2,11 +2,13 @@
 
 [![Hex.pm](https://img.shields.io/badge/Jetpack-AndroidX-orange)]()
 
-拥抱最新的Jetpack，打造一个全新的MVVM
+Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
-1. JetPack组件学习及模块化使用，并持续跟进完全使用最新版本。
-2. 适合与JetPack组件结合使用的优秀框架使用示例。
-
+1. 拥抱最新的Jetpack，打造一个全新的MVVM。
+2. JetPack组件学习及模块化使用，并持续跟进完全使用最新版本。
+3. 适合与JetPack组件结合使用的优秀框架使用示例。
+4. 模块化代码，参照示例代码可以直接复制使用。
+5. 多渠道等线上实用技术。
 
 #### 组件
 
@@ -23,22 +25,24 @@
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
-|Activity Result API|startActivityForResult代替|<https://blog.csdn.net/c10WTiybQ1Ye3/article/details/119430078>|
+|Activity Result API|代替startActivityForResult|<https://blog.csdn.net/DeMonliuhui/article/details/123276161>|
 
 #### 框架
 
 |框架|说明|备注|
 |--|--|--|
+|Glide4.x|最优秀的图片加载框架|https://blog.csdn.net/demonliuhui/category_9926150.html|
 |ARouter|阿里路由框架|<https://github.com/alibaba/ARouter>|
 |LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
 |MMKV|腾讯基于mmap的高性能通用key-value组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
+|mars-xlog|腾讯高性能日志模块xlog|<https://github.com/Tencent/mars>|
 
 #### 技术
 
 |技术|说明|备注|
 |--|--|--|
-|多渠道|美团渠道包解决方案 |<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
-|mars-xlog|腾讯高性能日志模块xlog|<https://github.com/Tencent/mars>|
+|多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
+
 
 
 #### 日志

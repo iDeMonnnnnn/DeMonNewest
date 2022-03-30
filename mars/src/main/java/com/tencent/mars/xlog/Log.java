@@ -391,7 +391,7 @@ public class Log {
             logRootFile = context.getFilesDir();
         }
         String logPath = logRootFile.getAbsolutePath() + "/xlog";
-        Xlog.appenderOpen(Xlog.LEVEL_ALL, Xlog.AppednerModeAsync, "", logPath, nameprefix, 0, "");
+        Xlog.open(true, Xlog.LEVEL_ALL, Xlog.AppednerModeAsync, "", logPath, nameprefix, "");
         Xlog.setConsoleLogOpen(BuildConfig.DEBUG);
         Log.setLogImp(new Xlog());
     }
