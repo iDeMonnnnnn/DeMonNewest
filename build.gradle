@@ -5,7 +5,7 @@ ext {
     androidCompileVersion = 31
     appVersionCode = 100
     appVersionName = '1.0.0'
-    applicationId = "com.demon.demonjetpack"
+    applicationId = "com.demon.demonnewest"
 }
 buildscript {
     ext.kotlin_version = '1.6.10'

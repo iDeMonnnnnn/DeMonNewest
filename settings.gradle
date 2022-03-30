@@ -1,4 +1,4 @@
-rootProject.name='DeMonJetPack'
+rootProject.name='demonnewest'
 include ':app'
 include ':base'
 include ':mars'
