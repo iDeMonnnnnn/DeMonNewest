@@ -6,7 +6,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.getCompatColor
+import com.demon.base.utils.ext.getCompatColor
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ActivityLighterBinding
 import com.demon.demonjetpack.databinding.LighterTip1Binding

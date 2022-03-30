@@ -3,9 +3,9 @@ package com.demon.demonjetpack.module.datastore
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.launchUI
-import com.demon.base.utils.mmkv
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.launchUI
+import com.demon.base.utils.ext.mmkv
+import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.ext.dsGet
 import com.demon.demonjetpack.base.ext.dsPut

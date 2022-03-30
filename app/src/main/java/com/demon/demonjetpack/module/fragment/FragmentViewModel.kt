@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.fragment
 
 import androidx.lifecycle.MutableLiveData
-import com.demon.base.utils.toast
+import com.demon.base.utils.ext.toast
 import com.demon.demonjetpack.base.http.HttpViewModel
 import com.demon.demonjetpack.base.widget.RefreshLoadLayout
 import com.demon.demonjetpack.bean.ArticleBean

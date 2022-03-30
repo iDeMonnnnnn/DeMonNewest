@@ -1,6 +1,6 @@
 package com.demon.demonjetpack.module.views.widget.motion
 
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import android.widget.AbsoluteLayout
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.demon.base.mvvm.BaseViewModel

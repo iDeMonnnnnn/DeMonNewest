@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.demon.base.utils.inflateViewBinding
-import com.demon.base.utils.launchIO
+import com.demon.base.utils.ext.inflateViewBinding
+import com.demon.base.utils.ext.launchIO
 import com.demon.demonjetpack.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

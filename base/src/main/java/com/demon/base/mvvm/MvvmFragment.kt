@@ -2,7 +2,7 @@ package com.demon.base.mvvm
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewbinding.ViewBinding
 import com.demon.base.utils.LoadingUtils
-import com.demon.base.utils.getTClass
-import com.demon.base.utils.inflateViewBinding
+import com.demon.base.utils.ext.getTClass
+import com.demon.base.utils.ext.inflateViewBinding
 
 /**
  * @author DeMon

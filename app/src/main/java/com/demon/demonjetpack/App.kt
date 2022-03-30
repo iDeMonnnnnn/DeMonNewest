@@ -1,12 +1,12 @@
 package com.demon.demonjetpack
 
-import android.util.Log
 import com.demon.base.MvvmApp
-import com.demon.base.ara.DeMonAraHelper
+import com.demon.base.utils.ara.DeMonAraHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.tencent.mars.xlog.Log
 import dagger.hilt.android.HiltAndroidApp
 
 /**

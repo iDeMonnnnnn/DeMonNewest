@@ -3,8 +3,8 @@ package com.demon.demonjetpack.module.views
 import android.graphics.BitmapFactory
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.saveBitmapImg
-import com.demon.base.utils.toast
+import com.demon.base.utils.ext.saveBitmapImg
+import com.demon.base.utils.ext.toast
 import com.demon.demonjetpack.R
 import com.demon.demonjetpack.databinding.ActivityDoodleBinding
 import com.demon.demonjetpack.module.views.widget.imaging.IMGMode

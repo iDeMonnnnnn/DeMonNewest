@@ -1,3 +1,4 @@
 rootProject.name='DeMonJetPack'
 include ':app'
 include ':base'
+include ':mars'

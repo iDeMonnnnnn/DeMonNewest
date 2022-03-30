@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdk androidCompileVersion
+
+    defaultConfig {
+        minSdk androidMinSdkVersion
+        targetSdk androidTargetVersion
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = []
+        }
+    }
+
+}
+
+dependencies {
+}

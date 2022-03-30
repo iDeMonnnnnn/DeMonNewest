@@ -5,11 +5,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.text.TextUtils
-import android.util.Log
 import android.view.*
 import android.widget.TextView
 import com.demon.base.BuildConfig
 import com.demon.base.R
+import com.demon.base.utils.ext.Tag
+import com.demon.base.utils.ext.getStackTraceString
+import com.demon.base.utils.ext.scopeMain
+import com.tencent.mars.xlog.Log
 import kotlinx.coroutines.launch
 
 /**
@@ -57,7 +60,7 @@ object LoadingUtils {
                 }
             }
         } catch (e: Exception) {
-            Log.e(Tag, "showDialog: ${Log.getStackTraceString(e)}")
+            Log.e(Tag, "showDialog: ${e.getStackTraceString()}")
             dialog = null
         }
     }
@@ -101,7 +104,7 @@ object LoadingUtils {
                 }
             }
         } catch (e: Exception) {
-            Log.e(Tag, "showDialog: ${Log.getStackTraceString(e)}")
+            Log.e(Tag, "showDialog: ${e.getStackTraceString()}")
             dialog = null
         }
     }

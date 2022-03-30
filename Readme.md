@@ -33,15 +33,19 @@
 |LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
 |MMKV|腾讯基于mmap的高性能通用key-value组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
 
-####
+#### 技术
 
 |技术|说明|备注|
 |--|--|--|
 |多渠道|美团渠道包解决方案 |<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
+|mars-xlog|腾讯高性能日志模块xlog|<https://github.com/Tencent/mars>|
 
 
 #### 日志
 
+- 2022.3.30：引入腾讯mars-xlog
+- 2022.3.4：引入Activity Result API
+- 2022.2.28：build:gradle:7.1.2
+- 2021.10.21：重构主页面
 - 2020.12.22：升级到```kotlin_version = '1.4.21'```，使用```ViewBinding```,移除```kotlin-android-extensions```.
-
 - 2020.11.16：使用Hilt代替Dagger2.

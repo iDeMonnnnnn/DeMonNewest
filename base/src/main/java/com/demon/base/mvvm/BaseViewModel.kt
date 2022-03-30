@@ -1,6 +1,6 @@
 package com.demon.base.mvvm
 
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

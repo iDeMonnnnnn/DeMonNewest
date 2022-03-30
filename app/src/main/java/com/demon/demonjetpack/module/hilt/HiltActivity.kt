@@ -1,11 +1,11 @@
 package com.demon.demonjetpack.module.hilt
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.base.utils.extraAct
-import com.demon.base.utils.finishResult
+import com.demon.base.utils.ext.extraAct
+import com.demon.base.utils.ext.finishResult
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.hilt.HiltElectricEngine

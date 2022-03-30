@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.demon.base">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,26 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.demon.base.startup.MarsInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="com.demon.base.startup.ARouterInitializer"
+                android:value="androidx.startup" />
+            <!--从 WorkManager 2.6 开始，应用启动功能便已在 WorkManager 内部使用。如需提供自定义初始化程序，您需要移除 androidx.startup 节点。
+                https://developer.android.google.cn/topic/libraries/architecture/workmanager/advanced/custom-configuration#remove-default
+                  <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+             -->
         </provider>
     </application>
 </manifest>

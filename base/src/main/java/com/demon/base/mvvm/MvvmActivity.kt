@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.demon.base.R
 import com.demon.base.utils.LoadingUtils
-import com.demon.base.utils.getTClass
-import com.demon.base.utils.inflateViewBinding
+import com.demon.base.utils.ext.getTClass
+import com.demon.base.utils.ext.inflateViewBinding
 
 abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
     protected val TAG = this.javaClass.simpleName

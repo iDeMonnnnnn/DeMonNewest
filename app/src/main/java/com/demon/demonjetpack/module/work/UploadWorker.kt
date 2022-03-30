@@ -1,7 +1,7 @@
 package com.demon.demonjetpack.module.work
 
 import android.content.Context
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.delay

@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.demon.base.utils.inflateViewBinding
+import com.demon.base.utils.ext.inflateViewBinding
 import kotlinx.android.extensions.LayoutContainer
 
 /**

@@ -2,8 +2,8 @@ package com.demon.demonjetpack.module.room
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.toastDigital
-import com.demon.base.utils.toastEmpty
+import com.demon.base.utils.ext.toastDigital
+import com.demon.base.utils.ext.toastEmpty
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.databinding.ActivityRoomBinding
 import dagger.hilt.android.AndroidEntryPoint

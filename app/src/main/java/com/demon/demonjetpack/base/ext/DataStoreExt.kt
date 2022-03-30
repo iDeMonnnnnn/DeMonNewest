@@ -1,12 +1,12 @@
 package com.demon.demonjetpack.base.ext
 
 import android.content.Context
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import com.demon.base.MvvmApp
-import com.demon.base.utils.scopeIO
+import com.demon.base.utils.ext.scopeIO
 import kotlinx.coroutines.flow.*
 
 /**

@@ -3,7 +3,7 @@ package com.demon.demonjetpack.module.dp.audio
 import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
-import android.util.Log
+import com.tencent.mars.xlog.Log
 
 /**
  * @author DeMon

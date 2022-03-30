@@ -3,7 +3,6 @@ package com.demon.demonjetpack.module.home
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
@@ -11,10 +10,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.Tag
-import com.demon.base.utils.setOnClickThrottleFirst
-import com.demon.base.utils.toActivity
-import com.demon.base.utils.toast
+import com.demon.base.utils.click.setOnClickThrottleFirst
+import com.demon.base.utils.ext.Tag
+import com.demon.base.utils.ext.toActivity
+import com.demon.base.utils.ext.toast
 import com.demon.demonjetpack.base.data.Constants
 import com.demon.demonjetpack.base.data.RouterConst
 import com.demon.demonjetpack.base.util.AppUtils
@@ -30,6 +29,7 @@ import com.demon.demonjetpack.module.views.VbActivity
 import com.google.android.material.snackbar.Snackbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
+import com.tencent.mars.xlog.Log
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

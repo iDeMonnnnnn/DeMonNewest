@@ -2,14 +2,18 @@ package com.demon.demonjetpack.module.ara
 
 import android.Manifest
 import android.os.Environment
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
-import com.demon.base.ara.DeMonActivityResult
-import com.demon.base.ara.forActivityResult
+import com.demon.base.utils.ara.DeMonActivityResult
+import com.demon.base.utils.ara.forActivityResult
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.*
+import com.demon.base.utils.click.setOnClickThrottleFirst
+import com.demon.base.utils.ext.checkPermission
+import com.demon.base.utils.ext.pairIntent
+import com.demon.base.utils.ext.toActivity
+import com.demon.base.utils.ext.toast
 import com.demon.demonjetpack.databinding.ActivityActResultBinding
 import com.demon.qfsolution.utils.MimeType
 import com.demon.qfsolution.utils.getExternalOrFilesDirPath
@@ -34,7 +38,6 @@ class ActResultActivity : MvvmActivity<ActivityActResultBinding, BaseViewModel>(
 
     override fun initData() {
         setToolbar("Activity Result API")
-
         bindingRun {
             btn.setOnClickThrottleFirst {
                 toActivity<ActResultTwoActivity>("string" to TAG)

@@ -2,7 +2,7 @@ package com.demon.demonjetpack.module.dp.audio
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.upstream.RawResourceDataSource
 

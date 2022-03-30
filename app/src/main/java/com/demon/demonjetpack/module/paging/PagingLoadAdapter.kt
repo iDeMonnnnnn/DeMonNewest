@@ -1,13 +1,13 @@
 package com.demon.demonjetpack.module.paging
 
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.demon.base.utils.Tag
-import com.demon.base.utils.toast
+import com.demon.base.utils.ext.Tag
+import com.demon.base.utils.ext.toast
 import com.demon.demonjetpack.base.list.DataViewHolder
 import com.demon.demonjetpack.databinding.LoadStateBinding
 

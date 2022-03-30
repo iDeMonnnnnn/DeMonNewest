@@ -1,6 +1,6 @@
 package com.demon.demonjetpack.module.hilt
 
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import javax.inject.Inject
 
 /**

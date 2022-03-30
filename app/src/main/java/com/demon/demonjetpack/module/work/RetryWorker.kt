@@ -3,7 +3,7 @@ package com.demon.demonjetpack.module.work
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 

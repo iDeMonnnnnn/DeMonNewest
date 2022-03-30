@@ -1,6 +1,6 @@
 package com.demon.demonjetpack.module.work
 
-import android.util.Log
+import com.tencent.mars.xlog.Log
 import androidx.work.*
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.mvvm.BaseViewModel
