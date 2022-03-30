@@ -1,4 +1,4 @@
-rootProject.name='demonnewest'
+rootProject.name='DeMonNewest'
 include ':app'
 include ':base'
 include ':mars'
