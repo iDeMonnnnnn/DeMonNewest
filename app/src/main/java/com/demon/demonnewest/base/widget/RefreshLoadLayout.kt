@@ -7,7 +7,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout
 /**
  * @author DeMon
  * Created on 2021/11/24.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 封装RefreshLoadLayout，统一下拉刷新&加载更多的回调接口
  */
 class RefreshLoadLayout constructor(context: Context, attrs: AttributeSet) : SmartRefreshLayout(context, attrs) {

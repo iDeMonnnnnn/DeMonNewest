@@ -5,7 +5,7 @@ import javax.inject.Inject
 /**
  * @author DeMon
  * Created on 2020/1/14.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class HaHelper @Inject constructor() {

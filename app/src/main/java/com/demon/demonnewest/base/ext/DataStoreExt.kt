@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.*
 /**
  * @author DeMon
  * Created on 2020/12/4.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "DataStore")

@@ -40,6 +40,9 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02'
     api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha02'
     api "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02"
+    //paging
+    def paging_version = "3.1.0"
+    api "androidx.paging:paging-runtime-ktx:$paging_version"
     //WorkManager
     def work_version = "2.7.1"
     api "androidx.work:work-runtime-ktx:$work_version"
@@ -72,4 +75,11 @@ dependencies {
     api 'com.github.iDeMonnnnnn:QFsolution:1.1.6'
     //https://github.com/getActivity/ToastUtils
     api "com.hjq:toast:8.6"
+    //官方流式布局库
+    api 'com.google.android.flexbox:flexbox:3.0.0'
+    //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+    //https://github.com/drakeet/MultiType
+    api 'me.drakeet.multitype:multitype:3.5.0'
+    api 'me.drakeet.multitype:multitype-ktx:3.5.0'
 }

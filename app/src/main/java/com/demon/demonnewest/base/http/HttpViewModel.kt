@@ -9,7 +9,7 @@ import javax.inject.Inject
 /**
  * @author DeMon
  * Created on 2020/7/21.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 open class HttpViewModel @Inject constructor() : BaseViewModel() {
@@ -22,15 +22,12 @@ open class HttpViewModel @Inject constructor() : BaseViewModel() {
             object : PagingSource<Int, T>() {
                 override suspend fun load(params: LoadParams<Int>): LoadResult<Int, T> {
                     return try {
-                        var page: Int?
-                        page = params.key ?: 0 //当前页码
+                        val page: Int = params.key ?: 0 //当前页码，默认第一页为0
                         val bean = block.invoke(page)
-                        page = if (bean.over) {
-                            null
-                        } else {
-                            page + 1
-                        }
-                        LoadResult.Page(bean.datas, null, page)
+                        val prevKey = if (page > 1) page - 1 else null
+                        //bean.over==true，默认加载完成
+                        val nextKey = if (!bean.over) page + 1 else null
+                        LoadResult.Page(bean.datas, prevKey, nextKey)
                     } catch (e: Exception) {
                         LoadResult.Error(e)
                     }
@@ -43,6 +40,6 @@ open class HttpViewModel @Inject constructor() : BaseViewModel() {
                     }
                 }
             }
-        }.flow.cachedIn(viewModelScope).asLiveData()
+        }.flow.cachedIn(viewModelScope)
 
 }

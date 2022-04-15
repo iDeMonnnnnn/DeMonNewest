@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * @author DeMon
  * Created on 2020/9/29.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 data class PageBean<T>(

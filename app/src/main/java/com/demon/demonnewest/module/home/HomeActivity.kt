@@ -10,18 +10,19 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
+import com.demon.base.utils.SystemUtils
 import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.toActivity
 import com.demon.base.utils.ext.toast
 import com.demon.demonnewest.base.data.Constants
 import com.demon.demonnewest.base.data.RouterConst
-import com.demon.demonnewest.base.util.AppUtils
 import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
 import com.demon.demonnewest.module.ara.ActResultActivity
 import com.demon.demonnewest.module.dp.AudioActivity
 import com.demon.demonnewest.module.img.ImgLoadActivity
+import com.demon.demonnewest.module.list.ListActivity
 import com.demon.demonnewest.module.views.DoodleActivity
 import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
@@ -52,6 +53,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("Activity Result API", ActResultActivity::class.java),
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),
+        HomeEntity("多样式列表", ListActivity::class.java),
         HomeEntity("图片加载", ImgLoadActivity::class.java),
         HomeEntity("自定义View"),
         HomeEntity("Motion动画", MotionActivity::class.java),
@@ -77,7 +79,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         bindingRun {
             rvMenu.adapter = adapter
             fab.setOnClickThrottleFirst {
-                Snackbar.make(it, "当前渠道:${AppUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(it, "当前渠道:${SystemUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
             }
         }
 

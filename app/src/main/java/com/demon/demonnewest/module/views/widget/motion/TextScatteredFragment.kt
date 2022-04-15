@@ -8,7 +8,7 @@ import com.demon.demonnewest.databinding.FragmentTextScatteredBinding
 /**
  * @author DeMon
  * Created on 2021/1/28.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {

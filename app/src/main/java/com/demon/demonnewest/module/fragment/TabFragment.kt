@@ -1,10 +1,10 @@
 package com.demon.demonnewest.module.fragment
 
+import com.demon.base.list.BaseAdapter
 import com.tencent.mars.xlog.Log
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.Tag
-import com.demon.demonnewest.base.list.BaseAdapter
-import com.demon.demonnewest.base.list.DataViewHolder
+import com.demon.base.list.DataVbHolder
 import com.demon.demonnewest.base.widget.RefreshLoadLayout
 import com.demon.demonnewest.base.widget.RefreshLoadListener
 import com.demon.demonnewest.bean.ArticleBean
@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 /**
  * @author DeMon
  * Created on 2020/3/16.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 @AndroidEntryPoint
@@ -23,7 +23,7 @@ class TabFragment constructor(var author: String) : MvvmFragment<FragmentTabBind
 
     private val adapter by lazy {
         object : BaseAdapter<ArticleBean, ListArticleBinding>() {
-            override fun convert(holder: DataViewHolder<ListArticleBinding>, item: ArticleBean) {
+            override fun convert(holder: DataVbHolder<ListArticleBinding>, item: ArticleBean) {
                 holder.binding.tvText.text = item.title
             }
         }

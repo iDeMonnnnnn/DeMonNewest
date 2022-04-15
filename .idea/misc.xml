@@ -58,6 +58,19 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/base_ui_dialog_main_loading.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/include_toolbar.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/xml/file_paths.xml" value="2.1125" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_home.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_img_load.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_list.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_paging.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_text_scattered.xml" value="0.3466666666666667" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/item_one.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/item_two.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/list_article.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/list_img_glide.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/view_data_empty.xml" value="0.4354166666666667" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/base/src/main/res/layout/include_toolbar.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/base/src/main/res/layout/list_rv.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/base/src/main/res/layout/view_data_empty.xml" value="0.4354166666666667" />
       </map>
     </option>
   </component>

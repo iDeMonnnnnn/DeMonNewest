@@ -1,13 +1,13 @@
-package com.demon.demonnewest.base.list
+package com.demon.base.list
 
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.demon.base.R
 import com.demon.base.utils.ext.inflateViewBinding
 import com.demon.base.utils.ext.launchIO
-import com.demon.demonnewest.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.withContext
@@ -15,12 +15,12 @@ import kotlinx.coroutines.withContext
 /**
  * @author DeMon
  * Created on 2021/11/22.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 abstract class BaseAdapter<T, VB : ViewBinding>(
     _datas: MutableList<T> = mutableListOf()
-) : BaseQuickAdapter<T, DataViewHolder<VB>>(-1, _datas) {
+) : BaseQuickAdapter<T, DataVbHolder<VB>>(-1, _datas) {
 
     protected val TAG = javaClass.simpleName
     protected lateinit var mContext: Context
@@ -35,10 +35,10 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         }
 
 
-    override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder<VB> {
+    override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int): DataVbHolder<VB> {
         mContext = parent.context
         val binding: VB = inflateViewBinding(parent, 1)
-        return DataViewHolder(binding)
+        return DataVbHolder(binding)
     }
 
 

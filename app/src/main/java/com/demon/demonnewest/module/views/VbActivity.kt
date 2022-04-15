@@ -10,7 +10,7 @@ import com.demon.demonnewest.databinding.ViewstubLayoutBinding
 /**
  * @author DeMon
  * Created on 2021/6/29.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class VbActivity : MvvmActivity<ActivityVbBinding, BaseViewModel>() {

@@ -23,7 +23,7 @@ import me.samlss.lighter.shape.RectShape
 /**
  * @author DeMon
  * Created on 2021/6/29.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  * https://github.com/samlss/Lighter
  * 注:在Fragment中表现不佳

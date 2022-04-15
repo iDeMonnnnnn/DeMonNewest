@@ -45,6 +45,7 @@
         <activity android:name=".module.views.VbActivity" />
         <activity android:name=".module.views.MotionActivity" />
         <activity android:name=".module.img.ImgLoadActivity" />
+        <activity android:name=".module.list.ListActivity" />
 
 
     </application>

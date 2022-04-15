@@ -7,7 +7,7 @@ import com.demon.demonnewest.databinding.ActivityImgLoadBinding
 /**
  * @author DeMon
  * Created on 2021/11/20.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class ImgLoadActivity : MvvmActivity<ActivityImgLoadBinding, BaseViewModel>() {

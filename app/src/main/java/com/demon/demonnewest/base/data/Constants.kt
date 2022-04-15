@@ -3,7 +3,7 @@ package com.demon.demonnewest.base.data
 /**
  * @author DeMon
  * Created on 2020/1/13.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 object Constants {

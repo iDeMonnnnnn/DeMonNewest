@@ -8,23 +8,20 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.toast
-import com.demon.demonnewest.base.list.DataViewHolder
+import com.demon.base.list.DataVbHolder
 import com.demon.demonnewest.databinding.LoadStateBinding
 
 /**
  * @author DeMon
  * Created on 2020/9/29.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 
-interface RetryListener {
-    fun onRetry()
-}
 
-class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : LoadStateAdapter<DataViewHolder<LoadStateBinding>>() {
+class PagingLoadAdapter constructor(private val retry: () -> Unit) : LoadStateAdapter<DataVbHolder<LoadStateBinding>>() {
 
-    override fun onBindViewHolder(holder: DataViewHolder<LoadStateBinding>, loadState: LoadState) {
+    override fun onBindViewHolder(holder: DataVbHolder<LoadStateBinding>, loadState: LoadState) {
         holder.binding.run {
             when (loadState) {
                 is LoadState.Loading -> {
@@ -39,7 +36,7 @@ class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : 
                     errorText.visibility = View.VISIBLE
                     nomoreText.visibility = View.GONE
                     root.setOnClickListener {
-                        retry?.onRetry()
+                        retry()
                     }
                 }
                 else -> {
@@ -53,8 +50,8 @@ class PagingLoadAdapter constructor(private val retry: RetryListener? = null) : 
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): DataViewHolder<LoadStateBinding> {
-        return DataViewHolder(LoadStateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): DataVbHolder<LoadStateBinding> {
+        return DataVbHolder(LoadStateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     /**

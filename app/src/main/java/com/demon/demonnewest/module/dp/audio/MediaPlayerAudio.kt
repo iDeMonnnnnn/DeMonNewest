@@ -8,7 +8,7 @@ import com.tencent.mars.xlog.Log
 /**
  * @author DeMon
  * Created on 2021/2/26.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 系统MediaPlayer实现
  */
 class MediaPlayerAudio : IAudio {

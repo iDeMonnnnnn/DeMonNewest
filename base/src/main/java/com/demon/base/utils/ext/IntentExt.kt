@@ -19,7 +19,7 @@ import kotlin.reflect.KProperty
 /**
  * @author DeMon
  * Created on 2020/7/22.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 fun Intent.putExtras(vararg extras: Pair<String, Any?>): Intent {

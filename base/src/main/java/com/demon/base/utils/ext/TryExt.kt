@@ -12,7 +12,7 @@ inline fun tryCatch(block: () -> Unit): Unit = try {
     block()
 } catch (e: Exception) {
     e.printStackTrace()
-    Log.e("TryExt", "tryCatch: " + e.printStackTrace())
+    Log.e("TryExt", "tryCatch: ", e)
     Unit
 }
 
@@ -23,7 +23,7 @@ inline fun <T> tryCatch(default: T, block: () -> T): T {
     return try {
         block()
     } catch (e: Exception) {
-        Log.e("TryExt", "tryCatch: " + e.printStackTrace())
+        Log.e("TryExt", "tryCatch: ", e)
         default
     }
 }
@@ -32,7 +32,7 @@ inline fun <T> tryCatch(default: T, block: () -> T): T {
  * 通用输出异常的方法
  */
 fun Throwable?.errorLog() {
-    Log.e("TryExt", android.util.Log.getStackTraceString(this))
+    Log.e("TryExt", "errorLog: ", this)
 }
 
 /**

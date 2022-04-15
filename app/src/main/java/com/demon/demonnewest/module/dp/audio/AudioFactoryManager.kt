@@ -3,7 +3,7 @@ package com.demon.demonnewest.module.dp.audio
 /**
  * @author DeMon
  * Created on 2021/2/26.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 工厂管理类
  */
 object AudioFactoryManager {

@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 /**
  * @author DeMon
  * Created on 2020/11/26.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:非作用域的类注入（类似Dagger的inject）
  */
 @EntryPoint

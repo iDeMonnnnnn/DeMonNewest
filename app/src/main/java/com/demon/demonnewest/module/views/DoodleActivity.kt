@@ -13,7 +13,7 @@ import com.gyf.immersionbar.ktx.immersionBar
 /**
  * @author DeMon
  * Created on 2021/8/4.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class DoodleActivity : MvvmActivity<ActivityDoodleBinding, BaseViewModel>() {

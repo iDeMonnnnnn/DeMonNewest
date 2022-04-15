@@ -89,8 +89,6 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     //引导高亮
     implementation 'me.samlss:lighter:1.0.3'
-    //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
     // https://github.com/gyf-dev/ImmersionBar
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     // fragment快速实现（可选）

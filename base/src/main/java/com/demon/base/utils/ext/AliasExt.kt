@@ -8,7 +8,7 @@ import kotlinx.coroutines.SupervisorJob
 /**
  * @author DeMon
  * Created on 2021/11/22.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 别名
  */
 var mmkv = MMKV.defaultMMKV()

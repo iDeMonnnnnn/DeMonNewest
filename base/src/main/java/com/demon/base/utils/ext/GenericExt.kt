@@ -3,6 +3,8 @@ package com.demon.base.utils.ext
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
+import com.demon.base.list.ListItemBinder
+import com.google.gson.reflect.TypeToken
 import java.lang.reflect.GenericSignatureFormatError
 import java.lang.reflect.MalformedParameterizedTypeException
 import java.lang.reflect.ParameterizedType
@@ -10,7 +12,7 @@ import java.lang.reflect.ParameterizedType
 /**
  * @author DeMon
  * Created on 2021/11/22.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 泛型相关扩展方法
  */
 /**

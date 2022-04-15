@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 /**
  * @author DeMon
  * Created on 2020/12/17.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class DiffComparator<T : Any> : DiffUtil.ItemCallback<T>() {

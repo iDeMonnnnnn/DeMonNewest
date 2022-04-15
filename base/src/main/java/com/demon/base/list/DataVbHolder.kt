@@ -1,4 +1,4 @@
-package com.demon.demonnewest.base.list
+package com.demon.base.list
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +10,10 @@ import kotlinx.android.extensions.LayoutContainer
 /**
  * @author DeMon
  * Created on 2020/9/28.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
-open class DataViewHolder<VB : ViewBinding> : BaseViewHolder, LayoutContainer {
+open class DataVbHolder<VB : ViewBinding> : BaseViewHolder, LayoutContainer {
 
     val mContext = itemView.context
 

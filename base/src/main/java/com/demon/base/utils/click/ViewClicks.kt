@@ -16,7 +16,7 @@ import kotlin.math.abs
 /**
  * @author DeMon
  * Created on 2021/8/31.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:根据Flow流控制View的重复点击事件
  */
 

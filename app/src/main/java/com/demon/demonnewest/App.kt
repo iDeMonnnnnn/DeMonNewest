@@ -12,7 +12,7 @@ import dagger.hilt.android.HiltAndroidApp
 /**
  * @author DeMon
  * Created on 2020/4/10.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 @HiltAndroidApp

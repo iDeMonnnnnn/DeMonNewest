@@ -7,7 +7,7 @@ import com.demon.demonnewest.databinding.FragmentFullCompactBinding
 /**
  * @author DeMon
  * Created on 2021/1/27.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class FulCompactFragment : MvvmFragment<FragmentFullCompactBinding, BaseViewModel>() {

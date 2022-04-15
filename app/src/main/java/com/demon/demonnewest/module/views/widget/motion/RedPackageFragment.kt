@@ -12,7 +12,7 @@ import java.util.*
 /**
  * @author DeMon
  * Created on 2021/1/29.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class RedPackageFragment : MvvmFragment<FragmentRedPackageBinding, BaseViewModel>() {

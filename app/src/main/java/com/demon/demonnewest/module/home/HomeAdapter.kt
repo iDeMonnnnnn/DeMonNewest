@@ -8,7 +8,7 @@ import com.demon.demonnewest.bean.HomeEntity
 /**
  * @author DeMon
  * Created on 2021/10/21.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 class HomeAdapter constructor(datas: MutableList<HomeEntity>) :

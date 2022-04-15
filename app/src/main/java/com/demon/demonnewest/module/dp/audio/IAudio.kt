@@ -6,7 +6,7 @@ import android.net.Uri
 /**
  * @author DeMon
  * Created on 2021/2/26.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc: 音频公共接口
  */
 interface IAudio {

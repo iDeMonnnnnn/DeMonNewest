@@ -11,7 +11,7 @@ import javax.inject.Inject
 /**
  * @author DeMon
  * Created on 2020/3/16.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 @HiltViewModel

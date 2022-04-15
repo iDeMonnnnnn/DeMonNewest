@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 /**
  * @author DeMon
  * Created on 2020/1/18.
- * E-mail 757454343@qq.com
+ * E-mail idemon_liu@qq.com
  * Desc:
  */
 @Entity(tableName = "users")
