@@ -10,7 +10,6 @@ import com.demon.demonnewest.module.list.adapter.OneItemBinder
 import com.demon.demonnewest.module.list.adapter.TwoItemBinder
 import com.demon.demonnewest.module.list.bean.OneBean
 import com.demon.demonnewest.module.list.bean.TwoBean
-import me.drakeet.multitype.MultiTypeAdapter
 
 /**
  * @author DeMon
@@ -19,8 +18,6 @@ import me.drakeet.multitype.MultiTypeAdapter
  * Desc:
  */
 class ListActivity : MvvmActivity<ActivityListBinding, BaseViewModel>() {
-
-    private val multiTypeAdapter = MultiTypeAdapter()
 
     private val adapter by lazy {
         BaseBinderAdapter().apply {
@@ -34,8 +31,5 @@ class ListActivity : MvvmActivity<ActivityListBinding, BaseViewModel>() {
         adapter.addData(OneBean(mutableListOf("1", "2", "3", "4", "5")))
         adapter.addData(TwoBean(mutableListOf(1, 2, 3, 4, 5, 6, 7, 8)))
         binding.rvData.adapter = adapter
-
-
-        multiTypeAdapter.register()
     }
 }

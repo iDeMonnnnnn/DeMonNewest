@@ -31,23 +31,13 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    signingConfigs {
-        release {
-            storeFile file('D:\\ITCode\\DeMon.jks')
-            storePassword '123456'
-            keyAlias 'key'
-            keyPassword '123456'
-        }
-    }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.release
         }
     }
 }
