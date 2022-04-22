@@ -17,33 +17,52 @@ import com.google.android.flexbox.FlexboxLayoutManager
  * Desc: 通用列表 ItemBinder，每个Item都是一个列表
  */
 inline fun <reified T : Any, reified Y : ListItem<T>> BaseBinderAdapter.addListItemBinder(
-    binder: BaseVbItemBinder<T, *>,
-    type: Int = ListItemBinder.Horizontal,
-    spanCount: Int = -1
+        binder: BaseVbItemBinder<T, *>,
+        type: Int = ListItemBinder.Linear,
+        spanCount: Int = -1
 ) {
     addItemBinder(ListItemBinder<T, Y>(binder, type, spanCount))
 }
 
-
-class ListItemBinder<T : Any, Y : ListItem<T>> constructor(
-    binder: BaseVbItemBinder<T, *>, val type: Int = Horizontal, val spanCount: Int = -1
-) : BaseVbItemBinder<Y, ItemListBinding>() {
+class ListItemBinder<T : Any, Y : ListItem<T>> : BaseVbItemBinder<Y, ItemListBinding> {
 
     companion object {
-        const val Horizontal = 0
+        const val Linear = 0
         const val Grid = 1
         const val StaggeredGrid = 2
         const val Flexbox = 3
     }
 
+    lateinit var binder: BaseVbItemBinder<T, *>
 
     /**
      * 布局方向，线性布局默认是水平方向，其他布局默认是垂直
      */
     var orientation: Int = RecyclerView.VERTICAL
 
-    init {
-        orientation = (type == Horizontal).whatIf(RecyclerView.HORIZONTAL, RecyclerView.VERTICAL)
+    var type: Int = Linear
+
+    var spanCount: Int = -1
+
+    var itemDecoration: RecyclerView.ItemDecoration? = null
+
+    constructor(binder: BaseVbItemBinder<T, *>) {
+        this.binder = binder
+        this.type = Linear
+        this.orientation = (type == Linear).whatIf(RecyclerView.HORIZONTAL, RecyclerView.VERTICAL)
+    }
+
+    constructor(binder: BaseVbItemBinder<T, *>, type: Int = Linear) {
+        this.binder = binder
+        this.type = type
+        this.orientation = (type == Linear).whatIf(RecyclerView.HORIZONTAL, RecyclerView.VERTICAL)
+    }
+
+    constructor(binder: BaseVbItemBinder<T, *>, type: Int = Linear, spanCount: Int = -1) {
+        this.binder = binder
+        this.type = type
+        this.spanCount = spanCount
+        this.orientation = (type == Linear).whatIf(RecyclerView.HORIZONTAL, RecyclerView.VERTICAL)
     }
 
 
@@ -56,6 +75,9 @@ class ListItemBinder<T : Any, Y : ListItem<T>> constructor(
 
     override fun convertItem(holder: DataVbHolder<ItemListBinding>, binding: ItemListBinding, data: Y, pos: Int) {
         ad.setList(data.list)
+        itemDecoration?.run {
+            binding.rvData.addItemDecoration(this)
+        }
         binding.rvData.layoutManager = when (type) {
             Grid -> {
                 GridLayoutManager(mContext, (spanCount == -1).whatIf(data.list.size, spanCount), orientation, false)

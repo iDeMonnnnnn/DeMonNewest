@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-
     <!-- dp and sp values, must be defind in this file! -->
     <!-- view size,you can add if there is no one -->
+    <dimen name="dpm60">-60dp</dimen>
+    <dimen name="dpm30">-30dp</dimen>
+    <dimen name="dpm20">-20dp</dimen>
+    <dimen name="dpm12">-12dp</dimen>
+    <dimen name="dpm10">-10dp</dimen>
+    <dimen name="dpm8">-8dp</dimen>
+    <dimen name="dpm5">-5dp</dimen>
+    <dimen name="dpm2">-2dp</dimen>
+    <dimen name="dpm1">-1dp</dimen>
     <dimen name="dp0">0dp</dimen>
-    <dimen name="dp0_5">0.5dp</dimen>
+    <dimen name="dp0.5">0.5dp</dimen>
     <dimen name="dp1">1dp</dimen>
     <dimen name="dp2">2dp</dimen>
     <dimen name="dp3">3dp</dimen>
@@ -368,13 +375,75 @@
     <dimen name="dp360">360dp</dimen>
     <dimen name="dp365">365dp</dimen>
     <dimen name="dp370">370dp</dimen>
+    <dimen name="dp375">375dp</dimen>
+    <dimen name="dp380">380dp</dimen>
+    <dimen name="dp385">385dp</dimen>
+    <dimen name="dp390">390dp</dimen>
+    <dimen name="dp395">395dp</dimen>
     <dimen name="dp400">400dp</dimen>
+    <dimen name="dp405">405dp</dimen>
     <dimen name="dp410">410dp</dimen>
-    <dimen name="dp422">422dp</dimen>
-    <dimen name="dp472">472dp</dimen>
+    <dimen name="dp415">415dp</dimen>
+    <dimen name="dp420">420dp</dimen>
+    <dimen name="dp425">425dp</dimen>
+    <dimen name="dp430">430dp</dimen>
+    <dimen name="dp435">435dp</dimen>
+    <dimen name="dp440">440dp</dimen>
+    <dimen name="dp445">445dp</dimen>
+    <dimen name="dp450">450dp</dimen>
+    <dimen name="dp455">455dp</dimen>
+    <dimen name="dp460">460dp</dimen>
+    <dimen name="dp465">465dp</dimen>
+    <dimen name="dp470">470dp</dimen>
+    <dimen name="dp475">475dp</dimen>
+    <dimen name="dp480">480dp</dimen>
+    <dimen name="dp485">485dp</dimen>
+    <dimen name="dp490">490dp</dimen>
+    <dimen name="dp495">495dp</dimen>
     <dimen name="dp500">500dp</dimen>
+    <dimen name="dp505">505dp</dimen>
+    <dimen name="dp510">510dp</dimen>
+    <dimen name="dp515">515dp</dimen>
+    <dimen name="dp520">520dp</dimen>
+    <dimen name="dp525">525dp</dimen>
+    <dimen name="dp530">530dp</dimen>
+    <dimen name="dp535">535dp</dimen>
+    <dimen name="dp540">540dp</dimen>
+    <dimen name="dp545">545dp</dimen>
+    <dimen name="dp550">550dp</dimen>
+    <dimen name="dp555">555dp</dimen>
+    <dimen name="dp560">560dp</dimen>
+    <dimen name="dp565">565dp</dimen>
+    <dimen name="dp570">570dp</dimen>
+    <dimen name="dp575">575dp</dimen>
+    <dimen name="dp580">580dp</dimen>
+    <dimen name="dp585">585dp</dimen>
+    <dimen name="dp590">590dp</dimen>
+    <dimen name="dp595">595dp</dimen>
     <dimen name="dp600">600dp</dimen>
+    <dimen name="dp605">605dp</dimen>
+    <dimen name="dp610">610dp</dimen>
+    <dimen name="dp615">615dp</dimen>
+    <dimen name="dp620">620dp</dimen>
+    <dimen name="dp625">625dp</dimen>
+    <dimen name="dp630">630dp</dimen>
+    <dimen name="dp635">635dp</dimen>
     <dimen name="dp640">640dp</dimen>
+    <dimen name="dp645">645dp</dimen>
+    <dimen name="dp650">650dp</dimen>
+    <dimen name="dp655">655dp</dimen>
+    <dimen name="dp660">660dp</dimen>
+    <dimen name="dp665">665dp</dimen>
+    <dimen name="dp670">670dp</dimen>
+    <dimen name="dp675">675dp</dimen>
+    <dimen name="dp680">680dp</dimen>
+    <dimen name="dp685">685dp</dimen>
+    <dimen name="dp690">690dp</dimen>
+    <dimen name="dp695">695dp</dimen>
+    <dimen name="dp700">700dp</dimen>
+    <dimen name="dp705">705dp</dimen>
+    <dimen name="dp710">710dp</dimen>
+    <dimen name="dp715">715dp</dimen>
     <dimen name="dp720">720dp</dimen>
 
     <!-- font size,you can add if there is no one -->

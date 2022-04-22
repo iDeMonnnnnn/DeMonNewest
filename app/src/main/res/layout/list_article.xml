@@ -16,7 +16,7 @@
 
     <View
         android:layout_width="@dimen/dp0"
-        android:layout_height="@dimen/dp0_5"
+        android:layout_height="@dimen/dp0.5"
         android:layout_marginStart="@dimen/dp16"
         android:background="#333333"
         app:layout_constraintBottom_toBottomOf="parent"

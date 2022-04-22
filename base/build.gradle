@@ -30,7 +30,7 @@ dependencies {
     //mars-xlog
     api project(path: ':mars')
     api 'androidx.appcompat:appcompat:1.3.1'
-    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api 'androidx.constraintlayout:constraintlayout:2.1.3'
     api 'com.google.android.material:material:1.4.0'
     api "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     //ktx,https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#use-ktx
