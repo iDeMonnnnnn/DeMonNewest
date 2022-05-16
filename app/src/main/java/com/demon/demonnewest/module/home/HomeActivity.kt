@@ -27,6 +27,7 @@ import com.demon.demonnewest.module.views.DoodleActivity
 import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
 import com.demon.demonnewest.module.views.VbActivity
+import com.demon.demonnewest.module.views.animation.AnimationActivity
 import com.google.android.material.snackbar.Snackbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -57,6 +58,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("图片加载", ImgLoadActivity::class.java),
         HomeEntity("自定义View"),
         HomeEntity("Motion动画", MotionActivity::class.java),
+        HomeEntity("动画", AnimationActivity::class.java),
         HomeEntity("ViewBinding", VbActivity::class.java),
         HomeEntity("引导高亮", LighterActivity::class.java),
         HomeEntity("涂鸦马赛克", DoodleActivity::class.java),
