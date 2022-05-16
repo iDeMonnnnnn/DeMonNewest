@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetVersion
-        versionCode appVersionCode
-        versionName appVersionName
     }
     buildFeatures {
         viewBinding = true
