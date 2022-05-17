@@ -7,6 +7,7 @@ import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.base.utils.ext.getCompatColor
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
+import com.tencent.mars.xlog.Log
 
 
 /**
@@ -26,18 +27,21 @@ class FrameFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
     }
 
     fun animationDrawable() {
-        animationDrawable = AnimationDrawable()
-        for (i in 0 until 45) {
-            val id = resources.getIdentifier("frame_$i", "drawable", requireContext().packageName)
-            val drawable = ContextCompat.getDrawable(requireContext(), id)
-            drawable?.run { animationDrawable?.addFrame(this, 100) }
+        if (animationDrawable == null) {
+            animationDrawable = AnimationDrawable()
+            for (i in 0 until 45) {
+                val id = resources.getIdentifier("frame_$i", "drawable", requireContext().packageName)
+                val drawable = ContextCompat.getDrawable(requireContext(), id)
+                drawable?.run { animationDrawable?.addFrame(this, 100) }
+            }
+            binding.iv.setImageDrawable(animationDrawable)
         }
-        binding.iv.setImageDrawable(animationDrawable)
         animationDrawable?.start()
     }
 
 
     override fun onPause() {
+        Log.i(TAG, "onPause: ")
         super.onPause()
         animationDrawable?.stop()
     }

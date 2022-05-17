@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.views.animation
 
+import android.animation.ValueAnimator
 import android.graphics.drawable.AnimationDrawable
 import androidx.core.content.ContextCompat
 import com.demon.base.mvvm.BaseViewModel
@@ -7,6 +8,7 @@ import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.base.utils.ext.getCompatColor
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
+import com.tencent.mars.xlog.Log
 
 
 /**
@@ -16,30 +18,33 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  * Desc: 属性动画
  */
 class ValueFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
-
-    var animationDrawable: AnimationDrawable? = null
+    var valueAnimator: ValueAnimator? = null
 
     override fun initData() {
         binding.btnStart.setOnClickThrottleFirst {
-            animationDrawable()
+            valueAnimator()
         }
     }
 
-    fun animationDrawable() {
-        animationDrawable = AnimationDrawable()
-        for (i in 0 until 45) {
-            val id = resources.getIdentifier("frame_$i", "drawable", requireContext().packageName)
-            val drawable = ContextCompat.getDrawable(requireContext(), id)
-            drawable?.run { animationDrawable?.addFrame(this, 100) }
+    fun valueAnimator() {
+        if (valueAnimator == null) {
+            valueAnimator = ValueAnimator.ofInt(0, 200, 100)
+            valueAnimator?.duration = 3000
+            valueAnimator?.addUpdateListener {
+                val cur = it.animatedValue as Int
+                binding.iv.layoutParams.width = cur
+                binding.iv.requestLayout()
+            }
         }
-        binding.iv.setImageDrawable(animationDrawable)
-        animationDrawable?.start()
+        valueAnimator?.start()
     }
 
 
     override fun onPause() {
+        Log.i(TAG, "onPause: ")
         super.onPause()
-        animationDrawable?.stop()
+        valueAnimator?.cancel()
+        //valueAnimator?.removeAllUpdateListeners()
     }
 
 }

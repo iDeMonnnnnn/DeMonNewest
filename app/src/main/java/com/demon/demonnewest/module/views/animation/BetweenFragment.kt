@@ -5,6 +5,7 @@ import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.click.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
+import com.tencent.mars.xlog.Log
 
 /**
  * @author DeMon
@@ -98,7 +99,13 @@ class BetweenFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() 
     }
 
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        Log.i(TAG, "setUserVisibleHint: $isVisibleToUser")
+    }
+
     override fun onPause() {
+        Log.i(TAG, "onPause: ")
         super.onPause()
         binding.iv.clearAnimation()
     }
