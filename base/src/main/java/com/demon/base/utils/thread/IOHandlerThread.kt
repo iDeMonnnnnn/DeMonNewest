@@ -32,9 +32,6 @@ class IOHandlerThread private constructor() {
         }
     }
 
-    val looper: Looper
-        get() = mHandlerThread!!.looper
-
     companion object {
         @JvmStatic
         fun getInstance() = Holder.instance
