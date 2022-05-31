@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
 open class BaseViewModel : ViewModel(), LifecycleObserver {
@@ -22,26 +23,27 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
         catch: (suspend (Throwable) -> Unit)? = null
     ) {
         flow { emit(request()) }
+            .flowOn(Dispatchers.IO)
             .onStart {
                 start?.invoke() ?: let {
                     if (showLoading) loadingData.value = true
                 }
-            }
+            }.flowOn(Dispatchers.Main)
             .onEach {
                 each?.invoke(it)
-            }
+            }.flowOn(Dispatchers.Main)
             .onCompletion {
                 completion?.invoke() ?: let {
                     if (showLoading) loadingData.value = false
                 }
-            }
+            }.flowOn(Dispatchers.Main)
             // catch只会处理上游的异常
             .catch { flowCatch ->
                 Log.e(TAG, "onFlow: ${flowCatch.message}", flowCatch)
                 catch?.invoke(flowCatch) ?: let {
                     errLiveData.value = flowCatch.message
                 }
-            }
+            }.flowOn(Dispatchers.Main)
             // 用于执行collect
             .launchIn(viewModelScope)
     }

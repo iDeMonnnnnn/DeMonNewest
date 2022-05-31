@@ -21,6 +21,7 @@ import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
 import com.demon.demonnewest.module.ara.ActResultActivity
 import com.demon.demonnewest.module.dp.AudioActivity
+import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.img.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
 import com.demon.demonnewest.module.views.DoodleActivity
@@ -46,6 +47,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
     private val homeDatas = arrayListOf(
         HomeEntity("JetPack"),
         HomeEntity("MVVM", RouterConst.ACT_FRAGMENT),
+        HomeEntity("Flow", FlowActivity::class.java),
         HomeEntity("Hilt", RouterConst.ACT_DAGGER),
         HomeEntity("Room", RouterConst.ACT_ROOM),
         HomeEntity("Paging3", RouterConst.ACT_PAGING),

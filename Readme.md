@@ -14,6 +14,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |组件|说明|备注|
 |--|--|--|
 |KTX|Android官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
+|Flow|响应式编程模型|-|
 |ViewBinding|视图绑定|<https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn>|
 |LiveData|数据观察|<https://developer.android.google.cn/topic/libraries/architecture/livedata?hl=zh-cn>|
 |ViewModel|MVVM|<https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn>|
