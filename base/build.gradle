@@ -27,17 +27,17 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*'])
     //mars-xlog
     api project(path: ':mars')
-    api 'androidx.appcompat:appcompat:1.3.1'
+    api 'androidx.appcompat:appcompat:1.4.1'
     api 'androidx.constraintlayout:constraintlayout:2.1.3'
-    api 'com.google.android.material:material:1.4.0'
+    api 'com.google.android.material:material:1.5.0'
     api "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     //ktx,https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#use-ktx
     api 'androidx.core:core-ktx:1.7.0'
     api "androidx.activity:activity-ktx:1.4.0"
     api "androidx.fragment:fragment-ktx:1.4.1"
-    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02'
-    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha02'
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02"
+    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"
     //paging
     def paging_version = "3.1.0"
     api "androidx.paging:paging-runtime-ktx:$paging_version"
@@ -54,7 +54,7 @@ dependencies {
     api 'com.squareup.retrofit2:converter-scalars:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     //Gson
-    api 'com.google.code.gson:gson:2.8.8'
+    api 'com.google.code.gson:gson:2.8.9'
     //okhttp
     def okhttp3Version = "4.7.2"
     api "com.squareup.okhttp3:okhttp:$okhttp3Version"
@@ -70,7 +70,7 @@ dependencies {
     //mmkv
     api 'com.tencent:mmkv:1.2.12'
     //QFsolution
-    api 'com.github.iDeMonnnnnn:QFsolution:1.1.6'
+    api 'com.github.iDeMonnnnnn:QFsolution:1.1.8'
     //https://github.com/getActivity/ToastUtils
     api "com.hjq:toast:8.6"
     //官方流式布局库

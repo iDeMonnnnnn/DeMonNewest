@@ -26,6 +26,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
 |Activity Result API|代替startActivityForResult|<https://blog.csdn.net/DeMonliuhui/article/details/123276161>|
+|CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
 
 #### 框架
 

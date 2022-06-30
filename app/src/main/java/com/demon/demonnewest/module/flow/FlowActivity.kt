@@ -44,6 +44,7 @@ class FlowActivity : MvvmActivity<ActivityFlowBinding, BaseViewModel>() {
     }
 
     override fun initData() {
+        setToolbar("Flow")
         lifecycleScope.launch {
             simpleFlow.collect {
                 Log.i(TAG, "simpleFlow: $it")
