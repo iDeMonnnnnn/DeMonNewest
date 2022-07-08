@@ -8,6 +8,7 @@ import com.demon.demonnewest.databinding.ActivityFlowBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import reactivecircus.flowbinding.android.view.clicks
 
 /**
  * @author DeMon
@@ -24,6 +25,9 @@ class FlowActivity : MvvmActivity<ActivityFlowBinding, BaseViewModel>() {
             emit("2、flow2")
             emit("3、flow3")
         }.flowOn(Dispatchers.IO)
+
+
+        binding.btnFlow.clicks()
     }
 
 

@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.demon.base.R
 import com.demon.base.utils.ext.inflateViewBinding
 import com.demon.base.utils.ext.launchIO
+import com.demon.base.utils.ext.scopeIO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.withContext
@@ -53,7 +54,7 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
                 notifyDataSetChanged()
             }
             else -> {
-                GlobalScope.launchIO {
+                scopeIO.launchIO {
                     val diff = update(old, update)
                     withContext(Dispatchers.Main) {
                         diff.dispatchUpdatesTo(this@BaseAdapter)

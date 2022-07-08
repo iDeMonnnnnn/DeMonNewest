@@ -37,10 +37,7 @@ dependencies {
     api "androidx.fragment:fragment-ktx:1.4.1"
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"
-    //paging
-    def paging_version = "3.1.0"
-    api "androidx.paging:paging-runtime-ktx:$paging_version"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"  
     //WorkManager
     def work_version = "2.7.1"
     api "androidx.work:work-runtime-ktx:$work_version"
@@ -77,4 +74,6 @@ dependencies {
     api 'com.google.android.flexbox:flexbox:3.0.0'
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+    def flowbinding_version = "1.2.0"
+    api "io.github.reactivecircus.flowbinding:flowbinding-android:${flowbinding_version}"
 }

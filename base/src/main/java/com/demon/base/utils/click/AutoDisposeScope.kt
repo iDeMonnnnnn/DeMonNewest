@@ -1,4 +1,4 @@
-package com.demon.base.utils
+package com.demon.base.utils.click
 
 import android.view.View
 import com.demon.base.R

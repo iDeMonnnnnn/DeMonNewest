@@ -51,7 +51,7 @@ kapt {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*'])
     implementation project(path: ':base')
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    //debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
     //room
     def room_version = "2.3.0"
     implementation "androidx.room:room-ktx:$room_version"
@@ -59,6 +59,14 @@ dependencies {
     //paging
     def paging_version = "3.1.0"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    // CameraX
+    def camerax_version = "1.1.0"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    implementation "androidx.camera:camera-extensions:${camerax_version}"
     //Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
     //exoplayer
@@ -90,4 +98,6 @@ dependencies {
     implementation 'com.scwang.smart:refresh-layout-kernel:2.0.3'//核心必须依赖
     implementation 'com.scwang.smart:refresh-header-material:2.0.3'//谷歌刷新头
     implementation 'com.scwang.smart:refresh-footer-classics:2.0.3'
+    //https://github.com/guolindev/PermissionX
+    implementation 'com.guolindev.permissionx:permissionx:1.6.4'
 }

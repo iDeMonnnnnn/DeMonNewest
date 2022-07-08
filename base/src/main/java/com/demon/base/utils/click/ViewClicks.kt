@@ -3,7 +3,6 @@ package com.demon.base.utils.click
 import android.view.View
 import androidx.annotation.CheckResult
 import com.demon.base.R
-import com.demon.base.utils.autoDisposeScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow

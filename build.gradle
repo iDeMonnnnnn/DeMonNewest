@@ -9,7 +9,6 @@ ext {
 }
 buildscript {
     ext.kotlin_version = '1.6.21'
-    ext.kotlin_version = '1.6.20'
     ext.hilt_version = '2.41'
     repositories {
         google()

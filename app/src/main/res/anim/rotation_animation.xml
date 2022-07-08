@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate
+        android:duration="1500"
+        android:fromDegrees="360"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="-1"
+        android:repeatMode="restart"
+        android:toDegrees="0" />
+    <!--
+    参数的含义
+    duration：表示从android:fromDegrees转动到android:toDegrees所花费的时间
+    fromDegrees="0"：  起始的角度度数
+    toDegrees="359" ： 结束的角度度数
+    pivotX="50%：旋转中心距离view的左顶点为50%距离，
+    pivotY="50%： 距离view的上边缘为50%距离
+    repeatCount="-1"：重复次数，-1为一直重复
+    repeatMode="restart"：重复模式，restart从头开始重复，reverse即从结束开始向前重新运行
+    实际效果为顺逆时针交替
+
+    未用到属性：
+    android:interpolator表示变化率，但不是运行速度。一个插补属性，
+    可以将动画效果设置为加速，减速，反复，反弹等。默认为开始和结束慢中间快，
+
+    android:startOffset 在调用start函数之后等待开始运行的时间，单位为毫秒，
+    若为10，表示10ms后开始运行
+    -->
+</set>
