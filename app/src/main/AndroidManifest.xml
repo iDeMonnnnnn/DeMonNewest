@@ -17,9 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".module.datastore.DataStoreActivity"
-            android:exported="false" />
-        <activity
             android:name=".module.home.HomeActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
             android:exported="true">
@@ -46,6 +43,8 @@
         <activity android:name=".module.views.MotionActivity" />
         <activity android:name=".module.img.ImgLoadActivity" />
         <activity android:name=".module.list.ListActivity" />
+        <activity
+            android:name=".module.datastore.DataStoreActivity" />
         <activity android:name=".module.views.animation.AnimationActivity" />
         <activity android:name=".module.flow.FlowActivity" />
         <activity android:name=".module.camera.CameraXActivity" />

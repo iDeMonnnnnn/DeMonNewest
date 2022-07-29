@@ -5,22 +5,19 @@ import android.net.Uri
 import android.os.Environment
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY
 import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
-import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.core.content.ContextCompat
+import androidx.camera.view.LifecycleCameraController
 import com.bumptech.glide.Glide
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.click.setOnClickThrottleFirst
+import com.demon.base.utils.ext.launchUI
+import com.demon.base.utils.ext.toast
 import com.demon.demonnewest.databinding.ActivityCameraxBinding
-import com.demon.qfsolution.utils.getExternalOrCacheDirPath
-import com.demon.qfsolution.utils.getExternalOrFilesDir
 import com.demon.qfsolution.utils.getExternalOrFilesDirPath
-import com.google.common.util.concurrent.ListenableFuture
 import com.permissionx.guolindev.PermissionX
 import java.io.File
 import java.util.concurrent.Executors
@@ -33,10 +30,7 @@ import java.util.concurrent.Executors
  */
 class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
 
-    private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
-
-    private var cameraProvider: ProcessCameraProvider? = null
-    private var imageCapture: ImageCapture? = null
+    private var cameraController: LifecycleCameraController? = null
     private var isBack = true
 
     private lateinit var takePic: File
@@ -48,30 +42,29 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
             .permissions(Manifest.permission.CAMERA)
             .request { allGranted, _, _ ->
                 if (!allGranted) {
-                    Toast.makeText(this, "没有相机权限无法使用拍照功能~", Toast.LENGTH_LONG).show()
+                    "没有相机权限无法使用拍照功能~".toast()
                     finish()
                 } else {
-
+                    bindPreview()
                 }
             }
 
-        cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-        cameraProviderFuture.addListener({
-            cameraProvider = cameraProviderFuture.get()
-            bindPreview()
-        }, ContextCompat.getMainExecutor(this))
-
-
         binding.ivRotate.setOnClickThrottleFirst {
             isBack = !isBack
+            switchCamera()
         }
 
 
         binding.ivTake.setOnClickThrottleFirst {
 
             takePic = File(getExternalOrFilesDirPath(Environment.DIRECTORY_PICTURES), "${System.currentTimeMillis()}.jpg")
-            val outputFileOptions = ImageCapture.OutputFileOptions.Builder(takePic).build()
-            imageCapture?.takePicture(outputFileOptions, Executors.newCachedThreadPool(),
+            val metadata = ImageCapture.Metadata()
+            //metadata.isReversedHorizontal = !isBack
+            val outputFileOptions = ImageCapture.OutputFileOptions
+                .Builder(takePic)
+                .setMetadata(metadata)
+                .build()
+            cameraController?.takePicture(outputFileOptions, Executors.newCachedThreadPool(),
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onError(error: ImageCaptureException) {
                         Log.e(TAG, "onError: ", error)
@@ -86,6 +79,7 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
         }
 
         binding.ivBack.setOnClickThrottleFirst {
+            takePic.delete()
             binding.groupTake.visibility = View.INVISIBLE
             binding.groupPreView.visibility = View.VISIBLE
         }
@@ -98,7 +92,7 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
 
 
     private fun takePicture(uri: Uri) {
-        runOnUiThread {
+        launchUI {
             binding.groupTake.visibility = View.VISIBLE
             binding.groupPreView.visibility = View.INVISIBLE
             Glide.with(this).load(uri).into(binding.preImage)
@@ -108,8 +102,27 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
 
 
     private fun bindPreview() {
-        val preview: Preview = Preview.Builder().build()
 
+        /**
+         * PERFORMANCE 是默认模式。PreviewView 会使用 SurfaceView 显示视频串流，但在某些情况下会回退为使用 TextureView。SurfaceView 具有专用的绘图界面，该对象更有可能通过内部硬件合成器实现硬件叠加层，尤
+         * 其是当预览视频上面没有其他界面元素（如按钮）时。通过使用硬件叠加层进行渲染，视频帧会避开 GPU 路径，从而能降低平台功耗并缩短延迟时间。
+         * COMPATIBLE 模式。在此模式下，PreviewView 会使用 TextureView；不同于 SurfaceView，该对象没有专用的绘图表面。因此，视频要通过混合渲染，才能显示。在这个额外的步骤中，应用可以执行额外的处理工作，例         * 如不受限制地缩放和旋转视频。
+         */
+        //binding.previewView.implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+
+        switchCamera()
+        cameraController = LifecycleCameraController(this)
+        /**
+         * 如需缩短照片拍摄的延迟时间，请将 ImageCapture.CaptureMode 设置为 CAPTURE_MODE_MINIMIZE_LATENCY。
+         * 如需优化照片质量，请将其设置为 CAPTURE_MODE_MAXIMIZE_QUALITY。
+         */
+        //cameraController?.imageCaptureMode = CAPTURE_MODE_MINIMIZE_LATENCY
+        binding.previewView.controller = cameraController
+        cameraController?.bindToLifecycle(this)
+    }
+
+
+    private fun switchCamera() {
         val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(
                 if (isBack) {
@@ -119,12 +132,7 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
                 }
             )
             .build()
-
-        preview.setSurfaceProvider(binding.previewView.surfaceProvider)
-
-        imageCapture = ImageCapture.Builder().build()
-
-        var camera = cameraProvider?.bindToLifecycle(this, cameraSelector, imageCapture, preview)
+        cameraController?.cameraSelector = cameraSelector
     }
 
 
