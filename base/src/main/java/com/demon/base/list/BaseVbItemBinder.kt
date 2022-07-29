@@ -20,7 +20,9 @@ abstract class BaseVbItemBinder<T, VB : ViewBinding> : BaseItemBinder<T, DataVbH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataVbHolder<VB> {
-        mContext = parent.context
+        if (!this::mContext.isInitialized) {
+            mContext = parent.context
+        }
         val binding: VB = inflateViewBinding(parent, 1)
         return DataVbHolder(binding)
     }

@@ -37,7 +37,9 @@ abstract class BaseVbAdapter<T, VB : ViewBinding>(
 
 
     override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int): DataVbHolder<VB> {
-        mContext = parent.context
+        if (!this::mContext.isInitialized) {
+            mContext = parent.context
+        }
         val binding: VB = inflateViewBinding(parent, 1)
         return DataVbHolder(binding)
     }

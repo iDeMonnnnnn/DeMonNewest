@@ -94,58 +94,71 @@ fun String?.zeroIsTrue(): Boolean =
 fun String?.isZeroOrEmpty() = this.isNullOrEmpty() || "0" == this
 
 /**
- * String转成Int
+ * 转成Int
  */
-fun String?.parseInt(defaultValue: Int = 0): Int {
-    if (this.isNullOrEmpty()) return defaultValue
+fun Any?.parseInt(defaultValue: Int = 0): Int {
+    this ?: return defaultValue
     return tryCatch(defaultValue) {
-        this.toInt()
+        if (this is Number) {
+            this.toInt()
+        } else {
+            "$this".toInt()
+        }
     }
 }
 
 /**
- * String转成Double
+ * 转成Double
  */
-fun String?.parseDouble(defaultValue: Double = 0.0): Double {
-    if (this.isNullOrEmpty()) return defaultValue
+fun Any?.parseDouble(defaultValue: Double = 0.0): Double {
+    this ?: return defaultValue
     return tryCatch(defaultValue) {
-        this.toDouble()
+        if (this is Number) {
+            this.toDouble()
+        } else {
+            "$this".toDouble()
+        }
     }
 }
 
 /**
- * String转成Float
+ * 转成Long
  */
-fun String?.parseFloat(defaultValue: Float = 0f): Float {
-    if (this.isNullOrEmpty()) return defaultValue
+fun Any?.parseLong(defaultValue: Long = 0): Long {
+    this ?: return defaultValue
     return tryCatch(defaultValue) {
-        this.toFloat()
+        if (this is Number) {
+            this.toLong()
+        } else {
+            "$this".toLong()
+        }
+    }
+}
+
+/**
+ * 转成Float
+ */
+fun Any?.parseFloat(defaultValue: Float = 0f): Float {
+    this ?: return defaultValue
+    return tryCatch(defaultValue) {
+        if (this is Number) {
+            this.toFloat()
+        } else {
+            "$this".toFloat()
+        }
     }
 }
 
 /**
  * 大于0的时候返回true，其他返回false
  */
-fun String?.toBool(): Boolean {
-    if (TextUtils.isEmpty(this))
-        return false
-    return try {
-        Integer.parseInt(this ?: "") > 0
-    } catch (n: NumberFormatException) {
-        n.errorLog()
-        false
+fun Any?.toBool(defaultValue: Boolean = false): Boolean {
+    this ?: return defaultValue
+    return tryCatch(defaultValue) {
+        this.parseInt() > 0
     }
 }
 
-/**
- * String转成Long
- */
-fun String?.parseLong(defaultValue: Long = 0): Long {
-    if (this.isNullOrEmpty()) return defaultValue
-    return tryCatch(defaultValue) {
-        this.toLong()
-    }
-}
 
 //--Boolean--//
 

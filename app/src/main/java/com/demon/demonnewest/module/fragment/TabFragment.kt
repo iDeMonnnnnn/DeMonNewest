@@ -1,6 +1,6 @@
 package com.demon.demonnewest.module.fragment
 
-import com.demon.base.list.BaseAdapter
+import com.demon.base.list.BaseVbAdapter
 import com.tencent.mars.xlog.Log
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.Tag
@@ -22,9 +22,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class TabFragment constructor(var author: String) : MvvmFragment<FragmentTabBinding, FragmentViewModel>(), RefreshLoadListener {
 
     private val adapter by lazy {
-        object : BaseAdapter<ArticleBean, ListArticleBinding>() {
-            override fun convert(holder: DataVbHolder<ListArticleBinding>, item: ArticleBean) {
-                holder.binding.tvText.text = item.title
+        object : BaseVbAdapter<ArticleBean, ListArticleBinding>() {
+
+            override fun convertItem(holder: DataVbHolder<ListArticleBinding>, binding: ListArticleBinding, data: ArticleBean, pos: Int) {
+                binding.tvText.text = data.title
             }
         }
     }

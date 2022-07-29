@@ -46,12 +46,12 @@ class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
 
         PermissionX.init(this)
             .permissions(Manifest.permission.CAMERA)
-            .request { allGranted, grantedList, deniedList ->
-                if (allGranted) {
-
-                } else {
+            .request { allGranted, _, _ ->
+                if (!allGranted) {
                     Toast.makeText(this, "没有相机权限无法使用拍照功能~", Toast.LENGTH_LONG).show()
                     finish()
+                } else {
+
                 }
             }
 
