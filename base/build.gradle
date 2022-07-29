@@ -74,6 +74,11 @@ dependencies {
     api 'com.google.android.flexbox:flexbox:3.0.0'
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+    //flowbinding
     def flowbinding_version = "1.2.0"
     api "io.github.reactivecircus.flowbinding:flowbinding-android:${flowbinding_version}"
+    //Glide4.x
+    api 'com.github.bumptech.glide:glide:4.13.1'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
 }

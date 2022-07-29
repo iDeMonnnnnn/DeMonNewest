@@ -25,7 +25,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
-|Activity Result API|代替startActivityForResult|<https://blog.csdn.net/DeMonliuhui/article/details/123276161>|
+|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>|
 |CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
 
 #### 框架

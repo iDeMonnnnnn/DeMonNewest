@@ -19,7 +19,6 @@ import com.demon.demonnewest.base.data.Constants
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
-import com.demon.demonnewest.module.ara.ActResultActivity
 import com.demon.demonnewest.module.camera.CameraXActivity
 import com.demon.demonnewest.module.dp.AudioActivity
 import com.demon.demonnewest.module.flow.FlowActivity
@@ -54,7 +53,6 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("Paging3", RouterConst.ACT_PAGING),
         HomeEntity("DataStore VS MMKV", RouterConst.ACT_DATASTORE),
         HomeEntity("WorkManager", RouterConst.ACT_WORKER),
-        HomeEntity("Activity Result API", ActResultActivity::class.java),
         HomeEntity("CameraX", CameraXActivity::class.java),
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),

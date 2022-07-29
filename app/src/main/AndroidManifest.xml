@@ -11,14 +11,13 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".module.home.HomeActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden"
+            android:theme="@style/Theme.Start"
+            android:name=".module.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,8 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.ara.ActResultActivity" />
-        <activity android:name=".module.ara.ActResultTwoActivity" />
+        <activity
+            android:name=".module.home.HomeActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden" />
         <activity android:name=".module.dp.AudioActivity" />
         <activity android:name=".module.paging.PagingActivity" />
         <activity
@@ -43,12 +43,10 @@
         <activity android:name=".module.views.MotionActivity" />
         <activity android:name=".module.img.ImgLoadActivity" />
         <activity android:name=".module.list.ListActivity" />
-        <activity
-            android:name=".module.datastore.DataStoreActivity" />
+        <activity android:name=".module.datastore.DataStoreActivity" />
         <activity android:name=".module.views.animation.AnimationActivity" />
         <activity android:name=".module.flow.FlowActivity" />
         <activity android:name=".module.camera.CameraXActivity" />
-
 
     </application>
 

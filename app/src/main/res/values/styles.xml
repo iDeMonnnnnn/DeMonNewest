@@ -11,11 +11,10 @@
     </style>
 
 
-    <style name="StyleShapeAppearanceImage" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">36dp</item>
-        <!--<item name="cornerSizeTopRight">10dp</item>
-        <item name="cornerSizeBottomRight">0dp</item>-->
+    <style name="Theme.Start" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/bg_start</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>

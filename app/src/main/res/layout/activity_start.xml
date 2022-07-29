@@ -1,9 +1,10 @@
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/scene_05">
+    app:layoutDescription="@xml/scene_start">
 
     <TextView
         android:id="@+id/d"
@@ -43,16 +44,14 @@
         android:layout_height="wrap_content"
         android:text="n"
         android:textColor="@android:color/holo_blue_light"
-        android:textSize="@dimen/sp22" />
+        android:textSize="@dimen/sp22"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="349dp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:shimmer_base_alpha="1"
         app:shimmer_base_color="@android:color/holo_blue_light"
         app:shimmer_colored="true"

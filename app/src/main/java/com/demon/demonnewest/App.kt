@@ -1,7 +1,6 @@
 package com.demon.demonnewest
 
 import com.demon.base.MvvmApp
-import com.demon.base.utils.ara.DeMonAraHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
@@ -42,7 +41,6 @@ class App : MvvmApp() {
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate: ")
-        DeMonAraHelper.init(this)
         LiveEventBus.config().setContext(applicationContext)
     }
 
