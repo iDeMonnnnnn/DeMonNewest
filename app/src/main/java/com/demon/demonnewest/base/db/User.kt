@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
  * Desc:
  */
 @Entity(tableName = "users")
-class User @JvmOverloads constructor(
+class User constructor(
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
     var name: String = "",
     var sex: String = "无",
