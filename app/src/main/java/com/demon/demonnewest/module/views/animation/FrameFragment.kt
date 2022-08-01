@@ -1,13 +1,12 @@
 package com.demon.demonnewest.module.views.animation
 
 import android.graphics.drawable.AnimationDrawable
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.base.utils.click.setOnClickThrottleFirst
-import com.demon.base.utils.ext.getCompatColor
+import com.demon.base.utils.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
-import com.tencent.mars.xlog.Log
 
 
 /**
@@ -36,7 +35,12 @@ class FrameFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
             }
             binding.iv.setImageDrawable(animationDrawable)
         }
-        animationDrawable?.start()
+        //animationDrawable?.isOneShot = true
+        if (animationDrawable?.isRunning == true) {
+            animationDrawable?.stop()
+        } else {
+            animationDrawable?.start()
+        }
     }
 
 

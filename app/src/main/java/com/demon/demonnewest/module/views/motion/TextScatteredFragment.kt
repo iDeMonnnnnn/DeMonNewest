@@ -1,8 +1,9 @@
-package com.demon.demonnewest.module.views.widget.motion
+package com.demon.demonnewest.module.views.motion
 
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
+import com.demon.demonnewest.BuildConfig
 import com.demon.demonnewest.databinding.FragmentTextScatteredBinding
 
 /**
@@ -13,7 +14,16 @@ import com.demon.demonnewest.databinding.FragmentTextScatteredBinding
  */
 class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {
     override fun initData() {
-        binding.motionLayout.transitionToEnd()
+        binding.motionLayout.setDebugMode(
+            if (BuildConfig.DEBUG) {
+                MotionLayout.DEBUG_SHOW_PATH
+            } else {
+                MotionLayout.DEBUG_SHOW_NONE
+            }
+        )
+        binding.root.post {
+            binding.motionLayout.transitionToEnd()
+        }
         binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
             }

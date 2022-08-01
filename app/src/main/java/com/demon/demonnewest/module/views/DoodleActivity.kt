@@ -7,7 +7,7 @@ import com.demon.base.utils.ext.saveBitmapImg
 import com.demon.base.utils.ext.toast
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.ActivityDoodleBinding
-import com.demon.demonnewest.module.views.widget.imaging.IMGMode
+import com.demon.demonnewest.module.views.imaging.IMGMode
 import com.gyf.immersionbar.ktx.immersionBar
 
 /**

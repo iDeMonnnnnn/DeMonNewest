@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.views.widget.motion
+package com.demon.demonnewest.module.views.motion
 
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment

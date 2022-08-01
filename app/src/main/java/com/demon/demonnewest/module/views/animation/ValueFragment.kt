@@ -1,14 +1,11 @@
 package com.demon.demonnewest.module.views.animation
 
 import android.animation.ValueAnimator
-import android.graphics.drawable.AnimationDrawable
-import androidx.core.content.ContextCompat
+import android.util.Log
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.base.utils.click.setOnClickThrottleFirst
-import com.demon.base.utils.ext.getCompatColor
+import com.demon.base.utils.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
-import com.tencent.mars.xlog.Log
 
 
 /**

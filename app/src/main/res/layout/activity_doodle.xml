@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <com.demon.demonnewest.module.views.widget.imaging.IMGView
+    <com.demon.demonnewest.module.views.imaging.IMGView
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

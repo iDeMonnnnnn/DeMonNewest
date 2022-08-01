@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.views.widget.imaging;
+package com.demon.demonnewest.module.views.imaging;
 
 /**
  * Created by felix on 2017/11/22 下午6:18.

@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.views.widget.motion
+package com.demon.demonnewest.module.views.motion
 
 import com.tencent.mars.xlog.Log
 import androidx.constraintlayout.motion.widget.MotionLayout

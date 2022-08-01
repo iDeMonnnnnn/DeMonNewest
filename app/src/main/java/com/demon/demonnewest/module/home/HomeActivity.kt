@@ -11,7 +11,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
-import com.demon.base.utils.click.setOnClickThrottleFirst
+import com.demon.base.utils.setOnClickThrottleFirst
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.toActivity
 import com.demon.base.utils.ext.toast
@@ -57,10 +57,10 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),
         HomeEntity("多样式列表", ListActivity::class.java),
-        HomeEntity("图片加载", ImgLoadActivity::class.java),
+        HomeEntity("Glide图片加载", ImgLoadActivity::class.java),
         HomeEntity("自定义View"),
-        HomeEntity("Motion动画", MotionActivity::class.java),
-        HomeEntity("动画", AnimationActivity::class.java),
+        HomeEntity("MotionLayout", MotionActivity::class.java),
+        HomeEntity("原生动画", AnimationActivity::class.java),
         HomeEntity("ViewBinding", VbActivity::class.java),
         HomeEntity("引导高亮", LighterActivity::class.java),
         HomeEntity("涂鸦马赛克", DoodleActivity::class.java),

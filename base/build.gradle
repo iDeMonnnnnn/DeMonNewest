@@ -36,8 +36,8 @@ dependencies {
     api "androidx.activity:activity-ktx:1.4.0"
     api "androidx.fragment:fragment-ktx:1.4.1"
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"  
+    //api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"
     //WorkManager
     def work_version = "2.7.1"
     api "androidx.work:work-runtime-ktx:$work_version"
@@ -77,6 +77,7 @@ dependencies {
     //flowbinding
     def flowbinding_version = "1.2.0"
     api "io.github.reactivecircus.flowbinding:flowbinding-android:${flowbinding_version}"
+    api 'com.github.satoshun.coroutine.autodispose:autodispose:0.3.1'
     //Glide4.x
     api 'com.github.bumptech.glide:glide:4.13.1'
     api 'com.github.bumptech.glide:okhttp3-integration:4.13.1'

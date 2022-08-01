@@ -1,8 +1,8 @@
-package com.demon.demonnewest.module.views.widget.motion
+package com.demon.demonnewest.module.views.motion
 
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.demonnewest.databinding.FragmentSimpleBinding
+import com.demon.demonnewest.databinding.FragmentImageFilterBinding
 
 /**
  * @author DeMon
@@ -10,7 +10,7 @@ import com.demon.demonnewest.databinding.FragmentSimpleBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class SimpleFragment : MvvmFragment<FragmentSimpleBinding, BaseViewModel>() {
+class ImageFilterFragment :MvvmFragment<FragmentImageFilterBinding,BaseViewModel>() {
     override fun initData() {
 
     }

@@ -6,10 +6,7 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
-        motion:duration="2000">
-        <OnSwipe
-            motion:dragDirection="dragDown"
-            motion:touchAnchorSide="bottom" />
+        motion:duration="1000">
         <KeyFrameSet>
             <KeyCycle
                 android:translationY="50dp"

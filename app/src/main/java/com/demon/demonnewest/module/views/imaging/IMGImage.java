@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.views.widget.imaging;
+package com.demon.demonnewest.module.views.imaging;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

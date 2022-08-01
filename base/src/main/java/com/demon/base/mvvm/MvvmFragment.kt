@@ -2,11 +2,14 @@ package com.demon.base.mvvm
 
 import android.content.Context
 import android.os.Bundle
-import com.tencent.mars.xlog.Log
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewbinding.ViewBinding
@@ -20,7 +23,7 @@ import com.demon.base.utils.ext.inflateViewBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
+abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), LifecycleEventObserver {
     protected val TAG = this.javaClass.simpleName
     private var isLoad = false
     protected lateinit var mContext: Context
@@ -48,9 +51,11 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.i(TAG, "onViewCreated: ")
         activity?.run { mContext = this }
+        //add Fragment监听生命周期
+        lifecycle.addObserver(this)
         runCatching {
-            lifecycle.addObserver(mViewModel)
             vmRun {
+                //add ViewModel
                 lifecycle.addObserver(this)
                 errLiveData.observe(viewLifecycleOwner) {
                     doOnError(it)
@@ -64,30 +69,28 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
         }
     }
 
+    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+        Log.i(TAG, "onStateChanged: $event,isLoad=$isLoad")
+        if (event == Lifecycle.Event.ON_RESUME) {
+            if (isLoad) {
+                onResumeRefresh()
+            } else {
+                initData()
+                isLoad = true
+            }
+        }
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         Log.i(TAG, "onDestroyView: ")
+        //移除Fragment
+        lifecycle.removeObserver(this)
+        //移除ViewModel
         lifecycle.removeObserver(mViewModel)
         isLoad = false
         _binding = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.i(TAG, "onResume: ")
-        if (isLoad) {
-            onResumeRefresh()
-        } else {
-            initData()
-            isLoad = true
-        }
-    }
-
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if (!hidden && isLoad) {
-            onResumeRefresh()
-        }
     }
 
     protected fun vmRun(block: VM.() -> Unit) {

@@ -20,7 +20,7 @@ class ImgLoadActivity : MvvmActivity<ActivityImgLoadBinding, BaseViewModel>() {
     }
 
     override fun initData() {
-
+        setToolbar("Glide")
         val datas = mutableListOf(url1, url2)
         adapter.datas = datas
         binding.rv.adapter = adapter

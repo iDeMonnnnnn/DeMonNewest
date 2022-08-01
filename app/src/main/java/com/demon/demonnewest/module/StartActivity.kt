@@ -19,13 +19,13 @@ class StartActivity : MvvmActivity<ActivityStartBinding, BaseViewModel>() {
 
 
     override fun initData() {
-        binding.motionLayout.setDebugMode(
+/*        binding.motionLayout.setDebugMode(
             if (BuildConfig.DEBUG) {
                 MotionLayout.DEBUG_SHOW_PATH
             } else {
                 MotionLayout.DEBUG_SHOW_NONE
             }
-        )
+        )*/
         binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
                 Log.i(TAG, "onTransitionStarted: ")
@@ -40,7 +40,7 @@ class StartActivity : MvvmActivity<ActivityStartBinding, BaseViewModel>() {
                 binding.shimmerLayout.postDelayed({
                     toActivity<HomeActivity>()
                     finish()
-                }, 3000)
+                }, 1000)
             }
 
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {

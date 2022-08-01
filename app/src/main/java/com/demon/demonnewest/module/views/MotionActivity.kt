@@ -6,7 +6,7 @@ import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.ActivityMotionBinding
-import com.demon.demonnewest.module.views.widget.motion.*
+import com.demon.demonnewest.module.views.motion.*
 
 class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), View.OnClickListener {
 
