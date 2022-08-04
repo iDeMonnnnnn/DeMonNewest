@@ -11,6 +11,7 @@ object RouterConst {
     const val ACT_DAGGER = "/main/Activity_DaggerTest"
     const val ACT_ROOM = "/main/Activity_Room"
     const val ACT_MULTIPROGRESS = "/main/Activity_MultiProgress"
+    const val ACT_ARTICLE = "/main/Activity_Article"
     const val ACT_FRAGMENT = "/main/Activity_Fragment"
     const val ACT_PAGING = "/main/Activity_Paging"
     const val ACT_DATASTORE = "/main/Activity_DataStore"

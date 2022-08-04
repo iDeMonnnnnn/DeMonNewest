@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.fragment
+package com.demon.demonnewest.module.mvvm
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -7,13 +7,13 @@ import com.demon.base.utils.ext.extraAct
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.base.data.RouterConst
-import com.demon.demonnewest.databinding.ActivityFragmentBinding
+import com.demon.demonnewest.databinding.ActivityArticleBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
-@Route(path = RouterConst.ACT_FRAGMENT)
+@Route(path = RouterConst.ACT_ARTICLE)
 @AndroidEntryPoint
-class FragActivity : MvvmActivity<ActivityFragmentBinding, BaseViewModel>() {
+class ArticleActivity : MvvmActivity<ActivityArticleBinding, BaseViewModel>() {
 
     var list: ArrayList<String> by extraAct("params", arrayListOf())
 
@@ -24,7 +24,7 @@ class FragActivity : MvvmActivity<ActivityFragmentBinding, BaseViewModel>() {
         val adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = list.size
 
-            override fun createFragment(position: Int): Fragment = TabFragment(list[position])
+            override fun createFragment(position: Int): Fragment = ArticleFragment(list[position])
         }
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->

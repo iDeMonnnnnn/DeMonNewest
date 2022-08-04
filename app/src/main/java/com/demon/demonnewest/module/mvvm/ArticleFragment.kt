@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.fragment
+package com.demon.demonnewest.module.mvvm
 
 import com.demon.base.list.BaseVbAdapter
 import com.tencent.mars.xlog.Log
@@ -8,7 +8,7 @@ import com.demon.base.list.DataVbHolder
 import com.demon.demonnewest.base.widget.RefreshLoadLayout
 import com.demon.demonnewest.base.widget.RefreshLoadListener
 import com.demon.demonnewest.bean.ArticleBean
-import com.demon.demonnewest.databinding.FragmentTabBinding
+import com.demon.demonnewest.databinding.FragmentArticleBinding
 import com.demon.demonnewest.databinding.ListArticleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Desc:
  */
 @AndroidEntryPoint
-class TabFragment constructor(var author: String) : MvvmFragment<FragmentTabBinding, FragmentViewModel>(), RefreshLoadListener {
+class ArticleFragment constructor(var author: String) : MvvmFragment<FragmentArticleBinding, ArticleViewModel>(), RefreshLoadListener {
 
     private val adapter by lazy {
         object : BaseVbAdapter<ArticleBean, ListArticleBinding>() {
@@ -38,14 +38,14 @@ class TabFragment constructor(var author: String) : MvvmFragment<FragmentTabBind
     override fun initData() {
 
         bindingRun {
-            refreshLayout.listener = this@TabFragment
+            refreshLayout.listener = this@ArticleFragment
             refreshLayout.autoRefresh()
 
             rvData.adapter = adapter
         }
 
         vmRun {
-            authorData.observe(this@TabFragment) {
+            authorData.observe(this@ArticleFragment) {
                 if (binding.refreshLayout.isRefreshAction()) {
                     adapter.setData(it)
                 } else {

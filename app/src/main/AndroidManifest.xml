@@ -33,7 +33,7 @@
         <activity
             android:name=".module.progress.MultiProgressActivity"
             android:process=":process" />
-        <activity android:name=".module.fragment.FragActivity" />
+        <activity android:name=".module.mvvm.ArticleActivity" />
         <activity android:name=".module.room.RoomActivity" />
         <activity android:name=".module.hilt.HiltActivity" />
         <activity android:name=".module.work.WorkerActivity" />
@@ -47,6 +47,7 @@
         <activity android:name=".module.views.animation.AnimationActivity" />
         <activity android:name=".module.flow.FlowActivity" />
         <activity android:name=".module.camera.CameraXActivity" />
+        <activity android:name=".module.fragment.FragsActivity" />
 
     </application>
 

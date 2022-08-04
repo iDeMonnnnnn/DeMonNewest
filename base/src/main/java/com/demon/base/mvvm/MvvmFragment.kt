@@ -82,6 +82,29 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
     }
 
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        Log.i(TAG, "onHiddenChanged: $hidden")
+    }
+
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        Log.i(TAG, "setUserVisibleHint: $isVisibleToUser")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: ")
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop: ")
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         Log.i(TAG, "onDestroyView: ")

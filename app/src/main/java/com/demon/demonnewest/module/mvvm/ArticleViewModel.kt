@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.fragment
+package com.demon.demonnewest.module.mvvm
 
 import androidx.lifecycle.MutableLiveData
 import com.demon.base.utils.ext.toast
@@ -15,7 +15,7 @@ import javax.inject.Inject
  * Desc:
  */
 @HiltViewModel
-class FragmentViewModel @Inject constructor() : HttpViewModel() {
+class ArticleViewModel @Inject constructor() : HttpViewModel() {
 
     val authorData = MutableLiveData<MutableList<ArticleBean>>()
 
