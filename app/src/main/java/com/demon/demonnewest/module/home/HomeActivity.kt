@@ -47,7 +47,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
 
     private val homeDatas = arrayListOf(
         HomeEntity("JetPack"),
-        HomeEntity("MVVM", RouterConst.ACT_FRAGMENT),
+        HomeEntity("MVVM", RouterConst.ACT_ARTICLE),
         HomeEntity("Flow", FlowActivity::class.java),
         HomeEntity("Hilt", RouterConst.ACT_DAGGER),
         HomeEntity("Room", RouterConst.ACT_ROOM),
