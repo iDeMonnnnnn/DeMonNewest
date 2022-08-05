@@ -1,8 +1,8 @@
 package com.demon.base.utils
 
 import android.view.View
-import com.demon.base.utils.ext.scopeMain
 import com.github.satoshun.coroutine.autodispose.view.autoDisposeScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import reactivecircus.flowbinding.android.view.clicks
 
@@ -17,7 +17,7 @@ import reactivecircus.flowbinding.android.view.clicks
  * 单个控件设置点击事件，防止重复点击
  */
 fun View.setOnClickThrottleFirst(block: (View) -> Unit) {
-    this.clicks().sample(500).onEach {
+    this.clicks().sample(500).flowOn(Dispatchers.Main).onEach {
         block(this)
     }.launchIn(autoDisposeScope)
 }
@@ -30,7 +30,7 @@ fun setOnClickThrottleFirst(
     block: (View) -> Unit
 ) {
     ids.filterNotNull().forEach { view ->
-        view.clicks().sample(500).onEach {
+        view.clicks().sample(500).flowOn(Dispatchers.Main).onEach {
             block(view)
         }.launchIn(view.autoDisposeScope)
     }
@@ -42,7 +42,7 @@ fun setOnClickThrottleFirst(
  */
 fun View.OnClickListener.setOnClickThrottleFirst(vararg ids: View?) {
     ids.filterNotNull().forEach { view ->
-        view.clicks().sample(500).onEach {
+        view.clicks().sample(500).flowOn(Dispatchers.Main).onEach {
             onClick(view)
         }.launchIn(view.autoDisposeScope)
     }
