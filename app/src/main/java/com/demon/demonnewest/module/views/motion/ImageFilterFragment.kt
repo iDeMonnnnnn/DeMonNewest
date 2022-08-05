@@ -11,7 +11,7 @@ import com.demon.demonnewest.databinding.FragmentImageFilterBinding
  * Desc:
  */
 class ImageFilterFragment :MvvmFragment<FragmentImageFilterBinding,BaseViewModel>() {
-    override fun initData() {
+    override fun initLazyData() {
 
     }
 }

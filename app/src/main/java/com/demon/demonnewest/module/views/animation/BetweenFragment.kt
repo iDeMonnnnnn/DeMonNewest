@@ -15,7 +15,11 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  */
 class BetweenFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
 
-    override fun initData() {
+    override fun initLazyData() {
+    }
+
+    override fun initAgainData() {
+        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             translateAnimation()
         }

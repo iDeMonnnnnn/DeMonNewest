@@ -77,6 +77,7 @@ dependencies {
     //flowbinding
     def flowbinding_version = "1.2.0"
     api "io.github.reactivecircus.flowbinding:flowbinding-android:${flowbinding_version}"
+    api "io.github.reactivecircus.flowbinding:flowbinding-material:${flowbinding_version}"
     api 'com.github.satoshun.coroutine.autodispose:autodispose:0.3.1'
     //Glide4.x
     api 'com.github.bumptech.glide:glide:4.13.1'

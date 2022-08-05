@@ -19,7 +19,11 @@ class FrameFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
 
     var animationDrawable: AnimationDrawable? = null
 
-    override fun initData() {
+    override fun initLazyData() {
+    }
+
+    override fun initAgainData() {
+        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             animationDrawable()
         }

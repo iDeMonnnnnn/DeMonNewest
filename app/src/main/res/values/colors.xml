@@ -7,4 +7,7 @@
     <color name="white">#ffffff</color>
     <color name="txt_color">#48495F</color>
     <color name="transparent_60">#99000000</color>
+    <color name="color_f8f8f8">#f8f8f8</color>
+    <color name="color_e5e5e5">#e5e5e5</color>
+    <color name="gray_999999">#999999</color>
 </resources>

@@ -17,7 +17,12 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
 class ValueFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
     var valueAnimator: ValueAnimator? = null
 
-    override fun initData() {
+    override fun initLazyData() {
+
+    }
+
+    override fun initAgainData() {
+        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             valueAnimator()
         }

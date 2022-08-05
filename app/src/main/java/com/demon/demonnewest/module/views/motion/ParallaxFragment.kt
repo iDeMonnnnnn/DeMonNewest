@@ -33,7 +33,7 @@ class ParallaxFragment : MvvmFragment<FragmentParallaxBinding, BaseViewModel>() 
         }
     }
 
-    override fun initData() {
+    override fun initLazyData() {
 
         binding.motionLayout.transitionToEnd()
         binding.motionLayout.addTransitionListener(listener)

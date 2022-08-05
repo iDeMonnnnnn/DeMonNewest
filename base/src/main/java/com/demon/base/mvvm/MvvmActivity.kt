@@ -2,6 +2,7 @@ package com.demon.base.mvvm
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -53,6 +54,27 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy: ")
+        lifecycle.removeObserver(mViewModel)
+    }
+
     protected fun vmRun(block: VM.() -> Unit) {
         mViewModel.run(block)
     }
@@ -68,8 +90,4 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
     open fun doOnError(msg: String) {}
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        lifecycle.removeObserver(mViewModel)
-    }
 }

@@ -1,6 +1,10 @@
 package com.demon.base.utils.ext
 
 import android.content.res.Resources
+import android.os.Build
+import android.text.Html
+import android.text.SpannableStringBuilder
+import android.text.Spanned
 import android.text.TextUtils
 import android.util.TypedValue
 
@@ -10,18 +14,6 @@ import android.util.TypedValue
  * E-mail idemon_liu@qq.com
  * Desc: 基础数据类型相关扩展
  */
-//--Any--//
-/**
- * 12.dp2px = 12dp
- */
-val Any.dp2px
-    get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, "$this".parseFloat(), Resources.getSystem().displayMetrics).toInt()
-
-/**
- * 12.sp2px = 12sp
- */
-val Any.sp2px
-    get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, "$this".parseFloat(), Resources.getSystem().displayMetrics).toInt()
 
 /**
  * 浮点数相加，默认取小数点后两位，四舍五入
@@ -64,34 +56,6 @@ fun Any?.getPointNums(count: Int = 2) = tryCatch("0") {
     return "%.${count}f".format(this.toString().parseFloat())
 }
 
-
-//--String--//
-/**
- * 如果为空或者空字符串则返回默认值。
- * val test = ""; val test2 = test nullDefault "123"
- *
- * @param defaultValue 默认值
- */
-infix fun String?.useDefault(defaultValue: String): String =
-    if (this.isNullOrEmpty()) defaultValue else this
-
-/**
- * 判断字符串是否为1
- */
-fun String?.oneIsTrue(): Boolean =
-    !this.isNullOrEmpty() && "1" == this
-
-
-/**
- * 判断字符串是否为0
- */
-fun String?.zeroIsTrue(): Boolean =
-    !this.isNullOrEmpty() && "0" == this
-
-/**
- * 字符串为"0"或者空
- */
-fun String?.isZeroOrEmpty() = this.isNullOrEmpty() || "0" == this
 
 /**
  * 转成Int
@@ -158,6 +122,46 @@ fun Any?.toBool(defaultValue: Boolean = false): Boolean {
         this.parseInt() > 0
     }
 }
+
+
+//--String--//
+fun String?.fromHtml(): Spanned {
+    if (this.isNullOrEmpty()) {
+        return SpannableStringBuilder()
+    }
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        @Suppress("DEPRECATION")
+        Html.fromHtml(this)
+    }
+}
+/**
+ * 如果为空或者空字符串则返回默认值。
+ * val test = ""; val test2 = test nullDefault "123"
+ *
+ * @param defaultValue 默认值
+ */
+infix fun String?.useDefault(defaultValue: String): String =
+    if (this.isNullOrEmpty()) defaultValue else this
+
+/**
+ * 判断字符串是否为1
+ */
+fun String?.oneIsTrue(): Boolean =
+    !this.isNullOrEmpty() && "1" == this
+
+
+/**
+ * 判断字符串是否为0
+ */
+fun String?.zeroIsTrue(): Boolean =
+    !this.isNullOrEmpty() && "0" == this
+
+/**
+ * 字符串为"0"或者空
+ */
+fun String?.isZeroOrEmpty() = this.isNullOrEmpty() || "0" == this
 
 
 //--Boolean--//

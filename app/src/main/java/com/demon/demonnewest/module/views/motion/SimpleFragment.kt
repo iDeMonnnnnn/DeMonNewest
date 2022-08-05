@@ -11,7 +11,7 @@ import com.demon.demonnewest.databinding.FragmentSimpleBinding
  * Desc:
  */
 class SimpleFragment : MvvmFragment<FragmentSimpleBinding, BaseViewModel>() {
-    override fun initData() {
+    override fun initLazyData() {
 
     }
 }

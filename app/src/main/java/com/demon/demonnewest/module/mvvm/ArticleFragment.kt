@@ -35,7 +35,7 @@ class ArticleFragment constructor(var author: String) : MvvmFragment<FragmentArt
         Log.i(TAG, "onResume: $author")
     }
 
-    override fun initData() {
+    override fun initLazyData() {
 
         bindingRun {
             refreshLayout.listener = this@ArticleFragment
@@ -56,9 +56,9 @@ class ArticleFragment constructor(var author: String) : MvvmFragment<FragmentArt
 
     }
 
-    override fun onResumeRefresh() {
-        super.onResumeRefresh()
-        Log.i(Tag, "onResumeRefresh $author")
+    override fun onReVisibleRefresh() {
+        super.onReVisibleRefresh()
+        Log.i(Tag, "onReVisibleRefresh $author")
         binding.refreshLayout.autoRefresh()
     }
 

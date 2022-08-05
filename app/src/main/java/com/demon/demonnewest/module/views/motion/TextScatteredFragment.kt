@@ -13,7 +13,7 @@ import com.demon.demonnewest.databinding.FragmentTextScatteredBinding
  * Desc:
  */
 class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {
-    override fun initData() {
+    override fun initLazyData() {
         binding.motionLayout.setDebugMode(
             if (BuildConfig.DEBUG) {
                 MotionLayout.DEBUG_SHOW_PATH

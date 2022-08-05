@@ -4,11 +4,12 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/bg_loading_dialog"
-    android:padding="@dimen/dp16">
+    android:padding="@dimen/dp20">
 
     <ProgressBar
         android:id="@+id/main_loading_pb"
         android:layout_width="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp15"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" />
 

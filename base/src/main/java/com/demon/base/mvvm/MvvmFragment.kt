@@ -24,8 +24,12 @@ import com.demon.base.utils.ext.inflateViewBinding
  * Desc:
  */
 abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), LifecycleEventObserver {
-    protected val TAG = this.javaClass.simpleName
-    private var isLoad = false
+
+    protected open val TAG
+        get() = this.javaClass.simpleName
+
+    //是否已经懒加载
+    private var isLazyLoad = false
     protected lateinit var mContext: Context
     private var _binding: VB? = null
 
@@ -38,7 +42,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.i(TAG, "onCreateView: ")
         runCatching {
-            isLoad = false
+            isLazyLoad = false
             _binding = inflateViewBinding<VB>(inflater, container)
             return _binding?.root
         }.onFailure {
@@ -70,13 +74,19 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
     }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        Log.i(TAG, "onStateChanged: $event,isLoad=$isLoad")
-        if (event == Lifecycle.Event.ON_RESUME) {
-            if (isLoad) {
-                onResumeRefresh()
-            } else {
-                initData()
-                isLoad = true
+        Log.i(TAG, "onStateChanged: $event,isLazyLoad=$isLazyLoad,isVisible=$isVisible")
+        when (event) {
+            Lifecycle.Event.ON_RESUME -> {
+                if (!isLazyLoad) {
+                    initLazyData()
+                    isLazyLoad = true
+                    onUserVisible(true, isLazyLoad)
+                } else {
+                    onUserVisible(true, isLazyLoad)
+                }
+            }
+            Lifecycle.Event.ON_PAUSE -> {
+                onUserVisible(false, isLazyLoad)
             }
         }
     }
@@ -84,13 +94,21 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        Log.i(TAG, "onHiddenChanged: $hidden")
+        Log.i(TAG, "onHiddenChanged: hidden=$hidden,isLazyLoad=$isLazyLoad,isVisible=$isVisible")
+        onUserVisible(!hidden, isLazyLoad)
     }
-
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        Log.i(TAG, "setUserVisibleHint: $isVisibleToUser")
+        Log.i(TAG, "setUserVisibleHint: isVisibleToUser=$isVisibleToUser,isLazyLoad=$isLazyLoad,isVisible=$isVisible")
+        if (isLazyLoad) {
+            onUserVisible(isVisibleToUser, isLazyLoad)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: $isVisible")
     }
 
     override fun onPause() {
@@ -112,7 +130,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
         lifecycle.removeObserver(this)
         //移除ViewModel
         lifecycle.removeObserver(mViewModel)
-        isLoad = false
+        isLazyLoad = false
         _binding = null
     }
 
@@ -124,13 +142,53 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
         binding.run(block)
     }
 
-    protected abstract fun initData()
-
+    /**
+     * 懒加载，Fragment生命周期内只会触发一次，
+     * 适用于初始化，不适用接口刷新，也不适用于协程等与生命周期有关的东西
+     */
+    protected abstract fun initLazyData()
 
     /**
-     * 返回fragment刷新数据时重写
+     * 不适用于初始化，适用接口刷新，也不适用于协程等与生命周期有关的东西
      */
-    open fun onResumeRefresh() {}
+    open fun initAgainData() {
+
+    }
+
+    /**
+     * Fragment可见性：
+     * 1. 如果是add/replace就要通onResume/onPause判断isVisible()
+     * 2. 如果是show/hide就要通过onHiddenChanged判断hidden
+     * 3. 如果是ViewPager中的Fragment
+     *     3.1 BEHAVIOR_SET_USER_VISIBLE_HINT会触发setUserVisibleHint，判断isVisibleToUser
+     *     3.2 BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT不会触发[setUserVisibleHint]，走[onResume]/[onPause]
+     * 4. 如果是ViewPager2中的Fragment就要通过走[onResume]/[onPause]
+     *
+     * 补充：
+     * 1. Fragment再Activity的[onCreate]中直接加载时（一般来说是第一个默认的），onResume中isVisible=false，因此需要增加一个变量临时判断
+     * 2. [onResume]/[onPause]可以实现LifecycleEventObserver接口，重写onStateChanged判断
+     *
+     * 使用时机：
+     * 1.返回fragment时,isVisible=true,isLazyLoad=true刷新
+     * 2.fragment可见不可见曝光埋点
+     *
+     * @param isVisible 是否可见
+     * @param isLazyLoad 是否已经懒加载过
+     */
+    open fun onUserVisible(isVisible: Boolean, isLazyLoad: Boolean) {
+        Log.i(TAG, "onUserVisible: isVisible=$isVisible,isFirstLoad=$isLazyLoad")
+        if (isVisible) {
+            initAgainData()
+        }
+        if (isVisible && isLazyLoad) {
+            onReVisibleRefresh()
+        }
+    }
+
+    /**
+     * fragment重新可见时，刷新数据可重写
+     */
+    open fun onReVisibleRefresh() {}
 
     open fun doOnError(msg: String) {}
 

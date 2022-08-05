@@ -1,6 +1,7 @@
 package com.demon.base.utils
 
 import android.view.View
+import com.demon.base.utils.ext.scopeMain
 import com.github.satoshun.coroutine.autodispose.view.autoDisposeScope
 import kotlinx.coroutines.flow.*
 import reactivecircus.flowbinding.android.view.clicks

@@ -60,6 +60,7 @@
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/base_ui_dialog_main_loading.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/layout/include_toolbar.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonJetPack/base/src/main/res/xml/file_paths.xml" value="2.1125" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/drawable/bg_dialog_remind.xml" value="0.237" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/drawable/bg_start.xml" value="0.22" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/drawable/bg_white_5.xml" value="0.124" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1295" />
@@ -67,6 +68,7 @@
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/drawable/splash_bg.xml" value="0.3745" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_act_result.xml" value="0.3466666666666667" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_animation.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_article.xml" value="0.24166666666666667" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_camerax.xml" value="0.33" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_flow.xml" value="0.37447916666666664" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_fragment.xml" value="0.37395833333333334" />
@@ -75,15 +77,22 @@
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_home.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_img_load.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_list.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_motion.xml" value="0.37395833333333334" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_paging.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_start.xml" value="0.3682051282051282" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/activity_vb.xml" value="0.4354166666666667" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/dialog_remind.xml" value="0.37395833333333334" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_animation.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_between.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_between_animation.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_go.xml" value="0.3729166666666667" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_parallax.xml" value="0.35208333333333336" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_show_hide.xml" value="0.24166666666666667" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_tab.xml" value="0.4354166666666667" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_text_scattered.xml" value="0.3466666666666667" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_translation.xml" value="0.37395833333333334" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_viewpage.xml" value="0.24166666666666667" />
+        <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/fragment_viewpage2.xml" value="0.37395833333333334" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/item_one.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/item_two.xml" value="0.35208333333333336" />
         <entry key="..\:/ITCode/Android/DeMonNewest/app/src/main/res/layout/list_article.xml" value="0.35208333333333336" />
