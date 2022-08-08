@@ -38,7 +38,7 @@ class AnimationActivity : MvvmActivity<ActivityAnimationBinding, BaseViewModel>(
             }
         }
         binding.viewPager2.adapter = adapter
-        //binding.viewPager2.offscreenPageLimit = list.size
+        binding.viewPager2.offscreenPageLimit = list.size
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
             tab.text = tabList[position]
         }.attach()

@@ -5,7 +5,7 @@ import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.LoadingUtils
 import com.demon.base.utils.ext.launch
 import com.demon.base.utils.ext.toActivity
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentGoBinding
 import com.demon.demonnewest.module.dp.AudioActivity
 import kotlinx.coroutines.delay

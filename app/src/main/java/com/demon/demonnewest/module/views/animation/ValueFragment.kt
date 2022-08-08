@@ -4,7 +4,7 @@ import android.animation.ValueAnimator
 import android.util.Log
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
 
 
@@ -18,11 +18,6 @@ class ValueFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
     var valueAnimator: ValueAnimator? = null
 
     override fun initLazyData() {
-
-    }
-
-    override fun initAgainData() {
-        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             valueAnimator()
         }

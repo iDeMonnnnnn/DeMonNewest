@@ -5,7 +5,7 @@ import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.launchUI
 import com.demon.base.utils.ext.mmkv
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.base.ext.dsGet
 import com.demon.demonnewest.base.ext.dsPut

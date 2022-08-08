@@ -36,6 +36,7 @@ class ViewPage2Fragment : MvvmFragment<FragmentViewpage2Binding, BaseViewModel>(
                 override fun createFragment(position: Int): Fragment = list[position]
             }
             viewPager2.adapter = adapter
+            viewPager2.offscreenPageLimit = list.size
             TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
                 tab.text = if (position == 0) {
                     "ONE"

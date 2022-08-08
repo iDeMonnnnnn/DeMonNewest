@@ -11,7 +11,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.toActivity
 import com.demon.base.utils.ext.toast

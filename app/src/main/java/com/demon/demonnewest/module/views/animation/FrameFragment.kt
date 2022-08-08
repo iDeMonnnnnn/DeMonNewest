@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
 
 
@@ -20,10 +20,6 @@ class FrameFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
     var animationDrawable: AnimationDrawable? = null
 
     override fun initLazyData() {
-    }
-
-    override fun initAgainData() {
-        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             animationDrawable()
         }

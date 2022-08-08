@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.animation.*
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.databinding.FragmentAnimationBinding
 
 /**
@@ -16,10 +16,6 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
 class BetweenFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
 
     override fun initLazyData() {
-    }
-
-    override fun initAgainData() {
-        super.initAgainData()
         binding.btnStart.setOnClickThrottleFirst {
             translateAnimation()
         }

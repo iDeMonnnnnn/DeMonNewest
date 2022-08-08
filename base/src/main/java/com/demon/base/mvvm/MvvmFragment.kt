@@ -149,13 +149,6 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
     protected abstract fun initLazyData()
 
     /**
-     * 不适用于初始化，适用接口刷新，也不适用于协程等与生命周期有关的东西
-     */
-    open fun initAgainData() {
-
-    }
-
-    /**
      * Fragment可见性：
      * 1. 如果是add/replace就要通onResume/onPause判断isVisible()
      * 2. 如果是show/hide就要通过onHiddenChanged判断hidden
@@ -177,9 +170,6 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
      */
     open fun onUserVisible(isVisible: Boolean, isLazyLoad: Boolean) {
         Log.i(TAG, "onUserVisible: isVisible=$isVisible,isFirstLoad=$isLazyLoad")
-        if (isVisible) {
-            initAgainData()
-        }
         if (isVisible && isLazyLoad) {
             onReVisibleRefresh()
         }

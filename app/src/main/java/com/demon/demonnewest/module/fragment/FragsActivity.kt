@@ -5,7 +5,7 @@ import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.LoadingUtils
 import com.demon.base.utils.ext.launch
 import com.demon.base.utils.ext.showFragment
-import com.demon.base.utils.setOnClickThrottleFirst
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.ActivityFragsBinding
 import kotlinx.coroutines.delay
