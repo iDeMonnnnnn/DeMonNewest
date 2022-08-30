@@ -134,7 +134,7 @@ public class Log {
     }
 
     /**
-     * 回去异常堆栈信息
+     * 获取异常堆栈信息
      *
      * @param throwable 异常
      * @return
@@ -378,21 +378,4 @@ public class Log {
         return SYS_INFO;
     }
 
-    /**
-     * 初始化Xlog
-     *
-     * @param context    上下文
-     * @param nameprefix 文件前缀
-     * @param pubkey     加密key
-     */
-    public static void initXlog(Context context, String nameprefix, String pubkey) {
-        File logRootFile = context.getExternalFilesDir(null);
-        if (logRootFile == null) {
-            logRootFile = context.getFilesDir();
-        }
-        String logPath = logRootFile.getAbsolutePath() + "/xlog";
-        Xlog.open(true, Xlog.LEVEL_ALL, Xlog.AppednerModeAsync, "", logPath, nameprefix, "");
-        Xlog.setConsoleLogOpen(BuildConfig.DEBUG);
-        Log.setLogImp(new Xlog());
-    }
 }

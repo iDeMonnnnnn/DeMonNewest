@@ -38,9 +38,6 @@ object ActivityCallback : Application.ActivityLifecycleCallbacks {
 
     override fun onActivityStopped(activity: Activity) {
         foregroundCount--
-        if (isBackground) {
-            Log.appenderFlush(true)
-        }
     }
 
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
