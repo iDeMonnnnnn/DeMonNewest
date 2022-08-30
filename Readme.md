@@ -27,6 +27,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
 |Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>|
 |CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
+|Compose|声明式UI|<https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn>|
 
 #### 框架
 
@@ -48,6 +49,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 #### 日志
 
+- 2022.8.30：```kotlin_version = '1.7.10'```,引入```compose```
 - 2022.3.30：引入腾讯mars-xlog
 - 2022.3.4：引入Activity Result API
 - 2022.2.28：build:gradle:7.1.2
