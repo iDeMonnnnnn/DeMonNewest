@@ -8,8 +8,8 @@ ext {
     applicationId = "com.demon.demonnewest"
 }
 buildscript {
-    ext.kotlin_version = '1.6.21'
-    ext.hilt_version = '2.41'
+    ext.kotlin_version = '1.7.10'
+    ext.hilt_version = '2.43.2'
     repositories {
         google()
         mavenCentral()

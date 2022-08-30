@@ -51,9 +51,9 @@ class BaseApi {
     fun getRetrofit(baseUrl: String, vararg interceptors: Interceptor): Retrofit {
         //创建一个OkHttpClient并设置超时时间
         val builder = OkHttpClient.Builder()
-        builder.readTimeout(timeOut, TimeUnit.SECONDS)
-            .writeTimeout(timeOut, TimeUnit.SECONDS)
-            .connectTimeout(timeOut, TimeUnit.SECONDS)
+        builder.readTimeout(timeOut, TimeUnit.MILLISECONDS)
+            .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
+            .connectTimeout(timeOut, TimeUnit.MILLISECONDS)
         if (isCache) {
             val cacheInterceptor = CacheInterceptor(MvvmApp.appContext)
             //缓存

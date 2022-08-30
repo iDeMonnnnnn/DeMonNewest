@@ -88,6 +88,9 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
             Lifecycle.Event.ON_PAUSE -> {
                 onUserVisible(false, isLazyLoad)
             }
+            else -> {
+
+            }
         }
     }
 
