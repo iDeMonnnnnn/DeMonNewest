@@ -26,6 +26,7 @@ import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.fragment.FragsActivity
 import com.demon.demonnewest.module.img.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
+import com.demon.demonnewest.module.uuid.DeviceIdActivity
 import com.demon.demonnewest.module.views.DoodleActivity
 import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
@@ -71,6 +72,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("工厂模式", AudioActivity::class.java),
         HomeEntity("实验"),
         HomeEntity("Fragment可见性", FragsActivity::class.java),
+        HomeEntity("设备唯一标识符", DeviceIdActivity::class.java)
     )
 
     private val adapter by lazy {
