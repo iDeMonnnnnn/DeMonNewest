@@ -16,9 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/Theme.Start"
             android:name=".module.StartActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +48,7 @@
         <activity android:name=".module.flow.FlowActivity" />
         <activity android:name=".module.camera.CameraXActivity" />
         <activity android:name=".module.fragment.FragsActivity" />
-
+        <activity android:name=".module.compose.ComposeActivity" />
     </application>
 
 </manifest>

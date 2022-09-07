@@ -3,7 +3,7 @@ import android.view.*
 import androidx.core.view.setPadding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.demon.base.MvvmApp
+import com.demon.base.BaseApp
 import com.demon.base.utils.ext.dp2px
 import com.demon.base.utils.ext.fromHtml
 import com.demon.base.utils.ext.intDp2Px
@@ -190,9 +190,9 @@ class RemindDialog : DialogFragment() {
         internal var lineSpacingExtra: Int = 0
 
         init {
-            this.title = MvvmApp.appContext.getString(R.string.tips)
-            this.confirmText = MvvmApp.appContext.getString(R.string.confirm)
-            this.cancelText = MvvmApp.appContext.getString(R.string.cancel)
+            this.title = BaseApp.appContext.getString(R.string.tips)
+            this.confirmText = BaseApp.appContext.getString(R.string.confirm)
+            this.cancelText = BaseApp.appContext.getString(R.string.cancel)
             this.isOnlyConfirm = false
             this.isCancelable = true
         }

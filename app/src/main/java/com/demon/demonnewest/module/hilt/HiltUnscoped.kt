@@ -1,6 +1,6 @@
 package com.demon.demonnewest.module.hilt
 
-import com.demon.base.MvvmApp
+import com.demon.base.BaseApp
 import com.demon.demonnewest.base.hilt.UnscopedEntryPoint
 import com.google.gson.Gson
 import dagger.hilt.android.EntryPointAccessors
@@ -14,7 +14,7 @@ import dagger.hilt.android.EntryPointAccessors
 class HiltUnscoped {
     private val TAG = "HiltUnscoped"
     val gson: Gson by lazy {
-        EntryPointAccessors.fromApplication(MvvmApp.appContext, UnscopedEntryPoint::class.java).provideGson()
+        EntryPointAccessors.fromApplication(BaseApp.appContext, UnscopedEntryPoint::class.java).provideGson()
     }
 
 

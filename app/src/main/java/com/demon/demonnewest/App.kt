@@ -1,6 +1,6 @@
 package com.demon.demonnewest
 
-import com.demon.base.MvvmApp
+import com.demon.base.BaseApp
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
@@ -15,7 +15,7 @@ import dagger.hilt.android.HiltAndroidApp
  * Desc:
  */
 @HiltAndroidApp
-class App : MvvmApp() {
+class App : BaseApp() {
 
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->

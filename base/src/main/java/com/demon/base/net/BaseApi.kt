@@ -1,6 +1,6 @@
 package com.demon.base.net
 
-import com.demon.base.MvvmApp
+import com.demon.base.BaseApp
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -55,9 +55,9 @@ class BaseApi {
             .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
             .connectTimeout(timeOut, TimeUnit.MILLISECONDS)
         if (isCache) {
-            val cacheInterceptor = CacheInterceptor(MvvmApp.appContext)
+            val cacheInterceptor = CacheInterceptor(BaseApp.appContext)
             //缓存
-            val cacheFile = File(MvvmApp.appContext.cacheDir, "cache")
+            val cacheFile = File(BaseApp.appContext.cacheDir, "cache")
             val cache = Cache(cacheFile, 1024 * 1024 * 200) //200Mb
             builder.addInterceptor(cacheInterceptor)//缓存
                 .addNetworkInterceptor(cacheInterceptor)//网络缓存

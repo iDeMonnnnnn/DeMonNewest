@@ -20,7 +20,7 @@ import com.tencent.mmkv.MMKV
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-open class MvvmApp : Application() {
+open class BaseApp : Application() {
     protected val TAG = this.javaClass.simpleName
 
     companion object {

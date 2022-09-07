@@ -20,6 +20,7 @@ import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
 import com.demon.demonnewest.module.camera.CameraXActivity
+import com.demon.demonnewest.module.compose.ComposeActivity
 import com.demon.demonnewest.module.dp.AudioActivity
 import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.fragment.FragsActivity
@@ -55,6 +56,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("DataStore VS MMKV", RouterConst.ACT_DATASTORE),
         HomeEntity("WorkManager", RouterConst.ACT_WORKER),
         HomeEntity("CameraX", CameraXActivity::class.java),
+        HomeEntity("Compose", ComposeActivity::class.java),
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),
         HomeEntity("多样式列表", ListActivity::class.java),

@@ -5,7 +5,7 @@ import com.tencent.mars.xlog.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
-import com.demon.base.MvvmApp
+import com.demon.base.BaseApp
 import com.demon.base.utils.ext.scopeIO
 import kotlinx.coroutines.flow.*
 
@@ -19,7 +19,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "Da
 
 
 suspend inline fun <reified T : Any> dsGet(key: String, default: T): T {
-    return MvvmApp.appContext.dataStore.data.map {
+    return BaseApp.appContext.dataStore.data.map {
         val preferencesKey = when (default) {
             is Int -> it[intPreferencesKey(key)] ?: default
             is Long -> it[longPreferencesKey(key)] ?: default
@@ -40,7 +40,7 @@ suspend inline fun <reified T : Any> dsGet(key: String, default: T): T {
 
 inline fun <reified T : Any> dsPut(key: String, value: T) {
     flow<Boolean> {
-        MvvmApp.appContext.dataStore.edit { preferences ->
+        BaseApp.appContext.dataStore.edit { preferences ->
             when (value) {
                 is Int -> preferences[intPreferencesKey(key)] = (value as Int)
                 is Long -> preferences[longPreferencesKey(key)] = (value as Long)
