@@ -1,9 +1,11 @@
 package com.demon.demonnewest.module.uuid
 
 import android.Manifest
+import com.blankj.utilcode.util.DeviceUtils
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.toast
 import com.demon.demonnewest.databinding.ActivityDeviceIdBinding
 import com.permissionx.guolindev.PermissionX
@@ -18,7 +20,7 @@ class DeviceIdActivity : MvvmActivity<ActivityDeviceIdBinding, BaseViewModel>() 
 
     override fun initData() {
         getIDs()
-        binding.btn.setOnClickListener {
+        binding.btn.setOnClickThrottleFirst {
             PermissionX.init(this)
                 .permissions(Manifest.permission.READ_PHONE_STATE)
                 .request { allGranted, _, _ ->
@@ -35,9 +37,9 @@ class DeviceIdActivity : MvvmActivity<ActivityDeviceIdBinding, BaseViewModel>() 
     private fun getIDs() {
 
         val sb = StringBuilder()
-        sb.append("AndroidID=${SystemUtils.getAndroidId()}\n")
-            .append("DeviceId=${SystemUtils.getDeviceId()}\n")
-            .append("MAC=${SystemUtils.getMac()}")
+        sb.append("AndroidID=${DeviceUtils.getAndroidID()}\n")
+            .append("DeviceId=${DeviceUtils.getUniqueDeviceId()}\n")
+            .append("MAC=${DeviceUtils.getMacAddress()}")
 
         binding.tv.text = sb.toString()
     }

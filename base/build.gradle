@@ -44,8 +44,9 @@ dependencies {
     api "androidx.work:work-runtime-ktx:$work_version"
     //Startup
     api "androidx.startup:startup-runtime:1.1.1"
-    //LiveEventBus
-    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     //Retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-scalars:2.9.0'
@@ -57,14 +58,17 @@ dependencies {
     def okhttp3Version = "4.7.2"
     api "com.squareup.okhttp3:okhttp:$okhttp3Version"
     api "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
-    //hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    //Glide4.x
+    api 'com.github.bumptech.glide:glide:4.13.1'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+    //multidex
+    api "androidx.multidex:multidex:2.0.1"
     //ARouter
     api 'com.alibaba:arouter-api:1.5.2'
     kapt "com.alibaba:arouter-compiler:1.5.2"
-    //multidex
-    api "androidx.multidex:multidex:2.0.1"
+    //LiveEventBus
+    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
     //mmkv
     api 'com.tencent:mmkv:1.2.12'
     //QFsolution
@@ -80,8 +84,7 @@ dependencies {
     api "io.github.reactivecircus.flowbinding:flowbinding-android:${flowbinding_version}"
     api "io.github.reactivecircus.flowbinding:flowbinding-material:${flowbinding_version}"
     api 'com.github.satoshun.coroutine.autodispose:autodispose:0.3.1'
-    //Glide4.x
-    api 'com.github.bumptech.glide:glide:4.13.1'
-    api 'com.github.bumptech.glide:okhttp3-integration:4.13.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+    //https://github.com/Blankj/AndroidUtilCode
+    api 'com.blankj:utilcodex:1.31.0'
+
 }
