@@ -39,6 +39,7 @@ class DeviceIdActivity : MvvmActivity<ActivityDeviceIdBinding, BaseViewModel>() 
         val sb = StringBuilder()
         sb.append("AndroidID=${DeviceUtils.getAndroidID()}\n")
             .append("DeviceId=${DeviceUtils.getUniqueDeviceId()}\n")
+            .append("IMEI=${SystemUtils.getDeviceId()}\n")
             .append("MAC=${DeviceUtils.getMacAddress()}")
 
         binding.tv.text = sb.toString()

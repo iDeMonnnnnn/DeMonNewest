@@ -6,6 +6,10 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.os.Build
 import android.os.Process
+import android.telephony.TelephonyManager
+import com.demon.base.BaseApp
+import com.demon.base.utils.ext.Tag
+import com.tencent.mars.xlog.Log
 import java.io.IOException
 import java.util.*
 import java.util.zip.ZipEntry
@@ -104,6 +108,26 @@ object SystemUtils {
             "default"
         }
         return apkChannel
+    }
+
+
+    /**
+     * 获取deviceId,AndroidQ及以上必定为null
+     */
+    fun getDeviceId(): String? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Android10以上没办法获取getDeviceId了
+            // https://developer.android.google.cn/about/versions/10/privacy/changes#non-resettable-device-ids
+            return null
+        }
+        try {
+            val telephonyMgr = BaseApp.appContext.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+            return telephonyMgr.deviceId
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+            Log.e(Tag, "getImei: " + exception.message)
+        }
+        return null
     }
 
 }
