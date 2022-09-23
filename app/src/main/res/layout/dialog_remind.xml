@@ -76,7 +76,7 @@
         android:layout_height="@dimen/dp45"
         android:gravity="center"
         android:text="@string/confirm"
-        android:textColor="@color/colorPrimary"
+        android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/sp16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

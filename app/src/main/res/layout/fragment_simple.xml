@@ -10,7 +10,7 @@
 
     <View
         android:id="@+id/button"
-        android:background="@color/colorAccent"
+        android:background="@color/secondaryColor"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:text="Button"

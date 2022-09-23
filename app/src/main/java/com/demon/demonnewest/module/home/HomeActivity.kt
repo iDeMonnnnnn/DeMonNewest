@@ -26,7 +26,7 @@ import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.fragment.FragsActivity
 import com.demon.demonnewest.module.img.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
-import com.demon.demonnewest.module.uuid.DeviceIdActivity
+import com.demon.demonnewest.module.progress.uuid.DeviceIdActivity
 import com.demon.demonnewest.module.views.DoodleActivity
 import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity

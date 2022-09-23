@@ -15,11 +15,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 
 private val DarkColorPalette = darkColors(
-    primary = primaryDark, primaryVariant = primaryVariantDark, secondary = secondaryDark
+    primary = primaryDark,
+    primaryVariant = primaryVariantDark,
+    secondary = secondaryDark
 )
 
 private val LightColorPalette = lightColors(
-    primary = primaryLight, primaryVariant = primaryVariantLight, secondary = secondaryLight
+    primary = primaryLight,
+    primaryVariant = primaryVariantLight,
+    secondary = secondaryLight
 
     /* Other default colors to override
     background = Color.White,
@@ -43,11 +47,11 @@ fun DeMonNewestTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = if (darkTheme) {
-                colors.surface.toArgb()
+                Color(0xFF282828).toArgb()
             } else {
                 colors.primary.toArgb()
             }
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            //WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
         MaterialTheme(
             colors = colors, typography = Typography, shapes = Shapes, content = content

@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.uuid
+package com.demon.demonnewest.module.progress.uuid
 
 import android.Manifest
 import com.blankj.utilcode.util.DeviceUtils

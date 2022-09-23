@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,32 +44,19 @@ class ComposeActivity : ComponentActivity() {
             DeMonNewestTheme {
                 Surface() {
                     Column() {
-                        TopAppBar(title = {
+                        TopAppBar(navigationIcon = {
+                            Image(painter = painterResource(R.drawable.abc_vector_test),
+                                contentDescription = "back",
+                                modifier = Modifier
+                                    .clickable {
+                                        finish()
+                                    }
+                                    .padding(16.dp))
+                        }, title = {
                             Text(text = "Compose")
                         })
                         Conversation(msgs = list)
                     }
-                }
-            }
-        }
-    }
-
-
-    @Preview("Featured Post • Dark")
-    @Composable
-    fun pre() {
-        val list = List(100) {
-            MessageBean(
-                "Android-$it", "Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose"
-            )
-        }
-        DeMonNewestTheme {
-            Surface() {
-                Column() {
-                    TopAppBar(title = {
-                        Text(text = "Compose")
-                    })
-                    Conversation(msgs = list)
                 }
             }
         }
@@ -103,7 +91,7 @@ class ComposeActivity : ComponentActivity() {
             )
             Column(modifier = Modifier.clickable { isExpand = !isExpand }) {
                 Text(
-                    text = msg.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle2
+                    text = msg.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle1
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Surface(
