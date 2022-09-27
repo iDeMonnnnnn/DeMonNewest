@@ -3,6 +3,8 @@ package com.demon.demonnewest.module.mvvm
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.demon.base.mvvm.BaseVBActivity
+import com.demon.base.mvvm.BaseVMActivity
 import com.demon.base.utils.ext.extraAct
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
@@ -13,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @Route(path = RouterConst.ACT_ARTICLE)
 @AndroidEntryPoint
-class ArticleActivity : MvvmActivity<ActivityArticleBinding, BaseViewModel>() {
+class ArticleActivity : BaseVBActivity<ActivityArticleBinding>() {
 
     var list: ArrayList<String> by extraAct("params", arrayListOf())
 

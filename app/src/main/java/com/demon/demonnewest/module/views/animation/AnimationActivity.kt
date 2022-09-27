@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentViewHolder
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityAnimationBinding
@@ -16,7 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class AnimationActivity : MvvmActivity<ActivityAnimationBinding, BaseViewModel>() {
+class AnimationActivity : BaseVBActivity<ActivityAnimationBinding>() {
 
     override fun initData() {
         setToolbar("原生动画")

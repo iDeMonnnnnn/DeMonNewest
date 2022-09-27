@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.getCompatDrawable
@@ -15,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * email liu_demon@qq.com
  * desc
  */
-class ViewPage2Fragment : MvvmFragment<FragmentViewpage2Binding, BaseViewModel>() {
+class ViewPage2Fragment : BaseVBFragment<FragmentViewpage2Binding>() {
 
 
     private val oneFragment by lazy {

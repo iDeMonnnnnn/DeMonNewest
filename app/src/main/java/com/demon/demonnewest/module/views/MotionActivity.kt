@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.views
 
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.showFragment
@@ -9,7 +10,7 @@ import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.ActivityMotionBinding
 import com.demon.demonnewest.module.views.motion.*
 
-class MotionActivity : MvvmActivity<ActivityMotionBinding, BaseViewModel>(), View.OnClickListener {
+class MotionActivity : BaseVBActivity<ActivityMotionBinding>(), View.OnClickListener {
 
 
     override fun initData() {

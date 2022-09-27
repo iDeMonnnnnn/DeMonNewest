@@ -2,6 +2,7 @@ package com.demon.demonnewest.module
 
 import android.util.Log
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.toActivity
@@ -15,17 +16,16 @@ import com.demon.demonnewest.module.home.HomeActivity
  * email liu_demon@qq.com
  * desc
  */
-class StartActivity : MvvmActivity<ActivityStartBinding, BaseViewModel>() {
-
+class StartActivity : BaseVBActivity<ActivityStartBinding>() {
 
     override fun initData() {
-/*        binding.motionLayout.setDebugMode(
-            if (BuildConfig.DEBUG) {
-                MotionLayout.DEBUG_SHOW_PATH
-            } else {
-                MotionLayout.DEBUG_SHOW_NONE
-            }
-        )*/
+        /*        binding.motionLayout.setDebugMode(
+                    if (BuildConfig.DEBUG) {
+                        MotionLayout.DEBUG_SHOW_PATH
+                    } else {
+                        MotionLayout.DEBUG_SHOW_NONE
+                    }
+                )*/
         binding.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
                 Log.i(TAG, "onTransitionStarted: ")

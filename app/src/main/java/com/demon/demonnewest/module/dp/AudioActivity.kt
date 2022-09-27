@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.dp
 
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.R
@@ -10,7 +11,7 @@ import com.demon.demonnewest.module.dp.audio.IAudioListener
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
-class AudioActivity : MvvmActivity<ActivityAudioBinding, BaseViewModel>() {
+class AudioActivity : BaseVBActivity<ActivityAudioBinding>() {
     private var iIAudio: IAudio? = null
     private var timer: Timer? = null
     private var player: Int = 1

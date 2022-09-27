@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.img
 
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityImgLoadBinding
@@ -10,7 +11,7 @@ import com.demon.demonnewest.databinding.ActivityImgLoadBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class ImgLoadActivity : MvvmActivity<ActivityImgLoadBinding, BaseViewModel>() {
+class ImgLoadActivity : BaseVBActivity<ActivityImgLoadBinding>() {
 
     private val adapter by lazy { ImgAdapter() }
 

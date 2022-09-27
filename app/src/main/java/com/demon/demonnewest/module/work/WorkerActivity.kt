@@ -3,6 +3,7 @@ package com.demon.demonnewest.module.work
 import com.tencent.mars.xlog.Log
 import androidx.work.*
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.base.data.RouterConst
@@ -10,7 +11,7 @@ import com.demon.demonnewest.databinding.ActivityWorkerBinding
 import java.util.concurrent.TimeUnit
 
 @Route(path = RouterConst.ACT_WORKER)
-class WorkerActivity : MvvmActivity<ActivityWorkerBinding, BaseViewModel>() {
+class WorkerActivity : BaseVBActivity<ActivityWorkerBinding>() {
 
 
     override fun initData() {

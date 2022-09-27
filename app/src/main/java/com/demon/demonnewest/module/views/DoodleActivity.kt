@@ -1,6 +1,7 @@
 package com.demon.demonnewest.module.views
 
 import android.graphics.BitmapFactory
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.saveBitmapImg
@@ -16,7 +17,7 @@ import com.gyf.immersionbar.ktx.immersionBar
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class DoodleActivity : MvvmActivity<ActivityDoodleBinding, BaseViewModel>() {
+class DoodleActivity : BaseVBActivity<ActivityDoodleBinding>() {
 
     override fun initData() {
         immersionBar {

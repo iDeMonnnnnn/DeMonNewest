@@ -5,6 +5,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.base.list.DataVbHolder
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.demonnewest.bean.ArticleBean
 import com.demon.demonnewest.databinding.ActivityPagingBinding
 import com.demon.demonnewest.databinding.ListArticleBinding

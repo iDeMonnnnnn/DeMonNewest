@@ -1,44 +1,23 @@
 package com.demon.base.mvvm
 
-import android.content.Context
-import android.os.Bundle
 import android.util.Log
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.demon.base.R
-import com.demon.base.utils.LoadingUtils
-import com.demon.base.utils.ext.getTClass
+import com.demon.base.utils.ext.getTClassIndex
 import com.demon.base.utils.ext.inflateViewBinding
 
-abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity() {
-    protected val TAG = this.javaClass.simpleName
-    protected lateinit var mContext: Context
+abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : BaseVMActivity<VM>() {
+
     protected lateinit var binding: VB
-    protected val mViewModel by lazy { ViewModelProvider(this).get(getTClass<VM>(1)) }
 
+    override fun providerVM(): VM = ViewModelProvider(this)[getTClassIndex(1)]
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        runCatching {
-            binding = inflateViewBinding(layoutInflater)
-            setContentView(binding.root)
-            mContext = this
-            mViewModel.run {
-                lifecycle.addObserver(this)
-                errLiveData.observe(this@MvvmActivity) {
-                    doOnError(it)
-                }
-                loadingData.observe(this@MvvmActivity) {
-                    LoadingUtils.show(mContext, it)
-                }
-            }
-            initData()
-        }.onFailure {
-            it.printStackTrace()
-        }
+    override fun initContentView() {
+        binding = inflateViewBinding(layoutInflater, 0)
+        setContentView(binding.root)
     }
 
     fun setToolbar(@StringRes id: Int) {
@@ -75,19 +54,9 @@ abstract class MvvmActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
         lifecycle.removeObserver(mViewModel)
     }
 
-    protected fun vmRun(block: VM.() -> Unit) {
-        mViewModel.run(block)
-    }
-
     protected fun bindingRun(block: VB.() -> Unit) {
         binding.run(block)
     }
-
-
-    protected abstract fun initData()
-
-
-    open fun doOnError(msg: String) {}
 
 
 }

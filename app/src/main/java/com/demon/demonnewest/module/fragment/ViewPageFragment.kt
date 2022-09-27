@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonnewest.databinding.FragmentViewpageBinding
@@ -12,7 +13,7 @@ import com.demon.demonnewest.databinding.FragmentViewpageBinding
  * email liu_demon@qq.com
  * desc
  */
-class ViewPageFragment : MvvmFragment<FragmentViewpageBinding, BaseViewModel>() {
+class ViewPageFragment : BaseVBFragment<FragmentViewpageBinding>() {
 
     private val oneFragment by lazy {
         GoFragment("ViewPageFragment-One")

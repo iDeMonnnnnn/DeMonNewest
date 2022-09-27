@@ -3,8 +3,7 @@ package com.demon.base.utils.ext
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.demon.base.list.ListItemBinder
-import com.google.gson.reflect.TypeToken
+import com.demon.base.mvvm.BaseViewModel
 import java.lang.reflect.GenericSignatureFormatError
 import java.lang.reflect.MalformedParameterizedTypeException
 import java.lang.reflect.ParameterizedType
@@ -16,10 +15,10 @@ import java.lang.reflect.ParameterizedType
  * Desc: 泛型相关扩展方法
  */
 /**
- * 获取泛型类的Class类型
- * @param index,表示第几个泛型
+ * 获取泛型类的Class类型，需注意子类继承后父类泛型位置变化
+ * @param index,表示第几个位置的泛型
  */
-inline fun <T : Any> Any.getTClass(index: Int = 0): Class<T> = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<T>
+inline fun <T : Any> Any.getTClassIndex(index: Int = 0): Class<T> = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<T>
 
 /**
  * 反射执行ViewBinding的inflate静态方法，主要在Activity中使用
@@ -41,8 +40,7 @@ inline fun <VB : ViewBinding> Any.inflateViewBinding(inflater: LayoutInflater, i
  */
 inline fun <VB : ViewBinding> Any.inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?, index: Int = 0): VB {
     val cla = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<VB>
-    return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-        .invoke(null, inflater, container, false) as VB
+    return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java).invoke(null, inflater, container, false) as VB
 }
 
 /**
@@ -52,8 +50,7 @@ inline fun <VB : ViewBinding> Any.inflateViewBinding(inflater: LayoutInflater, c
  */
 inline fun <VB : ViewBinding> Any.inflateViewBinding(container: ViewGroup, index: Int = 0): VB {
     val cla = (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[index] as Class<VB>
-    return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-        .invoke(null, LayoutInflater.from(container.context), container, false) as VB
+    return cla.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java).invoke(null, LayoutInflater.from(container.context), container, false) as VB
 }
 
 

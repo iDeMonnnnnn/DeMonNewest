@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.progress
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.helper.BroadcastHelper
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @Route(path = RouterConst.ACT_MULTIPROGRESS)
 @AndroidEntryPoint
-class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseViewModel>() {
+class MultiProgressActivity : BaseVBActivity<ActivityMultiProgressBinding>() {
 
     @Inject
     lateinit var broadcastHelper: BroadcastHelper
@@ -23,7 +24,7 @@ class MultiProgressActivity : MvvmActivity<ActivityMultiProgressBinding, BaseVie
 
     override fun initData() {
         setToolbar("多进程通信")
-        Log.i(TAG, "initData: 多进程通信")   
+        Log.i(TAG, "initData: 多进程通信")
         binding.tv.text = "当前进程:${SystemUtils.getCurrentProcessName(this)}"
 
         binding.btn.setOnClickListener {

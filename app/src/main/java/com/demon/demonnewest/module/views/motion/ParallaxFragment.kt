@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.views.motion
 
 import com.tencent.mars.xlog.Log
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonnewest.databinding.FragmentParallaxBinding
@@ -13,7 +14,7 @@ import com.google.android.material.tabs.TabLayout
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class ParallaxFragment : MvvmFragment<FragmentParallaxBinding, BaseViewModel>() {
+class ParallaxFragment : BaseVBFragment<FragmentParallaxBinding>() {
 
     private val listener = object : MotionLayout.TransitionListener {
         override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {

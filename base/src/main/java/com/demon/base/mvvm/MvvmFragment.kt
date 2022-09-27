@@ -1,6 +1,5 @@
 package com.demon.base.mvvm
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,10 +10,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.viewbinding.ViewBinding
 import com.demon.base.utils.LoadingUtils
-import com.demon.base.utils.ext.getTClass
+import com.demon.base.utils.ext.getTClassIndex
 import com.demon.base.utils.ext.inflateViewBinding
 
 /**
@@ -30,20 +28,23 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
 
     //是否已经懒加载
     private var isLazyLoad = false
-    protected lateinit var mContext: Context
     private var _binding: VB? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     protected val binding get() = _binding!!
-    protected val mViewModel by lazy {
-        ViewModelProvider(this).get(getTClass<VM>(1))
+
+    protected open val mViewModel: VM by lazy {
+        providerVM()
     }
+
+
+    open fun providerVM(): VM = ViewModelProvider(this)[getTClassIndex(1)]
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.i(TAG, "onCreateView: ")
         runCatching {
             isLazyLoad = false
-            _binding = inflateViewBinding<VB>(inflater, container)
+            _binding = inflateViewBinding(inflater, container)
             return _binding?.root
         }.onFailure {
             it.printStackTrace()
@@ -54,7 +55,6 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.i(TAG, "onViewCreated: ")
-        activity?.run { mContext = this }
         //add Fragment监听生命周期
         lifecycle.addObserver(this)
         runCatching {
@@ -65,7 +65,7 @@ abstract class MvvmFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(), 
                     doOnError(it)
                 }
                 loadingData.observe(viewLifecycleOwner) {
-                    LoadingUtils.show(mContext, it)
+                    LoadingUtils.show(requireContext(), it)
                 }
             }
         }.onFailure {

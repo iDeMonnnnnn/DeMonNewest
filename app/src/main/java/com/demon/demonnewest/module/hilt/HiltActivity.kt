@@ -1,6 +1,7 @@
 package com.demon.demonnewest.module.hilt
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.utils.ext.extraAct
 import com.demon.base.utils.ext.finishResult
 import com.demon.base.mvvm.BaseViewModel
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @Route(path = RouterConst.ACT_DAGGER)
 @AndroidEntryPoint
-class HiltActivity : MvvmActivity<ActivityHiltBinding, BaseViewModel>() {
+class HiltActivity : BaseVBActivity<ActivityHiltBinding>() {
 
     private val str by extraAct<String>("params")
 

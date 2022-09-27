@@ -1,9 +1,7 @@
 package com.demon.demonnewest.module.fragment
 
-import android.util.Log
 import androidx.lifecycle.lifecycleScope
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmFragment
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.utils.ext.replaceFragment
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.FragmentTranslationBinding
@@ -18,7 +16,7 @@ import reactivecircus.flowbinding.material.tabSelectionEvents
  * email liu_demon@qq.com
  * desc
  */
-class ReplaceFragment : MvvmFragment<FragmentTranslationBinding, BaseViewModel>() {
+class ReplaceFragment : BaseVBFragment<FragmentTranslationBinding>() {
 
     private val oneFragment by lazy {
         GoFragment("ReplaceFragment-One")

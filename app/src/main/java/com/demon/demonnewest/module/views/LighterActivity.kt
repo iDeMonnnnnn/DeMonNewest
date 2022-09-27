@@ -4,6 +4,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.getCompatColor
@@ -28,7 +29,7 @@ import me.samlss.lighter.shape.RectShape
  * https://github.com/samlss/Lighter
  * 注:在Fragment中表现不佳
  */
-class LighterActivity : MvvmActivity<ActivityLighterBinding, BaseViewModel>() {
+class LighterActivity : BaseVBActivity<ActivityLighterBinding>() {
 
     private lateinit var lighter: Lighter
     override fun initData() {

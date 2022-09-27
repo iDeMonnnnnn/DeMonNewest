@@ -10,6 +10,7 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.view.LifecycleCameraController
 import com.bumptech.glide.Glide
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.setOnClickThrottleFirst
@@ -27,7 +28,7 @@ import java.util.concurrent.Executors
  * email liu_demon@qq.com
  * desc
  */
-class CameraXActivity : MvvmActivity<ActivityCameraxBinding, BaseViewModel>() {
+class CameraXActivity : BaseVBActivity<ActivityCameraxBinding>() {
 
     private var cameraController: LifecycleCameraController? = null
     private var isBack = true

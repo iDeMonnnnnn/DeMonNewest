@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.fragment
 
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.showFragment
@@ -18,7 +19,7 @@ import reactivecircus.flowbinding.material.tabSelectionEvents
  * email liu_demon@qq.com
  * desc
  */
-class ShowFragment : MvvmFragment<FragmentTranslationBinding, BaseViewModel>() {
+class ShowFragment : BaseVBFragment<FragmentTranslationBinding>() {
 
     private val oneFragment by lazy {
         GoFragment("ShowFragment-One")

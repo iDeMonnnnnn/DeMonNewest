@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.flow
 
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityFlowBinding
@@ -16,7 +17,7 @@ import reactivecircus.flowbinding.android.view.clicks
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class FlowActivity : MvvmActivity<ActivityFlowBinding, BaseViewModel>() {
+class FlowActivity : BaseVBActivity<ActivityFlowBinding>() {
 
 
     private val simpleFlow by lazy {

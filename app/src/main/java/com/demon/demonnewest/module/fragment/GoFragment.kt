@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.fragment
 
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.LoadingUtils
@@ -17,7 +18,7 @@ import showRemindDialog
  * email liu_demon@qq.com
  * desc
  */
-class GoFragment constructor(private val tips: String) : MvvmFragment<FragmentGoBinding, BaseViewModel>() {
+class GoFragment constructor(private val tips: String) : BaseVBFragment<FragmentGoBinding>() {
 
     override val TAG: String
         get() = tips
@@ -33,9 +34,9 @@ class GoFragment constructor(private val tips: String) : MvvmFragment<FragmentGo
 
             btnDialog.setOnClickThrottleFirst {
                 launch {
-                    LoadingUtils.show(mContext, true)
+                    LoadingUtils.show(requireContext(), true)
                     delay(3000)
-                    LoadingUtils.show(mContext, false)
+                    LoadingUtils.show(requireContext(), false)
                 }
             }
 

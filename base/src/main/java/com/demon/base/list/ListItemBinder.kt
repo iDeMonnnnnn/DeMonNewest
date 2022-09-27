@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.chad.library.adapter.base.BaseBinderAdapter
 import com.demon.base.databinding.ItemListBinding
-import com.demon.base.utils.ext.getTClass
+import com.demon.base.utils.ext.getTClassIndex
 import com.demon.base.utils.ext.whatIf
 import com.google.android.flexbox.FlexboxLayoutManager
 
@@ -68,7 +68,7 @@ class ListItemBinder<T : Any, Y : ListItem<T>> : BaseVbItemBinder<Y, ItemListBin
 
     private val ad by lazy {
         BaseBinderAdapter().apply {
-            addItemBinder(binder.getTClass(), binder)
+            addItemBinder(binder.getTClassIndex(), binder)
         }
     }
 

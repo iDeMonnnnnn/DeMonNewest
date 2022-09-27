@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.progress.uuid
 
 import android.Manifest
 import com.blankj.utilcode.util.DeviceUtils
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
@@ -16,7 +17,7 @@ import com.permissionx.guolindev.PermissionX
  * email liu_demon@qq.com
  * desc
  */
-class DeviceIdActivity : MvvmActivity<ActivityDeviceIdBinding, BaseViewModel>() {
+class DeviceIdActivity : BaseVBActivity<ActivityDeviceIdBinding>() {
 
     override fun initData() {
         getIDs()

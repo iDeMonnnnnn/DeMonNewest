@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="android:statusBarColor">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>

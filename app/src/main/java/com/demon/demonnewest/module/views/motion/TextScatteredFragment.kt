@@ -1,6 +1,7 @@
 package com.demon.demonnewest.module.views.motion
 
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonnewest.BuildConfig
@@ -12,7 +13,7 @@ import com.demon.demonnewest.databinding.FragmentTextScatteredBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class TextScatteredFragment : MvvmFragment<FragmentTextScatteredBinding, BaseViewModel>() {
+class TextScatteredFragment : BaseVBFragment<FragmentTextScatteredBinding>() {
     override fun initLazyData() {
         binding.motionLayout.setDebugMode(
             if (BuildConfig.DEBUG) {

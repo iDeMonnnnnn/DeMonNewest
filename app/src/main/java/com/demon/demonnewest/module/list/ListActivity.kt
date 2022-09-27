@@ -3,6 +3,7 @@ package com.demon.demonnewest.module.list
 import com.chad.library.adapter.base.BaseBinderAdapter
 import com.demon.base.list.ListItemBinder
 import com.demon.base.list.addListItemBinder
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityListBinding
@@ -17,7 +18,7 @@ import com.demon.demonnewest.module.list.bean.TwoBean
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class ListActivity : MvvmActivity<ActivityListBinding, BaseViewModel>() {
+class ListActivity : BaseVBActivity<ActivityListBinding>() {
 
     private val adapter by lazy {
         BaseBinderAdapter().apply {

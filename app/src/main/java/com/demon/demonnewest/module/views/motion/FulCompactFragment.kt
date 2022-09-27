@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.views.motion
 
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonnewest.databinding.FragmentFullCompactBinding
@@ -10,7 +11,7 @@ import com.demon.demonnewest.databinding.FragmentFullCompactBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class FulCompactFragment : MvvmFragment<FragmentFullCompactBinding, BaseViewModel>() {
+class FulCompactFragment : BaseVBFragment<FragmentFullCompactBinding>() {
     override fun initLazyData() {
         binding.imagePlay.setOnClickListener {
             binding.motionLayout.transitionToStart()

@@ -4,9 +4,7 @@ import androidx.core.view.setPadding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.demon.base.BaseApp
-import com.demon.base.utils.ext.dp2px
-import com.demon.base.utils.ext.fromHtml
-import com.demon.base.utils.ext.intDp2Px
+import com.demon.base.utils.ext.*
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.DialogRemindBinding
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -60,7 +58,7 @@ class RemindDialog : DialogFragment() {
             setGravity(Gravity.CENTER)
             setBackgroundDrawableResource(android.R.color.transparent)
             //设置边距，及宽高
-            decorView.setPadding(40.dp2px)
+            decorView.setPadding(40.intDp)
             setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         }
         binding.tvTitle.text = title
@@ -71,7 +69,7 @@ class RemindDialog : DialogFragment() {
         }
         binding.tvContent.gravity = gravity
         if (lineSpacingExtra != 0) {
-            binding.tvContent.setLineSpacing(lineSpacingExtra.intDp2Px, 1f)
+            binding.tvContent.setLineSpacing(lineSpacingExtra.dp, 1f)
         }
         if (isOnlyConfirm) {
             binding.tvCancel.visibility = View.GONE

@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.views.animation
 
 import android.animation.ValueAnimator
 import android.util.Log
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.setOnClickThrottleFirst
@@ -14,7 +15,7 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  * E-mail idemon_liu@qq.com
  * Desc: 属性动画
  */
-class ValueFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
+class ValueFragment : BaseVBFragment<FragmentAnimationBinding>() {
     var valueAnimator: ValueAnimator? = null
 
     override fun initLazyData() {

@@ -17,22 +17,19 @@ class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
         setToolbar("Room")
         binding.btnInsert.setOnClickListener {
             val str = binding.etInsert.text.toString().trim()
-            if (!str.toastEmpty())
-                mViewModel.insertUser(str)
+            if (!str.toastEmpty()) mViewModel.insertUser(str)
         }
 
         binding.btnDel.setOnClickListener {
             val str = binding.etDel.text.toString().trim()
-            if (!str.toastDigital())
-                mViewModel.deleteUser(str.toInt())
+            if (!str.toastDigital()) mViewModel.deleteUser(str.toInt())
         }
 
 
         binding.btnUpdate.setOnClickListener {
             val strId = binding.etUpdateId.text.toString().trim()
             val str = binding.etUpdate.text.toString().trim()
-            if (!strId.toastDigital() && !str.toastEmpty())
-                mViewModel.updateUser(strId.toInt(), str)
+            if (!strId.toastDigital() && !str.toastEmpty()) mViewModel.updateUser(strId.toInt(), str)
         }
 
         vmRun {

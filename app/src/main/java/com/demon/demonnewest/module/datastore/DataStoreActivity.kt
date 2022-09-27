@@ -1,6 +1,7 @@
 package com.demon.demonnewest.module.datastore
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.launchUI
@@ -21,7 +22,7 @@ import kotlin.random.Random
  */
 @Route(path = RouterConst.ACT_DATASTORE)
 @AndroidEntryPoint
-class DataStoreActivity : MvvmActivity<ActivityDataStoreBinding, BaseViewModel>() {
+class DataStoreActivity : BaseVBActivity<ActivityDataStoreBinding>() {
     override fun initData() {
         setToolbar("DataStore VS MMKV")
 

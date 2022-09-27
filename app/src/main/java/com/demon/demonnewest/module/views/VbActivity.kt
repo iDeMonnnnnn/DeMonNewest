@@ -1,6 +1,7 @@
 package com.demon.demonnewest.module.views
 
 import android.view.View
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityVbBinding
@@ -13,7 +14,7 @@ import com.demon.demonnewest.databinding.ViewstubLayoutBinding
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class VbActivity : MvvmActivity<ActivityVbBinding, BaseViewModel>() {
+class VbActivity : BaseVBActivity<ActivityVbBinding>() {
     private var inflateView: View? = null
 
     override fun initData() {

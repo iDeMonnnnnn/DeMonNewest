@@ -2,6 +2,7 @@ package com.demon.demonnewest.module.views.animation
 
 import android.util.Log
 import android.view.animation.*
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.setOnClickThrottleFirst
@@ -13,7 +14,7 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  * E-mail idemon_liu@qq.com
  * Desc: 补间动画
  */
-class BetweenFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
+class BetweenFragment : BaseVBFragment<FragmentAnimationBinding>() {
 
     override fun initLazyData() {
         binding.btnStart.setOnClickThrottleFirst {

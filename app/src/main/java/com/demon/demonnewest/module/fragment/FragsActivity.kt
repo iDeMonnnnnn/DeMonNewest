@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.fragment
 
+import com.demon.base.mvvm.BaseVBActivity
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.LoadingUtils
@@ -18,7 +19,7 @@ import showRemindDialog
  * email liu_demon@qq.com
  * desc
  */
-class FragsActivity : MvvmActivity<ActivityFragsBinding, BaseViewModel>() {
+class FragsActivity : BaseVBActivity<ActivityFragsBinding>() {
 
     private val showFragment by lazy {
         ShowFragment()

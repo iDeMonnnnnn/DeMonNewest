@@ -3,6 +3,7 @@ package com.demon.demonnewest.module.views.motion
 import com.tencent.mars.xlog.Log
 import android.widget.AbsoluteLayout
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.demonnewest.databinding.FragmentRedPackageBinding
@@ -15,7 +16,7 @@ import java.util.*
  * E-mail idemon_liu@qq.com
  * Desc:
  */
-class RedPackageFragment : MvvmFragment<FragmentRedPackageBinding, BaseViewModel>() {
+class RedPackageFragment : BaseVBFragment<FragmentRedPackageBinding>() {
 
     override fun initLazyData() {
         binding.root.post {

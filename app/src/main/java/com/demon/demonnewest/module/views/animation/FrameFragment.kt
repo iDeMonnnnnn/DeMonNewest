@@ -3,6 +3,7 @@ package com.demon.demonnewest.module.views.animation
 import android.graphics.drawable.AnimationDrawable
 import android.util.Log
 import androidx.core.content.ContextCompat
+import com.demon.base.mvvm.BaseVBFragment
 import com.demon.base.mvvm.BaseViewModel
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.setOnClickThrottleFirst
@@ -15,7 +16,7 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  * E-mail idemon_liu@qq.com
  * Desc: 帧动画
  */
-class FrameFragment : MvvmFragment<FragmentAnimationBinding, BaseViewModel>() {
+class FrameFragment : BaseVBFragment<FragmentAnimationBinding>() {
 
     var animationDrawable: AnimationDrawable? = null
 
