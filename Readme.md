@@ -48,7 +48,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 
 #### 日志
-
+- 2022.9.29：gradle version 7.x
 - 2022.8.30：```kotlin_version = '1.7.10'```,引入```compose```
 - 2022.3.30：引入腾讯mars-xlog
 - 2022.3.4：引入Activity Result API

@@ -1,3 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        //如果是http地址，需要在maven中配置allowInsecureProtocol = true，如华为maven
+        /*maven {
+            url "http://developer.huawei.com/repo/"
+            allowInsecureProtocol = true
+        }*/
+    }
+}
 rootProject.name='DeMonNewest'
 include ':app'
 include ':base'

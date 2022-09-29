@@ -48,7 +48,6 @@ object MarsXLog {
      * 刷新xlog内存，防止丢失
      */
     @JvmStatic
-    @JvmOverloads
     fun xlogFlush() {
         Log.appenderFlush(true)
     }
@@ -57,10 +56,8 @@ object MarsXLog {
      * 关闭xlog
      */
     @JvmStatic
-    @JvmOverloads
     fun xlogClose() {
         Log.appenderClose()
     }
-
 
 }
