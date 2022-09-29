@@ -1,10 +1,8 @@
 package com.demon.demonnewest.module.progress
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.demon.base.helper.BroadcastHelper
+import com.demon.base.utils.helper.BroadcastHelper
 import com.demon.base.mvvm.BaseVBActivity
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
 import com.demon.demonnewest.base.data.Constants
 import com.demon.demonnewest.base.data.RouterConst
@@ -18,8 +16,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MultiProgressActivity : BaseVBActivity<ActivityMultiProgressBinding>() {
 
-    @Inject
-    lateinit var broadcastHelper: BroadcastHelper
+    private val broadcastHelper: BroadcastHelper by lazy {
+        BroadcastHelper.instance
+    }
 
 
     override fun initData() {

@@ -1,6 +1,8 @@
 package com.demon.base.utils.helper
 
 import android.app.Activity
+import android.app.Application
+import android.os.Bundle
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -137,5 +139,42 @@ object ActivityHelper {
             }
         }
         return activity
+    }
+
+
+    val isBackground: Boolean
+        get() = ActivityCallback.foregroundCount <= 0
+
+    object ActivityCallback : Application.ActivityLifecycleCallbacks {
+
+        var foregroundCount = 0
+
+        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+            pushActivity(activity)
+        }
+
+        override fun onActivityStarted(activity: Activity) {
+            foregroundCount++
+        }
+
+        override fun onActivityResumed(activity: Activity) {
+
+        }
+
+        override fun onActivityPaused(activity: Activity) {
+
+        }
+
+        override fun onActivityStopped(activity: Activity) {
+            foregroundCount--
+        }
+
+        override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+
+        }
+
+        override fun onActivityDestroyed(activity: Activity) {
+            popActivity(activity)
+        }
     }
 }

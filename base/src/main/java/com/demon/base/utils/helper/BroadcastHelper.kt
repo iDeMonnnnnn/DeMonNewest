@@ -1,15 +1,13 @@
-package com.demon.base.helper
+package com.demon.base.utils.helper
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import com.demon.base.BaseApp
 import com.demon.base.utils.ext.Tag
 import com.google.gson.Gson
 import com.tencent.mars.xlog.Log
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
 
 /**
@@ -38,13 +36,16 @@ import javax.inject.Singleton
  * <p/>
  * //页面在ondestory销毁广播
  * BroadcastHelper.getInstance().destroy(ACTION_RECEIVE_MESSAGE);
- * @date 2015-9-17
  **/
-@Singleton
-class BroadcastHelper @Inject constructor(@ApplicationContext val mContext: Context) {
+
+class BroadcastHelper constructor() {
 
 
     private val receiverMap: MutableMap<String, BroadcastReceiver>
+
+    private val mContext by lazy {
+        BaseApp.appContext
+    }
 
     /**
      * 构造方法
@@ -135,6 +136,10 @@ class BroadcastHelper @Inject constructor(@ApplicationContext val mContext: Cont
 
     companion object {
         val RESULT = "Result"
+
+        val instance: BroadcastHelper by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+            BroadcastHelper()
+        }
     }
 
 }

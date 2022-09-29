@@ -2,7 +2,6 @@ package com.demon.base.mvvm
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.demon.base.utils.ext.getTClass
 
 /**
  * @author DeMonnnnnn

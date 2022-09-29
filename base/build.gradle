@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 android {
     compileSdkVersion androidCompileVersion
@@ -44,9 +43,6 @@ dependencies {
     api "androidx.work:work-runtime-ktx:$work_version"
     //Startup
     api "androidx.startup:startup-runtime:1.1.1"
-    //hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     //Retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-scalars:2.9.0'
@@ -65,16 +61,16 @@ dependencies {
     //multidex
     api "androidx.multidex:multidex:2.0.1"
     //ARouter
-    api 'com.alibaba:arouter-api:1.5.2'
+    implementation 'com.alibaba:arouter-api:1.5.2'
     kapt "com.alibaba:arouter-compiler:1.5.2"
     //LiveEventBus
     api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
     //mmkv
     api 'com.tencent:mmkv:1.2.12'
     //QFsolution
-    api 'com.github.iDeMonnnnnn:QFsolution:1.1.8'
+    api 'com.github.iDeMonnnnnn:QFsolution:1.2.0'
     //https://github.com/getActivity/ToastUtils
-    api "com.hjq:toast:8.6"
+    api 'com.github.getActivity:ToastUtils:10.5'
     //官方流式布局库
     api 'com.google.android.flexbox:flexbox:3.0.0'
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper

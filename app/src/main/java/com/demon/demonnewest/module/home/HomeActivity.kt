@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.demon.base.helper.BroadcastHelper
+import com.demon.base.utils.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
 import com.demon.base.utils.ext.setOnClickThrottleFirst
@@ -44,8 +44,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemClickListener {
 
-    @Inject
-    lateinit var broadcastHelper: BroadcastHelper
+
+    private val broadcastHelper: BroadcastHelper by lazy {
+        BroadcastHelper.instance
+    }
 
     private val homeDatas = arrayListOf(
         HomeEntity("JetPack"),
@@ -89,6 +91,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
 
         bindingRun {
             rvMenu.adapter = adapter
+            rvMenu.clipToPadding
             fab.setOnClickThrottleFirst {
                 Snackbar.make(it, "当前渠道:${SystemUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
             }

@@ -36,7 +36,7 @@ abstract class BaseDialogFragment<VB : ViewBinding, VM : BaseViewModel> : Dialog
         get() = _binding!!
 
     protected val mViewModel by lazy {
-        ViewModelProvider(this).get(getTClass<VM>(1))
+        ViewModelProvider(this)[getTClassIndex<VM>(1)]
     }
 
     protected open val layoutWidth

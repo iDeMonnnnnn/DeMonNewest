@@ -6,11 +6,12 @@ import androidx.multidex.MultiDex
 import androidx.startup.AppInitializer
 import com.demon.base.startup.ARouterInitializer
 import com.demon.base.utils.SystemUtils
-import com.demon.base.utils.callback.ActivityCallback
+import com.demon.base.utils.helper.ActivityHelper
 import com.demon.qfsolution.QFHelper
 import com.hjq.toast.ToastUtils
-import com.hjq.toast.style.ToastAliPayStyle
+import com.hjq.toast.style.BlackToastStyle
 import com.tencent.mars.xlog.Log
+import com.tencent.mars.xlog.MarsXLog
 import com.tencent.mmkv.MMKV
 
 
@@ -40,8 +41,8 @@ open class BaseApp : Application() {
         val rootDir = MMKV.initialize(this)
         Log.i(TAG, "onCreate:  $rootDir")
         QFHelper.init(this, "fileProvider")
-        ToastUtils.init(this, ToastAliPayStyle(this))
-        registerActivityLifecycleCallbacks(ActivityCallback)
+        ToastUtils.init(this, BlackToastStyle())
+        registerActivityLifecycleCallbacks(ActivityHelper.ActivityCallback)
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -53,19 +54,19 @@ open class BaseApp : Application() {
     override fun onLowMemory() {
         super.onLowMemory()
         Log.i(TAG, "onLowMemory: ")
-        Log.appenderFlush(true)
+        MarsXLog.xlogFlush()
     }
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
         Log.i(TAG, "onTrimMemory: $level")
-        Log.appenderFlush(true)
+        MarsXLog.xlogFlush()
     }
 
     override fun onTerminate() {
         super.onTerminate()
         Log.i(TAG, "onTerminate: ")
-        Log.appenderClose()
+        MarsXLog.xlogClose()
     }
 
 }

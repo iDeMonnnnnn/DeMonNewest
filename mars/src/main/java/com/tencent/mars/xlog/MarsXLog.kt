@@ -43,4 +43,24 @@ object MarsXLog {
         Xlog.setConsoleLogOpen(BuildConfig.DEBUG)
         Log.i(TAG, "initXlog: " + Log.getSysInfo())
     }
+
+    /**
+     * 刷新xlog内存，防止丢失
+     */
+    @JvmStatic
+    @JvmOverloads
+    fun xlogFlush() {
+        Log.appenderFlush(true)
+    }
+
+    /**
+     * 关闭xlog
+     */
+    @JvmStatic
+    @JvmOverloads
+    fun xlogClose() {
+        Log.appenderClose()
+    }
+
+
 }
