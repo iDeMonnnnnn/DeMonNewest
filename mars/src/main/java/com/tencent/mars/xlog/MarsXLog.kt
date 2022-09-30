@@ -13,6 +13,10 @@ object MarsXLog {
 
     private const val TAG = "MarsXLog"
 
+    var cacheDir = ""
+
+    var logDir = ""
+
     /**
      * 初始化Xlog
      *
@@ -25,12 +29,12 @@ object MarsXLog {
     fun initXlog(context: Context, nameprefix: String = "Log", pubkey: String = "") {
         Log.setLogImp(Xlog())
 
-        val cacheDir = if (context.externalCacheDir == null) {
+        cacheDir = if (context.externalCacheDir == null) {
             context.cacheDir.absolutePath + "/xlog"
         } else {
             context.externalCacheDir?.absolutePath + "/xlog"
         }
-        val logDir = if (context.getExternalFilesDir(null) == null) {
+        logDir = if (context.getExternalFilesDir(null) == null) {
             context.filesDir.absolutePath + "/xlog"
         } else {
             context.getExternalFilesDir(null)?.absolutePath + "/xlog"
