@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 class BaseApi {
 
     //超时时长，单位：毫秒
-    private var timeOut: Long = 10
+    private var timeOut: Long = 10000
     private var isCache = false
     private var isLog = true
 

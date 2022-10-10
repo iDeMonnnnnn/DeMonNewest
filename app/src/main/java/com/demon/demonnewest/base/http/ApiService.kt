@@ -20,7 +20,7 @@ interface ApiService {
 
 
     @GET("article/list/{no}/json")
-    fun articleAuthorList(@Path("no") no: Int,@Query("author") author: String): Call<DataWrapper<PageBean<ArticleBean>>>
+    fun articleAuthorList(@Path("no") no: Int, @Query("author") author: String): Call<DataWrapper<PageBean<ArticleBean>>>
 
     @GET("article/list/{no}/json")
     fun articleListString(@Path("no") no: Int, @Query("author") author: String): Call<String>

@@ -55,17 +55,17 @@ abstract class BaseVbAdapter<T, VB : ViewBinding>(
         when {
             old.isEmpty() -> {
                 old.addAll(update)
-                notifyDataSetChanged()
+                setNewInstance(update)
             }
             update.isEmpty() -> {
                 old.clear()
-                notifyDataSetChanged()
+                setList(null)
             }
             else -> {
                 scopeIO.launchIO {
                     val diff = update(old, update)
                     withContext(Dispatchers.Main) {
-                        diff.dispatchUpdatesTo(this@BaseVbAdapter)
+                        setDiffNewData(diff, update)
                     }
                 }
             }
@@ -81,18 +81,15 @@ abstract class BaseVbAdapter<T, VB : ViewBinding>(
         }
     }
 
-    private fun update(oldItems: List<T>, update: List<T>): DiffUtil.DiffResult =
-        DiffUtil.calculateDiff(object : DiffUtil.Callback() {
-            override fun getOldListSize() = oldItems.size
+    private fun update(oldItems: List<T>, update: List<T>): DiffUtil.DiffResult = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
+        override fun getOldListSize() = oldItems.size
 
-            override fun getNewListSize() = update.size
+        override fun getNewListSize() = update.size
 
-            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-                areContentsTheSame(oldItems[oldItemPosition], update[newItemPosition])
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) = areContentsTheSame(oldItems[oldItemPosition], update[newItemPosition])
 
-            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-                areItemsTheSame(oldItems[oldItemPosition], update[newItemPosition])
-        })
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) = areItemsTheSame(oldItems[oldItemPosition], update[newItemPosition])
+    })
 
     /**
      * 改为open重写，避免不需要DiffUtil的Adapter都要重写
