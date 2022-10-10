@@ -55,11 +55,11 @@ abstract class BaseVbAdapter<T, VB : ViewBinding>(
         when {
             old.isEmpty() -> {
                 old.addAll(update)
-                setNewInstance(update)
+                setList(update)
             }
             update.isEmpty() -> {
                 old.clear()
-                setList(null)
+                setList(old)
             }
             else -> {
                 scopeIO.launchIO {
