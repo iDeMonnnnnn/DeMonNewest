@@ -7,12 +7,12 @@ plugins {
 }
 android {
     namespace applicationId
-    compileSdk androidCompileVersion
+    compileSdk sdkCompileVersion
 
     defaultConfig {
         applicationId applicationId
-        minSdk androidMinSdkVersion
-        targetSdk androidTargetVersion
+        minSdk sdkMinVersion
+        targetSdk sdkTargetVersion
         versionCode appVersionCode
         versionName appVersionName
         multiDexEnabled true
@@ -72,7 +72,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     //paging
-    def paging_version = "3.1.0"
+    def paging_version = "3.1.1"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
     // CameraX
     def camerax_version = "1.2.0-alpha03"
@@ -85,7 +85,7 @@ dependencies {
     //Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
     //exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.14.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
     //ARouter,每个module都需要添加
     implementation 'com.alibaba:arouter-api:1.5.2'
     kapt "com.alibaba:arouter-compiler:1.5.2"
@@ -101,18 +101,19 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     //引导高亮
     implementation 'me.samlss:lighter:1.0.3'
+    def immersionbar = "3.2.2"
     // https://github.com/gyf-dev/ImmersionBar
-    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    implementation "com.geyifeng.immersionbar:immersionbar:$immersionbar"
     // fragment快速实现（可选）
-    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+    implementation "com.geyifeng.immersionbar:immersionbar-components:$immersionbar"
     // kotlin扩展（可选）
-    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+    implementation "com.geyifeng.immersionbar:immersionbar-ktx:$immersionbar"
     //https://github.com/scwang90/SmartRefreshLayout
     implementation 'com.scwang.smart:refresh-layout-kernel:2.0.3'//核心必须依赖
     implementation 'com.scwang.smart:refresh-header-material:2.0.3'//谷歌刷新头
     implementation 'com.scwang.smart:refresh-footer-classics:2.0.3'
     //https://github.com/guolindev/PermissionX
-    implementation 'com.guolindev.permissionx:permissionx:1.6.4'
+    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
     //compose
     def compose_version = "1.2.1"
     implementation 'androidx.activity:activity-compose:1.5.1'

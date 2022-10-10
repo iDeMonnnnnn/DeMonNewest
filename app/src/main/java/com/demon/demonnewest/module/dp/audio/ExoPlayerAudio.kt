@@ -82,7 +82,7 @@ class ExoPlayerAudio : IAudio {
     override fun getCurrentPosition(): Int = (mPlayer?.currentPosition ?: 0).toInt()
 
     override fun setIAudioListener(listener: IAudioListener?) {
-        mPlayer?.addListener(object : Player.EventListener {
+        mPlayer?.addListener(object : Player.Listener {
             override fun onPlaybackStateChanged(state: Int) {
                 super.onPlaybackStateChanged(state)
                 when (state) {
@@ -105,9 +105,9 @@ class ExoPlayerAudio : IAudio {
                 playWhenReady = ready
             }
 
-            override fun onPlayerError(error: ExoPlaybackException) {
+            override fun onPlayerError(error: PlaybackException) {
                 super.onPlayerError(error)
-                listener?.playError(error.type, error.message ?: "")
+                listener?.playError(error.errorCode, error.message ?: "")
             }
 
             override fun onTimelineChanged(timeline: Timeline, reason: Int) {

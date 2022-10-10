@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk androidCompileVersion
+    compileSdk sdkCompileVersion
 
     defaultConfig {
-        minSdk androidMinSdkVersion
-        targetSdk androidTargetVersion
+        minSdk sdkMinVersion
+        targetSdk sdkTargetVersion
         versionCode appVersionCode
         versionName appVersionName
     }
