@@ -1,6 +1,6 @@
 package com.demon.demonnewest.module.mvvm
 
-import com.demon.base.list.BaseVbAdapter
+import com.demon.base.list.BaseVbQAdapter
 import com.tencent.mars.xlog.Log
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.Tag
@@ -22,9 +22,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class ArticleFragment constructor(var author: String) : MvvmFragment<FragmentArticleBinding, ArticleViewModel>(), RefreshLoadListener {
 
     private val adapter by lazy {
-        object : BaseVbAdapter<ArticleBean, ListArticleBinding>() {
+        object : BaseVbQAdapter<ArticleBean, ListArticleBinding>() {
 
-            override fun convertItem(holder: DataVbHolder<ListArticleBinding>, binding: ListArticleBinding, data: ArticleBean, pos: Int) {
+            override fun onBindItem(holder: DataVbHolder<ListArticleBinding>, binding: ListArticleBinding, data: ArticleBean, pos: Int) {
                 binding.tvText.text = data.title
             }
         }

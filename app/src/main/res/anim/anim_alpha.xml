@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:fromAlpha="1.0"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:toAlpha="0.1" />
+
+    <!--
+    romAlpha :起始透明度
+    toAlpha:结束透明度
+    透明度的范围为：0-1，完全透明-完全不透明
+    -->

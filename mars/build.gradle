@@ -9,8 +9,6 @@ android {
     defaultConfig {
         minSdk sdkMinVersion
         targetSdk sdkTargetVersion
-        versionCode appVersionCode
-        versionName appVersionName
     }
 
     sourceSets {

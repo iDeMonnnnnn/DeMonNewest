@@ -4,10 +4,8 @@ import android.graphics.drawable.AnimationDrawable
 import android.util.Log
 import androidx.core.content.ContextCompat
 import com.demon.base.mvvm.BaseVBFragment
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.setOnClickThrottleFirst
-import com.demon.demonnewest.databinding.FragmentAnimationBinding
+import com.demon.demonnewest.databinding.FragmentAnimFrameBinding
 
 
 /**
@@ -16,7 +14,7 @@ import com.demon.demonnewest.databinding.FragmentAnimationBinding
  * E-mail idemon_liu@qq.com
  * Desc: 帧动画
  */
-class FrameFragment : BaseVBFragment<FragmentAnimationBinding>() {
+class FrameFragment : BaseVBFragment<FragmentAnimFrameBinding>() {
 
     var animationDrawable: AnimationDrawable? = null
 

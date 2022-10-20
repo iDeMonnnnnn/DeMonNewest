@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
-    <rotate
-        android:duration="1500"
-        android:fromDegrees="360"
-        android:pivotX="50%"
-        android:pivotY="50%"
-        android:repeatCount="-1"
-        android:repeatMode="restart"
-        android:toDegrees="0" />
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1500"
+    android:fromDegrees="360"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:repeatCount="-1"
+    android:repeatMode="restart"
+    android:toDegrees="0" />
+
     <!--
     参数的含义
     duration：表示从android:fromDegrees转动到android:toDegrees所花费的时间
@@ -26,4 +27,4 @@
     android:startOffset 在调用start函数之后等待开始运行的时间，单位为毫秒，
     若为10，表示10ms后开始运行
     -->
-</set>
+

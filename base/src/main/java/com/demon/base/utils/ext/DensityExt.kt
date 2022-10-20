@@ -22,7 +22,7 @@ val Any.sp
     get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, this.parseFloat(), Resources.getSystem().displayMetrics)
 
 /**
- * 12.intDp = 12sp
+ * 12.intDp = 12dp
  */
 val Any.intDp
     get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.parseFloat(), Resources.getSystem().displayMetrics).parseInt()

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:fromXScale="0.2"
+    android:fromYScale="0.2"
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toXScale="2"
+    android:toYScale="2" />
+
+    <!--
+    romXScale/fromYScale：沿着X轴/Y轴缩放的起始比例
+    toXScale/toYScale：沿着X轴/Y轴缩放的结束比例
+    pivotX/pivotY：缩放的中轴点X/Y坐标，即距离自身左边缘的位置，比如50%就是以图像的 中心为中轴点
+    -->

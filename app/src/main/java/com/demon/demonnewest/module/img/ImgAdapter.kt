@@ -14,7 +14,7 @@ import com.demon.demonnewest.databinding.ListImgGlideBinding
 class ImgAdapter : BaseVbAdapter<String, ListImgGlideBinding>() {
 
 
-    override fun convertItem(holder: DataVbHolder<ListImgGlideBinding>, binding: ListImgGlideBinding, data: String, pos: Int) {
+    override fun onBindItem(holder: DataVbHolder<ListImgGlideBinding>, binding: ListImgGlideBinding, data: String, pos: Int) {
         binding.ivImage.loadImg(data)
     }
 

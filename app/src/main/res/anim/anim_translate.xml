@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:fromXDelta="0"
+    android:fromYDelta="0"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:toXDelta="320"
+    android:toYDelta="0" />
+
+
+    <!--
+    fromXDelta/fromYDelta：动画起始位置的X/Y坐标
+    toXDelta/toYDelta：动画结束位置的X/Y坐标
+    -->
