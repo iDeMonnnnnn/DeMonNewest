@@ -7,8 +7,22 @@ import android.util.TypedValue
  * @author DeMonnnnnn
  * date 2022/8/5
  * email liu_demon@qq.com
- * desc
+ * desc 1080 2125  80  1080 2260  80
  */
+
+val statusBarHeight
+    get() = Resources.getSystem().getDimensionPixelSize(
+        Resources.getSystem().getIdentifier(
+            "status_bar_height", "dimen", "android"
+        )
+    )
+
+val screenWidth
+    get() = Resources.getSystem().displayMetrics.widthPixels
+
+val screenHeight
+    get() = Resources.getSystem().displayMetrics.heightPixels
+
 /**
  * 12.dp = 12dp
  */
