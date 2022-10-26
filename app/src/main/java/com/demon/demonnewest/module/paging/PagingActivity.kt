@@ -28,7 +28,7 @@ class PagingActivity : MvvmActivity<ActivityPagingBinding, PagingViewModel>() {
         }
     }
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Paging3")
         binding.rv.adapter = pagingAdapter.withFooter()
 

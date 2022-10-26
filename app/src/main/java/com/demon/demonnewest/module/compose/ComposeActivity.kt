@@ -30,7 +30,7 @@ class ComposeActivity : BaseComposeActivity<BaseViewModel>() {
     override fun appBarText() = "Compose"
 
     @Composable
-    override fun initView() {
+    override fun setupView() {
         val list = List(100) {
             MessageBean(
                 "Android-$it", "Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose,Jetpack Compose"

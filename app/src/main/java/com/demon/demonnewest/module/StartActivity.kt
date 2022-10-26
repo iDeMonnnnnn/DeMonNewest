@@ -18,7 +18,7 @@ import com.demon.demonnewest.module.home.HomeActivity
  */
 class StartActivity : BaseVBActivity<ActivityStartBinding>() {
 
-    override fun initData() {
+    override fun setupData() {
         /*        binding.motionLayout.setDebugMode(
                     if (BuildConfig.DEBUG) {
                         MotionLayout.DEBUG_SHOW_PATH

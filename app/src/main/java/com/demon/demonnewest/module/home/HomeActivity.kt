@@ -74,7 +74,8 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("工厂模式", AudioActivity::class.java),
         HomeEntity("实验"),
         HomeEntity("Fragment可见性", FragsActivity::class.java),
-        HomeEntity("设备唯一标识符", DeviceIdActivity::class.java)
+        HomeEntity("设备唯一标识符", DeviceIdActivity::class.java),
+        HomeEntity("Bitmap对象复用", BitmapActivity::class.java)
     )
 
     private val adapter by lazy {
@@ -83,7 +84,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         }
     }
 
-    override fun initData() {
+    override fun setupData() {
 
         immersionBar {
             titleBar(binding.toolbar)

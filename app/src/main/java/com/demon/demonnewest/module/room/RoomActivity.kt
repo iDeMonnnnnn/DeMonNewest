@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RoomActivity : MvvmActivity<ActivityRoomBinding, RoomViewModel>() {
 
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Room")
         binding.btnInsert.setOnClickListener {
             val str = binding.etInsert.text.toString().trim()

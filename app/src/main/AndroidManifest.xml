@@ -50,6 +50,7 @@
         <activity android:name=".module.fragment.FragsActivity" />
         <activity android:name=".module.compose.ComposeActivity" />
         <activity android:name=".module.progress.uuid.DeviceIdActivity" />
+        <activity android:name=".module.home.BitmapActivity" />
     </application>
 
 </manifest>

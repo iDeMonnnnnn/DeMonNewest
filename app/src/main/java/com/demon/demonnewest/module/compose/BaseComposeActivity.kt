@@ -1,5 +1,6 @@
 package com.demon.demonnewest.module.compose
 
+import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -33,14 +34,15 @@ abstract class BaseComposeActivity<VM : BaseViewModel> : BaseVMActivity<VM>() {
     /**
      * Compose通用主题，Surface部分
      */
-    override fun initContentView() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContent {
             DeMonNewestTheme {
                 Surface {
                     if (!appBarText().toBoolean()) {
                         initViewWithAppBar()
                     } else {
-                        initView()
+                        setupView()
                     }
                 }
             }
@@ -54,17 +56,15 @@ abstract class BaseComposeActivity<VM : BaseViewModel> : BaseVMActivity<VM>() {
     fun initViewWithAppBar() {
         Column {
             TopAppBar(navigationIcon = {
-                Image(painter = painterResource(R.drawable.abc_vector_test),
-                    contentDescription = "back",
-                    modifier = Modifier
-                        .clickable {
-                            finish()
-                        }
-                        .padding(16.dp))
+                Image(painter = painterResource(R.drawable.abc_vector_test), contentDescription = "back", modifier = Modifier
+                    .clickable {
+                        finish()
+                    }
+                    .padding(16.dp))
             }, title = {
                 Text(text = appBarText() ?: "")
             })
-            initView()
+            setupView()
         }
     }
 
@@ -72,12 +72,5 @@ abstract class BaseComposeActivity<VM : BaseViewModel> : BaseVMActivity<VM>() {
      * Compose自定义View部分
      */
     @Composable
-    abstract fun initView()
-
-    /**
-     * Compose基本不需要
-     */
-    override fun initData() {
-
-    }
+    abstract fun setupView()
 }

@@ -7,7 +7,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
-
+/**
+ * @author DeMonnnnnn
+ * date 2022/9/23
+ * email liu_demon@qq.com
+ * desc MVVM架构的ViewModel
+ */
 open class BaseViewModel : ViewModel(), LifecycleObserver {
     protected val TAG = this.javaClass.simpleName
 

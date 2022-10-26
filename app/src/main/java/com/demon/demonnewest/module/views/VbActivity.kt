@@ -17,7 +17,7 @@ import com.demon.demonnewest.databinding.ViewstubLayoutBinding
 class VbActivity : BaseVBActivity<ActivityVbBinding>() {
     private var inflateView: View? = null
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("ViewBinding")
         binding.btnDialog.setOnClickListener {
 

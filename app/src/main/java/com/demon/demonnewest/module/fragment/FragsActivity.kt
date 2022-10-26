@@ -34,7 +34,7 @@ class FragsActivity : BaseVBActivity<ActivityFragsBinding>() {
         ViewPage2Fragment()
     }
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Fragment可见性")
 
         bindingRun {

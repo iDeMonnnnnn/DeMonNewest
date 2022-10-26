@@ -15,7 +15,7 @@ class AudioActivity : BaseVBActivity<ActivityAudioBinding>() {
     private var iIAudio: IAudio? = null
     private var timer: Timer? = null
     private var player: Int = 1
-    override fun initData() {
+    override fun setupData() {
         setToolbar("工厂模式")
         binding.run {
             btnPlayer.setOnClickListener {

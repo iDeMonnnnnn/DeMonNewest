@@ -23,7 +23,7 @@ import kotlin.random.Random
 @Route(path = RouterConst.ACT_DATASTORE)
 @AndroidEntryPoint
 class DataStoreActivity : BaseVBActivity<ActivityDataStoreBinding>() {
-    override fun initData() {
+    override fun setupData() {
         setToolbar("DataStore VS MMKV")
 
         var string = ""

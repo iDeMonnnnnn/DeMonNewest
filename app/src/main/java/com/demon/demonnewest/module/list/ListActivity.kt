@@ -27,7 +27,7 @@ class ListActivity : BaseVBActivity<ActivityListBinding>() {
         }
     }
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("多样式列表")
         adapter.addData(OneBean(mutableListOf("1", "2", "3", "4", "5")))
         adapter.addData(TwoBean(mutableListOf(1, 2, 3, 4, 5, 6, 7, 8)))

@@ -48,7 +48,7 @@ class FlowActivity : BaseVBActivity<ActivityFlowBinding>() {
         }.stateIn(lifecycleScope, SharingStarted.Eagerly, "0、initialValue")
     }
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Flow")
         lifecycleScope.launch {
             simpleFlow.collect {

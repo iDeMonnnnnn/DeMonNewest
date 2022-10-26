@@ -19,7 +19,7 @@ class ArticleActivity : BaseVBActivity<ActivityArticleBinding>() {
 
     var list: ArrayList<String> by extraAct("params", arrayListOf())
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("MVVM")
         list = arrayListOf("鸿洋", "郭霖")
 

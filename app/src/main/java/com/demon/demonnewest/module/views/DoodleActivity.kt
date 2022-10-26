@@ -19,7 +19,7 @@ import com.gyf.immersionbar.ktx.immersionBar
  */
 class DoodleActivity : BaseVBActivity<ActivityDoodleBinding>() {
 
-    override fun initData() {
+    override fun setupData() {
         immersionBar {
 
         }

@@ -19,7 +19,7 @@ import com.permissionx.guolindev.PermissionX
  */
 class DeviceIdActivity : BaseVBActivity<ActivityDeviceIdBinding>() {
 
-    override fun initData() {
+    override fun setupData() {
         getIDs()
         binding.btn.setOnClickThrottleFirst {
             PermissionX.init(this)

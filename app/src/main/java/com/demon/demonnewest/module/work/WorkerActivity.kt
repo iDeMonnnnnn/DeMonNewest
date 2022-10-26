@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 class WorkerActivity : BaseVBActivity<ActivityWorkerBinding>() {
 
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("WorkManager")
         binding.btnOne.setOnClickListener {
             val data = Data.Builder()

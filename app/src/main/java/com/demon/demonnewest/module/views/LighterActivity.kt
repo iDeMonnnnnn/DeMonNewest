@@ -32,7 +32,7 @@ import me.samlss.lighter.shape.RectShape
 class LighterActivity : BaseVBActivity<ActivityLighterBinding>() {
 
     private lateinit var lighter: Lighter
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Lighter")
         intHighlight()
         lighter.show()

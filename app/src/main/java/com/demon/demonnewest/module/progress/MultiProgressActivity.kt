@@ -21,9 +21,9 @@ class MultiProgressActivity : BaseVBActivity<ActivityMultiProgressBinding>() {
     }
 
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("多进程通信")
-        Log.i(TAG, "initData: 多进程通信")
+        Log.i(TAG, "setupData(): 多进程通信")
         binding.tv.text = "当前进程:${SystemUtils.getCurrentProcessName(this)}"
 
         binding.btn.setOnClickListener {

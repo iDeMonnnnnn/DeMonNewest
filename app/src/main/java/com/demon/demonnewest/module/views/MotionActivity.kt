@@ -13,7 +13,7 @@ import com.demon.demonnewest.module.views.motion.*
 class MotionActivity : BaseVBActivity<ActivityMotionBinding>(), View.OnClickListener {
 
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("MotionLayout")
         binding.btn1.setOnClickListener(this)
         binding.btn2.setOnClickListener(this)

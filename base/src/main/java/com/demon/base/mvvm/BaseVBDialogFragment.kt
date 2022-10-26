@@ -17,27 +17,15 @@ import kotlinx.coroutines.flow.*
  * @author DeMonnnnnn
  * date 2022/9/23
  * email liu_demon@qq.com
- * desc
+ * desc ViewBinding DialogFragment基类
  */
-abstract class BaseDialogFragment<VB : ViewBinding, VM : BaseViewModel> : DialogFragment() {
+abstract class BaseVBDialogFragment<VB : ViewBinding> : DialogFragment() {
 
-    /**
-     * include的布局需要自己加上id，如果包含merge的话，需要单独对对应的布局进行bind，
-     * 比如merge_toolbar.xml
-     * ```kotlin
-     *  protected lateinit var mergeToolbar: MergeToolbarBinding
-     *  mergeToolbar = MergeToolbarBinding.bind(_binding.root)
-     * ```
-     */
     protected val TAG = this.javaClass.simpleName
 
     private var _binding: VB? = null
     protected val binding: VB
         get() = _binding!!
-
-    protected val mViewModel by lazy {
-        ViewModelProvider(this)[getTClassIndex<VM>(1)]
-    }
 
     protected open val layoutWidth
         get() = WindowManager.LayoutParams.WRAP_CONTENT
@@ -103,44 +91,24 @@ abstract class BaseDialogFragment<VB : ViewBinding, VM : BaseViewModel> : Dialog
             setBackgroundDrawable(backgroundDrawable) //设置宽高
             setLayout(layoutWidth, layoutHeight)
         }
-        runCatching {
-            vmRun {
-                //add ViewModel
-                lifecycle.addObserver(this)
-                errLiveData.observe(viewLifecycleOwner) {
-                    doOnError(it)
-                }
-                loadingData.observe(viewLifecycleOwner) {
-                    LoadingUtils.show(requireContext(), it)
-                }
-            }
-        }.onFailure {
-            it.printStackTrace()
-        }
+        initFun()
+    }
+
+    protected open fun initFun(){
         setupData()
     }
 
     protected abstract fun setupData()
 
-
     override fun onDestroyView() {
         _binding = null
-        //移除ViewModel
-        lifecycle.removeObserver(mViewModel)
         super.onDestroyView()
     }
 
 
-    protected fun vmRun(block: VM.() -> Unit) {
-        mViewModel.run(block)
-    }
-
     protected fun bindingRun(block: VB.() -> Unit) {
         binding.run(block)
     }
-
-    open fun doOnError(msg: String) {}
-
 
     /**
      * 关闭弹窗的时候调用dismissAllowingStateLoss

@@ -35,7 +35,7 @@ class CameraXActivity : BaseVBActivity<ActivityCameraxBinding>() {
 
     private lateinit var takePic: File
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("CameraX")
 
         PermissionX.init(this)
@@ -85,7 +85,7 @@ class CameraXActivity : BaseVBActivity<ActivityCameraxBinding>() {
         }
 
         binding.ivSure.setOnClickThrottleFirst {
-            Log.i(TAG, "initData: ${takePic.absolutePath},exists=" + takePic.exists())
+            Log.i(TAG, "setupData(): ${takePic.absolutePath},exists=" + takePic.exists())
             finish()
         }
     }

@@ -31,7 +31,7 @@ class HiltActivity : BaseVBActivity<ActivityHiltBinding>() {
     @Inject
     lateinit var engine: Engine
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Hilt")
 
 

@@ -19,7 +19,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  */
 class AnimationActivity : BaseVBActivity<ActivityAnimationBinding>() {
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("原生动画")
         val tabList = listOf("补间动画", "帧动画", "属性动画")
         val list = listOf<Fragment>(BetweenFragment(), FrameFragment(), ValueFragment())

@@ -20,7 +20,7 @@ class ImgLoadActivity : BaseVBActivity<ActivityImgLoadBinding>() {
         const val url2 = "https://idemon.oss-cn-guangzhou.aliyuncs.com/timg.gif"
     }
 
-    override fun initData() {
+    override fun setupData() {
         setToolbar("Glide")
         val datas = mutableListOf(url1, url2)
         adapter.datas = datas
