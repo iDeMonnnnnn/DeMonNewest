@@ -1,6 +1,8 @@
 package com.demon.demonnewest
 
 import com.demon.base.BaseApp
+import com.demon.base.utils.ext.isMainProcess
+import com.demon.qfsolution.QFHelper
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
@@ -41,6 +43,9 @@ class App : BaseApp() {
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate: ")
+        if (isMainProcess()) {
+            QFHelper.init(this, "fileProvider")
+        }
         LiveEventBus.config().setContext(applicationContext)
     }
 

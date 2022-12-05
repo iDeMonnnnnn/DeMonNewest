@@ -1,8 +1,6 @@
-package com.demon.demonnewest.module.img
+package com.demon.demonnewest.module.img.glide
 
 import com.demon.base.mvvm.BaseVBActivity
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityImgLoadBinding
 
 /**

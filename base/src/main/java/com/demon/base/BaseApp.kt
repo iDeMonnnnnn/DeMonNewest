@@ -7,7 +7,6 @@ import androidx.startup.AppInitializer
 import com.demon.base.startup.ARouterInitializer
 import com.demon.base.utils.SystemUtils
 import com.demon.base.utils.helper.ActivityHelper
-import com.demon.qfsolution.QFHelper
 import com.hjq.toast.ToastUtils
 import com.hjq.toast.style.BlackToastStyle
 import com.tencent.mars.xlog.Log
@@ -40,7 +39,6 @@ open class BaseApp : Application() {
         }
         val rootDir = MMKV.initialize(this)
         Log.i(TAG, "onCreate:  $rootDir")
-        QFHelper.init(this, "fileProvider")
         ToastUtils.init(this, BlackToastStyle())
         registerActivityLifecycleCallbacks(ActivityHelper.ActivityCallback)
     }

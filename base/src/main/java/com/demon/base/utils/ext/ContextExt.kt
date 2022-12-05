@@ -9,6 +9,7 @@ import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.demon.base.utils.SystemUtils
 
 /**
  * @author DeMon
@@ -16,6 +17,9 @@ import androidx.fragment.app.FragmentActivity
  * E-mail idemon_liu@qq.com
  * Desc:
  */
+
+fun Context.isMainProcess() = SystemUtils.isMainProcess(this)
+
 fun Context.getCompatDrawable(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
 
 fun Context.getCompatColor(@ColorRes id: Int) = ContextCompat.getColor(this, id)

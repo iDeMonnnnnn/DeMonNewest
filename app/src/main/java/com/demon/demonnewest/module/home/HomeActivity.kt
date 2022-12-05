@@ -19,12 +19,13 @@ import com.demon.demonnewest.base.data.Constants
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
+import com.demon.demonnewest.module.img.bitmap.BitmapActivity
 import com.demon.demonnewest.module.camera.CameraXActivity
 import com.demon.demonnewest.module.compose.ComposeActivity
 import com.demon.demonnewest.module.dp.AudioActivity
 import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.fragment.FragsActivity
-import com.demon.demonnewest.module.img.ImgLoadActivity
+import com.demon.demonnewest.module.img.glide.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
 import com.demon.demonnewest.module.progress.uuid.DeviceIdActivity
 import com.demon.demonnewest.module.views.DoodleActivity
@@ -37,7 +38,6 @@ import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.tencent.mars.xlog.Log
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @Route(path = RouterConst.ACT_HOME)
@@ -75,7 +75,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("实验"),
         HomeEntity("Fragment可见性", FragsActivity::class.java),
         HomeEntity("设备唯一标识符", DeviceIdActivity::class.java),
-        HomeEntity("Bitmap对象复用", BitmapActivity::class.java)
+        HomeEntity("Bitmap", BitmapActivity::class.java)
     )
 
     private val adapter by lazy {

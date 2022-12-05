@@ -1,4 +1,4 @@
-package com.demon.demonnewest.module.img
+package com.demon.demonnewest.module.img.glide
 
 import com.demon.base.list.BaseVbAdapter
 import com.demon.base.list.DataVbHolder
