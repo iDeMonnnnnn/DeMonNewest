@@ -1,8 +1,6 @@
 import android.os.Bundle
 import android.view.*
-import androidx.core.view.setPadding
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import com.demon.base.BaseApp
 import com.demon.base.utils.ext.*
 import com.demon.demonnewest.R
