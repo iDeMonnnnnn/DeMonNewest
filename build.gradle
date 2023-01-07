@@ -15,8 +15,8 @@ plugins {
 
 ext {
     sdkMinVersion = 21
-    sdkTargetVersion = 32
-    sdkCompileVersion = 32
+    sdkTargetVersion = 33
+    sdkCompileVersion = 33
     appVersionCode = 100
     appVersionName = '1.0.0'
     applicationId = "com.demon.demonnewest"
