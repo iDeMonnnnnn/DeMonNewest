@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:interpolator="@android:interpolator/fast_out_slow_in"
+	android:ordering="sequentially">
+	<objectAnimator
+		android:duration="500"
+		android:propertyName="rotation"
+		android:startOffset="500"
+		android:valueFrom="0"
+		android:valueTo="-45"
+		android:valueType="floatType"
+	/>
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-45"
+					android:valueTo="-90"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-90"
+					android:valueTo="-135"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-135"
+					android:valueTo="-180"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-180"
+					android:valueTo="-225"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-225"
+					android:valueTo="-270"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="500"
+					android:propertyName="rotation"
+					android:valueFrom="-270"
+					android:valueTo="-315"
+					android:valueType="floatType"
+	/>
+
+	<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+					android:duration="0"
+					android:startOffset="500"
+					android:propertyName="rotation"
+					android:valueFrom="-315"
+					android:valueTo="-360"
+					android:valueType="floatType"
+	/>
+</set>

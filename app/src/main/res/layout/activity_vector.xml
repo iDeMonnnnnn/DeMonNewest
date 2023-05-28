@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/dp20">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4ccaa6"
+            android:onClick="onDoneClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animated_done" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_green_light"
+            android:onClick="onFaceClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animate_face" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:onClick="onClockClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animate_clock" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#1da1f2"
+            android:onClick="onCupClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animate_cup" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#000"
+            android:onClick="onCircleClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animate_loading_circle" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#e95750"
+            android:onClick="onPointClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/anim_loading_point" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#ede9df"
+            android:onClick="onPendulumPointClicked"
+            android:padding="10dp"
+            app:srcCompat="@drawable/animate_vector_pendulum_point" />
+    </LinearLayout>
+</ScrollView>

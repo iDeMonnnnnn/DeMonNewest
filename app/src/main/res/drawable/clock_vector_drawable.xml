@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+		android:width="60dp"
+		android:height="60dp"
+		android:viewportHeight="100"
+		android:viewportWidth="100">
+	<path android:fillColor="#ffffff"
+		  android:pathData="
+		  M50,50
+		  m-45,0
+		  a45,45 0 1,1 90,0
+		  a45,45 0 1,1 -90,0
+		  "
+		  android:strokeColor="#4a4a4a"
+		  android:strokeWidth="3"/>
+	<group
+		android:name="hour_hand"
+		android:pivotX="50"
+		android:pivotY="50"
+		android:rotation="0">
+		<path
+			android:pathData="
+			M50,52
+			l0,20"
+			android:strokeColor="#5ad3dc"
+			android:strokeWidth="4"
+		/>
+	</group>
+	<group
+		android:name="minute_hand"
+		android:pivotX="50"
+		android:pivotY="50"
+		android:rotation="0">
+		<path
+			  android:pathData="
+			M52,50
+			l35,0"
+			  android:strokeColor="#efb315"
+			  android:strokeWidth="3"/>
+	</group>
+	<group android:name="second_hand"
+		   android:pivotX="50"
+		   android:pivotY="50"
+		   android:rotation="0">
+		<path
+			android:pathData="
+			M48,50
+			l-40,0"
+			android:strokeColor="#f44b67"
+			android:strokeWidth="1"/>
+	</group>
+</vector>

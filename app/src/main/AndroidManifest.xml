@@ -51,6 +51,7 @@
         <activity android:name=".module.compose.ComposeActivity" />
         <activity android:name=".module.progress.uuid.DeviceIdActivity" />
         <activity android:name=".module.img.bitmap.BitmapActivity" />
+        <activity android:name=".module.vetor.VectorActivity" />
     </application>
 
 </manifest>

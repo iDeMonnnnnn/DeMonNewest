@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+		android:width="60dp"
+		android:height="60dp"
+		android:viewportHeight="24.0"
+		android:viewportWidth="24.0">
+		<path
+			android:name="circle"
+			android:fillColor="#FFFFFF"
+			android:pathData="M12,12m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+		<path
+			android:name="tick"
+			android:pathData="M6,11 l3.5,4 l8,-7"
+			android:strokeColor="#000000"
+			android:strokeWidth="1.5" />
+</vector>

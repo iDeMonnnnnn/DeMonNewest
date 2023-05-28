@@ -7,5 +7,6 @@
     <color name="color_f8f8f8">#f8f8f8</color>
     <color name="color_e5e5e5">#e5e5e5</color>
     <color name="gray_999999">#999999</color>
+    <color name="circle_color">#ffe176</color>
     <color name="color_121212">#FF121212</color>
 </resources>

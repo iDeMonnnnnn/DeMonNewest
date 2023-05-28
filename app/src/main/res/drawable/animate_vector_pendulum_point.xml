@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+				 android:drawable="@drawable/vector_pendulum_point">
+	<target android:name="left_point" android:animation="@animator/left_point_rotation"/>
+	<target android:name="right_point" android:animation="@animator/right_point_rotation"/>
+</animated-vector>

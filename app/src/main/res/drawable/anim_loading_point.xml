@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+				 android:drawable="@drawable/loading_point">
+	<target android:name="center_point"
+			android:animation="@animator/center_point_translation_up"/>
+	<target android:name="center_point_gp"
+			android:animation="@animator/set_center_point_rotate_45"/>
+	<target android:name="center_point"
+			android:animation="@animator/center_point_reset_to_center"/>
+</animated-vector>

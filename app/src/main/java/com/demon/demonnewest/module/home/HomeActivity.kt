@@ -28,6 +28,7 @@ import com.demon.demonnewest.module.fragment.FragsActivity
 import com.demon.demonnewest.module.img.glide.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
 import com.demon.demonnewest.module.progress.uuid.DeviceIdActivity
+import com.demon.demonnewest.module.vetor.VectorActivity
 import com.demon.demonnewest.module.views.DoodleActivity
 import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
@@ -70,6 +71,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("ViewBinding", VbActivity::class.java),
         HomeEntity("引导高亮", LighterActivity::class.java),
         HomeEntity("涂鸦马赛克", DoodleActivity::class.java),
+        HomeEntity("Vector", VectorActivity::class.java),
         HomeEntity("设计模式"),
         HomeEntity("工厂模式", AudioActivity::class.java),
         HomeEntity("实验"),

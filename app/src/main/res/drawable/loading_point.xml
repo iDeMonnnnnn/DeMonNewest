@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+		android:width="60dp"
+		android:height="60dp"
+		android:viewportHeight="60"
+		android:viewportWidth="60">
+	<path
+		android:fillColor="#FFFFFF"
+		android:pathData="
+		M2,30
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M58,30
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M30,2
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M30,58
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+		"
+	/>
+	<group
+		android:pivotX="30"
+		android:pivotY="30"
+		android:rotation="45">
+		<path
+			android:fillColor="#FFFFFF"
+			android:pathData="
+		M2,30
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M58,30
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M30,2
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+
+		M30,58
+		m-2,0
+		a2,2 0, 1,1 4,0
+		a2,2 0, 1,1 -4,0
+		"
+		/>
+	</group>
+	<group
+		android:name="center_point_gp"
+		android:pivotX="30.0"
+		android:pivotY="30.0"
+		android:rotation="-0.0">
+		<path
+			android:name="center_point"
+			android:fillColor="#FFFFFF"
+			android:pathData="@string/point_start"
+		/>
+	</group>
+</vector>

@@ -3,5 +3,41 @@
     <string name="cancel">取消</string>
     <string name="confirm">确认</string>
     <string name="tips">提示</string>
-    <string name="title_activity_main">MainActivity</string>
+
+    <string name="path_circle">
+		M50,50
+		m -48,0
+		a48,48 0 1,1 96,0
+		a48,48 0 1,1 -96,0
+	</string>
+    <string name="left_eye">M30,35 m-7,0 a7,7 0 1,1 14,0 a7,7 0 1,1 -14,0</string>
+    <string name="right_eye">M70,35 m-7,0 a7,7 0 1,1 14,0 a7,7 0 1,1 -14,0</string>
+    <string name="mouth_happy">M30,60 q20,20 40,0</string>
+    <string name="mouth_sad">M30,60 q20,-20 40,0</string>
+
+    <string name="path_search">
+		M141,17
+		A9,9 0 1,1 142,16
+		L149,23
+	</string>
+    <string name="heart_beat_start">
+		M20.5,9.5
+		c-1.955,0,-3.83,1.268,-4.5,3
+		c-0.67,-1.732,-2.547,-3,-4.5,-3
+		C8.957,9.5,7,11.432,7,14
+		c0,3.53,3.793,6.257,9,11.5
+		c5.207,-5.242,9,-7.97,9,-11.5
+		C25,11.432,23.043,9.5,20.5,9.5z
+	</string>
+
+    <string name="heart_beat_end">
+		M20.5,9.5
+		c-2.955,0,-3.93,1.268,-4.5,3
+		c-1.67,-1.932,-2.547,-3,-4.5,-3
+		C8.957,9.5,7,11.432,7,14
+		c0,3.53,3.793,6.257,9,11.5
+		c5.207,-5.242,9,-7.97,9,-11.5
+		C25,11.432,23.043,9.5,20.5,9.5z
+	</string>
+    <string name="point_start">M30,30 m-3,0 a3,3 0, 1,1 6,0 a3,3 0, 1,1 -6,0</string>
 </resources>

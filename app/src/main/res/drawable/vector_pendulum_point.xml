@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+		android:width="100dp"
+		android:height="50dp"
+		android:viewportHeight="30"
+		android:viewportWidth="60">
+	<group android:name="left_point"
+		   android:pivotX="30"
+		   android:pivotY="0">
+		<path
+			android:fillColor="#d43c29"
+			android:pathData="
+		M15,15
+		a3,3 0 1,1 6,0
+		a3,3 0 1,1 -6,0"
+			android:strokeWidth="0"
+		/>
+	</group>
+
+	<path
+		android:fillColor="#d43c29"
+		android:pathData="
+		M21,15
+		a3,3 0 1,1 6,0
+		a3,3 0 1,1 -6,0"
+		android:strokeWidth="0"
+	/>
+
+	<path
+		android:fillColor="#d43c29"
+		android:pathData="
+		M27,15
+		a3,3 0 1,1 6,0
+		a3,3 0 1,1 -6,0"
+		android:strokeWidth="0"
+	/>
+
+	<path
+		android:fillColor="#d43c29"
+		android:pathData="
+		M33,15
+		a3,3 0 1,1 6,0
+		a3,3 0 1,1 -6,0"
+		android:strokeWidth="0"
+	/>
+
+	<group android:name="right_point"
+		   android:pivotX="30"
+		   android:pivotY="0">
+		<path
+			android:fillColor="#d43c29"
+			android:pathData="
+		M39,15
+		a3,3 0 1,1 6,0
+		a3,3 0 1,1 -6,0"
+			android:strokeWidth="0"
+		/>
+	</group>
+</vector>
