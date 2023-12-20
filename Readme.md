@@ -20,7 +20,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |ViewModel|MVVM|<https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn>|
 |Room|数据库|<https://developer.android.google.cn/topic/libraries/architecture/room?hl=zh-cn>|
 |Pagging|分页库|<https://developer.android.google.cn/topic/libraries/architecture/paging?hl=zh-cn>|
-|Hilt|依赖注入|[Android 中的依赖项注入](https://developer.android.google.cn/training/dependency-injection)|
+|Hilt|依赖注入|[Android 中的依赖项注入](https://developer.android.google.cn/training/dependency-injection/hilt-android?hl=zh-cn)|
 |DataStore|数据存储|<https://developer.android.google.cn/topic/libraries/architecture/datastore?hl=zh-cn>|
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
@@ -48,6 +48,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 
 #### 日志
+- 2023.12.20: 升级到最新构建kts&catelog
 - 2022.9.29：gradle version 7.x
 - 2022.8.30：```kotlin_version = '1.7.10'```,引入```compose```
 - 2022.3.30：引入腾讯mars-xlog

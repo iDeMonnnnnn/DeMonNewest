@@ -8,23 +8,22 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.demon.base.utils.helper.BroadcastHelper
 import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.SystemUtils
-import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.Tag
+import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.toActivity
 import com.demon.base.utils.ext.toast
+import com.demon.base.utils.helper.BroadcastHelper
 import com.demon.demonnewest.base.data.Constants
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.bean.HomeEntity
 import com.demon.demonnewest.databinding.ActivityHomeBinding
-import com.demon.demonnewest.module.img.bitmap.BitmapActivity
 import com.demon.demonnewest.module.camera.CameraXActivity
-import com.demon.demonnewest.module.compose.ComposeActivity
 import com.demon.demonnewest.module.dp.AudioActivity
 import com.demon.demonnewest.module.flow.FlowActivity
 import com.demon.demonnewest.module.fragment.FragsActivity
+import com.demon.demonnewest.module.img.bitmap.BitmapActivity
 import com.demon.demonnewest.module.img.glide.ImgLoadActivity
 import com.demon.demonnewest.module.list.ListActivity
 import com.demon.demonnewest.module.progress.uuid.DeviceIdActivity
@@ -35,6 +34,7 @@ import com.demon.demonnewest.module.views.MotionActivity
 import com.demon.demonnewest.module.views.VbActivity
 import com.demon.demonnewest.module.views.animation.AnimationActivity
 import com.google.android.material.snackbar.Snackbar
+import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.tencent.mars.xlog.Log
@@ -60,7 +60,6 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
         HomeEntity("DataStore VS MMKV", RouterConst.ACT_DATASTORE),
         HomeEntity("WorkManager", RouterConst.ACT_WORKER),
         HomeEntity("CameraX", CameraXActivity::class.java),
-        HomeEntity("Compose", ComposeActivity::class.java),
         HomeEntity("框架&使用实例"),
         HomeEntity("多进程通信", RouterConst.ACT_MULTIPROGRESS),
         HomeEntity("多样式列表", ListActivity::class.java),
@@ -90,6 +89,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
 
         immersionBar {
             titleBar(binding.toolbar)
+            hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
         }
 
         bindingRun {
