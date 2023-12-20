@@ -1,7 +1,6 @@
 package com.tencent.mars.xlog
 
 import android.content.Context
-import com.tencent.mars.BuildConfig
 
 /**
  * @author DeMonnnnnn

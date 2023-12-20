@@ -6,10 +6,6 @@ import android.os.Looper;
 import android.os.Process;
 import android.widget.Toast;
 
-import com.tencent.mars.BuildConfig;
-
-import java.io.File;
-
 /**
  * @author zhaoyuan orehzhang
  */

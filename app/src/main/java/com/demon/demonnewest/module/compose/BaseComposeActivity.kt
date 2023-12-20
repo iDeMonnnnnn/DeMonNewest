@@ -15,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.demon.base.mvvm.BaseVMActivity
 import com.demon.base.mvvm.BaseViewModel
-import com.demon.demonnewest.R
 import com.demon.demonnewest.module.compose.ui.theme.DeMonNewestTheme
 
 /**
@@ -56,7 +55,7 @@ abstract class BaseComposeActivity<VM : BaseViewModel> : BaseVMActivity<VM>() {
     fun initViewWithAppBar() {
         Column {
             TopAppBar(navigationIcon = {
-                Image(painter = painterResource(R.drawable.abc_vector_test), contentDescription = "back", modifier = Modifier
+                Image(painter = painterResource(android.R.drawable.btn_plus), contentDescription = "back", modifier = Modifier
                     .clickable {
                         finish()
                     }

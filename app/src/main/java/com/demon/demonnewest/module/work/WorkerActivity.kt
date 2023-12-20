@@ -1,13 +1,22 @@
 package com.demon.demonnewest.module.work
 
-import com.tencent.mars.xlog.Log
-import androidx.work.*
+import androidx.work.BackoffPolicy
+import androidx.work.Constraints
+import androidx.work.Data
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.demon.base.mvvm.BaseVBActivity
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.base.data.RouterConst
 import com.demon.demonnewest.databinding.ActivityWorkerBinding
+import com.tencent.mars.xlog.Log
 import java.util.concurrent.TimeUnit
 
 @Route(path = RouterConst.ACT_WORKER)
@@ -59,7 +68,7 @@ class WorkerActivity : BaseVBActivity<ActivityWorkerBinding>() {
                 .addTag("Retry")
                 .setBackoffCriteria(
                     BackoffPolicy.LINEAR,
-                    OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
+                    WorkRequest.MIN_BACKOFF_MILLIS,
                     TimeUnit.MILLISECONDS
                 )
                 .build()
@@ -84,7 +93,7 @@ class WorkerActivity : BaseVBActivity<ActivityWorkerBinding>() {
                 .addTag("Retry")
                 .setBackoffCriteria(
                     BackoffPolicy.LINEAR,
-                    OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
+                    WorkRequest.MIN_BACKOFF_MILLIS,
                     TimeUnit.MILLISECONDS
                 )
                 .build()

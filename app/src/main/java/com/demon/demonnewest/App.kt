@@ -44,7 +44,7 @@ class App : BaseApp() {
         super.onCreate()
         Log.i(TAG, "onCreate: ")
         if (isMainProcess()) {
-            QFHelper.init(this, "fileProvider")
+            QFHelper.init(this, BuildConfig.DEBUG, "fileProvider")
         }
         LiveEventBus.config().setContext(applicationContext)
     }

@@ -2,9 +2,13 @@ package com.demon.demonnewest.module.dp.audio
 
 import android.content.Context
 import android.net.Uri
-import com.tencent.mars.xlog.Log
-import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.PlaybackException
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.Timeline
 import com.google.android.exoplayer2.upstream.RawResourceDataSource
+import com.tencent.mars.xlog.Log
 
 
 /**
@@ -26,7 +30,7 @@ class ExoPlayerAudio : IAudio {
         if (mPlayer == null) {
             mPlayer = SimpleExoPlayer.Builder(context).build()
         } else {
-            mPlayer?.stop(true)
+            mPlayer?.stop()
         }
         val mediaItem: MediaItem = MediaItem.fromUri(RawResourceDataSource.buildRawResourceUri(id))
         mPlayer?.setMediaItem(mediaItem)
@@ -37,7 +41,7 @@ class ExoPlayerAudio : IAudio {
         if (mPlayer == null) {
             mPlayer = SimpleExoPlayer.Builder(context).build()
         } else {
-            mPlayer?.stop(true)
+            mPlayer?.stop()
         }
         val mediaItem: MediaItem = MediaItem.fromUri(uri)
         mPlayer?.setMediaItem(mediaItem)
@@ -72,7 +76,7 @@ class ExoPlayerAudio : IAudio {
 
     override fun release() {
         mPlayer?.run {
-            stop(true)
+            stop()
             release()
         }
     }

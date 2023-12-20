@@ -1,0 +1,52 @@
+[versions]
+installreferrer="2.2"
+activity-ktx = "1.8.2"
+adjust-android = "4.36.0"
+android-min = "24"
+android-target = "34"
+android-compile = "34"
+agp = "8.2.0"
+httpdns-sdk = "4.4.0-intl"
+kotlin-coroutines-retrofit="1.1.0"
+kotlinx-coroutines-android = "1.7.3"
+log="1.0.0"
+okhttp = "4.10.0"
+onesignal = "4.8.6"
+org-jetbrains-kotlin-android = "1.7.10"
+core-ktx = "1.12.0"
+appcompat = "1.6.1"
+material = "1.11.0"
+constraintlayout = "2.1.4"
+retrofit="2.9.0"
+room-rxjava2 = "2.6.1"
+tathirdparty = "1.1.0"
+thinkinganalyticssdk = "2.8.3"
+
+[libraries]
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
+adjust-android = { module = "com.adjust.sdk:adjust-android", version.ref = "adjust-android" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+httpdns-sdk = { module = "io.github.dnspod:httpdns-sdk", version.ref = "httpdns-sdk" }
+installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
+kotlin-coroutines-retrofit = { module = "ru.gildor.coroutines:kotlin-coroutines-retrofit", version.ref = "kotlin-coroutines-retrofit" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+log = { module = "com.game.intsdk:log", version.ref = "log" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+onesignal = { module = "com.onesignal:OneSignal", version.ref = "onesignal" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "room-rxjava2" }
+tathirdparty = { module = "cn.thinkingdata.android:TAThirdParty", version.ref = "tathirdparty" }
+thinkinganalyticssdk = { module = "cn.thinkingdata.android:ThinkingAnalyticsSDK", version.ref = "thinkinganalyticssdk" }
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+com-android-library = { id = "com.android.library", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+
+[bundles]
+
