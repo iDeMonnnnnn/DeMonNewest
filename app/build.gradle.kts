@@ -4,6 +4,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
     //id("com.google.devtools.ksp")
 }
 
@@ -110,5 +111,10 @@ dependencies {
     implementation(libs.refresh.footer.classics)
     //https://github.com/guolindev/PermissionX
     implementation(libs.permissionx)
+
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.firebase:firebase-messaging-directboot:20.2.0")
 
 }

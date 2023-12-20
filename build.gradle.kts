@@ -1,6 +1,6 @@
 buildscript {
     extra.apply {
-        set("appMinSdk", 21)
+        set("appMinSdk", 24)
         set("appCompileSdk", 34)
         set("appTargetSdk", 34)
         set("appVersionCode", 100)
@@ -14,5 +14,6 @@ plugins {
     alias(libs.plugins.com.android.library) apply false
     alias(libs.plugins.org.jetbrains.kotlin.android) apply false
     alias(libs.plugins.hilt.android) apply false
+    id("com.google.gms.google-services") version "4.4.0" apply false
     //alias(libs.plugins.ksp) apply false
 }
