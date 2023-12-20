@@ -1,7 +1,7 @@
 [versions]
-android-min = "24"
-android-target = "34"
-android-compile = "34"
+app-minsdk = "24"
+app-targetsdk = "34"
+app-compilesdk = "34"
 arouter-api = "1.5.2"
 autodispose = "0.3.1"
 baserecyclerviewadapterhelper = "3.0.13"

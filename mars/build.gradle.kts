@@ -4,11 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = 34
+
     namespace = "com.tencent.mars.xlog"
+    compileSdk = "${rootProject.extra["appCompileSdk"]}".toInt()
+
     defaultConfig {
-        minSdk = 21
-        targetSdk = 34
+        minSdk = "${rootProject.extra["appMinSdk"]}".toInt()
     }
 
     sourceSets {

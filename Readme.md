@@ -45,7 +45,10 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |--|--|--|
 |多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
 
-
+#### 配置
+| 技术  | 说明         |备注|
+|-----|------------|--|
+| kts | kotlin构建脚本 |<https://developer.android.com/studio/build/migrate-to-kts?hl=zh-cn>|
 
 #### 日志
 - 2023.12.20: 升级到最新构建kts&catelog

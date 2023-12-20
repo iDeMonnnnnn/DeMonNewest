@@ -7,12 +7,10 @@ plugins {
 
 android {
     namespace = "com.demon.base"
-    compileSdk = 34
+    compileSdk = "${rootProject.extra["appCompileSdk"]}".toInt()
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 34
-
+        minSdk = "${rootProject.extra["appMinSdk"]}".toInt()
     }
 
     compileOptions {

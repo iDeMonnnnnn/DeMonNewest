@@ -49,7 +49,6 @@
         <activity android:name=".module.flow.FlowActivity" />
         <activity android:name=".module.camera.CameraXActivity" />
         <activity android:name=".module.fragment.FragsActivity" />
-        <activity android:name=".module.compose.ComposeActivity" />
         <activity android:name=".module.progress.uuid.DeviceIdActivity" />
         <activity android:name=".module.img.bitmap.BitmapActivity" />
         <activity android:name=".module.vetor.VectorActivity" />

@@ -7,16 +7,20 @@ plugins {
 }
 
 android {
-    namespace = "com.demon.demonnewest"
-    compileSdk = 34
+    namespace = "${rootProject.extra["appPackageName"]}"
+    compileSdk = "${rootProject.extra["appCompileSdk"]}".toInt()
 
     defaultConfig {
-        applicationId = "com.demon.demonnewest"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "${rootProject.extra["appPackageName"]}"
+        minSdk = "${rootProject.extra["appMinSdk"]}".toInt()
+        targetSdk = "${rootProject.extra["appTargetSdk"]}".toInt()
+        versionCode = "${rootProject.extra["appVersionCode"]}".toInt()
+        versionName = "${rootProject.extra["appVersionName"]}"
+
         ndk { abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a")) }
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     signingConfigs {
@@ -46,9 +50,6 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
