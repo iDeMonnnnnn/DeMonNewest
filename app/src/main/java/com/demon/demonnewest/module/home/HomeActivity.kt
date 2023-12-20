@@ -3,13 +3,13 @@ package com.demon.demonnewest.module.home
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.mvvm.MvvmActivity
-import com.demon.base.utils.SystemUtils
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.toActivity
@@ -33,7 +33,6 @@ import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
 import com.demon.demonnewest.module.views.VbActivity
 import com.demon.demonnewest.module.views.animation.AnimationActivity
-import com.google.android.material.snackbar.Snackbar
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -96,7 +95,11 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
             rvMenu.adapter = adapter
             rvMenu.clipToPadding
             fab.setOnClickThrottleFirst {
-                Snackbar.make(it, "当前渠道:${SystemUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
+                // Snackbar.make(it, "当前渠道:${SystemUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse("intscheme://int.game?brd=apktklslo02")
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
         }
 
@@ -117,6 +120,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
                     Constants.BROADCAST1 -> {
                         "${intent.getLongExtra(BroadcastHelper.RESULT, 0)}".toast()
                     }
+
                     Constants.BROADCAST2 -> {
                         intent.getStringExtra(BroadcastHelper.RESULT)?.toast()
                     }
@@ -139,9 +143,11 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
                 item.router.isNotBlank() -> {
                     ARouter.getInstance().build(item.router).navigation()
                 }
+
                 item.activity != null -> {
                     toActivity(Intent(this@HomeActivity, item.activity))
                 }
+
                 else -> {
                     "Click~".toast()
                 }
