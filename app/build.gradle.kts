@@ -4,6 +4,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    //id("com.google.devtools.ksp")
 }
 
 android {
@@ -89,7 +90,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     //Glide4.x
-    annotationProcessor(libs.compiler)
+    kapt(libs.glide.compiler)
     implementation(libs.glide.transformations)
     //GPU Filters
     //implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'

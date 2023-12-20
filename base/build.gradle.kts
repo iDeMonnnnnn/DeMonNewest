@@ -28,7 +28,7 @@ android {
 
 kapt {
     arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
+        arg("AROUTER_MODULE_NAME", project.name)
     }
 }
 
@@ -37,9 +37,7 @@ dependencies {
     //mars-xlog
     api(project(":mars"))
     //multidex
-    api(libs.multidex)
     api(libs.appcompat)
-    api(libs.constraintlayout)
     api(libs.material)
     api(libs.swiperefreshlayout)
     //ktx,https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#use-ktx
@@ -66,8 +64,8 @@ dependencies {
     api(libs.logging.interceptor)
     //Glide4.x
     api(libs.glide)
-    api(libs.okhttp3.integration)
-    annotationProcessor(libs.compiler)
+    kapt(libs.glide.compiler)
+    api(libs.glide.okhttp3.integration)
     //ARouter
     implementation(libs.arouter.api)
     kapt(libs.arouter.compiler)

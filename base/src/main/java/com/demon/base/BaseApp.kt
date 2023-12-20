@@ -2,7 +2,6 @@ package com.demon.base
 
 import android.app.Application
 import android.content.Context
-import androidx.multidex.MultiDex
 import androidx.startup.AppInitializer
 import com.demon.base.startup.ARouterInitializer
 import com.demon.base.utils.SystemUtils
@@ -45,7 +44,6 @@ open class BaseApp : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        MultiDex.install(base)
     }
 
 
