@@ -70,7 +70,7 @@ dependencies {
     implementation(libs.arouter.api)
     kapt(libs.arouter.compiler)
     //LiveEventBus
-    api(libs.live.event.bus.x)
+    api(libs.liveeventbus)
     //mmkv
     api(libs.mmkv)
     //QFsolution
