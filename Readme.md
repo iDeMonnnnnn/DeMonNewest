@@ -13,50 +13,50 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 |组件|说明|链接|备注|
 |--|--|--|--|
-|KTX|Android官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
+|KTX|Android官方Kotlin扩展库|[传送门](https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager)|
 |Flow|响应式编程模型|-|
-|ViewBinding|视图绑定|<https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn>|
-|LiveData|数据观察|<https://developer.android.google.cn/topic/libraries/architecture/livedata?hl=zh-cn>|
-|ViewModel|MVVM|<https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn>|
-|Room|数据库|<https://developer.android.google.cn/topic/libraries/architecture/room?hl=zh-cn>|
-|Pagging|分页库|<https://developer.android.google.cn/topic/libraries/architecture/paging?hl=zh-cn>|
+|ViewBinding|视图绑定|[传送门](https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn)|
+|LiveData|数据观察|[传送门](https://developer.android.google.cn/topic/libraries/architecture/livedata?hl=zh-cn)|
+|ViewModel|MVVM|[传送门](https://developer.android.google.cn/topic/libraries/architecture/viewmodel?hl=zh-cn)|
+|Room|数据库|[传送门](https://developer.android.google.cn/topic/libraries/architecture/room?hl=zh-cn)|
+|Pagging|分页库|[传送门](https://developer.android.google.cn/topic/libraries/architecture/paging?hl=zh-cn)|
 |Hilt|依赖注入|[Android 中的依赖项注入](https://developer.android.google.cn/training/dependency-injection/hilt-android?hl=zh-cn)|
-|DataStore|数据存储|<https://developer.android.google.cn/topic/libraries/architecture/datastore?hl=zh-cn>|
-|WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
-|App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
-|MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
-|CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
-|Compose|声明式UI|<https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn>|
+|DataStore|数据存储|[传送门](https://developer.android.google.cn/topic/libraries/architecture/datastore?hl=zh-cn)|
+|WorkManager|异步任务调度|[传送门](https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn)|
+|App Startup|应用启动|[传送门](https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn)|
+|MotionLayout|运动和微件动画|[传送门](https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn)|
+|CameraX|相机应用|[传送门](https://developer.android.google.cn/training/camerax?hl=zh-cn)|
+|Compose|声明式UI|[传送门](https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn)|
 
 #### 框架
 
-|框架|说明|链接|备注|
-|--|--|--|--|
+|框架|说明|链接| 备注                                                                           |
+|--|--|--|------------------------------------------------------------------------------|
 |Glide4.x|最优秀的图片加载框架|https://blog.csdn.net/demonliuhui/category_9926150.html|
-|ARouter|阿里路由框架|<https://github.com/alibaba/ARouter>|
-|LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
-|MMKV|腾讯基于mmap的高性能通用key-value组件|<https://github.com/Tencent/MMKV/blob/master/readme_cn.md>|
-|mars-xlog|腾讯高性能日志模块xlog|<https://github.com/Tencent/mars>|
+|ARouter|阿里路由框架|[传送门](https://github.com/alibaba/ARouter)| 针对gardle8.0+ksp需要适配，见[传送门](https://github.com/JailedBird/ArouterKspCompiler) |
+|LiveEventBus|美团消息总线|[传送门](https://github.com/JeremyLiao/LiveEventBus)|
+|MMKV|腾讯基于mmap的高性能通用key-value组件|[传送门](https://github.com/Tencent/MMKV/blob/master/readme_cn.md)|
+|mars-xlog|腾讯高性能日志模块xlog|[传送门](https://github.com/Tencent/mars)|
 
 #### 技术
 
 |技术|说明|链接|备注|
 |--|--|--|--|
-|多渠道|Walle|<https://github.com/Meituan-Dianping/walle>|
+|多渠道|Walle|[传送门](https://github.com/Meituan-Dianping/walle)|
 
 #### 配置
 | 技术  | 说明         |链接|备注|
 |-----|------------|--|--|
-| kts | kotlin构建脚本 |<https://developer.android.com/studio/build/migrate-to-kts?hl=zh-cn>|
-| ksp | kotlin注解处理器 |<https://kotlinlang.org/docs/ksp-overview.html>|
+| kts | kotlin构建脚本 |[传送门](https://developer.android.com/studio/build/migrate-to-kts?hl=zh-cn)|
+| ksp | kotlin注解处理器 |[传送门](https://kotlinlang.org/docs/ksp-overview.html)|
 
 
 #### 废弃
 
 |技术|说明|链接| 备注          |
 |--|--|--|-------------|
-|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>| 复杂且缺陷       |
-|多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>| 过时，迁移到Walle |
+|Activity Result API|代替startActivityForResult|[传送门](https://github.com/iDeMonnnnnn/DeMon-ARA)| 复杂且缺陷       |
+|多渠道|美团渠道包解决方案|[传送门](https://tech.meituan.com/2014/06/13/mt-apk-packaging.html)| 过时，迁移到Walle |
 
 #### 日志
 - 2024.4.28: 支持的最高 Android API 级别为 35。
