@@ -2,7 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -26,10 +26,8 @@ android {
     }
 }
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.name)
-    }
+ksp {
+    arg("AROUTER_MODULE_NAME", project.name)
 }
 
 dependencies {
@@ -64,11 +62,10 @@ dependencies {
     api(libs.logging.interceptor)
     //Glide4.x
     api(libs.glide)
-    kapt(libs.glide.compiler)
     api(libs.glide.okhttp3.integration)
     //ARouter
     implementation(libs.arouter.api)
-    kapt(libs.arouter.compiler)
+    ksp(libs.arouter.kspcompiler)
     //LiveEventBus
     api(libs.liveeventbus)
     //mmkv

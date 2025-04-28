@@ -20,7 +20,7 @@ class DoHelper @Inject constructor() {
 
 
     @Inject
-    protected lateinit var gson: Gson
+    lateinit var gson: Gson
 
 
     fun getGson(): String {

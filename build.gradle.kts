@@ -1,8 +1,8 @@
 buildscript {
     extra.apply {
         set("appMinSdk", 24)
-        set("appCompileSdk", 34)
-        set("appTargetSdk", 34)
+        set("appCompileSdk", 35)
+        set("appTargetSdk", 35)
         set("appVersionCode", 100)
         set("appVersionName", "1.0.0")
         set("appPackageName", "com.demon.demonnewest")
@@ -15,5 +15,5 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android) apply false
     alias(libs.plugins.hilt.android) apply false
     id("com.google.gms.google-services") version "4.4.0" apply false
-    //alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.ksp) apply false
 }

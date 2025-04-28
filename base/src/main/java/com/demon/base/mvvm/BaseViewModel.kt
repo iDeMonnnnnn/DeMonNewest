@@ -1,12 +1,20 @@
 package com.demon.base.mvvm
 
-import com.tencent.mars.xlog.Log
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tencent.mars.xlog.Log
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.retry
+
 /**
  * @author DeMonnnnnn
  * date 2022/9/23
@@ -54,7 +62,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     }
 
 
-    protected fun <T> MutableLiveData<out T>.toFlow(showLoading: Boolean = true, block: suspend () -> T) {
+    protected fun <T> MutableLiveData<T>.toFlow(showLoading: Boolean = true, block: suspend () -> T) {
         flow { emit(block()) }
             .onStart {
                 if (showLoading) loadingData.value = true
@@ -77,7 +85,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
      * }) { dataManager.something().getDataOrThrow() }
      * ```
      */
-    protected fun <T> MutableLiveData<out Any>.toFlowRetry(
+    protected fun <T> MutableLiveData<Any>.toFlowRetry(
         retries: Long,
         predicate: suspend (cause: Throwable) -> Boolean = { false },
         block: suspend () -> T

@@ -2,10 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
-    //id("com.google.devtools.ksp")
 }
 
 android {
@@ -60,10 +59,8 @@ android {
     }
 }
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.name)
-    }
+ksp {
+    arg("AROUTER_MODULE_NAME", project.name)
 }
 
 dependencies {
@@ -71,7 +68,7 @@ dependencies {
     implementation(project(":base"))
     //room
     implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
 
     implementation(libs.paging.runtime.ktx)
     implementation(libs.camera.core)
@@ -86,12 +83,11 @@ dependencies {
     implementation(libs.exoplayer)
     //ARouter,每个module都需要添加
     implementation(libs.arouter.api)
-    kapt(libs.arouter.compiler)
+    ksp(libs.arouter.kspcompiler)
     //hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     //Glide4.x
-    kapt(libs.glide.compiler)
     implementation(libs.glide.transformations)
     //GPU Filters
     //implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'

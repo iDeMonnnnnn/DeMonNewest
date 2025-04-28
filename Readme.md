@@ -11,8 +11,8 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 #### 组件
 
-|组件|说明|备注|
-|--|--|--|
+|组件|说明|链接|备注|
+|--|--|--|--|
 |KTX|Android官方Kotlin扩展库|<https://developer.android.google.cn/kotlin/ktx?hl=zh_cn#workmanager>|
 |Flow|响应式编程模型|-|
 |ViewBinding|视图绑定|<https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn>|
@@ -25,14 +25,14 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
-|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>|
+~~|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>|~~
 |CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
 |Compose|声明式UI|<https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn>|
 
 #### 框架
 
-|框架|说明|备注|
-|--|--|--|
+|框架|说明|链接|备注|
+|--|--|--|--|
 |Glide4.x|最优秀的图片加载框架|https://blog.csdn.net/demonliuhui/category_9926150.html|
 |ARouter|阿里路由框架|<https://github.com/alibaba/ARouter>|
 |LiveEventBus|美团消息总线|<https://github.com/JeremyLiao/LiveEventBus>|
@@ -41,16 +41,18 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 #### 技术
 
-|技术|说明|备注|
-|--|--|--|
+|技术|说明|链接|备注|
+|--|--|--|--|
 |多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
 
 #### 配置
-| 技术  | 说明         |备注|
-|-----|------------|--|
+| 技术  | 说明         |链接|备注|
+|-----|------------|--|--|
 | kts | kotlin构建脚本 |<https://developer.android.com/studio/build/migrate-to-kts?hl=zh-cn>|
+| ksp | kotlin注解处理器 |<https://kotlinlang.org/docs/ksp-overview.html>|
 
 #### 日志
+- 2024.4.28: 支持的最高 Android API 级别为 35。
 - 2023.12.20: 升级到最新构建kts&catelog
 - 2022.9.29：gradle version 7.x
 - 2022.8.30：```kotlin_version = '1.7.10'```,引入```compose```
