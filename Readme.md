@@ -30,13 +30,13 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 #### 框架
 
-|框架|说明|链接| 备注                                                                           |
-|--|--|--|------------------------------------------------------------------------------|
-|Glide4.x|最优秀的图片加载框架|https://blog.csdn.net/demonliuhui/category_9926150.html|
-|ARouter|阿里路由框架|[传送门](https://github.com/alibaba/ARouter)| 针对gardle8.0+ksp需要适配，见[传送门](https://github.com/JailedBird/ArouterKspCompiler) |
-|LiveEventBus|美团消息总线|[传送门](https://github.com/JeremyLiao/LiveEventBus)|
-|MMKV|腾讯基于mmap的高性能通用key-value组件|[传送门](https://github.com/Tencent/MMKV/blob/master/readme_cn.md)|
-|mars-xlog|腾讯高性能日志模块xlog|[传送门](https://github.com/Tencent/mars)|
+|框架|说明| 链接                                                              | 备注                                                                           |
+|--|--|-----------------------------------------------------------------|------------------------------------------------------------------------------|
+|Glide4.x|最优秀的图片加载框架| [传送门](https://blog.csdn.net/demonliuhui/category_9926150.html)  |
+|ARouter|阿里路由框架| [传送门](https://github.com/alibaba/ARouter)                       | 针对gardle8.0+ksp需要适配，见[传送门](https://github.com/JailedBird/ArouterKspCompiler) |
+|LiveEventBus|美团消息总线| [传送门](https://github.com/JeremyLiao/LiveEventBus)               |
+|MMKV|腾讯基于mmap的高性能通用key-value组件| [传送门](https://github.com/Tencent/MMKV/blob/master/readme_cn.md) |
+|mars-xlog|腾讯高性能日志模块xlog| [传送门](https://github.com/Tencent/mars)                          |
 
 #### 技术
 
