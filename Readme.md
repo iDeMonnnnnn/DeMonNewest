@@ -25,7 +25,6 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |WorkManager|异步任务调度|<https://developer.android.google.cn/topic/libraries/architecture/workmanager?hl=zh-cn>|
 |App Startup|应用启动|<https://developer.android.google.cn/topic/libraries/app-startup?hl=zh-cn>|
 |MotionLayout|运动和微件动画|<https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn>|
-~~|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>|~~
 |CameraX|相机应用|<https://developer.android.google.cn/training/camerax?hl=zh-cn>|
 |Compose|声明式UI|<https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn>|
 
@@ -43,13 +42,21 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 |技术|说明|链接|备注|
 |--|--|--|--|
-|多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>|
+|多渠道|Walle|<https://github.com/Meituan-Dianping/walle>|
 
 #### 配置
 | 技术  | 说明         |链接|备注|
 |-----|------------|--|--|
 | kts | kotlin构建脚本 |<https://developer.android.com/studio/build/migrate-to-kts?hl=zh-cn>|
 | ksp | kotlin注解处理器 |<https://kotlinlang.org/docs/ksp-overview.html>|
+
+
+#### 废弃
+
+|技术|说明|链接| 备注          |
+|--|--|--|-------------|
+|Activity Result API|代替startActivityForResult|<https://github.com/iDeMonnnnnn/DeMon-ARA>| 复杂且缺陷       |
+|多渠道|美团渠道包解决方案|<https://tech.meituan.com/2014/06/13/mt-apk-packaging.html>| 过时，迁移到Walle |
 
 #### 日志
 - 2024.4.28: 支持的最高 Android API 级别为 35。
