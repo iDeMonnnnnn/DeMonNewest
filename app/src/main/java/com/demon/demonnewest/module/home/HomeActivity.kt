@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.demon.base.mvvm.MvvmActivity
+import com.demon.base.utils.SystemUtils
 import com.demon.base.utils.ext.Tag
 import com.demon.base.utils.ext.setOnClickThrottleFirst
 import com.demon.base.utils.ext.toActivity
@@ -32,8 +33,6 @@ import com.demon.demonnewest.module.views.LighterActivity
 import com.demon.demonnewest.module.views.MotionActivity
 import com.demon.demonnewest.module.views.VbActivity
 import com.demon.demonnewest.module.views.animation.AnimationActivity
-import com.gyf.immersionbar.BarHide
-import com.gyf.immersionbar.ktx.immersionBar
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.tencent.mars.xlog.Log
 import dagger.hilt.android.AndroidEntryPoint
@@ -84,12 +83,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
     }
 
     override fun setupData() {
-
-        immersionBar {
-            titleBar(binding.toolbar)
-            hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
-        }
-
+        SystemUtils.setSystemBarStatus(this)
         bindingRun {
             rvMenu.adapter = adapter
             rvMenu.clipToPadding

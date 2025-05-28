@@ -1,11 +1,18 @@
 package com.demon.base.utils
 
+import android.app.Activity
 import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Process
 import android.telephony.TelephonyManager
+import android.view.Window
+import android.view.WindowManager
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.demon.base.BaseApp
 import com.demon.base.utils.ext.Tag
 import com.tencent.mars.xlog.Log
@@ -77,6 +84,62 @@ object SystemUtils {
             Log.e(Tag, "getImei: " + exception.message)
         }
         return null
+    }
+
+
+    @JvmStatic
+    @JvmOverloads
+    fun setScreen(activity: Activity, orientation: String?, safeCutout: Boolean = false, navBar: Boolean = false) {
+
+        //屏幕方向
+        activity.requestedOrientation = when (orientation) {
+            "portrait" -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            "unspecified" -> {
+                ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            }
+
+            else -> ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE
+        }
+        setSystemBarStatus(activity, safeCutout, navBar)
+    }
+
+    /**
+     *  设置系统状态栏
+     */
+    @JvmStatic
+    @JvmOverloads
+    fun setSystemBarStatus(activity: Activity, safeCutout: Boolean = false, navBar: Boolean = false) {
+        setSystemBarStatus(activity.window, safeCutout, navBar)
+    }
+
+    /**
+     *  设置系统状态栏
+     */
+    @JvmStatic
+    @JvmOverloads
+    fun setSystemBarStatus(window: Window, safeCutout: Boolean = false, navBar: Boolean = false) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.statusBars())
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            if (navBar) {
+                controller.show(WindowInsetsCompat.Type.navigationBars())
+            } else {
+                controller.hide(WindowInsetsCompat.Type.navigationBars())
+            }
+        }
+        //刘海屏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val lp = window.attributes
+            lp.layoutInDisplayCutoutMode = if (!safeCutout) {
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            } else {
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER
+            }
+            window.attributes = lp
+        }
+
+
     }
 
 }

@@ -53,10 +53,11 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 
 #### 废弃
 
-|技术|说明|链接| 备注          |
-|--|--|--|-------------|
-|Activity Result API|代替startActivityForResult|[传送门](https://github.com/iDeMonnnnnn/DeMon-ARA)| 复杂且缺陷       |
-|多渠道|美团渠道包解决方案|[传送门](https://tech.meituan.com/2014/06/13/mt-apk-packaging.html)| 过时，迁移到Walle |
+|技术|说明| 链接                                                               | 备注         |
+|--|--|------------------------------------------------------------------|------------|
+|Activity Result API|代替startActivityForResult| [传送门](https://github.com/iDeMonnnnnn/DeMon-ARA)                  | 复杂且缺陷      |
+|多渠道|美团渠道包解决方案| [传送门](https://tech.meituan.com/2014/06/13/mt-apk-packaging.html) | 过时，迁移到Walle |
+|ImmersionBar|沉浸式状态栏| [传送门](https://github.com/gyf-dev/ImmersionBar)                   | [Edge-to-edge](https://developer.android.google.cn/develop/ui/views/layout/edge-to-edge?hl=zh-cn)       |
 
 #### 日志
 - 2024.4.28: 支持的最高 Android API 级别为 35。

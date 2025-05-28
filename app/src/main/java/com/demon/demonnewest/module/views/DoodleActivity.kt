@@ -2,14 +2,11 @@ package com.demon.demonnewest.module.views
 
 import android.graphics.BitmapFactory
 import com.demon.base.mvvm.BaseVBActivity
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmActivity
 import com.demon.base.utils.ext.saveBitmapImg
 import com.demon.base.utils.ext.toast
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.ActivityDoodleBinding
 import com.demon.demonnewest.module.views.imaging.IMGMode
-import com.gyf.immersionbar.ktx.immersionBar
 
 /**
  * @author DeMon
@@ -20,9 +17,6 @@ import com.gyf.immersionbar.ktx.immersionBar
 class DoodleActivity : BaseVBActivity<ActivityDoodleBinding>() {
 
     override fun setupData() {
-        immersionBar {
-
-        }
         binding.run {
             imgView.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.img1))
             btnMosaic.setOnClickListener {
