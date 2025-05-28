@@ -1,8 +1,8 @@
 package com.demon.base.utils.ext
 
 import androidx.core.text.isDigitsOnly
-import com.demon.base.utils.thread.ThreadHelper
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
+import kotlinx.coroutines.launch
 
 /**
  * @author DeMon
@@ -11,14 +11,14 @@ import com.hjq.toast.ToastUtils
  * Desc: Toast相关拓展
  */
 fun String.toast() {
-    ThreadHelper.runOnMainThread {
-        ToastUtils.show(this)
+    scopeMain.launch {
+        Toaster.show(this)
     }
 }
 
 fun Int.toast() {
-    ThreadHelper.runOnMainThread {
-        ToastUtils.show(this)
+    scopeMain.launch {
+        Toaster.show(this)
     }
 }
 

@@ -1,15 +1,15 @@
 package com.demon.demonnewest.module.mvvm
 
 import com.demon.base.list.BaseVbQAdapter
-import com.tencent.mars.xlog.Log
+import com.demon.base.list.DataVbHolder
 import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.Tag
-import com.demon.base.list.DataVbHolder
 import com.demon.demonnewest.base.widget.RefreshLoadLayout
 import com.demon.demonnewest.base.widget.RefreshLoadListener
 import com.demon.demonnewest.bean.ArticleBean
 import com.demon.demonnewest.databinding.FragmentArticleBinding
 import com.demon.demonnewest.databinding.ListArticleBinding
+import com.tencent.mars.xlog.Log
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -25,7 +25,7 @@ class ArticleFragment constructor(var author: String) : MvvmFragment<FragmentArt
         object : BaseVbQAdapter<ArticleBean, ListArticleBinding>() {
 
             override fun onBindItem(holder: DataVbHolder<ListArticleBinding>, binding: ListArticleBinding, data: ArticleBean, pos: Int) {
-                binding.tvText.text = data.title
+                binding.tvText.text = data?.title
             }
         }
     }

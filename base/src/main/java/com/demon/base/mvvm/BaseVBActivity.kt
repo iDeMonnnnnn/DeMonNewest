@@ -5,10 +5,11 @@ import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.demon.base.R
 import com.demon.base.utils.ext.inflateViewBinding
+import com.gyf.immersionbar.BarHide
+import com.gyf.immersionbar.ktx.immersionBar
 
 /**
  * @author DeMonnnnnn
@@ -26,6 +27,9 @@ abstract class BaseVBActivity<VB : ViewBinding> : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        immersionBar {
+            hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
+        }
         super.onCreate(savedInstanceState)
         mContext = this
         binding = inflateViewBinding(layoutInflater)

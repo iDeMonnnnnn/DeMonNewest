@@ -3,7 +3,6 @@ package com.demon.demonnewest.module.home
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
@@ -95,11 +94,7 @@ class HomeActivity : MvvmActivity<ActivityHomeBinding, HomeViewModel>(), OnItemC
             rvMenu.adapter = adapter
             rvMenu.clipToPadding
             fab.setOnClickThrottleFirst {
-                // Snackbar.make(it, "当前渠道:${SystemUtils.getChannel(mContext, "apkchannel")}", Snackbar.LENGTH_LONG).show()
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("intscheme://int.game?brd=apktklslo02")
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
+
             }
         }
 

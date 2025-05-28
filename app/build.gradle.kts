@@ -4,7 +4,6 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -95,22 +94,10 @@ dependencies {
     implementation(libs.shimmer)
     //引导高亮
     implementation(libs.lighter)
-    // https://github.com/gyf-dev/ImmersionBar
-    implementation(libs.immersionbar)
-    // fragment快速实现（可选）
-    implementation(libs.immersionbar.components)
-    // kotlin扩展（可选）
-    implementation(libs.immersionbar.ktx)
     //https://github.com/scwang90/SmartRefreshLayout
     implementation(libs.refresh.layout.kernel)//核心必须依赖
     implementation(libs.refresh.header.material)//谷歌刷新头
     implementation(libs.refresh.footer.classics)
     //https://github.com/guolindev/PermissionX
     implementation(libs.permissionx)
-
-    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-messaging-ktx")
-    implementation("com.google.firebase:firebase-messaging-directboot:20.2.0")
-
 }

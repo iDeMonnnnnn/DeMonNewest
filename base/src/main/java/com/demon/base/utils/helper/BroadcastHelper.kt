@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import com.demon.base.BaseApp
 import com.demon.base.utils.ext.Tag
 import com.google.gson.Gson
@@ -72,7 +73,11 @@ class BroadcastHelper constructor() {
             actions.forEach {
                 filter.addAction(it)
             }
-            mContext.registerReceiver(receiver, filter)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mContext.registerReceiver(receiver, filter, Context.RECEIVER_NOT_EXPORTED)
+            } else {
+                mContext.registerReceiver(receiver, filter)
+            }
             receiverMap[key] = receiver
         } catch (e: Exception) {
             e.printStackTrace()

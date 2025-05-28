@@ -4,8 +4,6 @@ import com.chad.library.adapter.base.BaseBinderAdapter
 import com.demon.base.list.ListItemBinder
 import com.demon.base.list.addListItemBinder
 import com.demon.base.mvvm.BaseVBActivity
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmActivity
 import com.demon.demonnewest.databinding.ActivityListBinding
 import com.demon.demonnewest.module.list.adapter.OneItemBinder
 import com.demon.demonnewest.module.list.adapter.TwoItemBinder

@@ -85,5 +85,11 @@ dependencies {
     api(libs.autodispose)
     //https://github.com/Blankj/AndroidUtilCode
     api(libs.utilcodex)
+    // https://github.com/gyf-dev/ImmersionBar
+    api(libs.immersionbar)
+    // fragment快速实现（可选）
+    api(libs.immersionbar.components)
+    // kotlin扩展（可选）
+    api(libs.immersionbar.ktx)
 
 }
