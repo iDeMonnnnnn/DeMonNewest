@@ -27,7 +27,7 @@ Android前沿JetPack组件&框架&技术的学习及其使用示例。
 |MotionLayout|运动和微件动画|[传送门](https://developer.android.google.cn/training/constraint-layout/motionlayout?hl=zh_cn)|
 |CameraX|相机应用|[传送门](https://developer.android.google.cn/training/camerax?hl=zh-cn)|
 |Compose|声明式UI|[传送门](https://developer.android.google.cn/jetpack/compose/tutorial?hl=zh-cn)|
-
+|SplashScreen|启动画面|[传送门](https://developer.android.google.cn/develop/ui/views/launch/splash-screen?hl=zh-cn)|
 #### 框架
 
 |框架|说明| 链接                                                              | 备注                                                                           |

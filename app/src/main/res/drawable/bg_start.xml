@@ -8,7 +8,7 @@
     <item android:top="200dp">
         <bitmap
             android:gravity="top"
-            android:src="@drawable/icon_logo" />
+            android:src="@drawable/logo_round" />
     </item>
     <!--<item android:bottom="8dp">
         <bitmap

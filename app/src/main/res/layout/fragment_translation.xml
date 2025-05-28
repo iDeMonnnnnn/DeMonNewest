@@ -16,13 +16,13 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@mipmap/icon_logo"
+            android:icon="@mipmap/ic_launcher_round"
             android:text="ONE" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@mipmap/icon_logo"
+            android:icon="@mipmap/ic_launcher_round"
             android:text="TWO" />
 
     </com.google.android.material.tabs.TabLayout>

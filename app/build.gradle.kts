@@ -100,4 +100,5 @@ dependencies {
     implementation(libs.refresh.footer.classics)
     //https://github.com/guolindev/PermissionX
     implementation(libs.permissionx)
+    implementation(libs.androidx.splashscreen)
 }

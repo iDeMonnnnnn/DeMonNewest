@@ -3,8 +3,6 @@ package com.demon.demonnewest.module.fragment
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.demon.base.mvvm.BaseVBFragment
-import com.demon.base.mvvm.BaseViewModel
-import com.demon.base.mvvm.MvvmFragment
 import com.demon.base.utils.ext.getCompatDrawable
 import com.demon.demonnewest.R
 import com.demon.demonnewest.databinding.FragmentViewpage2Binding
@@ -44,7 +42,7 @@ class ViewPage2Fragment : BaseVBFragment<FragmentViewpage2Binding>() {
                 } else {
                     "TWO"
                 }
-                tab.icon = requireContext().getCompatDrawable(R.drawable.icon_logo)
+                tab.icon = requireContext().getCompatDrawable(R.mipmap.ic_launcher_round)
             }.attach()
         }
 

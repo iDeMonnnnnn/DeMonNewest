@@ -2,6 +2,7 @@
 autodispose = "0.3.1"
 baserecyclerviewadapterhelper = "3.0.14"
 camera-version = "1.4.2"
+splashscreen = "1.0.1"
 datastore-preferences = "1.1.1"
 exoplayer = "2.19.1"
 flexbox = "3.0.0"
@@ -51,6 +52,7 @@ androidx-camera-extensions = { module = "androidx.camera:camera-extensions", ver
 androidx-camera-video = { module = "androidx.camera:camera-video", version.ref = "camera-version" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera-version" }
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camera-version" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
 arouter-api = { module = "com.alibaba:arouter-api", version.ref = "arouter-api" }
 arouter-kspcompiler = { module = "com.github.JailedBird:ArouterKspCompiler", version.ref = "arouterkspcompiler" }
